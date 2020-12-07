@@ -1,0 +1,1792 @@
+,Restaurant,Week,Day,This Week,Last Week,Last Year,vs. LW,vs. LW %,vs. LY,vs. LY %
+23,100 Wardour St,This Week,Monday,0.0,0.0,6.0,0.0,1.0,-6.0,-1.0
+27,100 Wardour St,This Week,Tuesday,-2.0,0.0,-8.0,-2.0,-2.0,6.0,-0.75
+28,100 Wardour St,This Week,Wednesday,1.0,2.0,3.0,-1.0,-0.5,-2.0,-0.6666666666666666
+26,100 Wardour St,This Week,Thursday,8.0,6.0,3.0,2.0,0.3333333333333333,5.0,1.6666666666666667
+22,100 Wardour St,This Week,Friday,11.0,5.0,4.0,6.0,1.2,7.0,1.75
+24,100 Wardour St,This Week,Saturday,16.0,-2.0,0.0,18.0,-9.0,16.0,16.0
+25,100 Wardour St,This Week,Sunday,14.0,0.0,19.0,14.0,14.0,-5.0,-0.2631578947368421
+6,100 Wardour St,This Week,Full Week,48.0,11.0,27.0,37.0,3.3636363636363638,21.0,0.7777777777777778
+11,100 Wardour St,Next Week,Monday,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+15,100 Wardour St,Next Week,Tuesday,0.0,0.0,4.0,0.0,1.0,-4.0,-1.0
+16,100 Wardour St,Next Week,Wednesday,6.0,0.0,7.0,6.0,6.0,-1.0,-0.14285714285714285
+14,100 Wardour St,Next Week,Thursday,4.0,2.0,10.0,2.0,1.0,-6.0,-0.6
+10,100 Wardour St,Next Week,Friday,10.0,8.0,0.0,2.0,0.25,10.0,10.0
+12,100 Wardour St,Next Week,Saturday,20.0,11.0,0.0,9.0,0.8181818181818182,20.0,20.0
+13,100 Wardour St,Next Week,Sunday,10.0,5.0,3.0,5.0,1.0,7.0,2.3333333333333335
+3,100 Wardour St,Next Week,Full Week,52.0,26.0,24.0,26.0,1.0,28.0,1.1666666666666667
+37,100 Wardour St,Two Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+41,100 Wardour St,Two Weeks,Tuesday,2.0,0.0,4.0,2.0,2.0,-2.0,-0.5
+42,100 Wardour St,Two Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+40,100 Wardour St,Two Weeks,Thursday,2.0,6.0,0.0,-4.0,-0.6666666666666666,2.0,2.0
+36,100 Wardour St,Two Weeks,Friday,0.0,12.0,0.0,-12.0,-1.0,0.0,1.0
+38,100 Wardour St,Two Weeks,Saturday,0.0,12.0,-2.0,-12.0,-1.0,2.0,-1.0
+39,100 Wardour St,Two Weeks,Sunday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+8,100 Wardour St,Two Weeks,Full Week,4.0,32.0,2.0,-28.0,-0.875,2.0,1.0
+30,100 Wardour St,Three Weeks,Monday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+34,100 Wardour St,Three Weeks,Tuesday,2.0,0.0,13.0,2.0,2.0,-11.0,-0.8461538461538461
+35,100 Wardour St,Three Weeks,Wednesday,4.0,0.0,0.0,4.0,4.0,4.0,4.0
+33,100 Wardour St,Three Weeks,Thursday,-4.0,0.0,0.0,-4.0,-4.0,-4.0,-4.0
+29,100 Wardour St,Three Weeks,Friday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+31,100 Wardour St,Three Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+32,100 Wardour St,Three Weeks,Sunday,0.0,8.0,0.0,-8.0,-1.0,0.0,1.0
+7,100 Wardour St,Three Weeks,Full Week,2.0,10.0,15.0,-8.0,-0.8,-13.0,-0.8666666666666667
+1169,100 Wardour St,Four Weeks,Monday,0.0,1.0,0.0,-1.0,-1.0,0.0,1.0
+1171,100 Wardour St,Four Weeks,Tuesday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+1172,100 Wardour St,Four Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1170,100 Wardour St,Four Weeks,Thursday,0.0,-3.0,0.0,3.0,-1.0,0.0,1.0
+1168,100 Wardour St,Four Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+8,100 Wardour St,Four Weeks,Saturday,0.0,0.0,5.0,0.0,1.0,-5.0,-1.0
+9,100 Wardour St,Four Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2,100 Wardour St,Four Weeks,Full Week,0.0,0.0,5.0,0.0,1.0,-5.0,-1.0
+1468,100 Wardour St,Five Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1469,100 Wardour St,Five Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+7,100 Wardour St,Five Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1467,100 Wardour St,Five Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+6,100 Wardour St,Five Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1167,100 Wardour St,Five Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1,100 Wardour St,Five Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+21,100 Wardour St,Six Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1470,100 Wardour St,Six Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1173,100 Wardour St,Six Weeks,Saturday,0.0,0.0,6.0,0.0,1.0,-6.0,-1.0
+1471,100 Wardour St,Six Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+5,100 Wardour St,Six Weeks,Full Week,0.0,0.0,6.0,0.0,1.0,-6.0,-1.0
+20,100 Wardour St,Seven Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+17,100 Wardour St,Seven Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+18,100 Wardour St,Seven Weeks,Saturday,6.0,0.0,5.0,6.0,6.0,1.0,0.2
+19,100 Wardour St,Seven Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+4,100 Wardour St,Seven Weeks,Full Week,6.0,0.0,5.0,6.0,6.0,1.0,0.2
+1464,100 Wardour St,Eight Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1466,100 Wardour St,Eight Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1166,100 Wardour St,Eight Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1165,100 Wardour St,Eight Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+5,100 Wardour St,Eight Weeks,Saturday,0.0,0.0,4.0,0.0,1.0,-4.0,-1.0
+1465,100 Wardour St,Eight Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+0,100 Wardour St,Eight Weeks,Full Week,0.0,0.0,4.0,0.0,1.0,-4.0,-1.0
+92,14 Hills,This Week,Monday,15.0,0.0,6.0,15.0,15.0,9.0,1.5
+96,14 Hills,This Week,Tuesday,6.0,0.0,0.0,6.0,6.0,6.0,6.0
+97,14 Hills,This Week,Wednesday,17.0,2.0,7.0,15.0,7.5,10.0,1.4285714285714286
+95,14 Hills,This Week,Thursday,9.0,8.0,0.0,1.0,0.125,9.0,9.0
+91,14 Hills,This Week,Friday,12.0,8.0,0.0,4.0,0.5,12.0,12.0
+93,14 Hills,This Week,Saturday,6.0,2.0,11.0,4.0,2.0,-5.0,-0.45454545454545453
+94,14 Hills,This Week,Sunday,12.0,21.0,0.0,-9.0,-0.42857142857142855,12.0,12.0
+15,14 Hills,This Week,Full Week,77.0,41.0,24.0,36.0,0.8780487804878049,53.0,2.2083333333333335
+78,14 Hills,Next Week,Monday,4.0,4.0,3.0,0.0,0.25,1.0,0.3333333333333333
+82,14 Hills,Next Week,Tuesday,3.0,4.0,0.0,-1.0,-0.25,3.0,3.0
+83,14 Hills,Next Week,Wednesday,11.0,4.0,8.0,7.0,1.75,3.0,0.375
+81,14 Hills,Next Week,Thursday,6.0,4.0,10.0,2.0,0.5,-4.0,-0.4
+77,14 Hills,Next Week,Friday,-3.0,6.0,15.0,-9.0,-1.5,-18.0,-1.2
+79,14 Hills,Next Week,Saturday,7.0,-5.0,9.0,12.0,-2.4,-2.0,-0.2222222222222222
+80,14 Hills,Next Week,Sunday,0.0,9.0,5.0,-9.0,-1.0,-5.0,-1.0
+12,14 Hills,Next Week,Full Week,28.0,26.0,50.0,2.0,0.07692307692307693,-22.0,-0.44
+105,14 Hills,Two Weeks,Monday,2.0,0.0,2.0,2.0,2.0,0.0,0.5
+109,14 Hills,Two Weeks,Tuesday,5.0,0.0,4.0,5.0,5.0,1.0,0.25
+110,14 Hills,Two Weeks,Wednesday,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+108,14 Hills,Two Weeks,Thursday,0.0,6.0,0.0,-6.0,-1.0,0.0,1.0
+1192,14 Hills,Two Weeks,Friday,0.0,0.0,6.0,0.0,1.0,-6.0,-1.0
+106,14 Hills,Two Weeks,Saturday,8.0,17.0,6.0,-9.0,-0.5294117647058824,2.0,0.3333333333333333
+107,14 Hills,Two Weeks,Sunday,2.0,13.0,10.0,-11.0,-0.8461538461538461,-8.0,-0.8
+17,14 Hills,Two Weeks,Full Week,19.0,36.0,28.0,-17.0,-0.4722222222222222,-9.0,-0.32142857142857145
+99,14 Hills,Three Weeks,Monday,6.0,-6.0,3.0,12.0,-2.0,3.0,1.0
+103,14 Hills,Three Weeks,Tuesday,4.0,18.0,0.0,-14.0,-0.7777777777777778,4.0,4.0
+104,14 Hills,Three Weeks,Wednesday,2.0,2.0,0.0,0.0,0.5,2.0,2.0
+102,14 Hills,Three Weeks,Thursday,5.0,0.0,0.0,5.0,5.0,5.0,5.0
+98,14 Hills,Three Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+100,14 Hills,Three Weeks,Saturday,6.0,0.0,0.0,6.0,6.0,6.0,6.0
+101,14 Hills,Three Weeks,Sunday,0.0,4.0,0.0,-4.0,-1.0,0.0,1.0
+16,14 Hills,Three Weeks,Full Week,23.0,18.0,3.0,5.0,0.2777777777777778,20.0,6.666666666666667
+73,14 Hills,Four Weeks,Monday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+1189,14 Hills,Four Weeks,Tuesday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+1190,14 Hills,Four Weeks,Wednesday,0.0,5.0,0.0,-5.0,-1.0,0.0,1.0
+76,14 Hills,Four Weeks,Thursday,0.0,4.0,0.0,-4.0,-1.0,0.0,1.0
+72,14 Hills,Four Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+74,14 Hills,Four Weeks,Saturday,12.0,0.0,0.0,12.0,12.0,12.0,12.0
+75,14 Hills,Four Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+11,14 Hills,Four Weeks,Full Week,12.0,13.0,0.0,-1.0,-0.07692307692307693,12.0,12.0
+68,14 Hills,Five Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1476,14 Hills,Five Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1477,14 Hills,Five Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+71,14 Hills,Five Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1188,14 Hills,Five Weeks,Friday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+69,14 Hills,Five Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+70,14 Hills,Five Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+10,14 Hills,Five Weeks,Full Week,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+1481,14 Hills,Six Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1482,14 Hills,Six Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1483,14 Hills,Six Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1191,14 Hills,Six Weeks,Thursday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+1480,14 Hills,Six Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+89,14 Hills,Six Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+90,14 Hills,Six Weeks,Sunday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+14,14 Hills,Six Weeks,Full Week,0.0,2.0,2.0,-2.0,-1.0,-2.0,-1.0
+85,14 Hills,Seven Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1478,14 Hills,Seven Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1479,14 Hills,Seven Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+88,14 Hills,Seven Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+84,14 Hills,Seven Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+86,14 Hills,Seven Weeks,Saturday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+87,14 Hills,Seven Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+13,14 Hills,Seven Weeks,Full Week,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+1186,14 Hills,Eight Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1475,14 Hills,Eight Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1474,14 Hills,Eight Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1185,14 Hills,Eight Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+67,14 Hills,Eight Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1187,14 Hills,Eight Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+9,14 Hills,Eight Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1489,20 Stories,This Week,Monday,0.0,0.0,9.0,0.0,1.0,-9.0,-1.0
+1493,20 Stories,This Week,Tuesday,0.0,0.0,-7.0,0.0,1.0,7.0,-1.0
+1494,20 Stories,This Week,Wednesday,0.0,0.0,3.0,0.0,1.0,-3.0,-1.0
+1492,20 Stories,This Week,Thursday,0.0,0.0,4.0,0.0,1.0,-4.0,-1.0
+1488,20 Stories,This Week,Friday,0.0,0.0,12.0,0.0,1.0,-12.0,-1.0
+1490,20 Stories,This Week,Saturday,0.0,0.0,4.0,0.0,1.0,-4.0,-1.0
+1491,20 Stories,This Week,Sunday,0.0,0.0,11.0,0.0,1.0,-11.0,-1.0
+24,20 Stories,This Week,Full Week,0.0,0.0,36.0,0.0,1.0,-36.0,-1.0
+1485,20 Stories,Next Week,Monday,0.0,0.0,6.0,0.0,1.0,-6.0,-1.0
+1486,20 Stories,Next Week,Tuesday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+139,20 Stories,Next Week,Wednesday,8.0,0.0,0.0,8.0,8.0,8.0,8.0
+138,20 Stories,Next Week,Thursday,4.0,0.0,2.0,4.0,4.0,2.0,1.0
+135,20 Stories,Next Week,Friday,-4.0,0.0,8.0,-4.0,-4.0,-12.0,-1.5
+136,20 Stories,Next Week,Saturday,0.0,0.0,-1.0,0.0,1.0,1.0,-1.0
+137,20 Stories,Next Week,Sunday,8.0,0.0,13.0,8.0,8.0,-5.0,-0.38461538461538464
+21,20 Stories,Next Week,Full Week,16.0,0.0,30.0,16.0,16.0,-14.0,-0.4666666666666667
+157,20 Stories,Two Weeks,Monday,2.0,0.0,14.0,2.0,2.0,-12.0,-0.8571428571428571
+161,20 Stories,Two Weeks,Tuesday,6.0,0.0,6.0,6.0,6.0,0.0,0.16666666666666666
+162,20 Stories,Two Weeks,Wednesday,6.0,2.0,0.0,4.0,2.0,6.0,6.0
+160,20 Stories,Two Weeks,Thursday,-2.0,0.0,0.0,-2.0,-2.0,-2.0,-2.0
+156,20 Stories,Two Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+158,20 Stories,Two Weeks,Saturday,4.0,14.0,4.0,-10.0,-0.7142857142857143,0.0,0.25
+159,20 Stories,Two Weeks,Sunday,4.0,4.0,6.0,0.0,0.25,-2.0,-0.3333333333333333
+26,20 Stories,Two Weeks,Full Week,20.0,20.0,30.0,0.0,0.05,-10.0,-0.3333333333333333
+150,20 Stories,Three Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+154,20 Stories,Three Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+155,20 Stories,Three Weeks,Wednesday,0.0,6.0,0.0,-6.0,-1.0,0.0,1.0
+153,20 Stories,Three Weeks,Thursday,0.0,-2.0,2.0,2.0,-1.0,-2.0,-1.0
+1199,20 Stories,Three Weeks,Friday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+151,20 Stories,Three Weeks,Saturday,2.0,4.0,0.0,-2.0,-0.5,2.0,2.0
+152,20 Stories,Three Weeks,Sunday,0.0,0.0,4.0,0.0,1.0,-4.0,-1.0
+25,20 Stories,Three Weeks,Full Week,2.0,8.0,8.0,-6.0,-0.75,-6.0,-0.75
+129,20 Stories,Four Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+133,20 Stories,Four Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+134,20 Stories,Four Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+132,20 Stories,Four Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+128,20 Stories,Four Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+130,20 Stories,Four Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+131,20 Stories,Four Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+20,20 Stories,Four Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1193,20 Stories,Five Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+127,20 Stories,Five Weeks,Tuesday,6.0,0.0,0.0,6.0,6.0,6.0,6.0
+1195,20 Stories,Five Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+126,20 Stories,Five Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+124,20 Stories,Five Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+125,20 Stories,Five Weeks,Saturday,0.0,4.0,0.0,-4.0,-1.0,0.0,1.0
+1194,20 Stories,Five Weeks,Sunday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+19,20 Stories,Five Weeks,Full Week,6.0,4.0,2.0,2.0,0.5,4.0,2.0
+145,20 Stories,Six Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1198,20 Stories,Six Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+149,20 Stories,Six Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+148,20 Stories,Six Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+144,20 Stories,Six Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+146,20 Stories,Six Weeks,Saturday,0.0,0.0,6.0,0.0,1.0,-6.0,-1.0
+147,20 Stories,Six Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+23,20 Stories,Six Weeks,Full Week,0.0,0.0,6.0,0.0,1.0,-6.0,-1.0
+141,20 Stories,Seven Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1487,20 Stories,Seven Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1197,20 Stories,Seven Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1196,20 Stories,Seven Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+140,20 Stories,Seven Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+142,20 Stories,Seven Weeks,Saturday,0.0,0.0,3.0,0.0,1.0,-3.0,-1.0
+143,20 Stories,Seven Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+22,20 Stories,Seven Weeks,Full Week,0.0,0.0,3.0,0.0,1.0,-3.0,-1.0
+119,20 Stories,Eight Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+123,20 Stories,Eight Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1484,20 Stories,Eight Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+122,20 Stories,Eight Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+118,20 Stories,Eight Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+120,20 Stories,Eight Weeks,Saturday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+121,20 Stories,Eight Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+18,20 Stories,Eight Weeks,Full Week,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+1508,Angelica,This Week,Monday,0.0,0.0,-3.0,0.0,1.0,3.0,-1.0
+1512,Angelica,This Week,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1513,Angelica,This Week,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1511,Angelica,This Week,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1507,Angelica,This Week,Friday,0.0,0.0,1.0,0.0,1.0,-1.0,-1.0
+1509,Angelica,This Week,Saturday,0.0,0.0,12.0,0.0,1.0,-12.0,-1.0
+1510,Angelica,This Week,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+33,Angelica,This Week,Full Week,0.0,0.0,10.0,0.0,1.0,-10.0,-1.0
+1502,Angelica,Next Week,Monday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+1503,Angelica,Next Week,Tuesday,0.0,0.0,3.0,0.0,1.0,-3.0,-1.0
+176,Angelica,Next Week,Wednesday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+175,Angelica,Next Week,Thursday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+172,Angelica,Next Week,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+173,Angelica,Next Week,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+174,Angelica,Next Week,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+30,Angelica,Next Week,Full Week,0.0,0.0,9.0,0.0,1.0,-9.0,-1.0
+183,Angelica,Two Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+187,Angelica,Two Weeks,Tuesday,2.0,0.0,8.0,2.0,2.0,-6.0,-0.75
+188,Angelica,Two Weeks,Wednesday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+186,Angelica,Two Weeks,Thursday,6.0,2.0,0.0,4.0,2.0,6.0,6.0
+1209,Angelica,Two Weeks,Friday,0.0,0.0,4.0,0.0,1.0,-4.0,-1.0
+184,Angelica,Two Weeks,Saturday,0.0,-5.0,0.0,5.0,-1.0,0.0,1.0
+185,Angelica,Two Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+35,Angelica,Two Weeks,Full Week,8.0,-1.0,12.0,9.0,-9.0,-4.0,-0.3333333333333333
+181,Angelica,Three Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1207,Angelica,Three Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1208,Angelica,Three Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+182,Angelica,Three Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1514,Angelica,Three Weeks,Friday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+1205,Angelica,Three Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1206,Angelica,Three Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+34,Angelica,Three Weeks,Full Week,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+170,Angelica,Four Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1501,Angelica,Four Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+171,Angelica,Four Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+169,Angelica,Four Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1500,Angelica,Four Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+29,Angelica,Four Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1200,Angelica,Five Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1499,Angelica,Five Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1201,Angelica,Five Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+168,Angelica,Five Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+28,Angelica,Five Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+178,Angelica,Six Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1506,Angelica,Six Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+180,Angelica,Six Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1204,Angelica,Six Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+179,Angelica,Six Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+32,Angelica,Six Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1202,Angelica,Seven Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1505,Angelica,Seven Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1203,Angelica,Seven Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1504,Angelica,Seven Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+177,Angelica,Seven Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+31,Angelica,Seven Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1498,Angelica,Eight Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1497,Angelica,Eight Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+27,Angelica,Eight Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1538,Angler Restaurant,This Week,Monday,0.0,0.0,3.0,0.0,1.0,-3.0,-1.0
+209,Angler Restaurant,This Week,Tuesday,0.0,0.0,3.0,0.0,1.0,-3.0,-1.0
+210,Angler Restaurant,This Week,Wednesday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+208,Angler Restaurant,This Week,Thursday,-3.0,3.0,3.0,-6.0,-2.0,-6.0,-2.0
+205,Angler Restaurant,This Week,Friday,1.0,10.0,3.0,-9.0,-0.9,-2.0,-0.6666666666666666
+206,Angler Restaurant,This Week,Saturday,-2.0,2.0,0.0,-4.0,-2.0,-2.0,-2.0
+207,Angler Restaurant,This Week,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+42,Angler Restaurant,This Week,Full Week,-4.0,15.0,14.0,-19.0,-1.2666666666666666,-18.0,-1.2857142857142858
+1528,Angler Restaurant,Next Week,Monday,0.0,0.0,3.0,0.0,1.0,-3.0,-1.0
+1529,Angler Restaurant,Next Week,Tuesday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+201,Angler Restaurant,Next Week,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+200,Angler Restaurant,Next Week,Thursday,-2.0,-5.0,0.0,3.0,-0.6,-2.0,-2.0
+197,Angler Restaurant,Next Week,Friday,-2.0,4.0,0.0,-6.0,-1.5,-2.0,-2.0
+198,Angler Restaurant,Next Week,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+199,Angler Restaurant,Next Week,Sunday,4.0,0.0,0.0,4.0,4.0,4.0,4.0
+39,Angler Restaurant,Next Week,Full Week,0.0,-1.0,5.0,1.0,-1.0,-5.0,-1.0
+213,Angler Restaurant,Two Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+214,Angler Restaurant,Two Weeks,Tuesday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+215,Angler Restaurant,Two Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1216,Angler Restaurant,Two Weeks,Thursday,0.0,4.0,0.0,-4.0,-1.0,0.0,1.0
+212,Angler Restaurant,Two Weeks,Friday,2.0,2.0,0.0,0.0,0.5,2.0,2.0
+1215,Angler Restaurant,Two Weeks,Saturday,0.0,5.0,0.0,-5.0,-1.0,0.0,1.0
+44,Angler Restaurant,Two Weeks,Full Week,2.0,11.0,2.0,-9.0,-0.8181818181818182,0.0,0.5
+1540,Angler Restaurant,Three Weeks,Tuesday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+1214,Angler Restaurant,Three Weeks,Wednesday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+211,Angler Restaurant,Three Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1213,Angler Restaurant,Three Weeks,Friday,0.0,2.0,-2.0,-2.0,-1.0,2.0,-1.0
+1539,Angler Restaurant,Three Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+43,Angler Restaurant,Three Weeks,Full Week,0.0,4.0,0.0,-4.0,-1.0,0.0,1.0
+1526,Angler Restaurant,Four Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1527,Angler Restaurant,Four Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+196,Angler Restaurant,Four Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1212,Angler Restaurant,Four Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+194,Angler Restaurant,Four Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+195,Angler Restaurant,Four Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+38,Angler Restaurant,Four Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1523,Angler Restaurant,Five Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1525,Angler Restaurant,Five Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+193,Angler Restaurant,Five Weeks,Wednesday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+1524,Angler Restaurant,Five Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1211,Angler Restaurant,Five Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+192,Angler Restaurant,Five Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+37,Angler Restaurant,Five Weeks,Full Week,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+1534,Angler Restaurant,Six Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1536,Angler Restaurant,Six Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1537,Angler Restaurant,Six Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1535,Angler Restaurant,Six Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1533,Angler Restaurant,Six Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+204,Angler Restaurant,Six Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+41,Angler Restaurant,Six Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1531,Angler Restaurant,Seven Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1532,Angler Restaurant,Seven Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+203,Angler Restaurant,Seven Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1530,Angler Restaurant,Seven Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+202,Angler Restaurant,Seven Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+40,Angler Restaurant,Seven Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1520,Angler Restaurant,Eight Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1521,Angler Restaurant,Eight Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1522,Angler Restaurant,Eight Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1210,Angler Restaurant,Eight Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1519,Angler Restaurant,Eight Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+191,Angler Restaurant,Eight Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+36,Angler Restaurant,Eight Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+232,Aster,This Week,Monday,-11.0,0.0,0.0,-11.0,-11.0,-11.0,-11.0
+236,Aster,This Week,Tuesday,-1.0,0.0,11.0,-1.0,-1.0,-12.0,-1.0909090909090908
+237,Aster,This Week,Wednesday,4.0,2.0,0.0,2.0,1.0,4.0,4.0
+235,Aster,This Week,Thursday,8.0,2.0,9.0,6.0,3.0,-1.0,-0.1111111111111111
+231,Aster,This Week,Friday,9.0,0.0,0.0,9.0,9.0,9.0,9.0
+233,Aster,This Week,Saturday,5.0,0.0,5.0,5.0,5.0,0.0,0.2
+234,Aster,This Week,Sunday,7.0,0.0,7.0,7.0,7.0,0.0,0.14285714285714285
+51,Aster,This Week,Full Week,21.0,4.0,32.0,17.0,4.25,-11.0,-0.34375
+224,Aster,Next Week,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+227,Aster,Next Week,Tuesday,0.0,0.0,5.0,0.0,1.0,-5.0,-1.0
+228,Aster,Next Week,Wednesday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+226,Aster,Next Week,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+223,Aster,Next Week,Friday,4.0,0.0,0.0,4.0,4.0,4.0,4.0
+225,Aster,Next Week,Saturday,0.0,4.0,7.0,-4.0,-1.0,-7.0,-1.0
+1220,Aster,Next Week,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+48,Aster,Next Week,Full Week,4.0,4.0,14.0,0.0,0.25,-10.0,-0.7142857142857143
+241,Aster,Two Weeks,Monday,8.0,0.0,0.0,8.0,8.0,8.0,8.0
+244,Aster,Two Weeks,Tuesday,0.0,0.0,4.0,0.0,1.0,-4.0,-1.0
+1226,Aster,Two Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+243,Aster,Two Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1224,Aster,Two Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1225,Aster,Two Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+242,Aster,Two Weeks,Sunday,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+53,Aster,Two Weeks,Full Week,10.0,0.0,4.0,10.0,10.0,6.0,1.5
+1555,Aster,Three Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1223,Aster,Three Weeks,Tuesday,0.0,0.0,13.0,0.0,1.0,-13.0,-1.0
+240,Aster,Three Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+239,Aster,Three Weeks,Thursday,7.0,0.0,0.0,7.0,7.0,7.0,7.0
+238,Aster,Three Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1556,Aster,Three Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1557,Aster,Three Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+52,Aster,Three Weeks,Full Week,7.0,0.0,13.0,7.0,7.0,-6.0,-0.46153846153846156
+1550,Aster,Four Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1219,Aster,Four Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1218,Aster,Four Weeks,Thursday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+1217,Aster,Four Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1549,Aster,Four Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+47,Aster,Four Weeks,Full Week,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+1546,Aster,Five Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+222,Aster,Five Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1548,Aster,Five Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+221,Aster,Five Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1547,Aster,Five Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+46,Aster,Five Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+230,Aster,Six Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1554,Aster,Six Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1553,Aster,Six Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1222,Aster,Six Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+50,Aster,Six Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1221,Aster,Seven Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+229,Aster,Seven Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1551,Aster,Seven Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1552,Aster,Seven Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+49,Aster,Seven Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+220,Aster,Eight Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1544,Aster,Eight Weeks,Friday,0.0,0.0,4.0,0.0,1.0,-4.0,-1.0
+1545,Aster,Eight Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+45,Aster,Eight Weeks,Full Week,0.0,0.0,4.0,0.0,1.0,-4.0,-1.0
+1574,Avenue,This Week,Monday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+263,Avenue,This Week,Tuesday,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+264,Avenue,This Week,Wednesday,0.0,0.0,-7.0,0.0,1.0,7.0,-1.0
+262,Avenue,This Week,Thursday,3.0,6.0,0.0,-3.0,-0.5,3.0,3.0
+259,Avenue,This Week,Friday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+260,Avenue,This Week,Saturday,11.0,1.0,8.0,10.0,10.0,3.0,0.375
+261,Avenue,This Week,Sunday,7.0,0.0,8.0,7.0,7.0,-1.0,-0.125
+60,Avenue,This Week,Full Week,23.0,7.0,13.0,16.0,2.2857142857142856,10.0,0.7692307692307693
+1569,Avenue,Next Week,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+255,Avenue,Next Week,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+256,Avenue,Next Week,Wednesday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+254,Avenue,Next Week,Thursday,0.0,0.0,3.0,0.0,1.0,-3.0,-1.0
+251,Avenue,Next Week,Friday,-2.0,2.0,0.0,-4.0,-2.0,-2.0,-2.0
+252,Avenue,Next Week,Saturday,6.0,-6.0,0.0,12.0,-2.0,6.0,6.0
+253,Avenue,Next Week,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+57,Avenue,Next Week,Full Week,4.0,-4.0,5.0,8.0,-2.0,-1.0,-0.2
+1234,Avenue,Two Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+271,Avenue,Two Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+270,Avenue,Two Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1576,Avenue,Two Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1233,Avenue,Two Weeks,Saturday,0.0,4.0,0.0,-4.0,-1.0,0.0,1.0
+269,Avenue,Two Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+62,Avenue,Two Weeks,Full Week,0.0,4.0,0.0,-4.0,-1.0,0.0,1.0
+1575,Avenue,Three Weeks,Tuesday,0.0,0.0,6.0,0.0,1.0,-6.0,-1.0
+268,Avenue,Three Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+267,Avenue,Three Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1232,Avenue,Three Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+265,Avenue,Three Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+266,Avenue,Three Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+61,Avenue,Three Weeks,Full Week,0.0,0.0,6.0,0.0,1.0,-6.0,-1.0
+1568,Avenue,Four Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1229,Avenue,Four Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1228,Avenue,Four Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1566,Avenue,Four Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+250,Avenue,Four Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1567,Avenue,Four Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+56,Avenue,Four Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1562,Avenue,Five Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1564,Avenue,Five Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1565,Avenue,Five Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+249,Avenue,Five Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1561,Avenue,Five Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1563,Avenue,Five Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+55,Avenue,Five Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1572,Avenue,Six Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1231,Avenue,Six Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1573,Avenue,Six Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1230,Avenue,Six Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+258,Avenue,Six Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+59,Avenue,Six Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1571,Avenue,Seven Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1570,Avenue,Seven Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+257,Avenue,Seven Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+58,Avenue,Seven Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1227,Avenue,Eight Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+54,Avenue,Eight Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+314,Bluebird Chelsea Restaurant,This Week,Monday,13.0,0.0,14.0,13.0,13.0,-1.0,-0.07142857142857142
+318,Bluebird Chelsea Restaurant,This Week,Tuesday,-11.0,0.0,7.0,-11.0,-11.0,-18.0,-2.5714285714285716
+319,Bluebird Chelsea Restaurant,This Week,Wednesday,19.0,11.0,2.0,8.0,0.7272727272727273,17.0,8.5
+317,Bluebird Chelsea Restaurant,This Week,Thursday,5.0,6.0,0.0,-1.0,-0.16666666666666666,5.0,5.0
+313,Bluebird Chelsea Restaurant,This Week,Friday,19.0,24.0,17.0,-5.0,-0.20833333333333334,2.0,0.11764705882352941
+315,Bluebird Chelsea Restaurant,This Week,Saturday,9.0,14.0,34.0,-5.0,-0.35714285714285715,-25.0,-0.7352941176470589
+316,Bluebird Chelsea Restaurant,This Week,Sunday,14.0,22.0,22.0,-8.0,-0.36363636363636365,-8.0,-0.36363636363636365
+69,Bluebird Chelsea Restaurant,This Week,Full Week,68.0,77.0,96.0,-9.0,-0.11688311688311688,-28.0,-0.2916666666666667
+303,Bluebird Chelsea Restaurant,Next Week,Monday,4.0,2.0,-2.0,2.0,1.0,6.0,-3.0
+307,Bluebird Chelsea Restaurant,Next Week,Tuesday,8.0,2.0,2.0,6.0,3.0,6.0,3.0
+308,Bluebird Chelsea Restaurant,Next Week,Wednesday,3.0,8.0,13.0,-5.0,-0.625,-10.0,-0.7692307692307693
+306,Bluebird Chelsea Restaurant,Next Week,Thursday,0.0,11.0,-4.0,-11.0,-1.0,4.0,-1.0
+302,Bluebird Chelsea Restaurant,Next Week,Friday,11.0,19.0,2.0,-8.0,-0.42105263157894735,9.0,4.5
+304,Bluebird Chelsea Restaurant,Next Week,Saturday,10.0,23.0,25.0,-13.0,-0.5652173913043478,-15.0,-0.6
+305,Bluebird Chelsea Restaurant,Next Week,Sunday,23.0,8.0,2.0,15.0,1.875,21.0,10.5
+66,Bluebird Chelsea Restaurant,Next Week,Full Week,59.0,73.0,38.0,-14.0,-0.1917808219178082,21.0,0.5526315789473685
+328,Bluebird Chelsea Restaurant,Two Weeks,Monday,3.0,0.0,11.0,3.0,3.0,-8.0,-0.7272727272727273
+332,Bluebird Chelsea Restaurant,Two Weeks,Tuesday,9.0,0.0,10.0,9.0,9.0,-1.0,-0.1
+333,Bluebird Chelsea Restaurant,Two Weeks,Wednesday,-4.0,6.0,0.0,-10.0,-1.6666666666666667,-4.0,-4.0
+331,Bluebird Chelsea Restaurant,Two Weeks,Thursday,23.0,2.0,0.0,21.0,10.5,23.0,23.0
+327,Bluebird Chelsea Restaurant,Two Weeks,Friday,6.0,6.0,2.0,0.0,0.16666666666666666,4.0,2.0
+329,Bluebird Chelsea Restaurant,Two Weeks,Saturday,0.0,0.0,9.0,0.0,1.0,-9.0,-1.0
+330,Bluebird Chelsea Restaurant,Two Weeks,Sunday,5.0,-2.0,-6.0,7.0,-3.5,11.0,-1.8333333333333333
+71,Bluebird Chelsea Restaurant,Two Weeks,Full Week,42.0,12.0,26.0,30.0,2.5,16.0,0.6153846153846154
+321,Bluebird Chelsea Restaurant,Three Weeks,Monday,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+325,Bluebird Chelsea Restaurant,Three Weeks,Tuesday,7.0,6.0,4.0,1.0,0.16666666666666666,3.0,0.75
+326,Bluebird Chelsea Restaurant,Three Weeks,Wednesday,0.0,-1.0,0.0,1.0,-1.0,0.0,1.0
+324,Bluebird Chelsea Restaurant,Three Weeks,Thursday,22.0,2.0,0.0,20.0,10.0,22.0,22.0
+320,Bluebird Chelsea Restaurant,Three Weeks,Friday,0.0,4.0,0.0,-4.0,-1.0,0.0,1.0
+322,Bluebird Chelsea Restaurant,Three Weeks,Saturday,2.0,3.0,0.0,-1.0,-0.3333333333333333,2.0,2.0
+323,Bluebird Chelsea Restaurant,Three Weeks,Sunday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+70,Bluebird Chelsea Restaurant,Three Weeks,Full Week,33.0,14.0,6.0,19.0,1.3571428571428572,27.0,4.5
+1241,Bluebird Chelsea Restaurant,Four Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1244,Bluebird Chelsea Restaurant,Four Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1245,Bluebird Chelsea Restaurant,Four Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1243,Bluebird Chelsea Restaurant,Four Weeks,Thursday,0.0,5.0,0.0,-5.0,-1.0,0.0,1.0
+1240,Bluebird Chelsea Restaurant,Four Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+301,Bluebird Chelsea Restaurant,Four Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1242,Bluebird Chelsea Restaurant,Four Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+65,Bluebird Chelsea Restaurant,Four Weeks,Full Week,0.0,5.0,0.0,-5.0,-1.0,0.0,1.0
+1661,Bluebird Chelsea Restaurant,Five Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1663,Bluebird Chelsea Restaurant,Five Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+300,Bluebird Chelsea Restaurant,Five Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1662,Bluebird Chelsea Restaurant,Five Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+297,Bluebird Chelsea Restaurant,Five Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+298,Bluebird Chelsea Restaurant,Five Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+299,Bluebird Chelsea Restaurant,Five Weeks,Sunday,0.0,0.0,13.0,0.0,1.0,-13.0,-1.0
+64,Bluebird Chelsea Restaurant,Five Weeks,Full Week,0.0,0.0,13.0,0.0,1.0,-13.0,-1.0
+312,Bluebird Chelsea Restaurant,Six Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+311,Bluebird Chelsea Restaurant,Six Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1665,Bluebird Chelsea Restaurant,Six Weeks,Saturday,0.0,0.0,8.0,0.0,1.0,-8.0,-1.0
+1247,Bluebird Chelsea Restaurant,Six Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+68,Bluebird Chelsea Restaurant,Six Weeks,Full Week,0.0,0.0,8.0,0.0,1.0,-8.0,-1.0
+310,Bluebird Chelsea Restaurant,Seven Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1246,Bluebird Chelsea Restaurant,Seven Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1664,Bluebird Chelsea Restaurant,Seven Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+309,Bluebird Chelsea Restaurant,Seven Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+67,Bluebird Chelsea Restaurant,Seven Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1660,Bluebird Chelsea Restaurant,Eight Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1239,Bluebird Chelsea Restaurant,Eight Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1238,Bluebird Chelsea Restaurant,Eight Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+296,Bluebird Chelsea Restaurant,Eight Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+63,Bluebird Chelsea Restaurant,Eight Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+358,Bluebird White City,This Week,Monday,7.0,0.0,-1.0,7.0,7.0,8.0,-8.0
+362,Bluebird White City,This Week,Tuesday,2.0,0.0,16.0,2.0,2.0,-14.0,-0.875
+363,Bluebird White City,This Week,Wednesday,0.0,10.0,0.0,-10.0,-1.0,0.0,1.0
+361,Bluebird White City,This Week,Thursday,5.0,6.0,1.0,-1.0,-0.16666666666666666,4.0,4.0
+357,Bluebird White City,This Week,Friday,0.0,0.0,5.0,0.0,1.0,-5.0,-1.0
+359,Bluebird White City,This Week,Saturday,3.0,0.0,6.0,3.0,3.0,-3.0,-0.5
+360,Bluebird White City,This Week,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+78,Bluebird White City,This Week,Full Week,17.0,16.0,27.0,1.0,0.0625,-10.0,-0.37037037037037035
+351,Bluebird White City,Next Week,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+355,Bluebird White City,Next Week,Tuesday,5.0,0.0,0.0,5.0,5.0,5.0,5.0
+356,Bluebird White City,Next Week,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+354,Bluebird White City,Next Week,Thursday,3.0,0.0,0.0,3.0,3.0,3.0,3.0
+350,Bluebird White City,Next Week,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+352,Bluebird White City,Next Week,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+353,Bluebird White City,Next Week,Sunday,3.0,0.0,0.0,3.0,3.0,3.0,3.0
+75,Bluebird White City,Next Week,Full Week,11.0,0.0,0.0,11.0,11.0,11.0,11.0
+364,Bluebird White City,Two Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+365,Bluebird White City,Two Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1258,Bluebird White City,Two Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1259,Bluebird White City,Two Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+80,Bluebird White City,Two Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1256,Bluebird White City,Three Weeks,Monday,0.0,3.0,0.0,-3.0,-1.0,0.0,1.0
+1677,Bluebird White City,Three Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1257,Bluebird White City,Three Weeks,Saturday,0.0,0.0,-3.0,0.0,1.0,3.0,-1.0
+1678,Bluebird White City,Three Weeks,Sunday,0.0,0.0,-2.0,0.0,1.0,2.0,-1.0
+79,Bluebird White City,Three Weeks,Full Week,0.0,3.0,-5.0,-3.0,-1.0,5.0,-1.0
+1674,Bluebird White City,Four Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+74,Bluebird White City,Four Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1673,Bluebird White City,Five Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+73,Bluebird White City,Five Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1676,Bluebird White City,Six Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+77,Bluebird White City,Six Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1675,Bluebird White City,Seven Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+76,Bluebird White City,Seven Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1672,Bluebird White City,Eight Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1671,Bluebird White City,Eight Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+72,Bluebird White City,Eight Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1727,Butlers Wharf Chophouse Restaurant,This Week,Monday,0.0,0.0,11.0,0.0,1.0,-11.0,-1.0
+389,Butlers Wharf Chophouse Restaurant,This Week,Tuesday,2.0,0.0,4.0,2.0,2.0,-2.0,-0.5
+390,Butlers Wharf Chophouse Restaurant,This Week,Wednesday,0.0,0.0,3.0,0.0,1.0,-3.0,-1.0
+388,Butlers Wharf Chophouse Restaurant,This Week,Thursday,0.0,7.0,0.0,-7.0,-1.0,0.0,1.0
+385,Butlers Wharf Chophouse Restaurant,This Week,Friday,11.0,19.0,2.0,-8.0,-0.42105263157894735,9.0,4.5
+386,Butlers Wharf Chophouse Restaurant,This Week,Saturday,14.0,5.0,0.0,9.0,1.8,14.0,14.0
+387,Butlers Wharf Chophouse Restaurant,This Week,Sunday,13.0,0.0,8.0,13.0,13.0,5.0,0.625
+87,Butlers Wharf Chophouse Restaurant,This Week,Full Week,40.0,31.0,28.0,9.0,0.2903225806451613,12.0,0.42857142857142855
+1721,Butlers Wharf Chophouse Restaurant,Next Week,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+383,Butlers Wharf Chophouse Restaurant,Next Week,Tuesday,0.0,0.0,1.0,0.0,1.0,-1.0,-1.0
+384,Butlers Wharf Chophouse Restaurant,Next Week,Wednesday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+382,Butlers Wharf Chophouse Restaurant,Next Week,Thursday,3.0,0.0,0.0,3.0,3.0,3.0,3.0
+379,Butlers Wharf Chophouse Restaurant,Next Week,Friday,4.0,2.0,0.0,2.0,1.0,4.0,4.0
+380,Butlers Wharf Chophouse Restaurant,Next Week,Saturday,-2.0,6.0,0.0,-8.0,-1.3333333333333333,-2.0,-2.0
+381,Butlers Wharf Chophouse Restaurant,Next Week,Sunday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+84,Butlers Wharf Chophouse Restaurant,Next Week,Full Week,5.0,12.0,1.0,-7.0,-0.5833333333333334,4.0,4.0
+1729,Butlers Wharf Chophouse Restaurant,Two Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+401,Butlers Wharf Chophouse Restaurant,Two Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+402,Butlers Wharf Chophouse Restaurant,Two Weeks,Wednesday,5.0,0.0,0.0,5.0,5.0,5.0,5.0
+400,Butlers Wharf Chophouse Restaurant,Two Weeks,Thursday,0.0,6.0,0.0,-6.0,-1.0,0.0,1.0
+397,Butlers Wharf Chophouse Restaurant,Two Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+398,Butlers Wharf Chophouse Restaurant,Two Weeks,Saturday,0.0,4.0,4.0,-4.0,-1.0,-4.0,-1.0
+399,Butlers Wharf Chophouse Restaurant,Two Weeks,Sunday,3.0,6.0,0.0,-3.0,-0.5,3.0,3.0
+89,Butlers Wharf Chophouse Restaurant,Two Weeks,Full Week,8.0,16.0,4.0,-8.0,-0.5,4.0,1.0
+1728,Butlers Wharf Chophouse Restaurant,Three Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+395,Butlers Wharf Chophouse Restaurant,Three Weeks,Tuesday,0.0,2.0,5.0,-2.0,-1.0,-5.0,-1.0
+396,Butlers Wharf Chophouse Restaurant,Three Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+394,Butlers Wharf Chophouse Restaurant,Three Weeks,Thursday,6.0,0.0,0.0,6.0,6.0,6.0,6.0
+391,Butlers Wharf Chophouse Restaurant,Three Weeks,Friday,3.0,8.0,0.0,-5.0,-0.625,3.0,3.0
+392,Butlers Wharf Chophouse Restaurant,Three Weeks,Saturday,0.0,12.0,2.0,-12.0,-1.0,-2.0,-1.0
+393,Butlers Wharf Chophouse Restaurant,Three Weeks,Sunday,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+88,Butlers Wharf Chophouse Restaurant,Three Weeks,Full Week,11.0,22.0,7.0,-11.0,-0.5,4.0,0.5714285714285714
+1264,Butlers Wharf Chophouse Restaurant,Four Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1265,Butlers Wharf Chophouse Restaurant,Four Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1263,Butlers Wharf Chophouse Restaurant,Four Weeks,Thursday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+377,Butlers Wharf Chophouse Restaurant,Four Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+378,Butlers Wharf Chophouse Restaurant,Four Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1720,Butlers Wharf Chophouse Restaurant,Four Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+83,Butlers Wharf Chophouse Restaurant,Four Weeks,Full Week,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+1718,Butlers Wharf Chophouse Restaurant,Five Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1719,Butlers Wharf Chophouse Restaurant,Five Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+374,Butlers Wharf Chophouse Restaurant,Five Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+375,Butlers Wharf Chophouse Restaurant,Five Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+376,Butlers Wharf Chophouse Restaurant,Five Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+82,Butlers Wharf Chophouse Restaurant,Five Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1726,Butlers Wharf Chophouse Restaurant,Six Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1725,Butlers Wharf Chophouse Restaurant,Six Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1723,Butlers Wharf Chophouse Restaurant,Six Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1724,Butlers Wharf Chophouse Restaurant,Six Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1266,Butlers Wharf Chophouse Restaurant,Six Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+86,Butlers Wharf Chophouse Restaurant,Six Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1722,Butlers Wharf Chophouse Restaurant,Seven Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+85,Butlers Wharf Chophouse Restaurant,Seven Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1717,Butlers Wharf Chophouse Restaurant,Eight Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+81,Butlers Wharf Chophouse Restaurant,Eight Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+418,Cantina del Ponte,This Week,Tuesday,4.0,0.0,0.0,4.0,4.0,4.0,4.0
+419,Cantina del Ponte,This Week,Wednesday,11.0,0.0,0.0,11.0,11.0,11.0,11.0
+417,Cantina del Ponte,This Week,Thursday,0.0,3.0,0.0,-3.0,-1.0,0.0,1.0
+414,Cantina del Ponte,This Week,Friday,10.0,16.0,0.0,-6.0,-0.375,10.0,10.0
+415,Cantina del Ponte,This Week,Saturday,9.0,10.0,0.0,-1.0,-0.1,9.0,9.0
+416,Cantina del Ponte,This Week,Sunday,0.0,5.0,0.0,-5.0,-1.0,0.0,1.0
+94,Cantina del Ponte,This Week,Full Week,34.0,34.0,0.0,0.0,0.029411764705882353,34.0,34.0
+412,Cantina del Ponte,Next Week,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+413,Cantina del Ponte,Next Week,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+411,Cantina del Ponte,Next Week,Thursday,0.0,1.0,0.0,-1.0,-1.0,0.0,1.0
+409,Cantina del Ponte,Next Week,Friday,7.0,8.0,0.0,-1.0,-0.125,7.0,7.0
+410,Cantina del Ponte,Next Week,Saturday,2.0,6.0,0.0,-4.0,-0.6666666666666666,2.0,2.0
+1270,Cantina del Ponte,Next Week,Sunday,0.0,7.0,0.0,-7.0,-1.0,0.0,1.0
+92,Cantina del Ponte,Next Week,Full Week,9.0,22.0,0.0,-13.0,-0.5909090909090909,9.0,9.0
+426,Cantina del Ponte,Two Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1274,Cantina del Ponte,Two Weeks,Wednesday,0.0,-5.0,0.0,5.0,-1.0,0.0,1.0
+425,Cantina del Ponte,Two Weeks,Thursday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+423,Cantina del Ponte,Two Weeks,Friday,0.0,1.0,0.0,-1.0,-1.0,0.0,1.0
+424,Cantina del Ponte,Two Weeks,Saturday,0.0,4.0,0.0,-4.0,-1.0,0.0,1.0
+96,Cantina del Ponte,Two Weeks,Full Week,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+1273,Cantina del Ponte,Three Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+422,Cantina del Ponte,Three Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+421,Cantina del Ponte,Three Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+420,Cantina del Ponte,Three Weeks,Friday,0.0,-6.0,0.0,6.0,-1.0,0.0,1.0
+1272,Cantina del Ponte,Three Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+95,Cantina del Ponte,Three Weeks,Full Week,0.0,-6.0,0.0,6.0,-1.0,0.0,1.0
+1269,Cantina del Ponte,Four Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1268,Cantina del Ponte,Four Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+408,Cantina del Ponte,Four Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+91,Cantina del Ponte,Four Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+407,Cantina del Ponte,Five Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1267,Cantina del Ponte,Five Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+90,Cantina del Ponte,Five Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1271,Cantina del Ponte,Six Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+93,Cantina del Ponte,Six Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+450,Coq d'Argent,This Week,Monday,4.0,0.0,6.0,4.0,4.0,-2.0,-0.3333333333333333
+454,Coq d'Argent,This Week,Tuesday,-11.0,0.0,10.0,-11.0,-11.0,-21.0,-2.1
+455,Coq d'Argent,This Week,Wednesday,-3.0,10.0,4.0,-13.0,-1.3,-7.0,-1.75
+453,Coq d'Argent,This Week,Thursday,11.0,9.0,0.0,2.0,0.2222222222222222,11.0,11.0
+449,Coq d'Argent,This Week,Friday,2.0,40.0,3.0,-38.0,-0.95,-1.0,-0.3333333333333333
+451,Coq d'Argent,This Week,Saturday,15.0,16.0,8.0,-1.0,-0.0625,7.0,0.875
+452,Coq d'Argent,This Week,Sunday,0.0,17.0,3.0,-17.0,-1.0,-3.0,-1.0
+103,Coq d'Argent,This Week,Full Week,18.0,92.0,34.0,-74.0,-0.8043478260869565,-16.0,-0.47058823529411764
+441,Coq d'Argent,Next Week,Monday,2.0,1.0,0.0,1.0,1.0,2.0,2.0
+445,Coq d'Argent,Next Week,Tuesday,2.0,12.0,2.0,-10.0,-0.8333333333333334,0.0,0.5
+446,Coq d'Argent,Next Week,Wednesday,4.0,12.0,-4.0,-8.0,-0.6666666666666666,8.0,-2.0
+444,Coq d'Argent,Next Week,Thursday,8.0,0.0,0.0,8.0,8.0,8.0,8.0
+440,Coq d'Argent,Next Week,Friday,12.0,4.0,2.0,8.0,2.0,10.0,5.0
+442,Coq d'Argent,Next Week,Saturday,-2.0,12.0,0.0,-14.0,-1.1666666666666667,-2.0,-2.0
+443,Coq d'Argent,Next Week,Sunday,2.0,10.0,0.0,-8.0,-0.8,2.0,2.0
+100,Coq d'Argent,Next Week,Full Week,28.0,51.0,0.0,-23.0,-0.45098039215686275,28.0,28.0
+462,Coq d'Argent,Two Weeks,Monday,18.0,2.0,8.0,16.0,8.0,10.0,1.25
+466,Coq d'Argent,Two Weeks,Tuesday,10.0,15.0,2.0,-5.0,-0.3333333333333333,8.0,4.0
+467,Coq d'Argent,Two Weeks,Wednesday,-6.0,0.0,0.0,-6.0,-6.0,-6.0,-6.0
+465,Coq d'Argent,Two Weeks,Thursday,0.0,8.0,0.0,-8.0,-1.0,0.0,1.0
+1283,Coq d'Argent,Two Weeks,Friday,0.0,19.0,2.0,-19.0,-1.0,-2.0,-1.0
+463,Coq d'Argent,Two Weeks,Saturday,0.0,0.0,8.0,0.0,1.0,-8.0,-1.0
+464,Coq d'Argent,Two Weeks,Sunday,2.0,4.0,0.0,-2.0,-0.5,2.0,2.0
+105,Coq d'Argent,Two Weeks,Full Week,24.0,48.0,20.0,-24.0,-0.5,4.0,0.2
+456,Coq d'Argent,Three Weeks,Monday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+460,Coq d'Argent,Three Weeks,Tuesday,3.0,6.0,0.0,-3.0,-0.5,3.0,3.0
+461,Coq d'Argent,Three Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+459,Coq d'Argent,Three Weeks,Thursday,3.0,0.0,0.0,3.0,3.0,3.0,3.0
+1282,Coq d'Argent,Three Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+457,Coq d'Argent,Three Weeks,Saturday,6.0,0.0,0.0,6.0,6.0,6.0,6.0
+458,Coq d'Argent,Three Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+104,Coq d'Argent,Three Weeks,Full Week,12.0,6.0,2.0,6.0,1.0,10.0,5.0
+1276,Coq d'Argent,Four Weeks,Monday,0.0,6.0,0.0,-6.0,-1.0,0.0,1.0
+1278,Coq d'Argent,Four Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+439,Coq d'Argent,Four Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+438,Coq d'Argent,Four Weeks,Thursday,0.0,6.0,0.0,-6.0,-1.0,0.0,1.0
+437,Coq d'Argent,Four Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1774,Coq d'Argent,Four Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1277,Coq d'Argent,Four Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+99,Coq d'Argent,Four Weeks,Full Week,0.0,12.0,0.0,-12.0,-1.0,0.0,1.0
+434,Coq d'Argent,Five Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+436,Coq d'Argent,Five Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1275,Coq d'Argent,Five Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+435,Coq d'Argent,Five Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+433,Coq d'Argent,Five Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1772,Coq d'Argent,Five Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1773,Coq d'Argent,Five Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+98,Coq d'Argent,Five Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1280,Coq d'Argent,Six Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1281,Coq d'Argent,Six Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+448,Coq d'Argent,Six Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1781,Coq d'Argent,Six Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1779,Coq d'Argent,Six Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+447,Coq d'Argent,Six Weeks,Saturday,4.0,0.0,0.0,4.0,4.0,4.0,4.0
+1780,Coq d'Argent,Six Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+102,Coq d'Argent,Six Weeks,Full Week,4.0,0.0,0.0,4.0,4.0,4.0,4.0
+1776,Coq d'Argent,Seven Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1778,Coq d'Argent,Seven Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1777,Coq d'Argent,Seven Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1775,Coq d'Argent,Seven Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1279,Coq d'Argent,Seven Weeks,Saturday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+101,Coq d'Argent,Seven Weeks,Full Week,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+1767,Coq d'Argent,Eight Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1771,Coq d'Argent,Eight Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1770,Coq d'Argent,Eight Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1766,Coq d'Argent,Eight Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1768,Coq d'Argent,Eight Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1769,Coq d'Argent,Eight Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+97,Coq d'Argent,Eight Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1801,Crafthouse,This Week,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1805,Crafthouse,This Week,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1806,Crafthouse,This Week,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1804,Crafthouse,This Week,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1800,Crafthouse,This Week,Friday,0.0,0.0,4.0,0.0,1.0,-4.0,-1.0
+1802,Crafthouse,This Week,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1803,Crafthouse,This Week,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+112,Crafthouse,This Week,Full Week,0.0,0.0,4.0,0.0,1.0,-4.0,-1.0
+1793,Crafthouse,Next Week,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1794,Crafthouse,Next Week,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+480,Crafthouse,Next Week,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+479,Crafthouse,Next Week,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+476,Crafthouse,Next Week,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+477,Crafthouse,Next Week,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+478,Crafthouse,Next Week,Sunday,6.0,0.0,0.0,6.0,6.0,6.0,6.0
+109,Crafthouse,Next Week,Full Week,6.0,0.0,0.0,6.0,6.0,6.0,6.0
+489,Crafthouse,Two Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+492,Crafthouse,Two Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+493,Crafthouse,Two Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+491,Crafthouse,Two Weeks,Thursday,0.0,0.0,3.0,0.0,1.0,-3.0,-1.0
+488,Crafthouse,Two Weeks,Friday,0.0,0.0,16.0,0.0,1.0,-16.0,-1.0
+1293,Crafthouse,Two Weeks,Saturday,0.0,-1.0,0.0,1.0,-1.0,0.0,1.0
+490,Crafthouse,Two Weeks,Sunday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+114,Crafthouse,Two Weeks,Full Week,0.0,1.0,19.0,-1.0,-1.0,-19.0,-1.0
+483,Crafthouse,Three Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+486,Crafthouse,Three Weeks,Tuesday,0.0,4.0,14.0,-4.0,-1.0,-14.0,-1.0
+487,Crafthouse,Three Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+485,Crafthouse,Three Weeks,Thursday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+1291,Crafthouse,Three Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+484,Crafthouse,Three Weeks,Saturday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+1292,Crafthouse,Three Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+113,Crafthouse,Three Weeks,Full Week,0.0,6.0,16.0,-6.0,-1.0,-16.0,-1.0
+473,Crafthouse,Four Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1288,Crafthouse,Four Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1289,Crafthouse,Four Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+475,Crafthouse,Four Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1791,Crafthouse,Four Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+474,Crafthouse,Four Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1792,Crafthouse,Four Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+108,Crafthouse,Four Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1285,Crafthouse,Five Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1287,Crafthouse,Five Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1790,Crafthouse,Five Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1286,Crafthouse,Five Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1789,Crafthouse,Five Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+472,Crafthouse,Five Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+107,Crafthouse,Five Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1799,Crafthouse,Six Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1798,Crafthouse,Six Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1797,Crafthouse,Six Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1290,Crafthouse,Six Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+111,Crafthouse,Six Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1796,Crafthouse,Seven Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+482,Crafthouse,Seven Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1795,Crafthouse,Seven Weeks,Friday,0.0,0.0,3.0,0.0,1.0,-3.0,-1.0
+481,Crafthouse,Seven Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+110,Crafthouse,Seven Weeks,Full Week,0.0,0.0,3.0,0.0,1.0,-3.0,-1.0
+1788,Crafthouse,Eight Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1787,Crafthouse,Eight Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1786,Crafthouse,Eight Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+470,Crafthouse,Eight Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+471,Crafthouse,Eight Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+106,Crafthouse,Eight Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1815,East 59th,This Week,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1819,East 59th,This Week,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1299,East 59th,This Week,Wednesday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+1818,East 59th,This Week,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+506,East 59th,This Week,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1816,East 59th,This Week,Saturday,0.0,0.0,3.0,0.0,1.0,-3.0,-1.0
+1817,East 59th,This Week,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+121,East 59th,This Week,Full Week,0.0,2.0,3.0,-2.0,-1.0,-3.0,-1.0
+1812,East 59th,Next Week,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1813,East 59th,Next Week,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+505,East 59th,Next Week,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+504,East 59th,Next Week,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+501,East 59th,Next Week,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+502,East 59th,Next Week,Saturday,6.0,0.0,2.0,6.0,6.0,4.0,2.0
+503,East 59th,Next Week,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+118,East 59th,Next Week,Full Week,6.0,0.0,2.0,6.0,6.0,4.0,2.0
+1823,East 59th,Two Weeks,Monday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+512,East 59th,Two Weeks,Tuesday,6.0,0.0,3.0,6.0,6.0,3.0,1.0
+513,East 59th,Two Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+511,East 59th,Two Weeks,Thursday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+1302,East 59th,Two Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+509,East 59th,Two Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+510,East 59th,Two Weeks,Sunday,3.0,0.0,0.0,3.0,3.0,3.0,3.0
+123,East 59th,Two Weeks,Full Week,9.0,2.0,5.0,7.0,3.5,4.0,0.8
+1821,East 59th,Three Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+508,East 59th,Three Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1301,East 59th,Three Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+507,East 59th,Three Weeks,Thursday,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+1820,East 59th,Three Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1822,East 59th,Three Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1300,East 59th,Three Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+122,East 59th,Three Weeks,Full Week,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+1297,East 59th,Four Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1296,East 59th,Four Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+499,East 59th,Four Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+500,East 59th,Four Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+117,East 59th,Four Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+498,East 59th,Five Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1294,East 59th,Five Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1295,East 59th,Five Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+116,East 59th,Five Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1298,East 59th,Six Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+120,East 59th,Six Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1814,East 59th,Seven Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+119,East 59th,Seven Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+497,East 59th,Eight Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1811,East 59th,Eight Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+115,East 59th,Eight Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1841,Fish Market,This Week,Monday,0.0,0.0,3.0,0.0,1.0,-3.0,-1.0
+523,Fish Market,This Week,Tuesday,0.0,0.0,4.0,0.0,1.0,-4.0,-1.0
+524,Fish Market,This Week,Wednesday,-1.0,0.0,0.0,-1.0,-1.0,-1.0,-1.0
+522,Fish Market,This Week,Thursday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+520,Fish Market,This Week,Friday,8.0,0.0,0.0,8.0,8.0,8.0,8.0
+521,Fish Market,This Week,Saturday,-3.0,0.0,2.0,-3.0,-3.0,-5.0,-2.5
+130,Fish Market,This Week,Full Week,4.0,0.0,11.0,4.0,4.0,-7.0,-0.6363636363636364
+1304,Fish Market,Next Week,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+519,Fish Market,Next Week,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1305,Fish Market,Next Week,Wednesday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+518,Fish Market,Next Week,Thursday,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+516,Fish Market,Next Week,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+517,Fish Market,Next Week,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+127,Fish Market,Next Week,Full Week,2.0,0.0,2.0,2.0,2.0,0.0,0.5
+526,Fish Market,Two Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1307,Fish Market,Two Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1308,Fish Market,Two Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+132,Fish Market,Two Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1306,Fish Market,Three Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1844,Fish Market,Three Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+525,Fish Market,Three Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1842,Fish Market,Three Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1843,Fish Market,Three Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+131,Fish Market,Three Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+515,Fish Market,Four Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1303,Fish Market,Four Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+514,Fish Market,Four Weeks,Friday,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+1835,Fish Market,Four Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+126,Fish Market,Four Weeks,Full Week,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+1831,Fish Market,Five Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1833,Fish Market,Five Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1834,Fish Market,Five Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1832,Fish Market,Five Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+125,Fish Market,Five Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1840,Fish Market,Six Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1839,Fish Market,Six Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+129,Fish Market,Six Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1837,Fish Market,Seven Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1838,Fish Market,Seven Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1836,Fish Market,Seven Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+128,Fish Market,Seven Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1830,Fish Market,Eight Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+124,Fish Market,Eight Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1858,Fiume,This Week,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+540,Fiume,This Week,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+541,Fiume,This Week,Wednesday,0.0,8.0,-2.0,-8.0,-1.0,2.0,-1.0
+539,Fiume,This Week,Thursday,0.0,7.0,0.0,-7.0,-1.0,0.0,1.0
+536,Fiume,This Week,Friday,19.0,9.0,2.0,10.0,1.1111111111111112,17.0,8.5
+537,Fiume,This Week,Saturday,4.0,14.0,4.0,-10.0,-0.7142857142857143,0.0,0.25
+538,Fiume,This Week,Sunday,3.0,0.0,3.0,3.0,3.0,0.0,0.3333333333333333
+138,Fiume,This Week,Full Week,26.0,38.0,7.0,-12.0,-0.3157894736842105,19.0,2.7142857142857144
+533,Fiume,Next Week,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+534,Fiume,Next Week,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+532,Fiume,Next Week,Thursday,0.0,5.0,0.0,-5.0,-1.0,0.0,1.0
+529,Fiume,Next Week,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+530,Fiume,Next Week,Saturday,5.0,0.0,0.0,5.0,5.0,5.0,5.0
+531,Fiume,Next Week,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+135,Fiume,Next Week,Full Week,5.0,5.0,0.0,0.0,0.2,5.0,5.0
+1861,Fiume,Two Weeks,Monday,0.0,0.0,6.0,0.0,1.0,-6.0,-1.0
+546,Fiume,Two Weeks,Tuesday,2.0,0.0,-5.0,2.0,2.0,7.0,-1.4
+547,Fiume,Two Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+545,Fiume,Two Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+544,Fiume,Two Weeks,Friday,-5.0,0.0,0.0,-5.0,-5.0,-5.0,-5.0
+1312,Fiume,Two Weeks,Saturday,0.0,13.0,7.0,-13.0,-1.0,-7.0,-1.0
+1313,Fiume,Two Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+140,Fiume,Two Weeks,Full Week,-3.0,13.0,8.0,-16.0,-1.2307692307692308,-11.0,-1.375
+543,Fiume,Three Weeks,Tuesday,0.0,0.0,1.0,0.0,1.0,-1.0,-1.0
+542,Fiume,Three Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1311,Fiume,Three Weeks,Friday,0.0,5.0,0.0,-5.0,-1.0,0.0,1.0
+1859,Fiume,Three Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1860,Fiume,Three Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+139,Fiume,Three Weeks,Full Week,0.0,5.0,1.0,-5.0,-1.0,-1.0,-1.0
+528,Fiume,Four Weeks,Tuesday,4.0,0.0,0.0,4.0,4.0,4.0,4.0
+1309,Fiume,Four Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1854,Fiume,Four Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+134,Fiume,Four Weeks,Full Week,4.0,0.0,0.0,4.0,4.0,4.0,4.0
+1853,Fiume,Five Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1852,Fiume,Five Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1851,Fiume,Five Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+133,Fiume,Five Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1857,Fiume,Six Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1856,Fiume,Six Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+535,Fiume,Six Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+137,Fiume,Six Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1855,Fiume,Seven Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1310,Fiume,Seven Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+136,Fiume,Seven Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+573,German Gymnasium,This Week,Monday,9.0,0.0,8.0,9.0,9.0,1.0,0.125
+577,German Gymnasium,This Week,Tuesday,19.0,0.0,19.0,19.0,19.0,0.0,0.05263157894736842
+578,German Gymnasium,This Week,Wednesday,21.0,18.0,15.0,3.0,0.16666666666666666,6.0,0.4
+576,German Gymnasium,This Week,Thursday,13.0,7.0,0.0,6.0,0.8571428571428571,13.0,13.0
+572,German Gymnasium,This Week,Friday,24.0,32.0,10.0,-8.0,-0.25,14.0,1.4
+574,German Gymnasium,This Week,Saturday,56.0,53.0,25.0,3.0,0.05660377358490566,31.0,1.24
+575,German Gymnasium,This Week,Sunday,56.0,32.0,-1.0,24.0,0.75,57.0,-57.0
+147,German Gymnasium,This Week,Full Week,198.0,142.0,76.0,56.0,0.39436619718309857,122.0,1.605263157894737
+562,German Gymnasium,Next Week,Monday,30.0,13.0,15.0,17.0,1.3076923076923077,15.0,1.0
+566,German Gymnasium,Next Week,Tuesday,20.0,20.0,8.0,0.0,0.05,12.0,1.5
+567,German Gymnasium,Next Week,Wednesday,11.0,13.0,4.0,-2.0,-0.15384615384615385,7.0,1.75
+565,German Gymnasium,Next Week,Thursday,11.0,36.0,2.0,-25.0,-0.6944444444444444,9.0,4.5
+561,German Gymnasium,Next Week,Friday,21.0,16.0,7.0,5.0,0.3125,14.0,2.0
+563,German Gymnasium,Next Week,Saturday,30.0,34.0,33.0,-4.0,-0.11764705882352941,-3.0,-0.09090909090909091
+564,German Gymnasium,Next Week,Sunday,19.0,31.0,29.0,-12.0,-0.3870967741935484,-10.0,-0.3448275862068966
+144,German Gymnasium,Next Week,Full Week,142.0,163.0,98.0,-21.0,-0.12883435582822086,44.0,0.4489795918367347
+587,German Gymnasium,Two Weeks,Monday,12.0,0.0,8.0,12.0,12.0,4.0,0.5
+591,German Gymnasium,Two Weeks,Tuesday,2.0,3.0,8.0,-1.0,-0.3333333333333333,-6.0,-0.75
+592,German Gymnasium,Two Weeks,Wednesday,12.0,6.0,15.0,6.0,1.0,-3.0,-0.2
+590,German Gymnasium,Two Weeks,Thursday,19.0,28.0,8.0,-9.0,-0.32142857142857145,11.0,1.375
+586,German Gymnasium,Two Weeks,Friday,9.0,0.0,22.0,9.0,9.0,-13.0,-0.5909090909090909
+588,German Gymnasium,Two Weeks,Saturday,2.0,43.0,0.0,-41.0,-0.9534883720930233,2.0,2.0
+589,German Gymnasium,Two Weeks,Sunday,0.0,15.0,10.0,-15.0,-1.0,-10.0,-1.0
+149,German Gymnasium,Two Weeks,Full Week,56.0,95.0,71.0,-39.0,-0.4105263157894737,-15.0,-0.2112676056338028
+580,German Gymnasium,Three Weeks,Monday,3.0,6.0,2.0,-3.0,-0.5,1.0,0.5
+584,German Gymnasium,Three Weeks,Tuesday,13.0,2.0,0.0,11.0,5.5,13.0,13.0
+585,German Gymnasium,Three Weeks,Wednesday,0.0,4.0,0.0,-4.0,-1.0,0.0,1.0
+583,German Gymnasium,Three Weeks,Thursday,4.0,6.0,6.0,-2.0,-0.3333333333333333,-2.0,-0.3333333333333333
+579,German Gymnasium,Three Weeks,Friday,0.0,5.0,0.0,-5.0,-1.0,0.0,1.0
+581,German Gymnasium,Three Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+582,German Gymnasium,Three Weeks,Sunday,2.0,0.0,2.0,2.0,2.0,0.0,0.5
+148,German Gymnasium,Three Weeks,Full Week,22.0,23.0,10.0,-1.0,-0.043478260869565216,12.0,1.2
+1316,German Gymnasium,Four Weeks,Monday,0.0,5.0,0.0,-5.0,-1.0,0.0,1.0
+1317,German Gymnasium,Four Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1318,German Gymnasium,Four Weeks,Wednesday,0.0,4.0,0.0,-4.0,-1.0,0.0,1.0
+560,German Gymnasium,Four Weeks,Thursday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+557,German Gymnasium,Four Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+558,German Gymnasium,Four Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+559,German Gymnasium,Four Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+143,German Gymnasium,Four Weeks,Full Week,0.0,11.0,0.0,-11.0,-1.0,0.0,1.0
+1868,German Gymnasium,Five Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1869,German Gymnasium,Five Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+556,German Gymnasium,Five Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+555,German Gymnasium,Five Weeks,Thursday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+553,German Gymnasium,Five Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+554,German Gymnasium,Five Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1315,German Gymnasium,Five Weeks,Sunday,0.0,0.0,6.0,0.0,1.0,-6.0,-1.0
+142,German Gymnasium,Five Weeks,Full Week,0.0,0.0,8.0,0.0,1.0,-8.0,-1.0
+1876,German Gymnasium,Six Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+571,German Gymnasium,Six Weeks,Wednesday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+1875,German Gymnasium,Six Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1319,German Gymnasium,Six Weeks,Friday,0.0,0.0,3.0,0.0,1.0,-3.0,-1.0
+1320,German Gymnasium,Six Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+570,German Gymnasium,Six Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+146,German Gymnasium,Six Weeks,Full Week,0.0,2.0,3.0,-2.0,-1.0,-3.0,-1.0
+1871,German Gymnasium,Seven Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1873,German Gymnasium,Seven Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1874,German Gymnasium,Seven Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+569,German Gymnasium,Seven Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1870,German Gymnasium,Seven Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+568,German Gymnasium,Seven Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1872,German Gymnasium,Seven Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+145,German Gymnasium,Seven Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1866,German Gymnasium,Eight Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1867,German Gymnasium,Eight Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1865,German Gymnasium,Eight Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1314,German Gymnasium,Eight Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1864,German Gymnasium,Eight Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+141,German Gymnasium,Eight Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1903,Issho Restaurant,This Week,Monday,0.0,0.0,7.0,0.0,1.0,-7.0,-1.0
+1907,Issho Restaurant,This Week,Tuesday,0.0,0.0,-2.0,0.0,1.0,2.0,-1.0
+1908,Issho Restaurant,This Week,Wednesday,0.0,0.0,6.0,0.0,1.0,-6.0,-1.0
+1906,Issho Restaurant,This Week,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1902,Issho Restaurant,This Week,Friday,0.0,0.0,4.0,0.0,1.0,-4.0,-1.0
+1904,Issho Restaurant,This Week,Saturday,0.0,0.0,8.0,0.0,1.0,-8.0,-1.0
+1905,Issho Restaurant,This Week,Sunday,0.0,0.0,4.0,0.0,1.0,-4.0,-1.0
+156,Issho Restaurant,This Week,Full Week,0.0,0.0,27.0,0.0,1.0,-27.0,-1.0
+1897,Issho Restaurant,Next Week,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1898,Issho Restaurant,Next Week,Tuesday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+612,Issho Restaurant,Next Week,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+611,Issho Restaurant,Next Week,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+608,Issho Restaurant,Next Week,Friday,2.0,0.0,-4.0,2.0,2.0,6.0,-1.5
+609,Issho Restaurant,Next Week,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+610,Issho Restaurant,Next Week,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+153,Issho Restaurant,Next Week,Full Week,2.0,0.0,-2.0,2.0,2.0,4.0,-2.0
+618,Issho Restaurant,Two Weeks,Monday,2.0,0.0,7.0,2.0,2.0,-5.0,-0.7142857142857143
+622,Issho Restaurant,Two Weeks,Tuesday,0.0,0.0,3.0,0.0,1.0,-3.0,-1.0
+623,Issho Restaurant,Two Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+621,Issho Restaurant,Two Weeks,Thursday,4.0,0.0,2.0,4.0,4.0,2.0,1.0
+1334,Issho Restaurant,Two Weeks,Friday,0.0,0.0,5.0,0.0,1.0,-5.0,-1.0
+619,Issho Restaurant,Two Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+620,Issho Restaurant,Two Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+158,Issho Restaurant,Two Weeks,Full Week,6.0,0.0,17.0,6.0,6.0,-11.0,-0.6470588235294118
+614,Issho Restaurant,Three Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+617,Issho Restaurant,Three Weeks,Tuesday,0.0,0.0,8.0,0.0,1.0,-8.0,-1.0
+1333,Issho Restaurant,Three Weeks,Wednesday,0.0,6.0,0.0,-6.0,-1.0,0.0,1.0
+616,Issho Restaurant,Three Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1909,Issho Restaurant,Three Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+615,Issho Restaurant,Three Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+157,Issho Restaurant,Three Weeks,Full Week,0.0,6.0,8.0,-6.0,-1.0,-8.0,-1.0
+1328,Issho Restaurant,Four Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1330,Issho Restaurant,Four Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1329,Issho Restaurant,Four Weeks,Thursday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+606,Issho Restaurant,Four Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+607,Issho Restaurant,Four Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+152,Issho Restaurant,Four Weeks,Full Week,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+1896,Issho Restaurant,Five Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+604,Issho Restaurant,Five Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+605,Issho Restaurant,Five Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+151,Issho Restaurant,Five Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1901,Issho Restaurant,Six Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1331,Issho Restaurant,Six Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1332,Issho Restaurant,Six Weeks,Saturday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+1900,Issho Restaurant,Six Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+155,Issho Restaurant,Six Weeks,Full Week,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+1899,Issho Restaurant,Seven Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+613,Issho Restaurant,Seven Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+154,Issho Restaurant,Seven Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1327,Issho Restaurant,Eight Weeks,Saturday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+150,Issho Restaurant,Eight Weeks,Full Week,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+1923,Launceston Place,This Week,Monday,0.0,0.0,3.0,0.0,1.0,-3.0,-1.0
+643,Launceston Place,This Week,Tuesday,0.0,0.0,6.0,0.0,1.0,-6.0,-1.0
+644,Launceston Place,This Week,Wednesday,4.0,2.0,4.0,2.0,1.0,0.0,0.25
+642,Launceston Place,This Week,Thursday,0.0,4.0,4.0,-4.0,-1.0,-4.0,-1.0
+639,Launceston Place,This Week,Friday,1.0,-2.0,2.0,3.0,-1.5,-1.0,-0.5
+640,Launceston Place,This Week,Saturday,4.0,6.0,4.0,-2.0,-0.3333333333333333,0.0,0.25
+641,Launceston Place,This Week,Sunday,-2.0,0.0,0.0,-2.0,-2.0,-2.0,-2.0
+165,Launceston Place,This Week,Full Week,7.0,10.0,23.0,-3.0,-0.3,-16.0,-0.6956521739130435
+1918,Launceston Place,Next Week,Monday,0.0,0.0,4.0,0.0,1.0,-4.0,-1.0
+636,Launceston Place,Next Week,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+637,Launceston Place,Next Week,Wednesday,0.0,4.0,0.0,-4.0,-1.0,0.0,1.0
+635,Launceston Place,Next Week,Thursday,0.0,2.0,3.0,-2.0,-1.0,-3.0,-1.0
+632,Launceston Place,Next Week,Friday,2.0,4.0,2.0,-2.0,-0.5,0.0,0.5
+633,Launceston Place,Next Week,Saturday,2.0,0.0,3.0,2.0,2.0,-1.0,-0.3333333333333333
+634,Launceston Place,Next Week,Sunday,4.0,4.0,0.0,0.0,0.25,4.0,4.0
+162,Launceston Place,Next Week,Full Week,8.0,14.0,12.0,-6.0,-0.42857142857142855,-4.0,-0.3333333333333333
+1925,Launceston Place,Two Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+651,Launceston Place,Two Weeks,Tuesday,5.0,0.0,-2.0,5.0,5.0,7.0,-3.5
+652,Launceston Place,Two Weeks,Wednesday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+650,Launceston Place,Two Weeks,Thursday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+1341,Launceston Place,Two Weeks,Friday,0.0,2.0,2.0,-2.0,-1.0,-2.0,-1.0
+1342,Launceston Place,Two Weeks,Saturday,0.0,0.0,-2.0,0.0,1.0,2.0,-1.0
+649,Launceston Place,Two Weeks,Sunday,0.0,4.0,0.0,-4.0,-1.0,0.0,1.0
+167,Launceston Place,Two Weeks,Full Week,5.0,10.0,-2.0,-5.0,-0.5,7.0,-3.5
+647,Launceston Place,Three Weeks,Tuesday,3.0,0.0,4.0,3.0,3.0,-1.0,-0.25
+648,Launceston Place,Three Weeks,Wednesday,4.0,2.0,0.0,2.0,1.0,4.0,4.0
+646,Launceston Place,Three Weeks,Thursday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+1924,Launceston Place,Three Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+645,Launceston Place,Three Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1340,Launceston Place,Three Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+166,Launceston Place,Three Weeks,Full Week,7.0,4.0,4.0,3.0,0.75,3.0,0.75
+1337,Launceston Place,Four Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1336,Launceston Place,Four Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1917,Launceston Place,Four Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+630,Launceston Place,Four Weeks,Saturday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+631,Launceston Place,Four Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+161,Launceston Place,Four Weeks,Full Week,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+1916,Launceston Place,Five Weeks,Wednesday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+1915,Launceston Place,Five Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+628,Launceston Place,Five Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+629,Launceston Place,Five Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+160,Launceston Place,Five Weeks,Full Week,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+1922,Launceston Place,Six Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1921,Launceston Place,Six Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1920,Launceston Place,Six Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1338,Launceston Place,Six Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1339,Launceston Place,Six Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+164,Launceston Place,Six Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1919,Launceston Place,Seven Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+638,Launceston Place,Seven Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+163,Launceston Place,Seven Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1914,Launceston Place,Eight Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1335,Launceston Place,Eight Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+627,Launceston Place,Eight Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+159,Launceston Place,Eight Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+684,Madison Restaurant,This Week,Monday,0.0,0.0,-2.0,0.0,1.0,2.0,-1.0
+688,Madison Restaurant,This Week,Tuesday,6.0,0.0,-2.0,6.0,6.0,8.0,-4.0
+689,Madison Restaurant,This Week,Wednesday,11.0,2.0,-1.0,9.0,4.5,12.0,-12.0
+687,Madison Restaurant,This Week,Thursday,17.0,-2.0,-2.0,19.0,-9.5,19.0,-9.5
+683,Madison Restaurant,This Week,Friday,13.0,10.0,3.0,3.0,0.3,10.0,3.3333333333333335
+685,Madison Restaurant,This Week,Saturday,-2.0,19.0,11.0,-21.0,-1.105263157894737,-13.0,-1.1818181818181819
+686,Madison Restaurant,This Week,Sunday,33.0,6.0,13.0,27.0,4.5,20.0,1.5384615384615385
+174,Madison Restaurant,This Week,Full Week,78.0,35.0,20.0,43.0,1.2285714285714286,58.0,2.9
+670,Madison Restaurant,Next Week,Monday,6.0,10.0,0.0,-4.0,-0.4,6.0,6.0
+674,Madison Restaurant,Next Week,Tuesday,9.0,2.0,4.0,7.0,3.5,5.0,1.25
+675,Madison Restaurant,Next Week,Wednesday,6.0,3.0,4.0,3.0,1.0,2.0,0.5
+673,Madison Restaurant,Next Week,Thursday,10.0,2.0,4.0,8.0,4.0,6.0,1.5
+669,Madison Restaurant,Next Week,Friday,18.0,10.0,2.0,8.0,0.8,16.0,8.0
+671,Madison Restaurant,Next Week,Saturday,14.0,13.0,2.0,1.0,0.07692307692307693,12.0,6.0
+672,Madison Restaurant,Next Week,Sunday,18.0,12.0,13.0,6.0,0.5,5.0,0.38461538461538464
+171,Madison Restaurant,Next Week,Full Week,81.0,52.0,29.0,29.0,0.5576923076923077,52.0,1.793103448275862
+698,Madison Restaurant,Two Weeks,Monday,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+702,Madison Restaurant,Two Weeks,Tuesday,11.0,2.0,6.0,9.0,4.5,5.0,0.8333333333333334
+703,Madison Restaurant,Two Weeks,Wednesday,2.0,5.0,0.0,-3.0,-0.6,2.0,2.0
+701,Madison Restaurant,Two Weeks,Thursday,8.0,0.0,0.0,8.0,8.0,8.0,8.0
+697,Madison Restaurant,Two Weeks,Friday,0.0,7.0,0.0,-7.0,-1.0,0.0,1.0
+699,Madison Restaurant,Two Weeks,Saturday,0.0,25.0,3.0,-25.0,-1.0,-3.0,-1.0
+700,Madison Restaurant,Two Weeks,Sunday,6.0,13.0,2.0,-7.0,-0.5384615384615384,4.0,2.0
+176,Madison Restaurant,Two Weeks,Full Week,29.0,52.0,11.0,-23.0,-0.4423076923076923,18.0,1.6363636363636365
+691,Madison Restaurant,Three Weeks,Monday,0.0,1.0,0.0,-1.0,-1.0,0.0,1.0
+695,Madison Restaurant,Three Weeks,Tuesday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+696,Madison Restaurant,Three Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+694,Madison Restaurant,Three Weeks,Thursday,-4.0,2.0,3.0,-6.0,-3.0,-7.0,-2.3333333333333335
+690,Madison Restaurant,Three Weeks,Friday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+692,Madison Restaurant,Three Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+693,Madison Restaurant,Three Weeks,Sunday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+175,Madison Restaurant,Three Weeks,Full Week,-4.0,5.0,7.0,-9.0,-1.8,-11.0,-1.5714285714285714
+665,Madison Restaurant,Four Weeks,Monday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+1347,Madison Restaurant,Four Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+668,Madison Restaurant,Four Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1346,Madison Restaurant,Four Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+664,Madison Restaurant,Four Weeks,Friday,0.0,0.0,6.0,0.0,1.0,-6.0,-1.0
+666,Madison Restaurant,Four Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+667,Madison Restaurant,Four Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+170,Madison Restaurant,Four Weeks,Full Week,0.0,2.0,6.0,-2.0,-1.0,-6.0,-1.0
+1345,Madison Restaurant,Five Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1930,Madison Restaurant,Five Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+663,Madison Restaurant,Five Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1929,Madison Restaurant,Five Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+660,Madison Restaurant,Five Weeks,Friday,6.0,0.0,0.0,6.0,6.0,6.0,6.0
+661,Madison Restaurant,Five Weeks,Saturday,0.0,0.0,3.0,0.0,1.0,-3.0,-1.0
+662,Madison Restaurant,Five Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+169,Madison Restaurant,Five Weeks,Full Week,6.0,0.0,3.0,6.0,6.0,3.0,1.0
+679,Madison Restaurant,Six Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1932,Madison Restaurant,Six Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+682,Madison Restaurant,Six Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1350,Madison Restaurant,Six Weeks,Friday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+680,Madison Restaurant,Six Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+681,Madison Restaurant,Six Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+173,Madison Restaurant,Six Weeks,Full Week,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+1348,Madison Restaurant,Seven Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1349,Madison Restaurant,Seven Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+678,Madison Restaurant,Seven Weeks,Thursday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+1931,Madison Restaurant,Seven Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+676,Madison Restaurant,Seven Weeks,Saturday,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+677,Madison Restaurant,Seven Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+172,Madison Restaurant,Seven Weeks,Full Week,2.0,0.0,2.0,2.0,2.0,0.0,0.5
+1928,Madison Restaurant,Eight Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1344,Madison Restaurant,Eight Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+658,Madison Restaurant,Eight Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+659,Madison Restaurant,Eight Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1343,Madison Restaurant,Eight Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+168,Madison Restaurant,Eight Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+720,New Street Grill,This Week,Monday,7.0,0.0,2.0,7.0,7.0,5.0,2.5
+724,New Street Grill,This Week,Tuesday,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+725,New Street Grill,This Week,Wednesday,6.0,0.0,0.0,6.0,6.0,6.0,6.0
+723,New Street Grill,This Week,Thursday,-3.0,2.0,0.0,-5.0,-2.5,-3.0,-3.0
+719,New Street Grill,This Week,Friday,6.0,4.0,2.0,2.0,0.5,4.0,2.0
+721,New Street Grill,This Week,Saturday,8.0,14.0,5.0,-6.0,-0.42857142857142855,3.0,0.6
+722,New Street Grill,This Week,Sunday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+183,New Street Grill,This Week,Full Week,26.0,20.0,11.0,6.0,0.3,15.0,1.3636363636363635
+711,New Street Grill,Next Week,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+715,New Street Grill,Next Week,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+716,New Street Grill,Next Week,Wednesday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+714,New Street Grill,Next Week,Thursday,0.0,3.0,0.0,-3.0,-1.0,0.0,1.0
+710,New Street Grill,Next Week,Friday,11.0,1.0,0.0,10.0,10.0,11.0,11.0
+712,New Street Grill,Next Week,Saturday,6.0,6.0,5.0,0.0,0.16666666666666666,1.0,0.2
+713,New Street Grill,Next Week,Sunday,0.0,-2.0,0.0,2.0,-1.0,0.0,1.0
+180,New Street Grill,Next Week,Full Week,17.0,10.0,5.0,7.0,0.7,12.0,2.4
+729,New Street Grill,Two Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+732,New Street Grill,Two Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+733,New Street Grill,Two Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+731,New Street Grill,Two Weeks,Thursday,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+1354,New Street Grill,Two Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1355,New Street Grill,Two Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+730,New Street Grill,Two Weeks,Sunday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+185,New Street Grill,Two Weeks,Full Week,2.0,2.0,0.0,0.0,0.5,2.0,2.0
+727,New Street Grill,Three Weeks,Tuesday,3.0,0.0,4.0,3.0,3.0,-1.0,-0.25
+728,New Street Grill,Three Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+726,New Street Grill,Three Weeks,Thursday,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+1948,New Street Grill,Three Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1353,New Street Grill,Three Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+184,New Street Grill,Three Weeks,Full Week,5.0,0.0,4.0,5.0,5.0,1.0,0.25
+1941,New Street Grill,Four Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1352,New Street Grill,Four Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+709,New Street Grill,Four Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+179,New Street Grill,Four Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1939,New Street Grill,Five Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1940,New Street Grill,Five Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+707,New Street Grill,Five Weeks,Friday,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+708,New Street Grill,Five Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+178,New Street Grill,Five Weeks,Full Week,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+1944,New Street Grill,Six Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1947,New Street Grill,Six Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1946,New Street Grill,Six Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1943,New Street Grill,Six Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+718,New Street Grill,Six Weeks,Saturday,6.0,5.0,0.0,1.0,0.2,6.0,6.0
+1945,New Street Grill,Six Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+182,New Street Grill,Six Weeks,Full Week,6.0,5.0,0.0,1.0,0.2,6.0,6.0
+1942,New Street Grill,Seven Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+717,New Street Grill,Seven Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+181,New Street Grill,Seven Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1937,New Street Grill,Eight Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1938,New Street Grill,Eight Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1351,New Street Grill,Eight Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+177,New Street Grill,Eight Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+769,Orrery,This Week,Monday,5.0,0.0,0.0,5.0,5.0,5.0,5.0
+773,Orrery,This Week,Tuesday,2.0,0.0,11.0,2.0,2.0,-9.0,-0.8181818181818182
+774,Orrery,This Week,Wednesday,-4.0,15.0,7.0,-19.0,-1.2666666666666666,-11.0,-1.5714285714285714
+772,Orrery,This Week,Thursday,-3.0,0.0,-5.0,-3.0,-3.0,2.0,-0.4
+768,Orrery,This Week,Friday,0.0,8.0,4.0,-8.0,-1.0,-4.0,-1.0
+770,Orrery,This Week,Saturday,-5.0,8.0,25.0,-13.0,-1.625,-30.0,-1.2
+771,Orrery,This Week,Sunday,8.0,6.0,-4.0,2.0,0.3333333333333333,12.0,-3.0
+192,Orrery,This Week,Full Week,3.0,37.0,38.0,-34.0,-0.918918918918919,-35.0,-0.9210526315789473
+758,Orrery,Next Week,Monday,4.0,3.0,0.0,1.0,0.3333333333333333,4.0,4.0
+762,Orrery,Next Week,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+763,Orrery,Next Week,Wednesday,11.0,4.0,0.0,7.0,1.75,11.0,11.0
+761,Orrery,Next Week,Thursday,7.0,10.0,0.0,-3.0,-0.3,7.0,7.0
+757,Orrery,Next Week,Friday,6.0,5.0,2.0,1.0,0.2,4.0,2.0
+759,Orrery,Next Week,Saturday,10.0,20.0,0.0,-10.0,-0.5,10.0,10.0
+760,Orrery,Next Week,Sunday,0.0,9.0,2.0,-9.0,-1.0,-2.0,-1.0
+189,Orrery,Next Week,Full Week,38.0,51.0,4.0,-13.0,-0.2549019607843137,34.0,8.5
+782,Orrery,Two Weeks,Monday,0.0,4.0,2.0,-4.0,-1.0,-2.0,-1.0
+785,Orrery,Two Weeks,Tuesday,0.0,4.0,-5.0,-4.0,-1.0,5.0,-1.0
+786,Orrery,Two Weeks,Wednesday,0.0,9.0,0.0,-9.0,-1.0,0.0,1.0
+784,Orrery,Two Weeks,Thursday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+781,Orrery,Two Weeks,Friday,-2.0,0.0,-2.0,-2.0,-2.0,0.0,-0.5
+1366,Orrery,Two Weeks,Saturday,0.0,4.0,5.0,-4.0,-1.0,-5.0,-1.0
+783,Orrery,Two Weeks,Sunday,6.0,0.0,0.0,6.0,6.0,6.0,6.0
+194,Orrery,Two Weeks,Full Week,4.0,23.0,0.0,-19.0,-0.8260869565217391,4.0,4.0
+775,Orrery,Three Weeks,Monday,6.0,2.0,7.0,4.0,2.0,-1.0,-0.14285714285714285
+779,Orrery,Three Weeks,Tuesday,5.0,0.0,11.0,5.0,5.0,-6.0,-0.5454545454545454
+780,Orrery,Three Weeks,Wednesday,5.0,0.0,0.0,5.0,5.0,5.0,5.0
+778,Orrery,Three Weeks,Thursday,0.0,6.0,0.0,-6.0,-1.0,0.0,1.0
+1365,Orrery,Three Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+776,Orrery,Three Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+777,Orrery,Three Weeks,Sunday,0.0,5.0,0.0,-5.0,-1.0,0.0,1.0
+193,Orrery,Three Weeks,Full Week,16.0,13.0,18.0,3.0,0.23076923076923078,-2.0,-0.1111111111111111
+1359,Orrery,Four Weeks,Monday,0.0,4.0,0.0,-4.0,-1.0,0.0,1.0
+756,Orrery,Four Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1361,Orrery,Four Weeks,Wednesday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+1360,Orrery,Four Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+754,Orrery,Four Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+755,Orrery,Four Weeks,Sunday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+188,Orrery,Four Weeks,Full Week,0.0,6.0,2.0,-6.0,-1.0,-2.0,-1.0
+749,Orrery,Five Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+752,Orrery,Five Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+753,Orrery,Five Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+751,Orrery,Five Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+748,Orrery,Five Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+750,Orrery,Five Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1358,Orrery,Five Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+187,Orrery,Five Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1364,Orrery,Six Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1969,Orrery,Six Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1970,Orrery,Six Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+767,Orrery,Six Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1363,Orrery,Six Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+766,Orrery,Six Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+191,Orrery,Six Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1968,Orrery,Seven Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1362,Orrery,Seven Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+764,Orrery,Seven Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+765,Orrery,Seven Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+190,Orrery,Seven Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+747,Orrery,Eight Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1967,Orrery,Eight Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+186,Orrery,Eight Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+826,Paternoster Chophouse,This Week,Monday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+830,Paternoster Chophouse,This Week,Tuesday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+831,Paternoster Chophouse,This Week,Wednesday,9.0,0.0,3.0,9.0,9.0,6.0,2.0
+829,Paternoster Chophouse,This Week,Thursday,6.0,6.0,4.0,0.0,0.16666666666666666,2.0,0.5
+825,Paternoster Chophouse,This Week,Friday,7.0,2.0,0.0,5.0,2.5,7.0,7.0
+827,Paternoster Chophouse,This Week,Saturday,21.0,8.0,-4.0,13.0,1.625,25.0,-6.25
+828,Paternoster Chophouse,This Week,Sunday,6.0,2.0,6.0,4.0,2.0,0.0,0.16666666666666666
+201,Paternoster Chophouse,This Week,Full Week,49.0,18.0,13.0,31.0,1.7222222222222223,36.0,2.769230769230769
+809,Paternoster Chophouse,Next Week,Monday,0.0,2.0,2.0,-2.0,-1.0,-2.0,-1.0
+813,Paternoster Chophouse,Next Week,Tuesday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+814,Paternoster Chophouse,Next Week,Wednesday,0.0,0.0,7.0,0.0,1.0,-7.0,-1.0
+812,Paternoster Chophouse,Next Week,Thursday,0.0,4.0,5.0,-4.0,-1.0,-5.0,-1.0
+808,Paternoster Chophouse,Next Week,Friday,8.0,4.0,4.0,4.0,1.0,4.0,1.0
+810,Paternoster Chophouse,Next Week,Saturday,2.0,2.0,-2.0,0.0,0.5,4.0,-2.0
+811,Paternoster Chophouse,Next Week,Sunday,0.0,-2.0,9.0,2.0,-1.0,-9.0,-1.0
+198,Paternoster Chophouse,Next Week,Full Week,10.0,10.0,27.0,0.0,0.1,-17.0,-0.6296296296296297
+837,Paternoster Chophouse,Two Weeks,Monday,3.0,3.0,0.0,0.0,0.3333333333333333,3.0,3.0
+840,Paternoster Chophouse,Two Weeks,Tuesday,0.0,2.0,6.0,-2.0,-1.0,-6.0,-1.0
+841,Paternoster Chophouse,Two Weeks,Wednesday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+839,Paternoster Chophouse,Two Weeks,Thursday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+1372,Paternoster Chophouse,Two Weeks,Friday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+1373,Paternoster Chophouse,Two Weeks,Saturday,0.0,8.0,6.0,-8.0,-1.0,-6.0,-1.0
+838,Paternoster Chophouse,Two Weeks,Sunday,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+203,Paternoster Chophouse,Two Weeks,Full Week,5.0,17.0,14.0,-12.0,-0.7058823529411765,-9.0,-0.6428571428571429
+1371,Paternoster Chophouse,Three Weeks,Monday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+835,Paternoster Chophouse,Three Weeks,Tuesday,-2.0,0.0,6.0,-2.0,-2.0,-8.0,-1.3333333333333333
+836,Paternoster Chophouse,Three Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+834,Paternoster Chophouse,Three Weeks,Thursday,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+1978,Paternoster Chophouse,Three Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+832,Paternoster Chophouse,Three Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+833,Paternoster Chophouse,Three Weeks,Sunday,0.0,0.0,5.0,0.0,1.0,-5.0,-1.0
+202,Paternoster Chophouse,Three Weeks,Full Week,0.0,0.0,13.0,0.0,1.0,-13.0,-1.0
+1974,Paternoster Chophouse,Four Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1975,Paternoster Chophouse,Four Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+807,Paternoster Chophouse,Four Weeks,Wednesday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+806,Paternoster Chophouse,Four Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+803,Paternoster Chophouse,Four Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+804,Paternoster Chophouse,Four Weeks,Saturday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+805,Paternoster Chophouse,Four Weeks,Sunday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+197,Paternoster Chophouse,Four Weeks,Full Week,0.0,2.0,4.0,-2.0,-1.0,-4.0,-1.0
+1972,Paternoster Chophouse,Five Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1973,Paternoster Chophouse,Five Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+802,Paternoster Chophouse,Five Weeks,Wednesday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+801,Paternoster Chophouse,Five Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+799,Paternoster Chophouse,Five Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+800,Paternoster Chophouse,Five Weeks,Saturday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+1368,Paternoster Chophouse,Five Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+196,Paternoster Chophouse,Five Weeks,Full Week,0.0,2.0,2.0,-2.0,-1.0,-2.0,-1.0
+820,Paternoster Chophouse,Six Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+823,Paternoster Chophouse,Six Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+824,Paternoster Chophouse,Six Weeks,Wednesday,0.0,2.0,2.0,-2.0,-1.0,-2.0,-1.0
+822,Paternoster Chophouse,Six Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+819,Paternoster Chophouse,Six Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+821,Paternoster Chophouse,Six Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1977,Paternoster Chophouse,Six Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+200,Paternoster Chophouse,Six Weeks,Full Week,0.0,2.0,2.0,-2.0,-1.0,-2.0,-1.0
+1369,Paternoster Chophouse,Seven Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+817,Paternoster Chophouse,Seven Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+818,Paternoster Chophouse,Seven Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1370,Paternoster Chophouse,Seven Weeks,Thursday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+815,Paternoster Chophouse,Seven Weeks,Friday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+816,Paternoster Chophouse,Seven Weeks,Saturday,2.0,0.0,2.0,2.0,2.0,0.0,0.5
+1976,Paternoster Chophouse,Seven Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+199,Paternoster Chophouse,Seven Weeks,Full Week,2.0,0.0,6.0,2.0,2.0,-4.0,-0.6666666666666666
+795,Paternoster Chophouse,Eight Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1367,Paternoster Chophouse,Eight Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+798,Paternoster Chophouse,Eight Weeks,Wednesday,0.0,-2.0,0.0,2.0,-1.0,0.0,1.0
+1971,Paternoster Chophouse,Eight Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+794,Paternoster Chophouse,Eight Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+796,Paternoster Chophouse,Eight Weeks,Saturday,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+797,Paternoster Chophouse,Eight Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+195,Paternoster Chophouse,Eight Weeks,Full Week,2.0,-2.0,0.0,4.0,-2.0,2.0,2.0
+857,Plateau,This Week,Monday,2.0,0.0,-15.0,2.0,2.0,17.0,-1.1333333333333333
+861,Plateau,This Week,Tuesday,4.0,0.0,5.0,4.0,4.0,-1.0,-0.2
+862,Plateau,This Week,Wednesday,0.0,-2.0,2.0,2.0,-1.0,-2.0,-1.0
+860,Plateau,This Week,Thursday,5.0,0.0,0.0,5.0,5.0,5.0,5.0
+856,Plateau,This Week,Friday,10.0,11.0,0.0,-1.0,-0.09090909090909091,10.0,10.0
+858,Plateau,This Week,Saturday,25.0,6.0,4.0,19.0,3.1666666666666665,21.0,5.25
+859,Plateau,This Week,Sunday,19.0,4.0,0.0,15.0,3.75,19.0,19.0
+210,Plateau,This Week,Full Week,65.0,19.0,-4.0,46.0,2.4210526315789473,69.0,-17.25
+847,Plateau,Next Week,Monday,0.0,2.0,3.0,-2.0,-1.0,-3.0,-1.0
+851,Plateau,Next Week,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+852,Plateau,Next Week,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+850,Plateau,Next Week,Thursday,0.0,4.0,0.0,-4.0,-1.0,0.0,1.0
+846,Plateau,Next Week,Friday,5.0,7.0,0.0,-2.0,-0.2857142857142857,5.0,5.0
+848,Plateau,Next Week,Saturday,16.0,-3.0,0.0,19.0,-6.333333333333333,16.0,16.0
+849,Plateau,Next Week,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+207,Plateau,Next Week,Full Week,21.0,10.0,3.0,11.0,1.1,18.0,6.0
+867,Plateau,Two Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+870,Plateau,Two Weeks,Tuesday,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+871,Plateau,Two Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1382,Plateau,Two Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1381,Plateau,Two Weeks,Friday,0.0,4.0,0.0,-4.0,-1.0,0.0,1.0
+868,Plateau,Two Weeks,Saturday,0.0,6.0,0.0,-6.0,-1.0,0.0,1.0
+869,Plateau,Two Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+212,Plateau,Two Weeks,Full Week,2.0,10.0,0.0,-8.0,-0.8,2.0,2.0
+863,Plateau,Three Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1380,Plateau,Three Weeks,Tuesday,0.0,0.0,8.0,0.0,1.0,-8.0,-1.0
+866,Plateau,Three Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+865,Plateau,Three Weeks,Thursday,4.0,0.0,0.0,4.0,4.0,4.0,4.0
+1995,Plateau,Three Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+864,Plateau,Three Weeks,Saturday,7.0,0.0,0.0,7.0,7.0,7.0,7.0
+1379,Plateau,Three Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+211,Plateau,Three Weeks,Full Week,11.0,0.0,8.0,11.0,11.0,3.0,0.375
+1987,Plateau,Four Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1988,Plateau,Four Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1377,Plateau,Four Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+844,Plateau,Four Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+845,Plateau,Four Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+206,Plateau,Four Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1985,Plateau,Five Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1986,Plateau,Five Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1376,Plateau,Five Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+843,Plateau,Five Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+205,Plateau,Five Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1991,Plateau,Six Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1993,Plateau,Six Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1994,Plateau,Six Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1992,Plateau,Six Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1990,Plateau,Six Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+855,Plateau,Six Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+209,Plateau,Six Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1989,Plateau,Seven Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+853,Plateau,Seven Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1378,Plateau,Seven Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+854,Plateau,Seven Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+208,Plateau,Seven Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1984,Plateau,Eight Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1375,Plateau,Eight Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+204,Plateau,Eight Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2012,Pont de la Tour,This Week,Monday,0.0,0.0,9.0,0.0,1.0,-9.0,-1.0
+894,Pont de la Tour,This Week,Tuesday,-1.0,0.0,2.0,-1.0,-1.0,-3.0,-1.5
+895,Pont de la Tour,This Week,Wednesday,4.0,3.0,7.0,1.0,0.3333333333333333,-3.0,-0.42857142857142855
+893,Pont de la Tour,This Week,Thursday,0.0,5.0,0.0,-5.0,-1.0,0.0,1.0
+890,Pont de la Tour,This Week,Friday,7.0,16.0,2.0,-9.0,-0.5625,5.0,2.5
+891,Pont de la Tour,This Week,Saturday,7.0,10.0,6.0,-3.0,-0.3,1.0,0.16666666666666666
+892,Pont de la Tour,This Week,Sunday,3.0,0.0,2.0,3.0,3.0,1.0,0.5
+219,Pont de la Tour,This Week,Full Week,20.0,34.0,28.0,-14.0,-0.4117647058823529,-8.0,-0.2857142857142857
+882,Pont de la Tour,Next Week,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+886,Pont de la Tour,Next Week,Tuesday,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+887,Pont de la Tour,Next Week,Wednesday,6.0,11.0,0.0,-5.0,-0.45454545454545453,6.0,6.0
+885,Pont de la Tour,Next Week,Thursday,10.0,4.0,0.0,6.0,1.5,10.0,10.0
+881,Pont de la Tour,Next Week,Friday,-1.0,2.0,11.0,-3.0,-1.5,-12.0,-1.0909090909090908
+883,Pont de la Tour,Next Week,Saturday,2.0,3.0,0.0,-1.0,-0.3333333333333333,2.0,2.0
+884,Pont de la Tour,Next Week,Sunday,1.0,6.0,6.0,-5.0,-0.8333333333333334,-5.0,-0.8333333333333334
+216,Pont de la Tour,Next Week,Full Week,20.0,26.0,17.0,-6.0,-0.23076923076923078,3.0,0.17647058823529413
+1390,Pont de la Tour,Two Weeks,Monday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+904,Pont de la Tour,Two Weeks,Tuesday,2.0,6.0,11.0,-4.0,-0.6666666666666666,-9.0,-0.8181818181818182
+905,Pont de la Tour,Two Weeks,Wednesday,4.0,6.0,2.0,-2.0,-0.3333333333333333,2.0,1.0
+903,Pont de la Tour,Two Weeks,Thursday,5.0,3.0,0.0,2.0,0.6666666666666666,5.0,5.0
+900,Pont de la Tour,Two Weeks,Friday,9.0,6.0,0.0,3.0,0.5,9.0,9.0
+901,Pont de la Tour,Two Weeks,Saturday,5.0,16.0,0.0,-11.0,-0.6875,5.0,5.0
+902,Pont de la Tour,Two Weeks,Sunday,6.0,0.0,0.0,6.0,6.0,6.0,6.0
+221,Pont de la Tour,Two Weeks,Full Week,31.0,37.0,15.0,-6.0,-0.16216216216216217,16.0,1.0666666666666667
+2013,Pont de la Tour,Three Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+898,Pont de la Tour,Three Weeks,Tuesday,0.0,9.0,0.0,-9.0,-1.0,0.0,1.0
+899,Pont de la Tour,Three Weeks,Wednesday,6.0,11.0,0.0,-5.0,-0.45454545454545453,6.0,6.0
+897,Pont de la Tour,Three Weeks,Thursday,4.0,-4.0,0.0,8.0,-2.0,4.0,4.0
+1388,Pont de la Tour,Three Weeks,Friday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+896,Pont de la Tour,Three Weeks,Saturday,0.0,-6.0,2.0,6.0,-1.0,-2.0,-1.0
+1389,Pont de la Tour,Three Weeks,Sunday,0.0,7.0,0.0,-7.0,-1.0,0.0,1.0
+220,Pont de la Tour,Three Weeks,Full Week,10.0,17.0,4.0,-7.0,-0.4117647058823529,6.0,1.5
+2005,Pont de la Tour,Four Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+880,Pont de la Tour,Four Weeks,Tuesday,0.0,5.0,0.0,-5.0,-1.0,0.0,1.0
+1386,Pont de la Tour,Four Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1385,Pont de la Tour,Four Weeks,Thursday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+878,Pont de la Tour,Four Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+879,Pont de la Tour,Four Weeks,Saturday,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+215,Pont de la Tour,Four Weeks,Full Week,2.0,7.0,0.0,-5.0,-0.7142857142857143,2.0,2.0
+2001,Pont de la Tour,Five Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1384,Pont de la Tour,Five Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2004,Pont de la Tour,Five Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2003,Pont de la Tour,Five Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+877,Pont de la Tour,Five Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2002,Pont de la Tour,Five Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+214,Pont de la Tour,Five Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2007,Pont de la Tour,Six Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2010,Pont de la Tour,Six Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2011,Pont de la Tour,Six Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2009,Pont de la Tour,Six Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+889,Pont de la Tour,Six Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1387,Pont de la Tour,Six Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2008,Pont de la Tour,Six Weeks,Sunday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+218,Pont de la Tour,Six Weeks,Full Week,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+2006,Pont de la Tour,Seven Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+888,Pont de la Tour,Seven Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+217,Pont de la Tour,Seven Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1999,Pont de la Tour,Eight Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2000,Pont de la Tour,Eight Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1383,Pont de la Tour,Eight Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1998,Pont de la Tour,Eight Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+213,Pont de la Tour,Eight Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+993,Quaglino’s Restaurant,This Week,Monday,-2.0,0.0,16.0,-2.0,-2.0,-18.0,-1.125
+997,Quaglino’s Restaurant,This Week,Tuesday,-4.0,0.0,0.0,-4.0,-4.0,-4.0,-4.0
+998,Quaglino’s Restaurant,This Week,Wednesday,12.0,7.0,0.0,5.0,0.7142857142857143,12.0,12.0
+996,Quaglino’s Restaurant,This Week,Thursday,10.0,2.0,2.0,8.0,4.0,8.0,4.0
+992,Quaglino’s Restaurant,This Week,Friday,12.0,16.0,1.0,-4.0,-0.25,11.0,11.0
+994,Quaglino’s Restaurant,This Week,Saturday,22.0,-2.0,2.0,24.0,-12.0,20.0,10.0
+995,Quaglino’s Restaurant,This Week,Sunday,2.0,3.0,-4.0,-1.0,-0.3333333333333333,6.0,-1.5
+228,Quaglino’s Restaurant,This Week,Full Week,52.0,26.0,17.0,26.0,1.0,35.0,2.0588235294117645
+979,Quaglino’s Restaurant,Next Week,Monday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+983,Quaglino’s Restaurant,Next Week,Tuesday,4.0,0.0,7.0,4.0,4.0,-3.0,-0.42857142857142855
+984,Quaglino’s Restaurant,Next Week,Wednesday,0.0,-4.0,14.0,4.0,-1.0,-14.0,-1.0
+982,Quaglino’s Restaurant,Next Week,Thursday,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+978,Quaglino’s Restaurant,Next Week,Friday,4.0,4.0,9.0,0.0,0.25,-5.0,-0.5555555555555556
+980,Quaglino’s Restaurant,Next Week,Saturday,8.0,7.0,10.0,1.0,0.14285714285714285,-2.0,-0.2
+981,Quaglino’s Restaurant,Next Week,Sunday,4.0,11.0,12.0,-7.0,-0.6363636363636364,-8.0,-0.6666666666666666
+225,Quaglino’s Restaurant,Next Week,Full Week,22.0,18.0,54.0,4.0,0.2222222222222222,-32.0,-0.5925925925925926
+1007,Quaglino’s Restaurant,Two Weeks,Monday,-1.0,0.0,0.0,-1.0,-1.0,-1.0,-1.0
+1011,Quaglino’s Restaurant,Two Weeks,Tuesday,2.0,6.0,10.0,-4.0,-0.6666666666666666,-8.0,-0.8
+1012,Quaglino’s Restaurant,Two Weeks,Wednesday,2.0,6.0,4.0,-4.0,-0.6666666666666666,-2.0,-0.5
+1010,Quaglino’s Restaurant,Two Weeks,Thursday,7.0,2.0,0.0,5.0,2.5,7.0,7.0
+1006,Quaglino’s Restaurant,Two Weeks,Friday,17.0,5.0,10.0,12.0,2.4,7.0,0.7
+1008,Quaglino’s Restaurant,Two Weeks,Saturday,-4.0,4.0,4.0,-8.0,-2.0,-8.0,-2.0
+1009,Quaglino’s Restaurant,Two Weeks,Sunday,46.0,12.0,0.0,34.0,2.8333333333333335,46.0,46.0
+230,Quaglino’s Restaurant,Two Weeks,Full Week,69.0,35.0,28.0,34.0,0.9714285714285714,41.0,1.4642857142857142
+1000,Quaglino’s Restaurant,Three Weeks,Monday,2.0,0.0,4.0,2.0,2.0,-2.0,-0.5
+1004,Quaglino’s Restaurant,Three Weeks,Tuesday,0.0,-2.0,4.0,2.0,-1.0,-4.0,-1.0
+1005,Quaglino’s Restaurant,Three Weeks,Wednesday,8.0,10.0,0.0,-2.0,-0.2,8.0,8.0
+1003,Quaglino’s Restaurant,Three Weeks,Thursday,8.0,7.0,0.0,1.0,0.14285714285714285,8.0,8.0
+999,Quaglino’s Restaurant,Three Weeks,Friday,12.0,0.0,0.0,12.0,12.0,12.0,12.0
+1001,Quaglino’s Restaurant,Three Weeks,Saturday,4.0,0.0,2.0,4.0,4.0,2.0,1.0
+1002,Quaglino’s Restaurant,Three Weeks,Sunday,0.0,1.0,6.0,-1.0,-1.0,-6.0,-1.0
+229,Quaglino’s Restaurant,Three Weeks,Full Week,34.0,16.0,16.0,18.0,1.125,18.0,1.125
+973,Quaglino’s Restaurant,Four Weeks,Monday,2.0,4.0,-6.0,-2.0,-0.5,8.0,-1.3333333333333333
+977,Quaglino’s Restaurant,Four Weeks,Tuesday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+1410,Quaglino’s Restaurant,Four Weeks,Wednesday,0.0,3.0,0.0,-3.0,-1.0,0.0,1.0
+976,Quaglino’s Restaurant,Four Weeks,Thursday,0.0,9.0,0.0,-9.0,-1.0,0.0,1.0
+972,Quaglino’s Restaurant,Four Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+974,Quaglino’s Restaurant,Four Weeks,Saturday,5.0,4.0,0.0,1.0,0.25,5.0,5.0
+975,Quaglino’s Restaurant,Four Weeks,Sunday,2.0,3.0,0.0,-1.0,-0.3333333333333333,2.0,2.0
+224,Quaglino’s Restaurant,Four Weeks,Full Week,9.0,25.0,-6.0,-16.0,-0.64,15.0,-2.5
+1409,Quaglino’s Restaurant,Five Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+971,Quaglino’s Restaurant,Five Weeks,Tuesday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+970,Quaglino’s Restaurant,Five Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+967,Quaglino’s Restaurant,Five Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+968,Quaglino’s Restaurant,Five Weeks,Saturday,0.0,2.0,2.0,-2.0,-1.0,-2.0,-1.0
+969,Quaglino’s Restaurant,Five Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+223,Quaglino’s Restaurant,Five Weeks,Full Week,0.0,4.0,2.0,-4.0,-1.0,-2.0,-1.0
+989,Quaglino’s Restaurant,Six Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1413,Quaglino’s Restaurant,Six Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2020,Quaglino’s Restaurant,Six Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1412,Quaglino’s Restaurant,Six Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+988,Quaglino’s Restaurant,Six Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+990,Quaglino’s Restaurant,Six Weeks,Saturday,0.0,4.0,4.0,-4.0,-1.0,-4.0,-1.0
+991,Quaglino’s Restaurant,Six Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+227,Quaglino’s Restaurant,Six Weeks,Full Week,0.0,4.0,4.0,-4.0,-1.0,-4.0,-1.0
+1411,Quaglino’s Restaurant,Seven Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2018,Quaglino’s Restaurant,Seven Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2019,Quaglino’s Restaurant,Seven Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+985,Quaglino’s Restaurant,Seven Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+986,Quaglino’s Restaurant,Seven Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+987,Quaglino’s Restaurant,Seven Weeks,Sunday,0.0,0.0,4.0,0.0,1.0,-4.0,-1.0
+226,Quaglino’s Restaurant,Seven Weeks,Full Week,0.0,0.0,4.0,0.0,1.0,-4.0,-1.0
+965,Quaglino’s Restaurant,Eight Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+966,Quaglino’s Restaurant,Eight Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+964,Quaglino’s Restaurant,Eight Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+961,Quaglino’s Restaurant,Eight Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+962,Quaglino’s Restaurant,Eight Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+963,Quaglino’s Restaurant,Eight Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+222,Quaglino’s Restaurant,Eight Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2033,Radici,This Week,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1025,Radici,This Week,Tuesday,19.0,0.0,0.0,19.0,19.0,19.0,19.0
+1026,Radici,This Week,Wednesday,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+1024,Radici,This Week,Thursday,8.0,2.0,0.0,6.0,3.0,8.0,8.0
+1021,Radici,This Week,Friday,-4.0,4.0,14.0,-8.0,-2.0,-18.0,-1.2857142857142858
+1022,Radici,This Week,Saturday,9.0,17.0,13.0,-8.0,-0.47058823529411764,-4.0,-0.3076923076923077
+1023,Radici,This Week,Sunday,-2.0,0.0,3.0,-2.0,-2.0,-5.0,-1.6666666666666667
+237,Radici,This Week,Full Week,32.0,23.0,30.0,9.0,0.391304347826087,2.0,0.06666666666666667
+2030,Radici,Next Week,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1019,Radici,Next Week,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1020,Radici,Next Week,Wednesday,0.0,0.0,5.0,0.0,1.0,-5.0,-1.0
+1018,Radici,Next Week,Thursday,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+1016,Radici,Next Week,Friday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+1017,Radici,Next Week,Saturday,4.0,-4.0,0.0,8.0,-2.0,4.0,4.0
+1416,Radici,Next Week,Sunday,0.0,6.0,0.0,-6.0,-1.0,0.0,1.0
+234,Radici,Next Week,Full Week,6.0,2.0,7.0,4.0,2.0,-1.0,-0.14285714285714285
+2035,Radici,Two Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1031,Radici,Two Weeks,Tuesday,0.0,0.0,9.0,0.0,1.0,-9.0,-1.0
+1032,Radici,Two Weeks,Wednesday,0.0,0.0,5.0,0.0,1.0,-5.0,-1.0
+1030,Radici,Two Weeks,Thursday,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+1029,Radici,Two Weeks,Friday,0.0,5.0,3.0,-5.0,-1.0,-3.0,-1.0
+1419,Radici,Two Weeks,Saturday,0.0,4.0,0.0,-4.0,-1.0,0.0,1.0
+2036,Radici,Two Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+239,Radici,Two Weeks,Full Week,2.0,9.0,17.0,-7.0,-0.7777777777777778,-15.0,-0.8823529411764706
+2034,Radici,Three Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1418,Radici,Three Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1028,Radici,Three Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1417,Radici,Three Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1027,Radici,Three Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+238,Radici,Three Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1415,Radici,Four Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2028,Radici,Four Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1414,Radici,Four Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2029,Radici,Four Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+233,Radici,Four Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2027,Radici,Five Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+232,Radici,Five Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2032,Radici,Six Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+236,Radici,Six Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2031,Radici,Seven Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+235,Radici,Seven Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2025,Radici,Eight Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2026,Radici,Eight Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+231,Radici,Eight Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1053,Sartoria,This Week,Monday,0.0,0.0,9.0,0.0,1.0,-9.0,-1.0
+1056,Sartoria,This Week,Tuesday,8.0,0.0,13.0,8.0,8.0,-5.0,-0.38461538461538464
+1057,Sartoria,This Week,Wednesday,0.0,4.0,2.0,-4.0,-1.0,-2.0,-1.0
+1055,Sartoria,This Week,Thursday,6.0,-2.0,0.0,8.0,-4.0,6.0,6.0
+1052,Sartoria,This Week,Friday,3.0,8.0,3.0,-5.0,-0.625,0.0,0.3333333333333333
+1054,Sartoria,This Week,Saturday,10.0,-2.0,0.0,12.0,-6.0,10.0,10.0
+246,Sartoria,This Week,Full Week,27.0,8.0,27.0,19.0,2.375,0.0,0.037037037037037035
+1044,Sartoria,Next Week,Monday,0.0,3.0,0.0,-3.0,-1.0,0.0,1.0
+1047,Sartoria,Next Week,Tuesday,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+1048,Sartoria,Next Week,Wednesday,-2.0,0.0,2.0,-2.0,-2.0,-4.0,-2.0
+1046,Sartoria,Next Week,Thursday,6.0,0.0,-8.0,6.0,6.0,14.0,-1.75
+1043,Sartoria,Next Week,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1045,Sartoria,Next Week,Saturday,6.0,2.0,0.0,4.0,2.0,6.0,6.0
+243,Sartoria,Next Week,Full Week,12.0,5.0,-6.0,7.0,1.4,18.0,-3.0
+1064,Sartoria,Two Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1066,Sartoria,Two Weeks,Tuesday,4.0,0.0,11.0,4.0,4.0,-7.0,-0.6363636363636364
+1427,Sartoria,Two Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1065,Sartoria,Two Weeks,Thursday,7.0,0.0,0.0,7.0,7.0,7.0,7.0
+1063,Sartoria,Two Weeks,Friday,0.0,2.0,6.0,-2.0,-1.0,-6.0,-1.0
+1426,Sartoria,Two Weeks,Saturday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+248,Sartoria,Two Weeks,Full Week,11.0,4.0,17.0,7.0,1.75,-6.0,-0.35294117647058826
+1058,Sartoria,Three Weeks,Monday,0.0,-2.0,0.0,2.0,-1.0,0.0,1.0
+1061,Sartoria,Three Weeks,Tuesday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+1062,Sartoria,Three Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1060,Sartoria,Three Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1425,Sartoria,Three Weeks,Friday,0.0,4.0,0.0,-4.0,-1.0,0.0,1.0
+1059,Sartoria,Three Weeks,Saturday,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+247,Sartoria,Three Weeks,Full Week,2.0,2.0,2.0,0.0,0.5,0.0,0.5
+1421,Sartoria,Four Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1041,Sartoria,Four Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1042,Sartoria,Four Weeks,Wednesday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+1423,Sartoria,Four Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2044,Sartoria,Four Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1422,Sartoria,Four Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+242,Sartoria,Four Weeks,Full Week,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+1040,Sartoria,Five Weeks,Monday,1.0,0.0,0.0,1.0,1.0,1.0,1.0
+2043,Sartoria,Five Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1420,Sartoria,Five Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2042,Sartoria,Five Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2040,Sartoria,Five Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2041,Sartoria,Five Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+241,Sartoria,Five Weeks,Full Week,1.0,0.0,0.0,1.0,1.0,1.0,1.0
+2049,Sartoria,Six Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2051,Sartoria,Six Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1051,Sartoria,Six Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1050,Sartoria,Six Weeks,Friday,0.0,0.0,-1.0,0.0,1.0,1.0,-1.0
+2050,Sartoria,Six Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+245,Sartoria,Six Weeks,Full Week,0.0,0.0,-1.0,0.0,1.0,1.0,-1.0
+2046,Sartoria,Seven Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2047,Sartoria,Seven Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2048,Sartoria,Seven Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1424,Sartoria,Seven Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2045,Sartoria,Seven Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1049,Sartoria,Seven Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+244,Sartoria,Seven Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2039,Sartoria,Eight Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2038,Sartoria,Eight Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1039,Sartoria,Eight Weeks,Saturday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+240,Sartoria,Eight Weeks,Full Week,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+1092,Skylon Restaurant,This Week,Monday,2.0,0.0,27.0,2.0,2.0,-25.0,-0.9259259259259259
+2061,Skylon Restaurant,This Week,Tuesday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+1440,Skylon Restaurant,This Week,Wednesday,0.0,4.0,2.0,-4.0,-1.0,-2.0,-1.0
+1095,Skylon Restaurant,This Week,Thursday,12.0,1.0,0.0,11.0,11.0,12.0,12.0
+1091,Skylon Restaurant,This Week,Friday,-4.0,11.0,7.0,-15.0,-1.3636363636363635,-11.0,-1.5714285714285714
+1093,Skylon Restaurant,This Week,Saturday,16.0,6.0,9.0,10.0,1.6666666666666667,7.0,0.7777777777777778
+1094,Skylon Restaurant,This Week,Sunday,14.0,8.0,7.0,6.0,0.75,7.0,1.0
+255,Skylon Restaurant,This Week,Full Week,40.0,30.0,54.0,10.0,0.3333333333333333,-14.0,-0.25925925925925924
+1081,Skylon Restaurant,Next Week,Monday,0.0,2.0,3.0,-2.0,-1.0,-3.0,-1.0
+1085,Skylon Restaurant,Next Week,Tuesday,2.0,4.0,4.0,-2.0,-0.5,-2.0,-0.5
+1086,Skylon Restaurant,Next Week,Wednesday,5.0,0.0,2.0,5.0,5.0,3.0,1.5
+1084,Skylon Restaurant,Next Week,Thursday,7.0,2.0,5.0,5.0,2.5,2.0,0.4
+1080,Skylon Restaurant,Next Week,Friday,6.0,10.0,8.0,-4.0,-0.4,-2.0,-0.25
+1082,Skylon Restaurant,Next Week,Saturday,1.0,17.0,10.0,-16.0,-0.9411764705882353,-9.0,-0.9
+1083,Skylon Restaurant,Next Week,Sunday,0.0,4.0,7.0,-4.0,-1.0,-7.0,-1.0
+252,Skylon Restaurant,Next Week,Full Week,21.0,39.0,39.0,-18.0,-0.46153846153846156,-18.0,-0.46153846153846156
+1104,Skylon Restaurant,Two Weeks,Monday,6.0,2.0,0.0,4.0,2.0,6.0,6.0
+1107,Skylon Restaurant,Two Weeks,Tuesday,5.0,2.0,4.0,3.0,1.5,1.0,0.25
+1108,Skylon Restaurant,Two Weeks,Wednesday,-4.0,0.0,14.0,-4.0,-4.0,-18.0,-1.2857142857142858
+1106,Skylon Restaurant,Two Weeks,Thursday,11.0,2.0,0.0,9.0,4.5,11.0,11.0
+1103,Skylon Restaurant,Two Weeks,Friday,0.0,-2.0,0.0,2.0,-1.0,0.0,1.0
+1441,Skylon Restaurant,Two Weeks,Saturday,0.0,6.0,2.0,-6.0,-1.0,-2.0,-1.0
+1105,Skylon Restaurant,Two Weeks,Sunday,2.0,7.0,3.0,-5.0,-0.7142857142857143,-1.0,-0.3333333333333333
+257,Skylon Restaurant,Two Weeks,Full Week,20.0,17.0,23.0,3.0,0.17647058823529413,-3.0,-0.13043478260869565
+1097,Skylon Restaurant,Three Weeks,Monday,2.0,0.0,2.0,2.0,2.0,0.0,0.5
+1101,Skylon Restaurant,Three Weeks,Tuesday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+1102,Skylon Restaurant,Three Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1100,Skylon Restaurant,Three Weeks,Thursday,-13.0,0.0,0.0,-13.0,-13.0,-13.0,-13.0
+1096,Skylon Restaurant,Three Weeks,Friday,0.0,5.0,0.0,-5.0,-1.0,0.0,1.0
+1098,Skylon Restaurant,Three Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1099,Skylon Restaurant,Three Weeks,Sunday,0.0,6.0,0.0,-6.0,-1.0,0.0,1.0
+256,Skylon Restaurant,Three Weeks,Full Week,-11.0,11.0,4.0,-22.0,-2.0,-15.0,-3.75
+1431,Skylon Restaurant,Four Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1435,Skylon Restaurant,Four Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1079,Skylon Restaurant,Four Weeks,Wednesday,0.0,5.0,0.0,-5.0,-1.0,0.0,1.0
+1434,Skylon Restaurant,Four Weeks,Thursday,0.0,10.0,7.0,-10.0,-1.0,-7.0,-1.0
+1078,Skylon Restaurant,Four Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1432,Skylon Restaurant,Four Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1433,Skylon Restaurant,Four Weeks,Sunday,0.0,5.0,0.0,-5.0,-1.0,0.0,1.0
+251,Skylon Restaurant,Four Weeks,Full Week,0.0,20.0,7.0,-20.0,-1.0,-7.0,-1.0
+1075,Skylon Restaurant,Five Weeks,Monday,1.0,0.0,0.0,1.0,1.0,1.0,1.0
+2057,Skylon Restaurant,Five Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1430,Skylon Restaurant,Five Weeks,Wednesday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+2056,Skylon Restaurant,Five Weeks,Thursday,0.0,0.0,6.0,0.0,1.0,-6.0,-1.0
+1074,Skylon Restaurant,Five Weeks,Friday,6.0,0.0,2.0,6.0,6.0,4.0,2.0
+1076,Skylon Restaurant,Five Weeks,Saturday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+1077,Skylon Restaurant,Five Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+250,Skylon Restaurant,Five Weeks,Full Week,7.0,2.0,10.0,5.0,2.5,-3.0,-0.3
+2058,Skylon Restaurant,Six Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1090,Skylon Restaurant,Six Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2060,Skylon Restaurant,Six Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2059,Skylon Restaurant,Six Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1437,Skylon Restaurant,Six Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1438,Skylon Restaurant,Six Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1439,Skylon Restaurant,Six Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+254,Skylon Restaurant,Six Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1436,Skylon Restaurant,Seven Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1087,Skylon Restaurant,Seven Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1088,Skylon Restaurant,Seven Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1089,Skylon Restaurant,Seven Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+253,Skylon Restaurant,Seven Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2053,Skylon Restaurant,Eight Weeks,Monday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+2055,Skylon Restaurant,Eight Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2054,Skylon Restaurant,Eight Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1072,Skylon Restaurant,Eight Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1073,Skylon Restaurant,Eight Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1429,Skylon Restaurant,Eight Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+249,Skylon Restaurant,Eight Weeks,Full Week,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+1128,South Place Chop House,This Week,Monday,0.0,0.0,9.0,0.0,1.0,-9.0,-1.0
+1132,South Place Chop House,This Week,Tuesday,2.0,0.0,2.0,2.0,2.0,0.0,0.5
+1133,South Place Chop House,This Week,Wednesday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+1131,South Place Chop House,This Week,Thursday,3.0,0.0,8.0,3.0,3.0,-5.0,-0.625
+1127,South Place Chop House,This Week,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1129,South Place Chop House,This Week,Saturday,-21.0,-10.0,5.0,-11.0,1.1,-26.0,-5.2
+1130,South Place Chop House,This Week,Sunday,4.0,0.0,14.0,4.0,4.0,-10.0,-0.7142857142857143
+264,South Place Chop House,This Week,Full Week,-12.0,-10.0,40.0,-2.0,0.2,-52.0,-1.3
+1120,South Place Chop House,Next Week,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1124,South Place Chop House,Next Week,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1125,South Place Chop House,Next Week,Wednesday,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+1123,South Place Chop House,Next Week,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1119,South Place Chop House,Next Week,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1121,South Place Chop House,Next Week,Saturday,-6.0,-2.0,2.0,-4.0,2.0,-8.0,-4.0
+1122,South Place Chop House,Next Week,Sunday,0.0,10.0,0.0,-10.0,-1.0,0.0,1.0
+261,South Place Chop House,Next Week,Full Week,-4.0,8.0,2.0,-12.0,-1.5,-6.0,-3.0
+1137,South Place Chop House,Two Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1140,South Place Chop House,Two Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1141,South Place Chop House,Two Weeks,Wednesday,0.0,0.0,2.0,0.0,1.0,-2.0,-1.0
+1451,South Place Chop House,Two Weeks,Thursday,0.0,0.0,4.0,0.0,1.0,-4.0,-1.0
+1136,South Place Chop House,Two Weeks,Friday,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+1138,South Place Chop House,Two Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1139,South Place Chop House,Two Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+266,South Place Chop House,Two Weeks,Full Week,2.0,0.0,6.0,2.0,2.0,-4.0,-0.6666666666666666
+1447,South Place Chop House,Three Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2081,South Place Chop House,Three Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1450,South Place Chop House,Three Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1135,South Place Chop House,Three Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1134,South Place Chop House,Three Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1448,South Place Chop House,Three Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1449,South Place Chop House,Three Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+265,South Place Chop House,Three Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2071,South Place Chop House,Four Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2075,South Place Chop House,Four Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2076,South Place Chop House,Four Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2074,South Place Chop House,Four Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1442,South Place Chop House,Four Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2072,South Place Chop House,Four Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2073,South Place Chop House,Four Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+260,South Place Chop House,Four Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2068,South Place Chop House,Five Weeks,Monday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2070,South Place Chop House,Five Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1118,South Place Chop House,Five Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1117,South Place Chop House,Five Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2067,South Place Chop House,Five Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1116,South Place Chop House,Five Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2069,South Place Chop House,Five Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+259,South Place Chop House,Five Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2080,South Place Chop House,Six Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1446,South Place Chop House,Six Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1445,South Place Chop House,Six Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1126,South Place Chop House,Six Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1444,South Place Chop House,Six Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+263,South Place Chop House,Six Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2078,South Place Chop House,Seven Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2079,South Place Chop House,Seven Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1443,South Place Chop House,Seven Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2077,South Place Chop House,Seven Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+262,South Place Chop House,Seven Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2066,South Place Chop House,Eight Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2065,South Place Chop House,Eight Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+2064,South Place Chop House,Eight Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1114,South Place Chop House,Eight Weeks,Saturday,3.0,0.0,0.0,3.0,3.0,3.0,3.0
+1115,South Place Chop House,Eight Weeks,Sunday,3.0,0.0,0.0,3.0,3.0,3.0,3.0
+258,South Place Chop House,Eight Weeks,Full Week,6.0,0.0,0.0,6.0,6.0,6.0,6.0
+1157,The Modern Pantry,This Week,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1158,The Modern Pantry,This Week,Wednesday,2.0,2.0,0.0,0.0,0.5,2.0,2.0
+1156,The Modern Pantry,This Week,Thursday,-6.0,2.0,0.0,-8.0,-4.0,-6.0,-6.0
+1153,The Modern Pantry,This Week,Friday,7.0,5.0,0.0,2.0,0.4,7.0,7.0
+1154,The Modern Pantry,This Week,Saturday,10.0,13.0,0.0,-3.0,-0.23076923076923078,10.0,10.0
+1155,The Modern Pantry,This Week,Sunday,2.0,6.0,0.0,-4.0,-0.6666666666666666,2.0,2.0
+271,The Modern Pantry,This Week,Full Week,15.0,28.0,0.0,-13.0,-0.4642857142857143,15.0,15.0
+1151,The Modern Pantry,Next Week,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1152,The Modern Pantry,Next Week,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1150,The Modern Pantry,Next Week,Thursday,-4.0,0.0,0.0,-4.0,-4.0,-4.0,-4.0
+1147,The Modern Pantry,Next Week,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1148,The Modern Pantry,Next Week,Saturday,4.0,6.0,0.0,-2.0,-0.3333333333333333,4.0,4.0
+1149,The Modern Pantry,Next Week,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+270,The Modern Pantry,Next Week,Full Week,0.0,6.0,0.0,-6.0,-1.0,0.0,1.0
+1163,The Modern Pantry,Two Weeks,Tuesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1164,The Modern Pantry,Two Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1461,The Modern Pantry,Two Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1460,The Modern Pantry,Two Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1161,The Modern Pantry,Two Weeks,Saturday,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+1162,The Modern Pantry,Two Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+273,The Modern Pantry,Two Weeks,Full Week,2.0,0.0,0.0,2.0,2.0,2.0,2.0
+1458,The Modern Pantry,Three Weeks,Tuesday,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+1459,The Modern Pantry,Three Weeks,Wednesday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1160,The Modern Pantry,Three Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1159,The Modern Pantry,Three Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1456,The Modern Pantry,Three Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1457,The Modern Pantry,Three Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+272,The Modern Pantry,Three Weeks,Full Week,0.0,2.0,0.0,-2.0,-1.0,0.0,1.0
+1455,The Modern Pantry,Four Weeks,Thursday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1454,The Modern Pantry,Four Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1146,The Modern Pantry,Four Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+269,The Modern Pantry,Four Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1145,The Modern Pantry,Five Weeks,Saturday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1453,The Modern Pantry,Five Weeks,Sunday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+268,The Modern Pantry,Five Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+1144,The Modern Pantry,Eight Weeks,Friday,0.0,0.0,0.0,0.0,1.0,0.0,1.0
+267,The Modern Pantry,Eight Weeks,Full Week,0.0,0.0,0.0,0.0,1.0,0.0,1.0
