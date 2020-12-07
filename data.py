@@ -3,9 +3,9 @@ from datetime import date, datetime, timedelta
 from authentication import auth
 from styling import *
 
-rev_df = pd.read_csv("App Revenue.csv")
+rev_df = pd.read_csv("data/App Revenue.csv")
 rev_df['Date'] = pd.to_datetime(rev_df['Date']).dt.date
-cov_df = pd.read_csv("App Covers.csv")
+cov_df = pd.read_csv("data/App Covers.csv")
 cov_df['Date'] = pd.to_datetime(cov_df['Date']).dt.date
 
 def get_week(date):
@@ -532,8 +532,8 @@ def user_site_filter(df):
     return df[df['SiteName'].isin(user_restaurants[auth._username])]
 
 
-tracker_df = pd.read_csv('Tracker.csv').iloc[:,1:]
-pickup_df = pd.read_csv('Pickup.csv').iloc[:,1:]
+tracker_df = pd.read_csv('data/Tracker.csv').iloc[:,1:]
+pickup_df = pd.read_csv('data/Pickup.csv').iloc[:,1:]
 
 def group_sort_columns(df):
     
@@ -599,10 +599,10 @@ def tracker_day_filter(df, graph_type):
     return df[df['Day'] == 'Full Week'] if graph_type == '8 Week' else df[df['Day'] != 'Full Week'] 
 
 
-future_df = pd.read_csv("Future Bookings.csv")
+future_df = pd.read_csv("data/Future Bookings.csv")
 future_df['weekday'] = pd.to_datetime(future_df['visit_day']).dt.weekday_name
 
-trends_df = pd.read_csv('Booking Trends.csv')
+trends_df = pd.read_csv('data/Booking Trends.csv')
 
 def trends_table_filter(df, table):
     return df[df['Table']==table]
