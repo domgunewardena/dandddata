@@ -41,11 +41,12 @@ def first_day_of_week(date):
 def first_day_of_month(date):
     return date.replace(day=1)
 
-# today = date.today()
 
 # Specifying today's date as March 13th
-mar_13 = '06/03/20'
-today = datetime.strptime(mar_13, '%d/%m/%y').date()
+# mar_13 = '06/03/20'
+# today = datetime.strptime(mar_13, '%d/%m/%y').date()
+
+today = date.today()
 yesterday = onedayago(today)
 
 daily_upper = daily_lower = yesterday
