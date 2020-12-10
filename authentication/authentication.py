@@ -1,4 +1,4 @@
-import dash_auth
+from authentication import dash_auth
 from app import app
 
 VALID_USERNAME_PASSWORD_PAIRS = {

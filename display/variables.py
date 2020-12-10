@@ -69,6 +69,25 @@ monthly_vs_col = 'vs. LM'
 
 # Tracker Variables
 
+tracker_weeks = [
+    'This Week',
+    'Next Week',
+    'Two Weeks',
+    'Three Weeks',
+    'Four Weeks',
+    'Five Weeks',
+    'Six Weeks',
+    'Seven Weeks',
+    'Eight Weeks'
+]
+
+tracker_metrics = [
+    'vs. LW',
+    'vs. LY',
+    'Last Week',
+    'Last Year'
+]
+
 tracker_dropdown_ids = ['tracker_week_dropdown','tracker_metric_dropdown','tracker_site_dropdown']
 tracker_dropdown_dependencies = [dash.dependencies.Input(x, 'value') for x in tracker_dropdown_ids]
 

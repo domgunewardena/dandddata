@@ -2,7 +2,7 @@ import plotly.graph_objs as go
 from plotly.subplots import make_subplots
 import pandas as pd
 
-from data import trends_site_filter, trends_table_filter
+from data.data import trends_site_filter, trends_table_filter
 
 # Sales Figures
 

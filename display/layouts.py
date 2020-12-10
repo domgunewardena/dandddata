@@ -4,10 +4,13 @@ import dash_html_components as html
 import dash_bootstrap_components as dbc
 
 from datetime import date, datetime, timedelta
-from variables import *
-from styling import *
-from figures import trends_group_pickup_figure, trends_group_future_figure
-from data import trends_df
+
+from display.variables import *
+from display.styling import *
+from authentication.users import bookings_user_restaurants
+
+from plots.figures import trends_group_pickup_figure, trends_group_future_figure
+from data.data import trends_df
 
 # Home Page
 
