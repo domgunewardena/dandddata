@@ -3,11 +3,15 @@ from datetime import date, datetime, timedelta
 from authentication.authentication import auth
 from authentication.users import *
 
+# Import Sales CSVs
 rev_df = pd.read_csv("data/App Revenue.csv")
-rev_df['Date'] = pd.to_datetime(rev_df['Date']).dt.date
 cov_df = pd.read_csv("data/App Covers.csv")
+
+# Add Date Columns
+rev_df['Date'] = pd.to_datetime(rev_df['Date']).dt.date
 cov_df['Date'] = pd.to_datetime(cov_df['Date']).dt.date
 
+# Date Functions 
 def get_week(date):
     return date.isocalendar()[1]
 
@@ -41,13 +45,10 @@ def first_day_of_week(date):
 def first_day_of_month(date):
     return date.replace(day=1)
 
-
-# Specifying today's date as March 13th
-# mar_13 = '06/03/20'
-# today = datetime.strptime(mar_13, '%d/%m/%y').date()
-
 today = date.today()
 yesterday = onedayago(today)
+
+# Defining date bounds of the different sales reports for subsequent filtering into the sales report dataframes
 
 daily_upper = daily_lower = yesterday
 daily_upper_lw = daily_lower_lw = oneweekago(daily_upper)
@@ -98,11 +99,16 @@ weekly_bounds = [weekly_upper,weekly_lower,weekly_upper_lw,weekly_lower_lw,weekl
 monthly_bounds = [monthly_upper,monthly_lower,monthly_upper_lw,monthly_lower_lw,monthly_upper_ly,monthly_lower_ly]
 all_bounds = [daily_bounds, wtd_bounds, mtd_bounds, weekly_bounds, monthly_bounds]
 
+# Generating each sales report dataframe by filtering by previously defined date bounds
+
 daily_rev_df,daily_cov_df = date_filtering(rev_df,daily_bounds),date_filtering(cov_df,daily_bounds)
 wtd_rev_df,wtd_cov_df = date_filtering(rev_df,wtd_bounds),date_filtering(cov_df,wtd_bounds)
 mtd_rev_df,mtd_cov_df = date_filtering(rev_df,mtd_bounds),date_filtering(cov_df,mtd_bounds)
 weekly_rev_df,weekly_cov_df = date_filtering(rev_df,weekly_bounds),date_filtering(cov_df,weekly_bounds)
 monthly_rev_df,monthly_cov_df = date_filtering(rev_df,monthly_bounds),date_filtering(cov_df,monthly_bounds)
+
+
+# Process for creating dataframes that denote how many days of each weekday have occurred for each timeframe within each sales report - these will be merged with revenue/covers/spend dataframes to allow averages to be calculated for each day within the app
 
 def day_count_df(lower, upper):
     df = pd.DataFrame(
@@ -142,6 +148,8 @@ weekly_days = day_df(weekly_bounds, week_current_col, weekly_last_col)
 mtd_days = day_df(mtd_bounds, month_current_col, monthly_last_col)
 monthly_days = day_df(monthly_bounds, month_current_col, monthly_last_col)
 
+# Function to ensure any infinite values are converted to 0 to allow calculation
+
 def infinite(x): 
     if x == float('inf'): 
         return 0 
@@ -150,7 +158,8 @@ def infinite(x):
     else: 
         return x
     
-def Comp_DF(df_tw, df_lw, df_ly, on_column, current_column, last_col, vs_col):
+# Returns final dataframe that gets fed into graph functions - generating columns for each time period (current, last, last year) & comparison columns    
+def final_dataframe(df_tw, df_lw, df_ly, on_column, current_column, last_col, vs_col):
     
     df_ty = pd.merge(
         left=df_tw,
@@ -174,7 +183,7 @@ def Comp_DF(df_tw, df_lw, df_ly, on_column, current_column, last_col, vs_col):
     df['vs. LY %'] = (df['vs. LY'].replace(0,1) / df['Last Year'].replace(0,1))
     return df
 
-def Date_Splitter(df,bounds,current_column,last_col,vs_col,on_column,func):
+def date_filtering(df,bounds,current_column,last_col,vs_col,on_column,func):
 
     mask1 = df['Date'] <= bounds[0]
     mask2 = df['Date'] >= bounds[1]
@@ -187,9 +196,9 @@ def Date_Splitter(df,bounds,current_column,last_col,vs_col,on_column,func):
     df_lw = func(df[mask3 & mask4])
     df_ly = func(df[mask5 & mask6])
 
-    return Comp_DF(df_tw, df_lw, df_ly, on_column, current_column, last_col, vs_col)
+    return final_dataframe(df_tw, df_lw, df_ly, on_column, current_column, last_col, vs_col)
 
-def Spend_DF(rev_df,cov_df,on_column,current_column,last_col,vs_col):
+def spend_df(rev_df,cov_df,on_column,current_column,last_col,vs_col):
     
     df = pd.merge(
         left=rev_df,
@@ -208,93 +217,94 @@ def Spend_DF(rev_df,cov_df,on_column,current_column,last_col,vs_col):
     
     return df[[on_column,current_column,last_col,'Last Year',vs_col,vs_col + ' %','vs. LY','vs. LY %']]
 
-def Area_Revenue(df):
+
+def group_revenue_by_area(df):
     df_cols = ['GenericLocation', 'Revenue']
     groupby_cols = df_cols[:-1]
     return df[df_cols].groupby(groupby_cols).sum().reset_index()
 
-def Location_Revenue(df):
+def group_revenue_by_location(df):
     df_cols = ['LocationName', 'Revenue']
     groupby_cols = df_cols[:-1]
     return df[df_cols].groupby(groupby_cols).sum().reset_index()
 
-def Type_Revenue(df):
+def group_revenue_by_type(df):
     df_cols = ['RevenueType', 'Revenue']
     groupby_cols = df_cols[:-1]
     return df[df_cols].groupby(groupby_cols).sum().reset_index()
 
-def Wine_Revenue(df):
+def group_revenue_by_wine(df):
     df_cols = ['Wine', 'Revenue']
     groupby_cols = df_cols[:-1]
     return df[df_cols].groupby(groupby_cols).sum().reset_index()
 
-def Site_Breakdown_Revenue(df):
+def group_revenue_by_site(df):
     df_cols = ['SiteName', 'Revenue']
     groupby_cols = df_cols[:-1]
     return df[df_cols].groupby(groupby_cols).sum().reset_index()
 
-def Area_Covers(df):
+def group_covers_by_area(df):
     df_cols = ['GenericLocation', 'Covers']
     groupby_cols = df_cols[:-1]
     return df[df_cols].groupby(groupby_cols).sum().reset_index()
 
-def Location_Covers(df):
+def group_covers_by_location(df):
     df_cols = ['LocationName', 'Covers']
     groupby_cols = df_cols[:-1]
     return df[df_cols].groupby(groupby_cols).sum().reset_index()
 
-def Site_Breakdown_Covers(df):
+def group_covers_by_site(df):
     df_cols = ['SiteName', 'Covers']
     groupby_cols = df_cols[:-1]
     return df[df_cols].groupby(groupby_cols).sum().reset_index()
 
 
-def Group_DF(df,bounds,current_column,last_col,vs_col,oncolumn,func):
+def group_general_df(df,bounds,current_column,last_col,vs_col,oncolumn,func):
     
-    df = Date_Splitter(df,bounds,current_column,last_col,vs_col,oncolumn,func)
+    df = date_filtering(df,bounds,current_column,last_col,vs_col,oncolumn,func)
     sorter = ['Total',"Restaurant", "Bar", "PDR", "Events & Ex Hires", "Retail & Other"]
     df[oncolumn] = df[oncolumn].astype("category")
     df[oncolumn].cat.set_categories(sorter, inplace=True)
     return df.sort_values([oncolumn])
 
-def Group_Revenue(df,bounds,current_column,last_col,vs_col,oncolumn):
-    return Group_DF(df,bounds,current_column,last_col,vs_col,oncolumn,Area_Revenue)
+def group_revenue_df(df,bounds,current_column,last_col,vs_col,oncolumn):
+    return group_general_df(df,bounds,current_column,last_col,vs_col,oncolumn,group_revenue_by_area)
 
-def Group_Covers(df,bounds,current_column,last_col,vs_col,oncolumn):
-    return Group_DF(df,bounds,current_column,last_col,vs_col,oncolumn,Area_Covers)
+def group_covers_df(df,bounds,current_column,last_col,vs_col,oncolumn):
+    return group_general_df(df,bounds,current_column,last_col,vs_col,oncolumn,group_covers_by_area)
 
-def Group_Simple_Spend(rev_df,cov_df,bounds,current_column,last_col,vs_col,oncolumn):
+def group_simple_spend_df(rev_df,cov_df,bounds,current_column,last_col,vs_col,oncolumn):
     
-    return Spend_DF(
-        Group_Revenue(rev_df,bounds,current_column,last_col,vs_col,oncolumn),
-        Group_Covers(cov_df,bounds,current_column,last_col,vs_col,oncolumn),
+    return spend_df(
+        group_revenue_df(rev_df,bounds,current_column,last_col,vs_col,oncolumn),
+        group_covers_df(cov_df,bounds,current_column,last_col,vs_col,oncolumn),
         oncolumn,
         current_column,
         last_col,
         vs_col
     )
 
-def Group_Spend(rev_df, cov_df, bounds, current_column,last_col,vs_col,oncolumn):
+def group_spend_df(rev_df, cov_df, bounds, current_column,last_col,vs_col,oncolumn):
     
     df = rev_df
     bevmask = df['RevenueType'] == 'Beverage'
     foodmask = df['RevenueType'] == 'Food'   
     restaurantmask = df[oncolumn] == 'Restaurant'
     df = df[(bevmask | foodmask) & restaurantmask]
-    type_df = Date_Splitter(df,bounds,current_column,last_col,vs_col,'RevenueType',Type_Revenue)
+    type_df = date_filtering(df,bounds,current_column,last_col,vs_col,'RevenueType',group_revenue_by_type)
     
     df = rev_df
     bevmask = df['RevenueType'] == 'Beverage'
     foodmask = df['RevenueType'] == 'Food'
     restaurantmask = df[oncolumn] == 'Restaurant'
     df = df[bevmask & restaurantmask]
-    wine_df = Date_Splitter(df,bounds,current_column,last_col,vs_col,'Wine',Wine_Revenue)
+    wine_df = date_filtering(df,bounds,current_column,last_col,vs_col,'Wine',group_revenue_by_wine)
     wine_df = wine_df.drop(index=len(wine_df)-1)
     wine_df.columns = ['RevenueType',current_column,last_col,'Last Year',vs_col, vs_col + ' %', 'vs. LY', 'vs. LY %']
     
     revenue = pd.concat([type_df, wine_df],ignore_index=True, sort=False).iloc[:,:4]
     cov_df = cov_df[cov_df['GenericLocation'] == 'Restaurant']
-    covers = Group_Covers(cov_df,bounds,current_column,last_col,vs_col,oncolumn).iloc[:,:4]
+    covers = group_covers_df(cov_df,bounds,current_column,last_col,vs_col,oncolumn).iloc[:,:4]
     covers['Join Column'] = revenue['Join Column'] = 1
     covers.columns = [oncolumn, current_column+' x', last_col + ' x', 'Last Year x', 'Join Column']
     df = pd.merge(revenue, covers, how='outer')
@@ -313,51 +323,51 @@ def Group_Spend(rev_df, cov_df, bounds, current_column,last_col,vs_col,oncolumn)
     
     return df.drop_duplicates().sort_values(by=oncolumn)
 
-def Site_DF(site,df,bounds,current_column,last_col,vs_col,oncolumn,func):
-    df = Date_Splitter(df[df['SiteName'] == site],bounds,current_column,last_col,vs_col,oncolumn,func)
+def site_general_df(site,df,bounds,current_column,last_col,vs_col,oncolumn,func):
+    df = date_filtering(df[df['SiteName'] == site],bounds,current_column,last_col,vs_col,oncolumn,func)
     sorter = ['Total'] + df[oncolumn].drop(index=len(df)-1).to_list()
     df[oncolumn] = df[oncolumn].astype("category")
     df[oncolumn].cat.set_categories(sorter, inplace=True)
     return df.sort_values([oncolumn])
 
-def Site_Revenue(site,df,bounds,current_column,last_col,vs_col,oncolumn):
-    return Site_DF(site,df,bounds,current_column,last_col,vs_col,oncolumn,Location_Revenue)
+def site_revenue_df(site,df,bounds,current_column,last_col,vs_col,oncolumn):
+    return site_general_df(site,df,bounds,current_column,last_col,vs_col,oncolumn,group_revenue_by_location)
 
-def Site_Covers(site,df,bounds,current_column,last_col,vs_col,oncolumn):
-    return Site_DF(site,df,bounds,current_column,last_col,vs_col,oncolumn,Location_Covers)
+def site_covers_df(site,df,bounds,current_column,last_col,vs_col,oncolumn):
+    return site_general_df(site,df,bounds,current_column,last_col,vs_col,oncolumn,group_covers_by_location)
 
-def Site_Simple_Spend(site,rev_df,cov_df,bounds,current_column,last_col,vs_col,oncolumn):
+def site_simple_spend_df(site,rev_df,cov_df,bounds,current_column,last_col,vs_col,oncolumn):
     
-    return Spend_DF(
-        Site_Revenue(site,rev_df,bounds,current_column,last_col,vs_col,oncolumn),
-        Site_Covers(site,cov_df,bounds,current_column,last_col,vs_col,oncolumn),
+    return spend_df(
+        site_revenue_df(site,rev_df,bounds,current_column,last_col,vs_col,oncolumn),
+        site_covers_df(site,cov_df,bounds,current_column,last_col,vs_col,oncolumn),
         oncolumn,
         current_column,
         last_col,
         vs_col
     )
 
-def Site_Spend(site,rev_df,cov_df,bounds,current_column,last_col,vs_col,oncolumn):
+def site_spend_df(site,rev_df,cov_df,bounds,current_column,last_col,vs_col,oncolumn):
     
     df = rev_df[rev_df['SiteName'] == site]
     bevmask = df['RevenueType'] == 'Beverage'
     foodmask = df['RevenueType'] == 'Food'   
     restaurantmask = df['GenericLocation'] == 'Restaurant'
     df = df[(bevmask | foodmask) & restaurantmask]
-    type_df = Date_Splitter(df,bounds,current_column,last_col,vs_col,'RevenueType',Type_Revenue)
+    type_df = date_filtering(df,bounds,current_column,last_col,vs_col,'RevenueType',group_revenue_by_type)
     
     df = rev_df[rev_df['SiteName'] == site]
     bevmask = df['RevenueType'] == 'Beverage'
     restaurantmask = df['GenericLocation'] == 'Restaurant'
     df = df[bevmask & restaurantmask]
-    wine_df = Date_Splitter(df,bounds,current_column,last_col,vs_col,'Wine',Wine_Revenue)
+    wine_df = date_filtering(df,bounds,current_column,last_col,vs_col,'Wine',group_revenue_by_wine)
     wine_df = wine_df.drop(index=len(wine_df)-1)
     wine_df.columns = ['RevenueType',current_column,last_col,'Last Year',vs_col, vs_col + ' %', 'vs. LY', 'vs. LY %']
 
     revenue = pd.concat([type_df, wine_df],ignore_index=True, sort=False).iloc[:,:4]
     cov_df = cov_df[cov_df['GenericLocation'] == 'Restaurant']
     cov_df = cov_df[cov_df['SiteName'] == site]
-    covers = Group_Covers(cov_df,bounds,current_column,last_col,vs_col,'GenericLocation').iloc[:,:4]
+    covers = group_covers_df(cov_df,bounds,current_column,last_col,vs_col,'GenericLocation').iloc[:,:4]
     covers['Join Column'] = revenue['Join Column'] = 1
     covers.columns = [oncolumn, current_column+' x', last_col + ' x', 'Last Year x', 'Join Column']
     df = pd.merge(revenue, covers, how='outer')
@@ -377,28 +387,28 @@ def Site_Spend(site,rev_df,cov_df,bounds,current_column,last_col,vs_col,oncolumn
     return df.drop_duplicates().sort_values(by=oncolumn)
 
 
-def Breakdown_DF(df,bounds,current_column,last_col,vs_col,oncolumn,func):
-    df = Date_Splitter(df,bounds,current_column,last_col,vs_col,oncolumn,func)
+def breakdown_general_df(df,bounds,current_column,last_col,vs_col,oncolumn,func):
+    df = date_filtering(df,bounds,current_column,last_col,vs_col,oncolumn,func)
     return df.drop(index=len(df)-1)
     
-def Breakdown_Revenue(df,bounds,current_column,last_col,vs_col,oncolumn):
-    return Breakdown_DF(df,bounds,current_column,last_col,vs_col,oncolumn,Site_Breakdown_Revenue)
+def breakdown_revenue_df(df,bounds,current_column,last_col,vs_col,oncolumn):
+    return breakdown_general_df(df,bounds,current_column,last_col,vs_col,oncolumn,group_revenue_by_site)
 
-def Breakdown_Covers(df,bounds,current_column,last_col,vs_col,oncolumn):
-    return Breakdown_DF(df,bounds,current_column,last_col,vs_col,oncolumn,Site_Breakdown_Covers)
+def breakdown_covers_df(df,bounds,current_column,last_col,vs_col,oncolumn):
+    return breakdown_general_df(df,bounds,current_column,last_col,vs_col,oncolumn,group_covers_by_site)
 
-def Breakdown_Spend(rev_df,cov_df,bounds,current_column,last_col,vs_col,oncolumn):
+def breakdown_spend_df(rev_df,cov_df,bounds,current_column,last_col,vs_col,oncolumn):
     
-    return Spend_DF(
-        Breakdown_Revenue(rev_df,bounds,current_column,last_col,vs_col,oncolumn),
-        Breakdown_Covers(cov_df,bounds,current_column,last_col,vs_col,oncolumn),
+    return spend_df(
+        breakdown_revenue_df(rev_df,bounds,current_column,last_col,vs_col,oncolumn),
+        breakdown_covers_df(cov_df,bounds,current_column,last_col,vs_col,oncolumn),
         oncolumn,
         current_column,
         last_col,
         vs_col
     )
 
-def Comp_DF_Week(df_tw, df_lw, df_ly, on_columns, current_column, last_col, vs_col):
+def final_dataframe_week(df_tw, df_lw, df_ly, on_columns, current_column, last_col, vs_col):
     
     df_ty = pd.merge(
         left=df_tw,
@@ -421,7 +431,7 @@ def Comp_DF_Week(df_tw, df_lw, df_ly, on_columns, current_column, last_col, vs_c
     df['vs. LY %'] = (df[vs_col].replace(0,1) / df[last_col].replace(0,1))
     return df
 
-def Date_Splitter_Week(df,bounds,current_column,last_col,vs_col,on_columns,func):
+def date_filtering_week(df,bounds,current_column,last_col,vs_col,on_columns,func):
 
     mask1 = df['Date'] <= bounds[0]
     mask2 = df['Date'] >= bounds[1]
@@ -434,9 +444,9 @@ def Date_Splitter_Week(df,bounds,current_column,last_col,vs_col,on_columns,func)
     df_lw = func(df[mask3 & mask4])
     df_ly = func(df[mask5 & mask6])
 
-    return Comp_DF_Week(df_tw, df_lw, df_ly, on_columns, current_column, last_col, vs_col)
+    return final_dataframe_week(df_tw, df_lw, df_ly, on_columns, current_column, last_col, vs_col)
 
-def Spend_DF_Week(rev_df,cov_df,on_columns,current_column,last_col,vs_col):
+def spend_df_week(rev_df,cov_df,on_columns,current_column,last_col,vs_col):
     
     df = pd.merge(
         left=rev_df,
@@ -455,18 +465,18 @@ def Spend_DF_Week(rev_df,cov_df,on_columns,current_column,last_col,vs_col):
     
     return df[on_columns + [current_column,last_col,'Last Year',vs_col,vs_col + ' %','vs. LY','vs. LY %']]
 
-def Day_Shift_DF(df,measure):
+def group_by_session_day(df,measure):
     df_cols = ['Session','Day', measure]
     groupby_cols = df_cols[:-1]
     return df[df_cols].groupby(groupby_cols).sum().reset_index()
     
-def Day_Shift_Revenue(df):
-    return Day_Shift_DF(df, 'Revenue')
+def group_revenue_by_session_day(df):
+    return group_by_session_day(df, 'Revenue')
 
-def Day_Shift_Covers(df):
-    return Day_Shift_DF(df, 'Covers')
+def group_covers_by_session_day(df):
+    return group_by_session_day(df, 'Covers')
 
-def Session_Day_Sorting(df):
+def sort_by_session_day(df):
     
     df = df[df['Session'].isin(['Lunch','Dinner'])].copy()
     session_sorter = ['Lunch','Dinner']
@@ -477,14 +487,14 @@ def Session_Day_Sorting(df):
     df['Day'].cat.set_categories(day_sorter, inplace=True)
     return df[df['Session'].isin(['Lunch','Dinner'])].sort_values(by=['Session','Day'])
 
-def Week_DF(site,df,bounds,current_column,last_col,vs_col,on_columns,func):
+def week_general_df(site,df,bounds,current_column,last_col,vs_col,on_columns,func):
     if site=='Group':
         df = df
     else:
         df = df[df['SiteName'] == site]
-    return Session_Day_Sorting(Date_Splitter_Week(df,bounds,current_column,last_col,vs_col,on_columns,func))
+    return sort_by_session_day(date_filtering_week(df,bounds,current_column,last_col,vs_col,on_columns,func))
                 
-def Week_Revenue(site,category,df,bounds,day_df,current_column,last_col,vs_col,on_columns):
+def week_revenue_df(site,category,df,bounds,day_df,current_column,last_col,vs_col,on_columns):
     if category == 'Beverage' or category == 'Food':
         df = df[df['RevenueType']==category]
     elif category == 'Wine' or category == 'Non-Wine':
@@ -492,27 +502,27 @@ def Week_Revenue(site,category,df,bounds,day_df,current_column,last_col,vs_col,o
         mask2 = df['Wine'] == category
         df = df[mask1 & mask2]
     return pd.merge(
-        Week_DF(site,df,bounds,current_column,last_col,vs_col,on_columns,Day_Shift_Revenue), 
+        week_general_df(site,df,bounds,current_column,last_col,vs_col,on_columns,group_revenue_by_session_day), 
         day_df,
         how='left',
         on='Day',
         suffixes = ('',' Count')
     )
 
-def Week_Covers(site,df,bounds,day_df,current_column,last_col,vs_col,on_columns):
+def week_covers_df(site,df,bounds,day_df,current_column,last_col,vs_col,on_columns):
     return pd.merge(
-        Week_DF(site,df,bounds,current_column,last_col,vs_col,on_columns,Day_Shift_Covers), 
+        week_general_df(site,df,bounds,current_column,last_col,vs_col,on_columns,group_covers_by_session_day), 
         day_df,
         how='left',
         on='Day',
         suffixes = ('',' Count')
     )
 
-def Week_Spend(site,category,rev_df,cov_df,bounds,day_df,current_column,last_col,vs_col,on_columns):
+def week_spend_df(site,category,rev_df,cov_df,bounds,day_df,current_column,last_col,vs_col,on_columns):
     
-    return Spend_DF_Week(
-        Week_Revenue(site,category,rev_df,bounds,day_df,current_column,last_col,vs_col,on_columns),
-        Week_Covers(site,cov_df,bounds,day_df,current_column,last_col,vs_col,on_columns),
+    return spend_df_week(
+        week_revenue_df(site,category,rev_df,bounds,day_df,current_column,last_col,vs_col,on_columns),
+        week_covers_df(site,cov_df,bounds,day_df,current_column,last_col,vs_col,on_columns),
         on_columns,
         current_column,
         last_col,
@@ -610,3 +620,5 @@ def trends_table_filter(df, table):
 
 def trends_site_filter(df, site):
     return df[df['Restaurant'] == 'Group'] if site=='Group' else df[df['Restaurant']!='Group']
+
+
