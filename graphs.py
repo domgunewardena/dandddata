@@ -2,6 +2,12 @@ from data import *
 from figures import *
 from styling import *
 
+change_metrics = [
+    'vs. LW', 
+    'vs. LM', 
+    'vs. LY'
+]
+
 def sales_breakdown_graph(
     shift,
     area,
