@@ -1,6 +1,6 @@
-from data import *
+from data.data import *
 from figures import *
-from styling import *
+from display.styling import *
 
 change_metrics = [
     'vs. LW', 
