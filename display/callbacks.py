@@ -1,5 +1,5 @@
 from layouts import *
-from graphs import *
+from plots.graphs import *
 from app import app
 
 # Daily Sales Callbacks
