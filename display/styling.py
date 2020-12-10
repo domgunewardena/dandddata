@@ -192,7 +192,7 @@ templates = {
             'Change':'%{x:+.0f}'
         },
         'Spend':{
-            'Total':'£%{x:+.0f}',
+            'Total':'£%{x:.0f}',
             'Change':'£%{x:+.2f}'
         }
     },
