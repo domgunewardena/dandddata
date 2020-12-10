@@ -1,4 +1,4 @@
-from layouts import *
+from display.layouts import *
 from plots.graphs import *
 from app import app
 
