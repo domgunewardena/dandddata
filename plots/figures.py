@@ -43,7 +43,8 @@ def sales_totals_figure(
             text=customdata_ly,
             textposition=textposition,
             texttemplate=template
-        ))
+        )
+    )
     
     fig.add_trace(
         go.Bar(
@@ -56,14 +57,16 @@ def sales_totals_figure(
             text=customdata_ty,
             textposition=textposition,
             texttemplate=template
-        ))
+        )
+    )
     
     fig.update_layout(
         title=title,
         yaxis=dict(
             title=measure,
             range=[0,y_limit]
-        ))
+        )
+    )
     
     return fig
 
@@ -101,7 +104,8 @@ def sales_change_figure(dff,xcolumn,hovertemplate,title,measure,current_col,chan
             textposition=textposition,
             texttemplate=texttemplate,
             hovertemplate=hovertemplate
-    ))
+        )
+    )
     
     fig.update_layout(
         title=title,
@@ -114,7 +118,8 @@ def sales_change_figure(dff,xcolumn,hovertemplate,title,measure,current_col,chan
             cmin=-1,
             cmax=1,
             showscale=False
-        ))
+        )
+    )
     
     return fig
 
@@ -153,7 +158,8 @@ def sales_breakdown_change_figure(dff, title, template, current_col, change_col,
             textposition=textposition,
             texttemplate=texttemplate,
             hovertemplate=template
-        ))
+        )
+    )
     
     fig.update_layout(
         title=title,
@@ -200,7 +206,8 @@ def sales_breakdown_totals_figure(dff, title, template, color_ly, color_ty, curr
             textposition=textposition,
             texttemplate=template,
             hovertemplate=template
-        ))
+        )
+    )
     
     fig.add_trace(
         go.Bar(
@@ -214,7 +221,8 @@ def sales_breakdown_totals_figure(dff, title, template, color_ly, color_ty, curr
             textposition=textposition,
             texttemplate=template,
             hovertemplate=template
-        ))
+        )
+    )
     
     fig.update_layout(
         title=title,
@@ -254,7 +262,8 @@ def sales_week_totals_figure(
             textposition=textposition,
             texttemplate=template,
             hovertemplate=template
-        ))
+        )
+    )
     
     fig.add_trace(
         go.Bar(
@@ -267,13 +276,15 @@ def sales_week_totals_figure(
             textposition=textposition,
             texttemplate=template,
             hovertemplate=template
-        ))
+        )
+    )
     
     fig.update_layout(
         title=title,
         yaxis=dict(
             title=measure
-        ))
+        )
+    )
     
     return fig
 
@@ -317,7 +328,8 @@ def sales_week_change_figure(
             textposition=textposition,
             texttemplate=texttemplate,
             hovertemplate=hovertemplate
-    ))
+    )
+    )
     
     fig.update_layout(
         title=title,
