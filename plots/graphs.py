@@ -26,16 +26,16 @@ def sales_breakdown_graph(
     
     if measure == 'Revenue':
         rev_dff = user_site_filter(shift_filter(area_filter(rev_df, area),shift))
-        dff = Breakdown_Revenue(rev_dff,bounds,current_col,last_col,vs_col,on_column).sort_values(by=on_column, ascending=False)
+        dff = breakdown_revenue_df(rev_dff,bounds,current_col,last_col,vs_col,on_column).sort_values(by=on_column, ascending=False)
     
     elif measure == 'Covers':
         cov_dff = user_site_filter(shift_filter(area_filter(cov_df, area),shift))
-        dff = Breakdown_Covers(cov_dff,bounds,current_col,last_col,vs_col,on_column).sort_values(by=on_column, ascending=False)
+        dff = breakdown_covers_df(cov_dff,bounds,current_col,last_col,vs_col,on_column).sort_values(by=on_column, ascending=False)
     
     if measure == "Spend":
         rev_dff = user_site_filter(shift_filter(area_filter(rev_df, area),shift))
         cov_dff = user_site_filter(shift_filter(area_filter(cov_df, area),shift))
-        dff = Breakdown_Spend(rev_dff,cov_dff,bounds,current_col,last_col,vs_col,on_column).sort_values(by=on_column, ascending=False)
+        dff = breakdown_spend_df(rev_dff,cov_dff,bounds,current_col,last_col,vs_col,on_column).sort_values(by=on_column, ascending=False)
         
     total_template = templates['Sales Breakdown'][measure]['Total']
     change_template = templates['Sales Breakdown'][measure]['Change']
@@ -65,7 +65,7 @@ def sales_group_revenue_graph(
     measure = 'Revenue'
     
     rev_dff = user_site_filter(shift_filter(df, shift))
-    dff = Group_Revenue(rev_dff,bounds,current_col,last_col,vs_col,on_column)
+    dff = group_revenue_df(rev_dff,bounds,current_col,last_col,vs_col,on_column)
     
     total_template = templates['Sales'][measure]['Total']
     change_template = templates['Sales'][measure]['Change']
@@ -94,7 +94,7 @@ def sales_group_covers_graph(
     measure = 'Covers'
     
     cov_dff = user_site_filter(shift_filter(df, shift))
-    dff = Group_Covers(cov_dff,bounds,current_col,last_col,vs_col,on_column)
+    dff = group_covers_df(cov_dff,bounds,current_col,last_col,vs_col,on_column)
     
     total_template = templates['Sales'][measure]['Total']
     change_template = templates['Sales'][measure]['Change']
@@ -125,7 +125,7 @@ def sales_group_spend_graph(
     
     rev_dff = user_site_filter(shift_filter(rev_df,shift))
     cov_dff = user_site_filter(shift_filter(cov_df,shift))
-    dff = Group_Spend(rev_dff,cov_dff,bounds,current_col,last_col,vs_col,on_column)
+    dff = group_spend_df(rev_dff,cov_dff,bounds,current_col,last_col,vs_col,on_column)
         
     total_template = templates['Sales'][measure]['Total']
     change_template = templates['Sales'][measure]['Change']
@@ -156,7 +156,7 @@ def sales_site_revenue_graph(
     measure = 'Revenue'
     
     rev_dff = shift_filter(df, shift)
-    dff = Site_Revenue(site,rev_dff,bounds,current_col,last_col,vs_col,on_column)
+    dff = site_revenue_df(site,rev_dff,bounds,current_col,last_col,vs_col,on_column)
     
     total_template = templates['Sales'][measure]['Total']
     change_template = templates['Sales'][measure]['Change']
@@ -187,7 +187,7 @@ def sales_site_covers_graph(
     measure = 'Covers'
     
     cov_dff = shift_filter(df, shift)
-    dff = Site_Covers(site,cov_dff,bounds,current_col,last_col,vs_col,on_column)
+    dff = site_covers_df(site,cov_dff,bounds,current_col,last_col,vs_col,on_column)
     
     total_template = templates['Sales'][measure]['Total']
     change_template = templates['Sales'][measure]['Change']
@@ -220,7 +220,7 @@ def sales_site_spend_graph(
     
     rev_dff = shift_filter(rev_df,shift)
     cov_dff = shift_filter(cov_df,shift)
-    dff = Site_Spend(site,rev_dff,cov_dff,bounds,current_col,last_col,vs_col,on_column)
+    dff = site_spend_df(site,rev_dff,cov_dff,bounds,current_col,last_col,vs_col,on_column)
     
     total_template = templates['Sales'][measure]['Total']
     change_template = templates['Sales'][measure]['Change']
@@ -257,7 +257,7 @@ def sales_week_view_graph(
     if measure == 'Revenue':
         
         rev_dff = area_filter(site_filter(rev_df, site),area)
-        dff = Week_Revenue(site,category,rev_dff,bounds,day_df,current_col,last_col,vs_col,on_columns)
+        dff = week_revenue_df(site,category,rev_dff,bounds,day_df,current_col,last_col,vs_col,on_columns)
         
         if weekmetric == 'Averages':
             y_last = dff[base_col]/(dff[base_col + ' Count'])
@@ -272,7 +272,7 @@ def sales_week_view_graph(
         
         rev_dff = area_filter(site_filter(rev_df, site),area)
         cov_dff = area_filter(site_filter(cov_df, site),area)
-        dff = Week_Spend(site,category,rev_dff,cov_dff,bounds,day_df,current_col,last_col,vs_col,on_columns)
+        dff = week_spend_df(site,category,rev_dff,cov_dff,bounds,day_df,current_col,last_col,vs_col,on_columns)
         
         y_last = dff[base_col]
         y_current = dff[current_col]
@@ -313,7 +313,7 @@ def sales_week_covers_graph(
     measure = 'Covers'
     
     cov_dff = area_filter(site_filter(cov_df, site),area)
-    dff = Week_Covers(site,cov_dff,bounds,day_df,current_col,last_col,vs_col,on_columns)
+    dff = week_covers_df(site,cov_dff,bounds,day_df,current_col,last_col,vs_col,on_columns)
     
     title = site + "  " + area + "  " + measure + "  " + metric
     customdata = dff[change_col + ' %']
