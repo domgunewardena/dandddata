@@ -273,13 +273,6 @@ dropdown_row_style = {
     'padding': '10px 5px'
 }
 
-change_metrics = [
-    'vs. LW', 
-    'vs. LM', 
-    'vs. LY'
-]
-
-
 def div_style_simple(width):
     return {
         'textAlign':'center',
