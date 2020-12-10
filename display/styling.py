@@ -273,26 +273,6 @@ def week_colors_change(shift, val):
 
 plus = lambda i: ("+" if i > 0 else "") + str(i)
 
-
-tracker_weeks = [
-    'This Week',
-    'Next Week',
-    'Two Weeks',
-    'Three Weeks',
-    'Four Weeks',
-    'Five Weeks',
-    'Six Weeks',
-    'Seven Weeks',
-    'Eight Weeks'
-]
-
-tracker_metrics = [
-    'vs. LW',
-    'vs. LY',
-    'Last Week',
-    'Last Year'
-]
-
 def tracker_graph(graph_id):
     return dcc.Graph(
         id=graph_id,
