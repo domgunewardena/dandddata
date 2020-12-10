@@ -1,5 +1,5 @@
 from data.data import *
-from layout.figures import *
+from plots.figures import *
 from display.styling import *
 
 change_metrics = [
