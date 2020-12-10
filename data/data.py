@@ -1,7 +1,7 @@
 import pandas as pd
 from datetime import date, datetime, timedelta
-from authentication import auth
-from styling import *
+from authentication.authentication import auth
+from authentication.users import *
 
 rev_df = pd.read_csv("data/App Revenue.csv")
 rev_df['Date'] = pd.to_datetime(rev_df['Date']).dt.date
