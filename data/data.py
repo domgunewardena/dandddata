@@ -58,8 +58,11 @@ def day_df(bounds, current_col, last_col):
     return df
 
 
-week_current_col, weekly_last_col = 'This Week', 'Last Week'
-month_current_col, monthly_last_col = 'This Month', 'Last Month'
+week_current_col = 'This Week'
+month_current_col = 'This Month'
+
+weekly_last_col = 'Last Week'
+monthly_last_col = 'Last Month'
 
 wtd_days = day_df(wtd_bounds, week_current_col, weekly_last_col)
 weekly_days = day_df(weekly_bounds, week_current_col, weekly_last_col)
