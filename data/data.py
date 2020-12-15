@@ -15,16 +15,16 @@ cov_df['Date'] = pd.to_datetime(cov_df['Date']).dt.date
 
 # Generating each sales report dataframe by filtering by date bounds
 
-daily_rev_df = date_filtering(rev_df,daily_bounds)
-daily_cov_df = date_filtering(cov_df,daily_bounds)
-wtd_rev_df = date_filtering(rev_df,wtd_bounds)
-wtd_cov_df = date_filtering(cov_df,wtd_bounds)
-mtd_rev_df = date_filtering(rev_df,mtd_bounds)
-mtd_cov_df = date_filtering(cov_df,mtd_bounds)
-weekly_rev_df = date_filtering(rev_df,weekly_bounds)
-weekly_cov_df = date_filtering(cov_df,weekly_bounds)
-monthly_rev_df = date_filtering(rev_df,monthly_bounds)
-monthly_cov_df = date_filtering(cov_df,monthly_bounds)
+daily_rev_df = bound_filtering(rev_df,daily_bounds)
+daily_cov_df = bound_filtering(cov_df,daily_bounds)
+wtd_rev_df = bound_filtering(rev_df,wtd_bounds)
+wtd_cov_df = bound_filtering(cov_df,wtd_bounds)
+mtd_rev_df = bound_filtering(rev_df,mtd_bounds)
+mtd_cov_df = bound_filtering(cov_df,mtd_bounds)
+weekly_rev_df = bound_filtering(rev_df,weekly_bounds)
+weekly_cov_df = bound_filtering(cov_df,weekly_bounds)
+monthly_rev_df = bound_filtering(rev_df,monthly_bounds)
+monthly_cov_df = bound_filtering(cov_df,monthly_bounds)
 
 
 # Process for creating dataframes that denote how many days of each weekday have occurred for each timeframe within each sales report - these will be merged with revenue/covers/spend dataframes to allow averages to be calculated for each day within the app
