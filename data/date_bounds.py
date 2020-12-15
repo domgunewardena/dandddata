@@ -71,7 +71,7 @@ monthly_lower_lw = first_day_of_month(monthly_upper_lw)
 monthly_upper_ly = twelvemonthsago(monthly_upper)
 monthly_lower_ly = twelvemonthsago(monthly_lower)
 
-def date_filtering(df, bounds):
+def bound_filtering(df, bounds):
     
     mask1 = df['Date'] <= bounds[0]
     mask2 = df['Date'] >= bounds[1]
