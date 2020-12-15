@@ -3,7 +3,7 @@ from datetime import date, datetime, timedelta
 
 from authentication.authentication import auth
 from authentication.users import *
-from data.date_bounds import date_filtering, daily_bounds, wtd_bounds, mtd_bounds, weekly_bounds, monthly_bounds
+from data.date_bounds import bound_filtering, daily_bounds, wtd_bounds, mtd_bounds, weekly_bounds, monthly_bounds
 
 # Import Sales CSVs
 rev_df = pd.read_csv("data/App Revenue.csv")
