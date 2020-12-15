@@ -79,11 +79,57 @@ def date_filtering(df, bounds):
     mask4 = df['Date'] >= bounds[3]
     mask5 = df['Date'] <= bounds[4]
     mask6 = df['Date'] >= bounds[5]
-    return df[(mask1&mask2) | (mask3&mask4) | (mask5&mask6)]
+    return df[(mask1 & mask2) | (mask3 & mask4) | (mask5 & mask6)]
 
-daily_bounds = [daily_upper,daily_lower,daily_upper_lw,daily_lower_lw,daily_upper_ly,daily_lower_ly]
-wtd_bounds = [wtd_upper,wtd_lower,wtd_upper_lw,wtd_lower_lw,wtd_upper_ly,wtd_lower_ly]
-mtd_bounds = [mtd_upper,mtd_lower,mtd_upper_lw,mtd_lower_lw,mtd_upper_ly,mtd_lower_ly]
-weekly_bounds = [weekly_upper,weekly_lower,weekly_upper_lw,weekly_lower_lw,weekly_upper_ly,weekly_lower_ly]
-monthly_bounds = [monthly_upper,monthly_lower,monthly_upper_lw,monthly_lower_lw,monthly_upper_ly,monthly_lower_ly]
-all_bounds = [daily_bounds, wtd_bounds, mtd_bounds, weekly_bounds, monthly_bounds]
+daily_bounds = [
+    daily_upper,
+    daily_lower,
+    daily_upper_lw,
+    daily_lower_lw,
+    daily_upper_ly,
+    daily_lower_ly
+]
+
+wtd_bounds = [
+    wtd_upper,
+    wtd_lower,
+    wtd_upper_lw,
+    wtd_lower_lw,
+    wtd_upper_ly,
+    wtd_lower_ly
+]
+
+mtd_bounds = [
+    mtd_upper,
+    mtd_lower,
+    mtd_upper_lw,
+    mtd_lower_lw,
+    mtd_upper_ly,
+    mtd_lower_ly
+]
+
+weekly_bounds = [
+    weekly_upper,
+    weekly_lower,
+    weekly_upper_lw,
+    weekly_lower_lw,
+    weekly_upper_ly,
+    weekly_lower_ly
+]
+
+monthly_bounds = [
+    monthly_upper,
+    monthly_lower,
+    monthly_upper_lw,
+    monthly_lower_lw,
+    monthly_upper_ly,
+    monthly_lower_ly
+]
+
+all_bounds = [
+    daily_bounds, 
+    wtd_bounds, 
+    mtd_bounds, 
+    weekly_bounds, 
+    monthly_bounds
+]
