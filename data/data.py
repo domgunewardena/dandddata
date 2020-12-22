@@ -266,7 +266,7 @@ def site_simple_spend_df(site,rev_df,cov_df,bounds,current_column,last_col,vs_co
         oncolumn,
         current_column,
         last_col,
-        vs_col
+        vs_col,
     )
 
 def site_spend_df(site,rev_df,cov_df,bounds,current_column,last_col,vs_col,oncolumn):
