@@ -1,6 +1,7 @@
 import smtplib, ssl
 from email.message import EmailMessage
 from datetime import datetime, date, timedelta
+from secrets import email_password
 
 class APIEmail:
     
@@ -23,7 +24,7 @@ class APIEmail:
         with smtplib.SMTP(host='smtp.gmail.com', port=587) as smtp:
             smtp.ehlo()
             smtp.starttls()
-            smtp.login("domgunewardenadev@gmail.com", 'd;3d;3d;3')
+            smtp.login("domgunewardenadev@gmail.com", email_password)
             smtp.send_message(email)
             
             
