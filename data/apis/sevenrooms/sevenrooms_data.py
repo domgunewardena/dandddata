@@ -1300,11 +1300,12 @@ class SevenRoomsData:
         
         import psycopg2
         from sqlalchemy import create_engine
-        
-        host = 'ec2-3-251-0-202.eu-west-1.compute.amazonaws.com'
-        database = 'dfqduhvokqgmrb'
-        user = 'zihnwwiixbqfwq'
-        password = '83a006318f7f6b7877883c88a16c8ef351faa58f50897bd57103db26c05a58f7'
+        from secrets import postgres_host, postgres_database, postgres_user, postgres_password
+       
+        host = postgres_host
+        database = postgres_database
+        user = postgres_user
+        password = postgres_password
         
         tracker = self.tracker_app_data.copy()
         pickup = self.pickup_data.copy()
