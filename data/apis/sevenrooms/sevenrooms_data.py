@@ -28,36 +28,51 @@ class SevenRoomsData:
         
     def generate_sr_data(self):
         
-        df = pd.merge(
-            self.reservations, 
-            self.restaurant_ids,
-            how="outer",
-            left_on="venue_id",
-            right_on="venue_id"
+        def merge_api_results():
+            
+            return pd.merge(
+                self.reservations, 
+                self.restaurant_ids,
+                how="outer",
+                left_on="venue_id",
+                right_on="venue_id"
+            ).dropna(subset=["updated"])
+        
+        def add_date_columns(df):
+            
+            date_columns = ['updated','created']
+            
+            for date_col in date_columns:
+                
+                df[date_col + '_day'] = df[date_col].str.split('T',expand=True)[0]
+                df[date_col + '_time'] = df[date_col].str.split('T',expand=True)[1].str.split(".", expand=True)[0]
+                df[date_col + '_date'] = pd.to_datetime(df[[date_col + "_day",date_col + "_time"]].astype(str).apply(' '.join, axis=1))
+
+            df["visit_date"] = pd.to_datetime(df[["date","arrival_time"]].astype(str).apply(' '.join, axis=1))
+
+            return df
+        
+        def add_name_columns(df):
+            
+            df["first"] = df["first_name"].str.strip()
+            df["last"] = df["last_name"].str.strip()
+            df["guest_name"] = df[["first","last"]].astype(str).apply(' '.join, axis=1)
+            
+            return df
+
+        return add_name_columns(
+            add_date_columns(
+                merge_api_results()
+            )
         )
-
-        df = df.dropna(subset=["updated"])
-
-        df["updated_day"] = df["updated"].str.split("T", expand=True)[0]
-        df["updated_time"] = df["updated"].str.split("T", expand=True)[1].str.split(".", expand=True)[0]
-        df["updated_date"] = pd.to_datetime(df[["updated_day","updated_time"]].astype(str).apply(' '.join, axis=1))
-
-        df["created_day"] = df["created"].str.split("T", expand=True)[0]
-        df["created_time"] = df["created"].str.split("T", expand=True)[1].str.split(".", expand=True)[0]
-        df["created_date"] = pd.to_datetime(df[["created_day","created_time"]].astype(str).apply(' '.join, axis=1))
-
-        df["visit_date"] = pd.to_datetime(df[["date","arrival_time"]].astype(str).apply(' '.join, axis=1))
-
-        df["first"] = df["first_name"].str.strip()
-        df["last"] = df["last_name"].str.strip()
-        df["guest_name"] = df[["first","last"]].astype(str).apply(' '.join, axis=1)
-
-        return df
     
     def generate_sevenrooms_data(self):
         
-        df = self.sr_data[
-            [
+        df = self.sr_data.copy()
+        
+        def get_sevenrooms_data_columns(df):
+            
+            target_columns = [
                 "restaurant",
                  "visit_date",
                  "created_date",
@@ -72,31 +87,43 @@ class SevenRoomsData:
                  "max_guests",
                  "notes"
             ]
-        ]
 
-        date_columns = ['visit', 'created']
+            return df[target_columns]
+        
+        def add_date_columns(df):
 
-        for date_column in date_columns:
-            df[date_column + "_day"] = df[date_column + "_date"].dt.date.astype(str)
-            df[date_column + "_time"] = df[date_column + "_date"].dt.time.astype(str)
-            df[date_column + "_week"] = df[date_column + "_date"].dt.week
-            df[date_column + "_dayofweeknum"] = df[date_column + "_date"].dt.dayofweek+1
-            df[date_column + "_dayofweek"] = df[date_column + "_date"].dt.weekday_name
-            df[date_column + "_dayofmonth"] = df[date_column + "_date"].dt.day
-            df[date_column + "_monthnum"] = df[date_column + "_date"].dt.month
-            df[date_column + "_month"] = df[date_column + "_date"].dt.month_name()
-            df[date_column + "_year"] = df[date_column + "_date"].dt.year
+            date_columns = ['visit', 'created']
 
-        return df
+            for date_column in date_columns:
+                df[date_column + "_day"] = df[date_column + "_date"].dt.date.astype(str)
+                df[date_column + "_time"] = df[date_column + "_date"].dt.time.astype(str)
+                df[date_column + "_week"] = df[date_column + "_date"].dt.week
+                df[date_column + "_dayofweeknum"] = df[date_column + "_date"].dt.dayofweek+1
+                df[date_column + "_dayofweek"] = df[date_column + "_date"].dt.weekday_name
+                df[date_column + "_dayofmonth"] = df[date_column + "_date"].dt.day
+                df[date_column + "_monthnum"] = df[date_column + "_date"].dt.month
+                df[date_column + "_month"] = df[date_column + "_date"].dt.month_name()
+                df[date_column + "_year"] = df[date_column + "_date"].dt.year
+
+            return df
+        
+        return add_date_columns(
+            get_sevenrooms_data_columns(
+                df
+            )
+        )
     
     def generate_tracker_data_data(self):
         
-        df = self.sevenrooms_data.copy()
+        def add_cancelled_day_column(df):
+            
+            df["cancelled_day"] = ""
+            
+            return df
         
-        df["cancelled_day"] = ""
-
-        df["restaurant2"] = df["restaurant"].map(
-            {
+        def map_restaurants_to_looker_values(df):
+            
+            restaurant_map = {
                 '100 Wardour Lounge Bar':"100 Wardour St Lounge Bar",
                 '100 Wardour St Club Bar':'100 Wardour St Club Bar',
                 '100 Wardour St. Restaurant & Club':"100 Wardour St Club",
@@ -148,36 +175,58 @@ class SevenRoomsData:
                 'South Place Chop House':"South Place Chop House", 
                 'The Modern Pantry':"The Modern Pantry"
             }
+
+            df["restaurant2"] = df["restaurant"].map(restaurant_map)
+        
+            return df
+
+        def map_statuses_to_looker_values(df):
+            
+            status_map = {
+                'Canceled':'Cancelled',
+                'Incomplete':'Future Reservation',
+                'No Show': 'No Show',
+                'Complete':'Completed'
+            }
+
+            df["state"] = df["status_simple"].map(status_map)
+            
+            return df
+
+            
+        def group_by_tracker_data_columns(df):
+            
+            df_columns = [
+                "restaurant2", 
+                "state",
+                "visit_day",
+                "created_day",
+                "cancelled_day",
+                'shift_category',
+                "max_guests"
+            ]
+
+            groupby_columns = df_columns[:-1]
+
+            return df[df_columns].groupby(by=groupby_columns).sum().reset_index()
+        
+        df = self.sevenrooms_data.copy()
+        
+        return group_by_tracker_data_columns(
+            map_statuses_to_looker_values(
+                map_restaurants_to_looker_values(
+                    add_cancelled_day_column(
+                        df
+                    )
+                )
+            )
         )
-
-        status_mapping_dict = {
-            'Canceled':'Cancelled',
-            'Incomplete':'Future Reservation',
-            'No Show': 'No Show',
-            'Complete':'Completed'
-        }
-
-        df["state"] = df["status_simple"].map(status_mapping_dict)
-
-        df_columns = [
-            "restaurant2", 
-            "state",
-            "visit_day",
-            "created_day",
-            "cancelled_day",
-            'shift_category',
-            "max_guests"
-        ]
-
-        groupby_columns = df_columns[:-1]
-
-        return df[df_columns].groupby(by=groupby_columns).sum().reset_index()
     
     def generate_historic_tracker_data(self):
         
         Historic_Tracker_Data_CSV = "Historic_Tracker_Data.csv"
 
-        df = self.tracker_data
+        df = self.tracker_data.copy()
         future_mask = df["state"] == "Future Reservation"
         dff = df[future_mask]
 
