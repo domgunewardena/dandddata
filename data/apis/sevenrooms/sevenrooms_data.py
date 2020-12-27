@@ -2,6 +2,8 @@ from datetime import datetime, date, timedelta
 import pandas as pd
 import glob
 
+import restaurant_mapping
+
 class SevenRoomsData:
     
     C_Drive = "C:/Users/domg/"
@@ -122,61 +124,8 @@ class SevenRoomsData:
         
         def map_restaurants_to_looker_values(df):
             
-            restaurant_map = {
-                '100 Wardour Lounge Bar':"100 Wardour St Lounge Bar",
-                '100 Wardour St Club Bar':'100 Wardour St Club Bar',
-                '100 Wardour St. Restaurant & Club':"100 Wardour St Club",
-                '100 Wardour Street Bar & Lounge':"100 Wardour St Lounge",
-                '14 Hills':"14 Hills",
-                '20 Stories':"20 Stories",
-                'Angelica':"Angelica",
-                'Angler Restaurant':"Angler",
-                'Aster Cafe':'Aster Restaurant',
-                'Aster Restaurant':'Aster Restaurant',
-                'Avenue':'Avenue',
-                'Bluebird Chelsea Café':"Bluebird Chelsea Cafe", 
-                'Bluebird Chelsea PDR':"Bluebird Private Dining", 
-                'Bluebird Chelsea Restaurant':"Bluebird Chelsea", 
-                'Bluebird White City':"Bluebird White City", 
-                'Blueprint Café':"Blueprint Cafe", 
-                'Butlers Wharf Chophouse Restaurant':"Butlers Wharf Chop House Restaurant", 
-                'Cantina del Ponte':"Cantina del Ponte", 
-                "Coq d'Argent Grill":"Coq d’Argent Grill", 
-                "Coq d'Argent Restaurant":"Coq d’Argent Restaurant", 
-                'Crafthouse':"Crafthouse", 
-                'East 59th':"East 59th", 
-                'Fish Market':"Fish Market", 
-                'Fiume':"Fiume", 
-                'German Gymnasium Grand Cafe':"German Gymnasium Grand Café",
-                'Grand Café & Restaurant':"German Gymnasium Grand Café",
-                'German Gymnasium Restaurant':"German Gymnasium Restaurant", 
-                'Issho Bar':'Issho Bar', 
-                'Issho Restaurant':'Issho', 
-                'Launceston Place':'Launceston Place',
-                'Madison Restaurant':'Madison', 
-                'New Street Grill':"New Street Grill", 
-                'New Street Wine Shop':'New Street Wine Shop', 
-                'Old Bengal Bar':"Old Bengal Bar", 
-                'Orrery':"Orrery", 
-                'Paternoster Chophouse':'Paternoster Chop House', 
-                'Plateau Bar & Grill':"Plateau Bar & Grill", 
-                'Plateau Terrace':"Plateau Bar & Grill",
-                'Plateau Restaurant':'Plateau Restaurant', 
-                'Pont de la Tour Bar & Grill':"Le Pont de la Tour Bar & Grill", 
-                'Pont de la Tour Restaurant':"Le Pont de la Tour Restaurant",
-                "Quaglino's Bar":"Quaglino's Bar",
-                "Quaglino's PDR":"Quaglino's PDR",
-                'Quaglino’s Restaurant':"Quaglino's", 
-                'Radici':"Radici",  
-                'Sartoria':"Sartoria", 
-                'Skylon Bar':"Skylon Restaurant", 
-                'Skylon Restaurant':"Skylon Restaurant", 
-                'South Place Chop House':"South Place Chop House", 
-                'The Modern Pantry':"The Modern Pantry"
-            }
-
+            restaurant_map = restaurant_mapping.sevenrooms_to_looker_map
             df["restaurant2"] = df["restaurant"].map(restaurant_map)
-        
             return df
 
         def map_statuses_to_looker_values(df):
@@ -307,7 +256,7 @@ class SevenRoomsData:
 
             date_string = (date.today()-timedelta(7)).strftime('%d-%b-%Y')
 
-            return pd.read_csv(glob.glob(old_csv_path + date_string + '*')[0])
+            return pd.read_csv(glob.glob(old_csv_path + date_string + '*')[0]).iloc[:,1:]
 
         def future_bookings_df(input_df):
             
@@ -318,57 +267,7 @@ class SevenRoomsData:
             
             def map_restaurants_to_app_values(df):
                 
-                restaurant_map = {
-                    '100 Wardour Lounge Bar': '100 Wardour St Lounge Bar',
-                    '100 Wardour St Club Bar': '100 Wardour St Club Bar',
-                    '100 Wardour St. Restaurant & Club': '100 Wardour St',
-                    '100 Wardour Street Bar & Lounge': '100 Wardour St',
-                    '14 Hills': '14 Hills',
-                    '20 Stories': '20 Stories',
-                    'Angelica': 'Angelica',
-                    'Angler Restaurant': 'Angler Restaurant',
-                    'Aster Cafe': 'Aster',
-                    'Aster Restaurant': 'Aster',
-                    'Avenue': 'Avenue',
-                    'Bluebird Chelsea Café': 'Bluebird Chelsea Café',
-                    'Bluebird Chelsea PDR': 'Bluebird Chelsea PDR',
-                    'Bluebird Chelsea Restaurant': 'Bluebird Chelsea Restaurant',
-                    'Bluebird White City': 'Bluebird White City',
-                    'Blueprint Café': 'Blueprint Café',
-                    'Butlers Wharf Chophouse Restaurant': 'Butlers Wharf Chophouse Restaurant',
-                    'Cantina del Ponte': 'Cantina del Ponte',
-                    "Coq d'Argent Grill": "Coq d'Argent",
-                    "Coq d'Argent Restaurant": "Coq d'Argent",
-                    'Crafthouse': 'Crafthouse',
-                    'East 59th': 'East 59th',
-                    'Fish Market': 'Fish Market',
-                    'Fiume': 'Fiume',
-                    'German Gymnasium Restaurant': 'German Gymnasium',
-                    'Grand Café & Restaurant': 'German Gymnasium',
-                    'Issho Bar': 'Issho Bar',
-                    'Issho Restaurant': 'Issho Restaurant',
-                    'Klosterhaus': 'Klosterhaus',
-                    'Launceston Place': 'Launceston Place',
-                    'Madison Restaurant': 'Madison Restaurant',
-                    'New Street Grill': 'New Street Grill',
-                    'Old Bengal Bar': 'Old Bengal Bar',
-                    'Orrery': 'Orrery',
-                    'Paternoster Chophouse': 'Paternoster Chophouse',
-                    'Plateau Restaurant': 'Plateau',
-                    'Plateau Terrace': 'Plateau',
-                    'Pont de la Tour Bar & Grill': 'Pont de la Tour',
-                    'Pont de la Tour Restaurant': 'Pont de la Tour',
-                    "Quaglino's Bar": "Quaglino's Bar",
-                    "Quaglino's PDR": "Quaglino's PDR",
-                    'Quaglino’s Restaurant': 'Quaglino’s Restaurant',
-                    'Radici': 'Radici',
-                    'Sartoria': 'Sartoria',
-                    'Skylon Restaurant': 'Skylon Restaurant',
-                    'South Place Chop House': 'South Place Chop House',
-                    'The Modern Pantry': 'The Modern Pantry',
-                    'The Secret Garden': 'The Secret Garden'
-                }
-                
+                restaurant_map = restaurant_mapping.shift_covers_to_app_map
                 df['restaurant'] = df['restaurant'].map(restaurant_map)
                 return df
             
@@ -380,40 +279,7 @@ class SevenRoomsData:
                 
             def create_skeleton_df():
                 
-                report_restaurants = [
-                    '100 Wardour St',
-                    '14 Hills',
-                    '20 Stories',
-                    'Angelica',
-                    'Angler Restaurant',
-                    'Aster',
-                    'Avenue',
-                    'Bluebird Chelsea Restaurant',
-                    'Bluebird White City',
-                    'Butlers Wharf Chophouse Restaurant',
-                    'Cantina del Ponte',
-                    "Coq d'Argent",
-                    'Crafthouse',
-                    'East 59th',
-                    'Fish Market',
-                    'Fiume',
-                    'German Gymnasium',
-                    'Issho Restaurant',
-                    'Klosterhaus',
-                    'Launceston Place',
-                    'Madison Restaurant',
-                    'New Street Grill',
-                    'Orrery',
-                    'Paternoster Chophouse',
-                    'Plateau',
-                    'Pont de la Tour',
-                    'Quaglino’s Restaurant',
-                    'Radici',
-                    'Sartoria',
-                    'Skylon Restaurant',
-                    'South Place Chop House',
-                    'The Modern Pantry'
-                ]
+                report_restaurants = restaurant_mapping.app_restaurants
             
                 today = datetime.today()
                 dates = [x.date().strftime('%Y-%m-%d') for x in pd.date_range(start=today, periods=30)]
@@ -421,7 +287,7 @@ class SevenRoomsData:
                 skeleton.columns=['visit_day', 'restaurant', 'shift']
                 return skeleton
                 
-            def merge_with_skeleton_df(df):
+            def merge_with_skeleton_df(input_df):
                 
                 skeleton = create_skeleton_df()
                 
@@ -442,41 +308,7 @@ class SevenRoomsData:
             
             def create_capacity_columns(df):
                 
-                capacities = {
-                    '100 Wardour St':242,
-                    '14 Hills':110,
-                    '20 Stories':106,
-                    'Angelica':47,
-                    'Angler Restaurant':52,
-                    'Aster':52,
-                    'Avenue':84,
-                    'Bluebird Chelsea Restaurant':139,
-                    'Bluebird White City':82,
-                    'Butlers Wharf Chophouse Restaurant':81,
-                    'Cantina del Ponte':44,
-                    "Coq d'Argent":72,
-                    'Crafthouse':72,
-                    'East 59th':52,
-                    'Fish Market':73,
-                    'Fiume':56,
-                    'German Gymnasium':99,
-                    'Issho Restaurant':58,
-                    'Klosterhaus':0,
-                    'Launceston Place':46,
-                    'Madison Restaurant':183,
-                    'New Street Grill':70,
-                    'Orrery':66,
-                    'Paternoster Chophouse':56,
-                    'Plateau':82,
-                    'Pont de la Tour':54,
-                    'Quaglino’s Restaurant':190,
-                    'Radici':66,
-                    'Sartoria':90,
-                    'Skylon Restaurant':126,
-                    'South Place Chop House':56,
-                    'The Modern Pantry':75
-                }
-                
+                capacities = restaurant_mapping.capacities
                 df['capacity'] = df['restaurant'].map(capacities)
                 df['full'] = (df['max_guests']/df['capacity']).fillna(0)
                 return df
@@ -560,55 +392,7 @@ class SevenRoomsData:
 
         def map_restaurants_to_app_values(df):
 
-            restaurant_map = {
-                '100 Wardour St Club': '100 Wardour St',
-                '100 Wardour St Club Bar': '100 Wardour St Club Bar',
-                '100 Wardour St Lounge': '100 Wardour St',
-                '100 Wardour St Lounge Bar': '100 Wardour St Lounge Bar',
-                '14 Hills': '14 Hills',
-                '20 Stories': '20 Stories',
-                'Angelica': 'Angelica',
-                'Angler': 'Angler Restaurant',
-                'Aster Restaurant': 'Aster',
-                'Avenue': 'Avenue',
-                'Bluebird Chelsea': 'Bluebird Chelsea Restaurant',
-                'Bluebird Chelsea Cafe': 'Bluebird Chelsea Cafe',
-                'Bluebird Private Dining': 'Bluebird Chelsea Private Dining',
-                'Bluebird White City': 'Bluebird White City',
-                'Blueprint Cafe': 'Blueprint Cafe',
-                'Butlers Wharf Chop House Restaurant': 'Butlers Wharf Chophouse Restaurant',
-                'Cantina del Ponte': 'Cantina del Ponte',
-                'Coq d’Argent Grill': 'Coq d’Argent',
-                'Coq d’Argent Restaurant': 'Coq d’Argent',
-                'Crafthouse': 'Crafthouse',
-                'East 59th': 'East 59th',
-                'Fish Market': 'Fish Market',
-                'Fiume': 'Fiume',
-                'German Gymnasium Grand Café': 'German Gymnasium',
-                'German Gymnasium Restaurant': 'German Gymnasium',
-                'Issho': 'German Gymnasium',
-                'Issho Bar': 'Issho Restaurant',
-                'Launceston Place': 'Issho',
-                'Le Pont de la Tour Bar & Grill': 'Launceston Place',
-                'Le Pont de la Tour Restaurant': 'Pont de la Tour',
-                'Madison': 'Pont de la Tour',
-                'New Street Grill': 'Madison Restaurant',
-                'New Street Wine Shop': 'New Street Grill',
-                'Old Bengal Bar': 'New Street Wine Shop',
-                'Orrery': 'Old Bengal Bar',
-                'Paternoster Chop House': 'Orrery',
-                'Plateau Bar & Grill': 'Paternoster Chophouse',
-                'Plateau Restaurant': 'Plateau',
-                "Quaglino's": 'Plateau',
-                "Quaglino's Bar": "Quaglino's Restaurant",
-                "Quaglino's PDR": "Quaglino's",
-                'Radici': "Quaglino's",
-                'Sartoria': 'Radici',
-                'Skylon Restaurant': 'Sartoria',
-                'South Place Chop House': 'Skylon Restaurant',
-                'The Modern Pantry': 'South Place Chop House'
-            }
-            
+            restaurant_map = restaurant_mapping.tracker_data_to_app_map
             df['Restaurant'] = df['Restaurant'].map(restaurant_map)
             return df
             
@@ -742,57 +526,6 @@ class SevenRoomsData:
                 )
             )
         )
-        
-#         def full_df(restaurant_df, group_df):
-#             group_df['Restaurant'] = 'Group'
-#             group_df = group_df[['Restaurant','As Of Day', 'Days Before Week Commencing', 'Reservation Week','Covers']]
-#             return group_df.append(restaurant_df, ignore_index=True)
-
-#         def booking_trends_df(
-#             this_week_pickup_df,
-#             this_week_pickup_group,
-#             future_weeks_df,
-#             future_weeks_group
-#         ):
-
-#             this_week_pickup = full_df(this_week_pickup_df, this_week_pickup_group)
-#             future_weeks = full_df(future_weeks_df, future_weeks_group)
-#             this_week_pickup['Table'] = 'This Week Pickup'
-#             future_weeks['Table'] = 'Future Weeks'
-
-#             df = this_week_pickup.append(future_weeks, ignore_index=True)
-
-#             five_weeks_ago = today_week-5
-#             two_weeks_ahead = today_week+2
-
-#             mask1 = df['Reservation Week'] >= five_weeks_ago
-#             mask2 = df['Reservation Week'] <= two_weeks_ahead
-
-#             df = df[mask1 & mask2]
-
-#             weeknums = [today_week + i for i in range(-5,3)]
-#             weeks = ['5 Weeks Ago', '4 Weeks Ago', '3 Weeks Ago','2 Weeks Ago','Last Week','This Week', 'Next Week', '2 Weeks Time']
-#             colors = ['Blue']*4 + ['Orange', 'Red', 'Purple', 'Black']
-#             alphas = [0.2,0.4,0.6,0.8,1,1,1,1]
-
-#             color_map = dict(zip(weeknums, colors))
-#             week_map = dict(zip(weeknums, weeks))
-#             alpha_map = dict(zip(weeknums, alphas))
-
-#             cols = ['Week', 'Color', 'Alpha']
-#             maps = [week_map, color_map, alpha_map]
-
-#             for i in range(len(cols)):
-#                 df[cols[i]] = df['Reservation Week'].map(maps[i])
-
-#             return df
-        
-#         return booking_trends_df(
-#             this_week_pickup_df,
-#             this_week_pickup_group,
-#             future_weeks_df,
-#             future_weeks_group
-#         )
     
     def generate_app_tracker_data(self):
         
@@ -816,113 +549,15 @@ class SevenRoomsData:
                 return df
 
             def map_restaurants_to_app_values(df, year):
-
-                this_year_restaurants_to_bookings = [
-                    '100 Wardour St',
-                    '100 Wardour St Club Bar',
-                    '100 Wardour St',
-                    '100 Wardour St Lounge Bar',
-                    '14 Hills',
-                    '20 Stories',
-                    'Angelica',
-                    'Angler Restaurant',
-                    'Aster',
-                    'Avenue',
-                    'Bluebird Chelsea Restaurant',
-                    'Bluebird Chelsea Cafe',
-                    'Bluebird Private Dining',
-                    'Bluebird White City',
-                    'Blueprint Cafe',
-                    'Butlers Wharf Chophouse Restaurant',
-                    'Cantina del Ponte',
-                    "Coq d'Argent",
-                    "Coq d'Argent",
-                    'Crafthouse',
-                    'East 59th',
-                    'Fish Market',
-                    'Fiume',
-                    'German Gymnasium',
-                    'German Gymnasium',
-                    'Issho Restaurant',
-                    'Issho Bar',
-                    'Launceston Place',
-                    'Pont de la Tour',
-                    'Pont de la Tour',
-                    'Madison Restaurant',
-                    'New Street Grill',
-                    'New Street Wine Shop',
-                    'Old Bengal Bar',
-                    'Orrery',
-                    'Paternoster Chophouse',
-                    'Plateau',
-                    'Plateau',
-                    'Quaglino’s Restaurant',
-                    "Quaglino's Bar",
-                    "Quaglino's PDR",
-                    'Radici',
-                    'Sartoria',
-                    'Skylon Restaurant',
-                    'South Place Chop House',
-                    'The Modern Pantry'
-                ]
-
-                last_year_restaurants_to_bookings = [
-                    '100 Wardour St',
-                    '100 Wardour St',
-                    '14 Hills',
-                    '20 Stories',
-                    'Angelica',
-                    'Angler Restaurant',
-                    'Aster',
-                    'Aster',
-                    'Avenue',
-                    'Bluebird Chelsea Caf',
-                    'Bluebird Chelsea PDR',
-                    'Bluebird Chelsea Restaurant',
-                    'Bluebird White City',
-                    'Blueprint Cafe',
-                    'Butlers Wharf Chophouse Restaurant',
-                    'Cantina Del Ponte',
-                    "Coq d'Argent",
-                    "Coq d'Argent",
-                    'Crafthouse',
-                    'East 59th',
-                    'Fish Market',
-                    'Fiume',
-                    'German Gymnasium',
-                    'German Gymnasium',
-                    'Issho Bar',
-                    'Issho Restaurant',
-                    'Launceston Place',
-                    'Madison Restaurant',
-                    'New Street Grill',
-                    'Old Bengal Bar',
-                    'Orrery',
-                    'Paternoster Chophouse',
-                    'Plateau',
-                    'Plateau',
-                    'Pont de la Tour',
-                    'Pont de la Tour',
-                    "Quaglino's Bar",
-                    'Quaglino’s Restaurant',
-                    'Radici',
-                    'Sartoria',
-                    'Skylon Restaurant',
-                    'South Place Chop House',
-                    'The Modern Pantry'
-                ]
-
+                
                 if year == 'this':
                     restaurant_column = 'restaurant2'
-                    new_restaurants = this_year_restaurants_to_bookings
+                    restaurant_map = restaurant_mapping.tracker_data_to_app_map
                 else:
                     restaurant_column = 'Venue'
-                    new_restaurants = last_year_restaurants_to_bookings
-
-                old_restaurants = list(df[restaurant_column].unique())
-                restaurant_map = dict(zip(old_restaurants,new_restaurants))
+                    restaurant_map = restaurant_mapping.sevenrooms_portal_to_app_map
+                    
                 df['Restaurant'] = df[restaurant_column].map(restaurant_map)
-
                 return df
 
             return map_restaurants_to_app_values(add_date_columns(df,year),year)
@@ -1074,40 +709,7 @@ class SevenRoomsData:
 
             def filter_restaurants(df):
 
-                bookings_restaurants = [
-                    '100 Wardour St',
-                    '14 Hills',
-                    '20 Stories',
-                    'Angelica',
-                    'Angler Restaurant',
-                    'Aster',
-                    'Avenue',
-                    'Bluebird Chelsea Restaurant',
-                    'Bluebird White City',
-                    'Butlers Wharf Chophouse Restaurant',
-                    'Cantina del Ponte',
-                    "Coq d'Argent",
-                    'Crafthouse',
-                    'East 59th',
-                    'Fish Market',
-                    'Fiume',
-                    'German Gymnasium',
-                    'Issho Restaurant',
-                    'Klosterhaus',
-                    'Launceston Place',
-                    'Madison Restaurant',
-                    'New Street Grill',
-                    'Orrery',
-                    'Paternoster Chophouse',
-                    'Plateau',
-                    'Pont de la Tour',
-                    'Quaglino’s Restaurant',
-                    'Radici',
-                    'Sartoria',
-                    'Skylon Restaurant',
-                    'South Place Chop House',
-                    'The Modern Pantry'
-                    ]
+                bookings_restaurants = restaurant_mapping.app_restaurants
                 return df[df['Restaurant'].isin(bookings_restaurants)]
 
             def filter_weeks(df):
@@ -1459,3 +1061,666 @@ class SevenRoomsData:
             )
 
         con.close()
+        
+#         this_year_restaurants_to_bookings = [
+#             '100 Wardour St',
+#             '100 Wardour St Club Bar',
+#             '100 Wardour St',
+#             '100 Wardour St Lounge Bar',
+#             '14 Hills',
+#             '20 Stories',
+#             'Angelica',
+#             'Angler Restaurant',
+#             'Aster',
+#             'Avenue',
+#             'Bluebird Chelsea Restaurant',
+#             'Bluebird Chelsea Cafe',
+#             'Bluebird Private Dining',
+#             'Bluebird White City',
+#             'Blueprint Cafe',
+#             'Butlers Wharf Chophouse Restaurant',
+#             'Cantina del Ponte',
+#             "Coq d'Argent",
+#             "Coq d'Argent",
+#             'Crafthouse',
+#             'East 59th',
+#             'Fish Market',
+#             'Fiume',
+#             'German Gymnasium',
+#             'German Gymnasium',
+#             'Issho Restaurant',
+#             'Issho Bar',
+#             'Launceston Place',
+#             'Pont de la Tour',
+#             'Pont de la Tour',
+#             'Madison Restaurant',
+#             'New Street Grill',
+#             'New Street Wine Shop',
+#             'Old Bengal Bar',
+#             'Orrery',
+#             'Paternoster Chophouse',
+#             'Plateau',
+#             'Plateau',
+#             'Quaglino’s Restaurant',
+#             "Quaglino's Bar",
+#             "Quaglino's PDR",
+#             'Radici',
+#             'Sartoria',
+#             'Skylon Restaurant',
+#             'South Place Chop House',
+#             'The Modern Pantry'
+#         ]
+
+#         last_year_restaurants_to_bookings = [
+#             '100 Wardour St',
+#             '100 Wardour St',
+#             '14 Hills',
+#             '20 Stories',
+#             'Angelica',
+#             'Angler Restaurant',
+#             'Aster',
+#             'Aster',
+#             'Avenue',
+#             'Bluebird Chelsea Caf',
+#             'Bluebird Chelsea PDR',
+#             'Bluebird Chelsea Restaurant',
+#             'Bluebird White City',
+#             'Blueprint Cafe',
+#             'Butlers Wharf Chophouse Restaurant',
+#             'Cantina Del Ponte',
+#             "Coq d'Argent",
+#             "Coq d'Argent",
+#             'Crafthouse',
+#             'East 59th',
+#             'Fish Market',
+#             'Fiume',
+#             'German Gymnasium',
+#             'German Gymnasium',
+#             'Issho Bar',
+#             'Issho Restaurant',
+#             'Launceston Place',
+#             'Madison Restaurant',
+#             'New Street Grill',
+#             'Old Bengal Bar',
+#             'Orrery',
+#             'Paternoster Chophouse',
+#             'Plateau',
+#             'Plateau',
+#             'Pont de la Tour',
+#             'Pont de la Tour',
+#             "Quaglino's Bar",
+#             'Quaglino’s Restaurant',
+#             'Radici',
+#             'Sartoria',
+#             'Skylon Restaurant',
+#             'South Place Chop House',
+#             'The Modern Pantry'
+#         ]
+
+#         bookings_restaurants = [
+#             '100 Wardour St',
+#             '14 Hills',
+#             '20 Stories',
+#             'Angelica',
+#             'Angler Restaurant',
+#             'Aster',
+#             'Avenue',
+#             'Bluebird Chelsea Restaurant',
+#             'Bluebird White City',
+#             'Butlers Wharf Chophouse Restaurant',
+#             'Cantina del Ponte',
+#             "Coq d'Argent",
+#             'Crafthouse',
+#             'East 59th',
+#             'Fish Market',
+#             'Fiume',
+#             'German Gymnasium',
+#             'Issho Restaurant',
+#             'Klosterhaus',
+#             'Launceston Place',
+#             'Madison Restaurant',
+#             'New Street Grill',
+#             'Orrery',
+#             'Paternoster Chophouse',
+#             'Plateau',
+#             'Pont de la Tour',
+#             'Quaglino’s Restaurant',
+#             'Radici',
+#             'Sartoria',
+#             'Skylon Restaurant',
+#             'South Place Chop House',
+#             'The Modern Pantry'
+#             ]
+
+#         # Dating
+
+#         today = date.today()
+#         yesterday = today - timedelta(1)
+#         todayLW = today - timedelta(7)
+#         yesterdayLW = todayLW - timedelta(1)
+#         todayLY = today - timedelta(364)
+#         yesterdayLY = todayLY - timedelta(1)
+#         daynum = today.isocalendar()[2]
+
+#         def mon_next(date):
+#             return date + timedelta(((7*1)+1)-date.isocalendar()[2])
+#         def mon_two(date):
+#             return date + timedelta(((7*2)+1)-date.isocalendar()[2])
+#         def mon_three(date):
+#             return date + timedelta(((7*3)+1)-date.isocalendar()[2])
+#         def mon_four(date):
+#             return date + timedelta(((7*4)+1)-date.isocalendar()[2])
+#         def mon_five(date):
+#             return date + timedelta(((7*5)+1)-date.isocalendar()[2])
+#         def mon_six(date):
+#             return date + timedelta(((7*6)+1)-date.isocalendar()[2])
+#         def mon_seven(date):
+#             return date + timedelta(((7*7)+1)-date.isocalendar()[2])
+#         def mon_eight(date):
+#             return date + timedelta(((7*8)+1)-date.isocalendar()[2])
+#         def mon_nine(date):
+#             return date + timedelta(((7*9)+1)-date.isocalendar()[2])
+
+#         def week_definer(as_of_date, res_date):
+#             if res_date >= as_of_date and res_date < mon_next(as_of_date):
+#                 return 'This Week'
+#             elif res_date >= mon_next(as_of_date) and res_date < mon_two(as_of_date):
+#                 return 'Next Week'
+#             elif res_date >= mon_two(as_of_date) and res_date < mon_three(as_of_date):
+#                 return 'Two Weeks'
+#             elif res_date >= mon_three(as_of_date) and res_date < mon_four(as_of_date):
+#                 return 'Three Weeks'
+#             elif res_date >= mon_four(as_of_date) and res_date < mon_five(as_of_date):
+#                 return 'Four Weeks'
+#             elif res_date >= mon_five(as_of_date) and res_date < mon_six(as_of_date):
+#                 return 'Five Weeks'
+#             elif res_date >= mon_six(as_of_date) and res_date < mon_seven(as_of_date):
+#                 return 'Six Weeks'
+#             elif res_date >= mon_seven(as_of_date) and res_date < mon_eight(as_of_date):
+#                 return 'Seven Weeks'
+#             elif res_date >= mon_eight(as_of_date) and res_date < mon_nine(as_of_date):
+#                 return 'Eight Weeks'
+#             else:
+#                 return ''
+
+#         # Year DFs
+
+#         def pull_csv(csv_string):
+#             return pd.read_csv(csv_string).iloc[:,1:]
+
+#         def add_dates(df, date_columns):
+
+#             for column in date_columns:
+#                 df[column] = pd.to_datetime(df[column])
+
+#             df['Day'] = df[date_columns[0]].dt.day_name()
+
+#             for column in date_columns:
+#                 df[column] = df[column].dt.date
+
+#             return df
+
+#         def map_restaurants_to_app_values(df, restaurant_column, year):
+
+#             this_year_restaurants_to_bookings = [
+#                 '100 Wardour St',
+#                 '100 Wardour St Club Bar',
+#                 '100 Wardour St',
+#                 '100 Wardour St Lounge Bar',
+#                 '14 Hills',
+#                 '20 Stories',
+#                 'Angelica',
+#                 'Angler Restaurant',
+#                 'Aster',
+#                 'Avenue',
+#                 'Bluebird Chelsea Restaurant',
+#                 'Bluebird Chelsea Cafe',
+#                 'Bluebird Private Dining',
+#                 'Bluebird White City',
+#                 'Blueprint Cafe',
+#                 'Butlers Wharf Chophouse Restaurant',
+#                 'Cantina del Ponte',
+#                 "Coq d'Argent",
+#                 "Coq d'Argent",
+#                 'Crafthouse',
+#                 'East 59th',
+#                 'Fish Market',
+#                 'Fiume',
+#                 'German Gymnasium',
+#                 'German Gymnasium',
+#                 'Issho Restaurant',
+#                 'Issho Bar',
+#                 'Launceston Place',
+#                 'Pont de la Tour',
+#                 'Pont de la Tour',
+#                 'Madison Restaurant',
+#                 'New Street Grill',
+#                 'New Street Wine Shop',
+#                 'Old Bengal Bar',
+#                 'Orrery',
+#                 'Paternoster Chophouse',
+#                 'Plateau',
+#                 'Plateau',
+#                 'Quaglino’s Restaurant',
+#                 "Quaglino's Bar",
+#                 "Quaglino's PDR",
+#                 'Radici',
+#                 'Sartoria',
+#                 'Skylon Restaurant',
+#                 'South Place Chop House',
+#                 'The Modern Pantry'
+#             ]
+
+#             last_year_restaurants_to_bookings = [
+#                 '100 Wardour St',
+#                 '100 Wardour St',
+#                 '14 Hills',
+#                 '20 Stories',
+#                 'Angelica',
+#                 'Angler Restaurant',
+#                 'Aster',
+#                 'Aster',
+#                 'Avenue',
+#                 'Bluebird Chelsea Caf',
+#                 'Bluebird Chelsea PDR',
+#                 'Bluebird Chelsea Restaurant',
+#                 'Bluebird White City',
+#                 'Blueprint Cafe',
+#                 'Butlers Wharf Chophouse Restaurant',
+#                 'Cantina Del Ponte',
+#                 "Coq d'Argent",
+#                 "Coq d'Argent",
+#                 'Crafthouse',
+#                 'East 59th',
+#                 'Fish Market',
+#                 'Fiume',
+#                 'German Gymnasium',
+#                 'German Gymnasium',
+#                 'Issho Bar',
+#                 'Issho Restaurant',
+#                 'Launceston Place',
+#                 'Madison Restaurant',
+#                 'New Street Grill',
+#                 'Old Bengal Bar',
+#                 'Orrery',
+#                 'Paternoster Chophouse',
+#                 'Plateau',
+#                 'Plateau',
+#                 'Pont de la Tour',
+#                 'Pont de la Tour',
+#                 "Quaglino's Bar",
+#                 'Quaglino’s Restaurant',
+#                 'Radici',
+#                 'Sartoria',
+#                 'Skylon Restaurant',
+#                 'South Place Chop House',
+#                 'The Modern Pantry'
+#             ]
+            
+#             if year == 'current':
+#                 new_restaurants = this_year_restaurants_to_bookings
+#             else:
+#                 new_restaurants = last_year_restaurants_to_bookings
+            
+#             old_restaurants = list(df[restaurant_column].unique())
+#             restaurant_map = dict(zip(old_restaurants,new_restaurants))
+#             df['Restaurant'] = df[restaurant_column].map(restaurant_map)
+            
+#             return df
+        
+#         def add_week_column(df, week_date):
+            
+#             today = date.today()
+#             yesterday = today - timedelta(1)
+#             todayLW = today - timedelta(7)
+#             yesterdayLW = todayLW - timedelta(1)
+#             todayLY = today - timedelta(364)
+#             yesterdayLY = todayLY - timedelta(1)
+#             daynum = today.isocalendar()[2]
+
+#             def mon_next(date):
+#                 return date + timedelta(((7*1)+1)-date.isocalendar()[2])
+#             def mon_two(date):
+#                 return date + timedelta(((7*2)+1)-date.isocalendar()[2])
+#             def mon_three(date):
+#                 return date + timedelta(((7*3)+1)-date.isocalendar()[2])
+#             def mon_four(date):
+#                 return date + timedelta(((7*4)+1)-date.isocalendar()[2])
+#             def mon_five(date):
+#                 return date + timedelta(((7*5)+1)-date.isocalendar()[2])
+#             def mon_six(date):
+#                 return date + timedelta(((7*6)+1)-date.isocalendar()[2])
+#             def mon_seven(date):
+#                 return date + timedelta(((7*7)+1)-date.isocalendar()[2])
+#             def mon_eight(date):
+#                 return date + timedelta(((7*8)+1)-date.isocalendar()[2])
+#             def mon_nine(date):
+#                 return date + timedelta(((7*9)+1)-date.isocalendar()[2])
+
+#             def week_definer(as_of_date, res_date):
+#                 if res_date >= as_of_date and res_date < mon_next(as_of_date):
+#                     return 'This Week'
+#                 elif res_date >= mon_next(as_of_date) and res_date < mon_two(as_of_date):
+#                     return 'Next Week'
+#                 elif res_date >= mon_two(as_of_date) and res_date < mon_three(as_of_date):
+#                     return 'Two Weeks'
+#                 elif res_date >= mon_three(as_of_date) and res_date < mon_four(as_of_date):
+#                     return 'Three Weeks'
+#                 elif res_date >= mon_four(as_of_date) and res_date < mon_five(as_of_date):
+#                     return 'Four Weeks'
+#                 elif res_date >= mon_five(as_of_date) and res_date < mon_six(as_of_date):
+#                     return 'Five Weeks'
+#                 elif res_date >= mon_six(as_of_date) and res_date < mon_seven(as_of_date):
+#                     return 'Six Weeks'
+#                 elif res_date >= mon_seven(as_of_date) and res_date < mon_eight(as_of_date):
+#                     return 'Seven Weeks'
+#                 elif res_date >= mon_eight(as_of_date) and res_date < mon_nine(as_of_date):
+#                     return 'Eight Weeks'
+#                 else:
+#                     return ''
+            
+#             df['Week'] = df['Date'].apply(lambda x: week_definer(week_date, x))
+#             return df
+        
+#         def filter_by_status(df, as_of_date, year):
+            
+#             if year == 'current':
+                
+#                 as_of_today_mask = df['As of'] == as_of_date
+
+#                 df_columns = ['Restaurant', 'Week', 'Day', 'max_guests']
+#                 groupby_columns = df_columns[:-1]
+
+#                 df = df[as_of_today_mask][df_columns].groupby(groupby_columns).sum().reset_index()
+
+#                 df_columns = ['Restaurant', 'Week', 'Day','Covers']
+#                 df.columns = df_columns
+
+#                 return df
+            
+#             else:
+                
+#                 created_date_mask = df['Created'] < as_of_date
+#                 canceled_date_mask = df['Canceled Date'] >= as_of_date
+#                 completed_mask = df['Looker Status'] == 'Completed'
+#                 no_show_mask = df['Looker Status'] == 'No Show'
+#                 canceled_mask = df['Looker Status'] == 'Canceled'
+
+#                 return df[(created_date_mask & (completed_mask | no_show_mask)) | (created_date_mask & canceled_mask & canceled_date_mask)][['Restaurant', 'Week', 'Day','Covers']].groupby(['Restaurant', 'Week', 'Day']).sum().reset_index()
+            
+                
+        
+
+#         def this_year_df(df, date_columns, restaurant_column, new_restaurants):
+            
+#             df = add_dates(df, date_columns)
+#             return restaurant_mapping(df, restaurant_column, new_restaurants)
+
+#         def last_year_df(csv_string, date_columns, restaurant_column, new_restaurants):
+
+#             df = add_dates(pull_csv(csv_string), date_columns)
+#             return restaurant_mapping(df, restaurant_column, new_restaurants)
+
+
+#         def last_year_filtering(df, week_date, as_of_date):
+
+#             df['Week'] = df['Date'].apply(lambda x: week_definer(week_date, x))
+
+#             created_date_mask = df['Created'] < as_of_date
+#             canceled_date_mask = df['Canceled Date'] >= as_of_date
+#             completed_mask = df['Looker Status'] == 'Completed'
+#             no_show_mask = df['Looker Status'] == 'No Show'
+#             canceled_mask = df['Looker Status'] == 'Canceled'
+
+#             return df[(created_date_mask & (completed_mask | no_show_mask)) | (created_date_mask & canceled_mask & canceled_date_mask)][['Restaurant', 'Week', 'Day','Covers']].groupby(['Restaurant', 'Week', 'Day']).sum().reset_index()
+
+#         def this_year_filtering(df, week_date, as_of_date):
+
+#             df=df.copy()
+#             df['Week'] = df['visit_day'].apply(lambda x: week_definer(week_date, x))
+#             as_of_today_mask = df['As of'] == as_of_date
+
+#             df_columns = ['Restaurant', 'Week', 'Day', 'max_guests']
+#             groupby_columns = df_columns[:-1]
+
+#             df = df[as_of_today_mask][df_columns].groupby(groupby_columns).sum().reset_index()
+
+#             df_columns = ['Restaurant', 'Week', 'Day','Covers']
+#             df.columns = df_columns
+
+#             return df
+
+#         def merge_tracker_dfs(df_tw, df_lw, df_ly):
+
+#             df_columns = ['Restaurant', 'Week', 'Day','Covers']
+
+#             df_ty = pd.merge(
+#                 left=df_tw, 
+#                 right=df_lw,
+#                 how='outer',
+#                 on=df_columns[:-1],
+#                 suffixes=('_TW','_LW')
+#             ).fillna(0)
+
+#             df = pd.merge(
+#                 left=df_ty,
+#                 right=df_ly,
+#                 how='outer',
+#                 on=df_columns[:-1]
+#             ).fillna(0)
+
+#             mask1 = df['Restaurant'].isin(bookings_restaurants)
+#             mask2 = df['Week'] != ''
+#             df = df[mask1 & mask2]
+#             df.columns = ['Restaurant','Week','Day','This Week','Last Week','Last Year']
+#             return df
+
+#         def last_year_pickup_df(today_ly,yesterday_ly):
+
+#             df = pd.merge(
+#                 left = today_ly, 
+#                 right = yesterday_ly,
+#                 how='outer',
+#                 on=['Restaurant','Week','Day']
+#             ).fillna(0)
+            
+#             df.columns = ['Restaurant','Week','Day','Today','Yesterday']
+#             df_columns = ['Restaurant','Week','Day','Today','Yesterday']
+#             groupby_columns = df_columns[:-2]
+#             df = df[df_columns].groupby(groupby_columns).sum().reset_index()
+#             df['Pickup'] = df['Today'] - df['Yesterday']
+#             return df[['Restaurant','Week','Day','Pickup']]
+
+#         def this_year_pickup_df(df, today, yesterday):
+
+#             df_columns = ['Restaurant','visit_day','Day','max_guests']
+#             groupby_columns = df_columns[:-1]
+#             today_df = df[df['As of'] == today][df_columns].groupby(groupby_columns).sum().reset_index()
+#             yesterday_df = df[df['As of'] == yesterday][df_columns].groupby(groupby_columns).sum().reset_index()
+
+#             pickup_df = pd.merge(
+#                 left = today_df, 
+#                 right = yesterday_df,
+#                 how='outer',
+#                 on=['Restaurant','visit_day','Day']
+#             ).fillna(0)
+
+#             df = pickup_df
+#             df['Week'] = df['visit_day'].apply(lambda x: week_definer(today, x))
+#             df.columns = ['Restaurant', 'Date','Day','Today','Yesterday','Week']
+#             df_columns = ['Restaurant','Week','Day','Today','Yesterday']
+#             groupby_columns = df_columns[:-2]
+#             df = df[df_columns].groupby(groupby_columns).sum().reset_index()
+#             df['Pickup'] = df['Today'] - df['Yesterday']
+#             return df[['Restaurant','Week','Day','Pickup']]
+
+#         def merge_pickup_dfs(pickup_tw, pickup_lw, pickup_ly):
+
+#             pickup_ty = pd.merge(
+#                 left=pickup_tw,
+#                 right=pickup_lw,
+#                 how='outer',
+#                 on=['Restaurant','Week','Day'],
+#                 suffixes=('_TW', '_LW')
+#             ).fillna(0)
+
+#             df = pd.merge(
+#                 left=pickup_ty,
+#                 right=pickup_ly,
+#                 how='outer',
+#                 on=['Restaurant','Week','Day']
+#             ).fillna(0)
+
+#             mask1 = df['Restaurant'].isin(bookings_restaurants)
+#             mask2 = df['Week'] != ''
+#             df = df[mask1 & mask2]
+#             df.columns = ['Restaurant','Week','Day','This Week','Last Week','Last Year']
+#             return df
+
+
+#         def add_full_week_row(df):
+
+#             df_columns = ['Restaurant','Week','This Week','Last Week','Last Year']
+#             groupby_columns = df_columns[:-3]
+#             week_df = df[df_columns].groupby(groupby_columns).sum().reset_index().dropna()
+#             week_df['Day'] = 'Full Week'
+#             week_df = week_df[['Restaurant','Week','Day','This Week','Last Week','Last Year']]
+#             return pd.concat([week_df,df])
+
+#         def add_group(df):
+
+#             df_columns = ['Week','Day','This Week','Last Week','Last Year']
+#             groupby_columns = df_columns[:-3]
+#             group_df = df[df['Restaurant']!='Monday Pantry'][df_columns].groupby(groupby_columns).sum().reset_index().dropna()
+#             group_df['Restaurant'] = 'Group'
+#             group_df = group_df[['Restaurant','Week','Day','This Week','Last Week','Last Year']]
+#             return pd.concat([group_df,df])
+
+#         def sort_columns(df):
+
+#             week_sorter = [
+#                 'This Week', 
+#                 'Next Week', 
+#                 'Two Weeks', 
+#                 'Three Weeks',
+#                 'Four Weeks',
+#                 'Five Weeks',
+#                 'Six Weeks',
+#                 'Seven Weeks',
+#                 'Eight Weeks'
+#             ]
+
+#             day_sorter = [
+#                 'Monday',
+#                 'Tuesday',
+#                 'Wednesday',
+#                 'Thursday',
+#                 'Friday',
+#                 'Saturday',
+#                 'Sunday',
+#                 'Full Week'
+#             ]
+
+#             columns = ['Week','Day']
+#             sorters = [week_sorter, day_sorter]
+
+#             for i in range(2):
+#                 df[columns[i]] = df[columns[i]].astype('category')
+#                 df[columns[i]].cat.set_categories(sorters[i], inplace=True)
+
+#             return df.sort_values(['Restaurant','Week','Day'])
+
+#         def group_sort_columns(df):
+
+#             week_sorter = [
+#                 'This Week', 
+#                 'Next Week', 
+#                 'Two Weeks', 
+#                 'Three Weeks',
+#                 'Four Weeks',
+#                 'Five Weeks',
+#                 'Six Weeks',
+#                 'Seven Weeks',
+#                 'Eight Weeks'
+#             ]
+
+#             day_sorter = [
+#                 'Monday',
+#                 'Tuesday',
+#                 'Wednesday',
+#                 'Thursday',
+#                 'Friday',
+#                 'Saturday',
+#                 'Sunday',
+#                 'Full Week'
+#             ]
+
+#             columns = ['Week','Day']
+#             sorters = [week_sorter, day_sorter]
+
+#             for i in range(2):
+#                 df[columns[i]] = df[columns[i]].astype('category')
+#                 df[columns[i]].cat.set_categories(sorters[i], inplace=True)
+
+#             return df.sort_values(['Week','Day'])
+
+
+#         def add_comparison_columns(df):
+
+#             df['vs. LW'] = df['This Week'] - df['Last Week']
+#             df['vs. LW %'] = (df['vs. LW'].replace(0,1) / df['Last Week'].replace(0,1))
+#             df['vs. LY'] = df['This Week'] - df['Last Year']
+#             df['vs. LY %'] = (df['vs. LY'].replace(0,1)  / df['Last Year'].replace(0,1))
+
+#             return df
+
+#         # def group_df(df):
+
+#         #     df_columns = list(df.columns)[1:]
+#         #     groupby_columns = df_columns[:2]
+#         #     return add_comparison_columns(group_sort_columns(df[df_columns].groupby(groupby_columns).sum().reset_index()))
+
+#         if self.location == 'laptop':
+#             this_year_csv = 'Historic_Tracker_Data.csv'
+#             last_year_csv = 'SevenRooms Portal.csv'
+#         else:
+#             this_year_csv = self.C_Drive_Database + "Historic_Tracker_Data.csv"
+#             last_year_csv = 'SevenRooms Portal.csv'
+
+#         this_year_date_columns = ['visit_day', 'As of']
+#         last_year_date_columns = ['Date','Created','Canceled Date']
+
+#         this_year_restaurant_column = 'restaurant2'
+#         last_year_restaurant_column = 'Venue'
+
+#         this_year_df = this_year_df(self.historic_tracker_data, this_year_date_columns, this_year_restaurant_column, this_year_restaurants_to_bookings)
+#         last_year_df = last_year_df(last_year_csv, last_year_date_columns, last_year_restaurant_column, last_year_restaurants_to_bookings)
+
+#         tracker_tw = this_year_filtering(this_year_df, today, today)
+#         tracker_lw = this_year_filtering(this_year_df, todayLW, todayLW)
+#         tracker_ly = last_year_filtering(last_year_df, todayLY, todayLY)
+
+#         tracker_df = add_comparison_columns(
+#             sort_columns(
+#                 add_full_week_row(
+#                     merge_tracker_dfs(tracker_tw, tracker_lw, tracker_ly)
+#                 )
+#             )
+#         ).reset_index(drop=True)
+        
+
+#         yesterday_ly = last_year_filtering(last_year_df, todayLY, yesterdayLY)
+
+#         pickup_tw = this_year_pickup_df(this_year_df, today, yesterday)
+#         pickup_lw = this_year_pickup_df(this_year_df, todayLW, yesterdayLW)
+#         pickup_ly = last_year_pickup_df(tracker_ly, yesterday_ly)
+
+#         pickup_df = add_comparison_columns(
+#             sort_columns(
+#                 add_full_week_row(
+#                     merge_pickup_dfs(pickup_tw, pickup_lw, pickup_ly)
+#                 )
+#             )
+#         ).reset_index(drop=True)
+        
+#         return tracker_df, pickup_df
