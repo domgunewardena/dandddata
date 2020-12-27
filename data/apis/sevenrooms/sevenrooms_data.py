@@ -814,7 +814,7 @@ class SevenRoomsData:
         yesterdayLY = todayLY - timedelta(1)
         daynum = today.isocalendar()[2]
 
-        thisyear = self.historic_tracker_data
+        thisyear = self.historic_tracker_data.copy()
         lastyear_csv = 'SevenRooms Portal.csv'
         lastyear = pull_csv(lastyear_csv)
 
