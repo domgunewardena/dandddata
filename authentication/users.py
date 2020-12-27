@@ -85,7 +85,7 @@ bookings_user_restaurants = {
         'Paternoster Chophouse',
         'Plateau',
         'Pont de la Tour',
-        'Quaglino’s Restaurant',
+        "Quaglino's Restaurant",
         'Radici',
         'Sartoria',
         'Skylon Restaurant',
@@ -99,7 +99,7 @@ bookings_user_restaurants = {
          'Bluebird Chelsea Restaurant',
          'Bluebird White City',
          'Madison Restaurant',
-         'Quaglino’s Restaurant',
+         "Quaglino's Restaurant",
          'Skylon Restaurant'
     ],
     'sharon':[
