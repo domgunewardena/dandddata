@@ -2,9 +2,8 @@ import psycopg2
 from sqlalchemy import create_engine
 import pandas as pd
 
-from secrets import postgres_host, postgres_database, postgres_user, postgres_password
-
-from postgresql_queries import create,select,column_names
+from data.database.secrets import postgres_host, postgres_database, postgres_user, postgres_password
+from data.database.postgresql_queries import create,select,column_names
 
 class PostgreSQLDatabase():
     
