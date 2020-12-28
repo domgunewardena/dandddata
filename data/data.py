@@ -4,10 +4,21 @@ from datetime import date, datetime, timedelta
 from authentication.authentication import auth
 from authentication.users import *
 from data.date_bounds import bound_filtering, daily_bounds, wtd_bounds, mtd_bounds, weekly_bounds, monthly_bounds
+from data.database.postgresql_tables import Tracker, Pickup, Future, Trends, Revenue, Covers
 
-# Import Sales CSVs
-rev_df = pd.read_csv("data/App Revenue.csv")
-cov_df = pd.read_csv("data/App Covers.csv")
+
+revenue = Revenue()
+covers = Covers()
+tracker = Tracker()
+pickup = Pickup()
+future = Future()
+trends = Trends()
+
+# rev_df = pd.read_csv("data/App Revenue.csv")
+# cov_df = pd.read_csv("data/App Covers.csv")
+
+rev_df = revenue.dataframe
+cov_df = covers.dataframe
 
 # Add Date Columns
 rev_df['Date'] = pd.to_datetime(rev_df['Date']).dt.date
