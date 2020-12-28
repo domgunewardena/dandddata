@@ -258,11 +258,13 @@ class SevenRoomsData:
 
             return pd.read_csv(glob.glob(old_csv_path + date_string + '*')[0]).iloc[:,1:]
 
-        def future_bookings_df(input_df):
+        def future_bookings_df(input_df, week):
             
-            def convert_date_to_correct_format(df):
+            def convert_date_to_correct_format(df, week):
                 
-                df['visit_day'] = pd.to_datetime(df['visit_day']).dt.strftime('%Y-%m-%d')
+                # add 7 days to last week's data to produce an accurate vs. LW comparison
+                days = 7 if week=='last' else 0
+                df['visit_day'] = (pd.to_datetime(df['visit_day']) + timedelta(days)).dt.strftime('%Y-%m-%d')
                 return df
             
             def map_restaurants_to_app_values(df):
@@ -321,7 +323,7 @@ class SevenRoomsData:
                         group_by_future_columns(
                             map_restaurants_to_app_values(
                                 convert_date_to_correct_format(
-                                    df
+                                    df,week
                                 )
                             )
                         )
@@ -332,8 +334,8 @@ class SevenRoomsData:
         shift_covers = self.shift_covers_data.copy()
         old_shift_covers = read_old_csv(self)
         
-        current = future_bookings_df(shift_covers)
-        lastweek = future_bookings_df(old_shift_covers)
+        current = future_bookings_df(shift_covers,'this')
+        lastweek = future_bookings_df(old_shift_covers,'last')
         
         def merge_week_dfs(current,lastweek):
 
