@@ -3,6 +3,7 @@ from sqlalchemy import create_engine
 import pandas as pd
 
 from data.database.secrets import postgres_host, postgres_database, postgres_user, postgres_password
+
 from data.database.postgresql_queries import create,select,column_names
 
 class PostgreSQLDatabase():
@@ -16,13 +17,14 @@ class PostgreSQLDatabase():
 
 class PostgreSQLTable(PostgreSQLDatabase):
     
-    def __init__(self):
+    def __init__(self, table):
         
         super().__init__()
         
-        self.create_query = ''
-        self.select_query = ''
-        self.column_names = ''
+        self.create_query = create[table]
+        self.select_query = select[table]
+        self.column_names = column_names[table]
+        self.dataframe = self.to_dataframe()
         
     def connect_to_database(self):
         
@@ -56,68 +58,9 @@ class PostgreSQLTable(PostgreSQLDatabase):
         return pd.DataFrame(tuples, columns=self.column_names)
         return tuples
 
-class Tracker(PostgreSQLTable):
-    
-    def __init__(self):
-        
-        super().__init__()
-        
-        self.create_query = create['tracker']
-        self.select_query = select['tracker']
-        self.column_names = column_names['tracker']
-        self.dataframe = self.to_dataframe()
-        
-class Pickup(PostgreSQLTable):
-    
-    def __init__(self):
-        
-        super().__init__()
-        
-        self.create_query = create['pickup']
-        self.select_query = select['pickup']
-        self.column_names = column_names['pickup']
-        self.dataframe = self.to_dataframe()
-        
-class Trends(PostgreSQLTable):
-    
-    def __init__(self):
-        
-        super().__init__()
-        
-        self.create_query = create['trends']
-        self.select_query = select['trends']
-        self.column_names = column_names['trends']
-        self.dataframe = self.to_dataframe()
-        
-class Future(PostgreSQLTable):
-    
-    def __init__(self):
-        
-        super().__init__()
-        
-        self.create_query = create['future']
-        self.select_query = select['future']
-        self.column_names = column_names['future']
-        self.dataframe = self.to_dataframe()
-        
-class Revenue(PostgreSQLTable):
-    
-    def __init__(self):
-        
-        super().__init__()
-        
-        self.create_query = create['revenue']
-        self.select_query = select['revenue']
-        self.column_names = column_names['revenue']
-        self.dataframe = self.to_dataframe()
-        
-class Covers(PostgreSQLTable):
-    
-    def __init__(self):
-        
-        super().__init__()
-        
-        self.create_query = create['covers']
-        self.select_query = select['covers']
-        self.column_names = column_names['covers']
-        self.dataframe = self.to_dataframe()
+revenue = PostgreSQLTable('revenue')
+covers = PostgreSQLTable('covers')
+tracker = PostgreSQLTable('tracker')
+pickup = PostgreSQLTable('pickup')
+future = PostgreSQLTable('future')
+trends = PostgreSQLTable('trends')
