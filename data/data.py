@@ -3,8 +3,11 @@ from datetime import date, datetime, timedelta
 
 from authentication.authentication import auth
 from authentication.users import *
+
 from data.date_bounds import bound_filtering, daily_bounds, wtd_bounds, mtd_bounds, weekly_bounds, monthly_bounds
-from data.database.postgresql_tables import revenue, covers, tracker, pickup, future, trends
+
+# from data.database.postgresql_tables import revenue, covers, tracker, pickup, future, trends
+from data.database.postgresql_tables import revenue, covers
 
 # rev_df = pd.read_csv("data/App Revenue.csv")
 # cov_df = pd.read_csv("data/App Covers.csv")
