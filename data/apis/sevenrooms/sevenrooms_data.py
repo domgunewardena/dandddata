@@ -999,7 +999,7 @@ class SevenRoomsData:
             'vs. LW':'vs_lw',
             'vs. LW %':'vs_lw_p',
             'vs. LY':'vs_ly',
-            'vs. LY %':'vs_lw_p'
+            'vs. LY %':'vs_ly_p'
         }
 
         pickup_columns = {
@@ -1012,7 +1012,7 @@ class SevenRoomsData:
             'vs. LW':'vs_lw',
             'vs. LW %':'vs_lw_p',
             'vs. LY':'vs_ly',
-            'vs. LY %':'vs_lw_p'
+            'vs. LY %':'vs_ly_p'
         }
 
         future_columns={
