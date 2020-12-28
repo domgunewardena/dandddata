@@ -56,7 +56,6 @@ class PostgreSQLTable(PostgreSQLDatabase):
         conn.close()
         
         return pd.DataFrame(tuples, columns=self.column_names)
-        return tuples
 
 revenue = PostgreSQLTable('revenue')
 covers = PostgreSQLTable('covers')
