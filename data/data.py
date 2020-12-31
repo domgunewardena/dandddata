@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 from datetime import date, datetime, timedelta
 
 from authentication.authentication import auth
@@ -87,18 +88,18 @@ def infinite(x):
         return x
     
 # Returns final dataframe that gets fed into graph functions - generating columns for each time period (current, last, last year) & comparison columns    
-def final_dataframe(df_tw, df_lw, df_ly, on_column, current_column, last_col, vs_col):
+def final_dataframe(dfs, on_column, current_column, last_col, vs_col):
     
     df_ty = pd.merge(
-        left=df_tw,
-        right=df_lw,
+        left=dfs[0],
+        right=dfs[1],
         on=on_column,
         how='outer'
     ).fillna(0)
 
     df = pd.merge(
         left=df_ty,
-        right=df_ly,
+        right=dfs[2],
         on=on_column,
         how='outer'
     ).fillna(0)
@@ -120,11 +121,35 @@ def date_filtering(df,bounds,current_column,last_col,vs_col,on_column,func):
     mask5 = df['Date'] <= bounds[4]
     mask6 = df['Date'] >= bounds[5]
 
-    df_tw = func(df[mask1 & mask2])
-    df_lw = func(df[mask3 & mask4])
-    df_ly = func(df[mask5 & mask6])
+    df1 = func(df[mask1 & mask2])
+    df2 = func(df[mask3 & mask4])
+    df3 = func(df[mask5 & mask6])
+    
+    dfs = [df1,df2,df3]
+    
+    def fill_empty_dataframe_with_zero_values(dfs):
+        
+        def get_populated_df(dfs):
+            
+            return [df for df in dfs if df.empty==False][0].copy()
+        
+        def get_empty_df(populated_df):
+            
+            df = populated_df.copy()
+            
+            for col in df.columns:
+                if np.issubdtype(df[col].dtype, np.number):
+                    df[col].values[:] = 0
+                    
+            return df
+        
+        empty_df = get_empty_df(get_populated_df(dfs))
+        
+        return [empty_df if df.empty else df for df in dfs]
+    
+    dfs = fill_empty_dataframe_with_zero_values(dfs)
 
-    return final_dataframe(df_tw, df_lw, df_ly, on_column, current_column, last_col, vs_col)
+    return final_dataframe(dfs, on_column, current_column, last_col, vs_col)
 
 def spend_df(rev_df,cov_df,on_column,current_column,last_col,vs_col):
     
