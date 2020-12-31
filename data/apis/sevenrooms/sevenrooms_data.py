@@ -254,7 +254,7 @@ class SevenRoomsData:
             else:
                 old_csv_path = self.N_Drive_Forecasts + "Future Bookings/ShiftCovers/ShiftCovers "
 
-            date_string = (date.today()-timedelta(7)).strftime('%d-%b-%Y')
+            date_string = (date.today()-timedelta(6)).strftime('%d-%b-%Y')
 
             return pd.read_csv(glob.glob(old_csv_path + date_string + '*')[0]).iloc[:,1:]
 
