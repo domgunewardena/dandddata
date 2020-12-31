@@ -599,7 +599,7 @@ def future_totals_figure(restaurant_list, df):
     def add_totals(df, i, num, restaurant_list, fig):
 
         dff = df[df['restaurant'] == restaurant_list[i]]
-        ymax = max(max(dff['max_guests TW']), max(dff['capacity']))
+        ymax = max(max(dff['max_guests TW'], default=0), max(dff['capacity'], default=0))
         row = (i*2)+num
         bookings_template = '%{y} - %{customdata} %{x}'
         capacity_template = '%{y}'
