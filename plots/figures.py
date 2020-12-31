@@ -603,6 +603,7 @@ def future_totals_figure(restaurant_list, df):
         row = (i*2)+num
         bookings_template = '%{y} - %{customdata} %{x}'
         capacity_template = '%{y}'
+        text_template = '%{y}'
 
         fig.add_trace(
             go.Bar(
@@ -611,6 +612,9 @@ def future_totals_figure(restaurant_list, df):
                 name='Covers',
                 customdata=dff['weekday'],
                 hovertemplate=bookings_template,
+                text=dff['max_guests TW'],
+                textposition='auto',
+                texttemplate = text_template,
                 marker=dict(
                     color=dff['full TW'],
                     coloraxis='coloraxis'
