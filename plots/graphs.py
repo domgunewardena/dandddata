@@ -1,4 +1,4 @@
-from data.data import *
+from data.functions import *
 from plots.figures import *
 from display.styling import *
 
