@@ -1,4 +1,11 @@
 # Data processing functions that are called within graph functions - generating dataframes that are fed into figures in the front end
+  
+import pandas as pd
+import numpy as np
+from datetime import date, datetime, timedelta
+
+from authentication.authentication import auth
+from authentication.users import user_restaurants, bookings_user_restaurants
 
 # Returns final dataframe that gets fed into figure functions - generating columns for each time period (current, last, last year) & comparison columns    
 def final_dataframe(dfs, on_column, current_column, last_col, vs_col):
