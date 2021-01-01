@@ -614,7 +614,8 @@ def future_totals_figure(restaurant_list, df):
                 hovertemplate=bookings_template,
                 text=dff['max_guests TW'],
                 textposition='auto',
-                texttemplate = text_template,
+                texttemplate=text_template,
+                textangle=0,
                 marker=dict(
                     color=dff['full TW'],
                     coloraxis='coloraxis'
