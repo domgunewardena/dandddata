@@ -1,4 +1,5 @@
 from display.layouts import *
+from display.variables import *
 from plots.graphs import *
 from app import app
 
