@@ -6,7 +6,7 @@ import pyhdb
 import psycopg2
 from sqlalchemy import create_engine
 
-from queries import revenue_query, covers_query, rev_df_columns, cov_df_columns
+from sap_queries import revenue_query, covers_query, rev_df_columns, cov_df_columns
 from secrets import host, port, user, password
 
 class SAPAPI:
