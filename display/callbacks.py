@@ -3,6 +3,7 @@ from display.variables import *
 from plots.graphs import *
 from data.data import *
 from data.date_bounds import *
+from data.day_counts import *
 from app import app
 
 # Daily Sales Callbacks
