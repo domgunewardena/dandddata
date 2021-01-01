@@ -1,6 +1,6 @@
-# Data processing functions that are called within callbacks, which generate dataframes that are fed into graphs in the front end
+# Data processing functions that are called within graph functions - generating dataframes that are fed into figures in the front end
 
-# Returns final dataframe that gets fed into graph functions - generating columns for each time period (current, last, last year) & comparison columns    
+# Returns final dataframe that gets fed into figure functions - generating columns for each time period (current, last, last year) & comparison columns    
 def final_dataframe(dfs, on_column, current_column, last_col, vs_col):
     
     df_ty = pd.merge(
