@@ -979,12 +979,12 @@ class SevenRoomsData:
         
         import psycopg2
         from sqlalchemy import create_engine
-        from secrets import postgres_host, postgres_database, postgres_user, postgres_password
+        from secrets import postgresql_host, postgresql_database, postgresql_user, postgresql_password
        
-        host = postgres_host
-        database = postgres_database
-        user = postgres_user
-        password = postgres_password
+        host = postgresql_host
+        database = postgresql_database
+        user = postgresql_user
+        password = postgresql_password
         
         tracker = self.tracker_app_data.copy()
         pickup = self.pickup_data.copy()
