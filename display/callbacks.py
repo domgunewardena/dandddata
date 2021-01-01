@@ -1,5 +1,6 @@
 from display.layouts import *
 from display.variables import *
+from display.callback_inputs import *
 from plots.graphs import *
 from data.data import *
 from data.date_bounds import *
