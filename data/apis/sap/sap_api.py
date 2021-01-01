@@ -3,11 +3,8 @@ from datetime import date, datetime, timedelta
 
 import pyhdb
 
-import psycopg2
-from sqlalchemy import create_engine
-
 from sap_queries import revenue_query, covers_query, rev_df_columns, cov_df_columns
-from secrets import host, port, user, password
+from secrets import sap_host, sap_port, sap_user, sap_password
 
 class SAPAPI:
     
@@ -16,10 +13,10 @@ class SAPAPI:
     def __init__(self,measure):
         
         self.connection = pyhdb.connect(
-            host=host,
-            port=port,
-            user=user,
-            password=password
+            host=sap_host,
+            port=sap_port,
+            user=sap_user,
+            password=sap_password
         )
         
         if measure=='Revenue':
@@ -195,16 +192,7 @@ class SAPAPI:
         
         return csv_date_filtering(
             app_df_format(self)
-        )
-    
-#         return generate_skeleton_df(
-#             csv_date_filtering(
-#                 app_df_format(self)
-#             )
-#         )
-
-
-        
+        )       
     
     def save_csvs(self):
         
@@ -216,6 +204,10 @@ class SAPAPI:
         df.to_csv(self.app_csv)
         
     def send_to_database(self):
+        
+        import psycopg2
+        from sqlalchemy import create_engine
+        from secrets import postgresql_host, postgresql_database, postgresql_user, postgresql_password
         
         df = self.app_df
         
@@ -235,11 +227,11 @@ class SAPAPI:
                 'Covers':'covers'
             }
         )
-
-        host = 'ec2-3-251-0-202.eu-west-1.compute.amazonaws.com'
-        database = 'dfqduhvokqgmrb'
-        user = 'zihnwwiixbqfwq'
-        password = '83a006318f7f6b7877883c88a16c8ef351faa58f50897bd57103db26c05a58f7'
+       
+        host = postgresql_host
+        database = postgresql_database
+        user = postgresql_user
+        password = postgresql_password
 
         engine_string = 'postgresql://' + user + ':' + password + '@' + host + '/' + database
 
