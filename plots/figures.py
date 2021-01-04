@@ -636,8 +636,8 @@ def future_totals_figure(restaurant_list, df):
 
         return fig
     
-    lunch_df = df[df['shift_category'] == 'LUNCH']
-    dinner_df = df[df['shift_category'] == 'DINNER']
+    lunch_df = df[df['shift'] == 'LUNCH']
+    dinner_df = df[df['shift'] == 'DINNER']
     mondays = [x for x in df['visit_day'].unique() if pd.to_datetime(x).date().weekday() == 0]
 
     title_strings = [[x + ' - Lunch', x + ' - Dinner'] for x in restaurant_list]
