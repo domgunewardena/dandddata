@@ -7,7 +7,18 @@ from authentication.users import user_restaurants, bookings_user_restaurants
 
 from data.date_bounds import bound_filtering, daily_bounds, wtd_bounds, mtd_bounds, weekly_bounds, monthly_bounds
 
-from data.database.postgresql_tables import revenue, covers, tracker, pickup, future, trends
+# from data.database.postgresql_tables import revenue, covers, tracker, pickup, future, trends
+
+rev_df = pd.read_csv("data/App Revenue.csv")
+cov_df = pd.read_csv("data/App Covers.csv")
+
+tracker_df = pd.read_csv('data/Tracker.csv').iloc[:,1:]
+pickup_df = pd.read_csv('data/Pickup.csv').iloc[:,1:]
+
+future_df = pd.read_csv("data/Future Bookings.csv")
+future_df['weekday'] = pd.to_datetime(future_df['visit_day']).dt.weekday_name
+
+trends_df = pd.read_csv('data/Booking Trends.csv')
 
 def generate_skeleton_df(df,measure):
     
@@ -77,8 +88,8 @@ def generate_skeleton_df(df,measure):
 
     return pd.merge(skeleton,df,how='outer').fillna(0)
 
-rev_df = generate_skeleton_df(revenue.dataframe, 'Revenue')
-cov_df = generate_skeleton_df(covers.dataframe, 'Covers')
+# rev_df = generate_skeleton_df(revenue.dataframe, 'Revenue')
+# cov_df = generate_skeleton_df(covers.dataframe, 'Covers')
 
 # Add Date Columns
 rev_df['Date'] = pd.to_datetime(rev_df['Date']).dt.date
@@ -96,12 +107,12 @@ weekly_cov_df = bound_filtering(cov_df,weekly_bounds)
 monthly_rev_df = bound_filtering(rev_df,monthly_bounds)
 monthly_cov_df = bound_filtering(cov_df,monthly_bounds)
 
-tracker_df = tracker.dataframe
-pickup_df = pickup.dataframe
-trends_df = trends.dataframe
-future_df = future.dataframe
+# tracker_df = tracker.dataframe
+# pickup_df = pickup.dataframe
+# trends_df = trends.dataframe
+# future_df = future.dataframe
 
-future_df['weekday'] = pd.to_datetime(future_df['visit_day']).dt.weekday_name
+# future_df['weekday'] = pd.to_datetime(future_df['visit_day']).dt.weekday_name
 
 # Function to ensure any infinite values are converted to 0 to allow calculation
 
