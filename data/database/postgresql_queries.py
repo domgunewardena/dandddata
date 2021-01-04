@@ -101,7 +101,6 @@ select = {
 
 column_names = {
     'tracker':[
-#         'index',
         'Restaurant',
         'Week',
         'Day',
@@ -109,12 +108,11 @@ column_names = {
         'Last Week',
         'Last Year',
         'vs. LW',
-        'vs. LW%',
+        'vs. LW %',
         'vs. LY',
-        'vs. LY%',
+        'vs. LY %',
     ],
     'pickup':[
-#         'index',
         'Restaurant',
         'Week',
         'Day',
@@ -122,9 +120,9 @@ column_names = {
         'Last Week',
         'Last Year',
         'vs. LW',
-        'vs. LW%',
+        'vs. LW %',
         'vs. LY',
-        'vs. LY%',
+        'vs. LY %',
     ],
     'future':[
         'visit_day',
@@ -136,7 +134,7 @@ column_names = {
         'max_guests LW',
         'full LW',
         'max_guests vs LW',
-        'max_guests vs LW%',
+        'max_guests vs LW %',
     ],
     'trends':[
         'Restaurant',
