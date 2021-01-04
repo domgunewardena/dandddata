@@ -101,7 +101,7 @@ select = {
 
 column_names = {
     'tracker':[
-        'index',
+#         'index',
         'Restaurant',
         'Week',
         'Day',
@@ -114,7 +114,7 @@ column_names = {
         'vs. LY%',
     ],
     'pickup':[
-        'index',
+#         'index',
         'Restaurant',
         'Week',
         'Day',
