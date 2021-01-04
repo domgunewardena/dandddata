@@ -59,7 +59,7 @@ class PostgreSQLTable(PostgreSQLDatabase):
 
 revenue = PostgreSQLTable('revenue')
 covers = PostgreSQLTable('covers')
-# tracker = PostgreSQLTable('tracker')
-# pickup = PostgreSQLTable('pickup')
-# future = PostgreSQLTable('future')
-# trends = PostgreSQLTable('trends')
+tracker = PostgreSQLTable('tracker')
+pickup = PostgreSQLTable('pickup')
+future = PostgreSQLTable('future')
+trends = PostgreSQLTable('trends')
