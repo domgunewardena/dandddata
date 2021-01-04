@@ -7,11 +7,7 @@ from authentication.users import user_restaurants, bookings_user_restaurants
 
 from data.date_bounds import bound_filtering, daily_bounds, wtd_bounds, mtd_bounds, weekly_bounds, monthly_bounds
 
-# from data.database.postgresql_tables import revenue, covers, tracker, pickup, future, trends
-from data.database.postgresql_tables import revenue, covers
-
-# rev_df = pd.read_csv("data/App Revenue.csv")
-# cov_df = pd.read_csv("data/App Covers.csv")
+from data.database.postgresql_tables import revenue, covers, tracker, pickup, future, trends
 
 def generate_skeleton_df(df,measure):
     
@@ -89,7 +85,6 @@ rev_df['Date'] = pd.to_datetime(rev_df['Date']).dt.date
 cov_df['Date'] = pd.to_datetime(cov_df['Date']).dt.date
 
 # Generating each sales report dataframe by filtering by date bounds
-
 daily_rev_df = bound_filtering(rev_df,daily_bounds)
 daily_cov_df = bound_filtering(cov_df,daily_bounds)
 wtd_rev_df = bound_filtering(rev_df,wtd_bounds)
@@ -101,6 +96,13 @@ weekly_cov_df = bound_filtering(cov_df,weekly_bounds)
 monthly_rev_df = bound_filtering(rev_df,monthly_bounds)
 monthly_cov_df = bound_filtering(cov_df,monthly_bounds)
 
+tracker_df = tracker.dataframe
+pickup_df = pickup.dataframe
+trends_df = trends.dataframe
+future_df = future.dataframe
+
+future_df['weekday'] = pd.to_datetime(future_df['visit_day']).dt.weekday_name
+
 # Function to ensure any infinite values are converted to 0 to allow calculation
 
 # def infinite(x): 
@@ -111,10 +113,14 @@ monthly_cov_df = bound_filtering(cov_df,monthly_bounds)
 #     else: 
 #         return x
     
-tracker_df = pd.read_csv('data/Tracker.csv').iloc[:,1:]
-pickup_df = pd.read_csv('data/Pickup.csv').iloc[:,1:]
 
-future_df = pd.read_csv("data/Future Bookings.csv")
-future_df['weekday'] = pd.to_datetime(future_df['visit_day']).dt.weekday_name
+# rev_df = pd.read_csv("data/App Revenue.csv")
+# cov_df = pd.read_csv("data/App Covers.csv")
 
-trends_df = pd.read_csv('data/Booking Trends.csv')
+# tracker_df = pd.read_csv('data/Tracker.csv').iloc[:,1:]
+# pickup_df = pd.read_csv('data/Pickup.csv').iloc[:,1:]
+
+# future_df = pd.read_csv("data/Future Bookings.csv")
+# future_df['weekday'] = pd.to_datetime(future_df['visit_day']).dt.weekday_name
+
+# trends_df = pd.read_csv('data/Booking Trends.csv')
