@@ -1,6 +1,4 @@
 from display.layouts import *
-from display.variables import *
-from display.callback_inputs import *
 from plots.graphs import *
 from app import app
 from data.data import tracker_df, pickup_df, trends_df, future_df
