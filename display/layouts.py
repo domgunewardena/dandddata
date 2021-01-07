@@ -42,7 +42,7 @@ def sales_layout_template(report):
     title = html.Div(
         [
             html.H1(
-                children = report.upper() + ' Sales',
+                children = report.capitalize() + ' Sales',
                 style = h1_style
             )
         ]
