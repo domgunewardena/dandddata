@@ -2,9 +2,6 @@ from display.layouts import *
 from display.variables import *
 from display.callback_inputs import *
 from plots.graphs import *
-from data.data import *
-from data.date_bounds import *
-from data.day_counts import *
 from app import app
 
 from dash.dependencies import Input, Output
