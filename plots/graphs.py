@@ -1,4 +1,5 @@
 from data.functions import *
+from data.date_bounds import date_bounds, date_columns
 from plots.figures import *
 from display.styling import *
 
@@ -15,12 +16,14 @@ def sales_breakdown_graph(
     metric,
     rev_df,
     cov_df, 
-    bounds,
-    current_col,
-    last_col,
-    vs_col
+    report
 ):
 
+    bounds = date_bounds[report]
+    current_col = date_columns['current'][report]
+    last_col = date_columns['last'][report]
+    vs_col = date_columns['vs'][report]
+    
     change_col, base_col = (vs_col, last_col) if metric in [vs_col, last_col] else ('vs. LY', 'Last Year')
     on_column = 'SiteName'
     
@@ -53,13 +56,15 @@ def sales_breakdown_graph(
 def sales_group_revenue_graph(
     shift,
     metric,
-    df,
-    bounds,
-    current_col,
-    last_col,
-    vs_col
+    df, 
+    report
 ):
 
+    bounds = date_bounds[report]
+    current_col = date_columns['current'][report]
+    last_col = date_columns['last'][report]
+    vs_col = date_columns['vs'][report]
+    
     change_col, base_col = (vs_col, last_col) if metric in [vs_col, last_col] else ('vs. LY', 'Last Year')
     on_column = 'GenericLocation'
     measure = 'Revenue'
@@ -83,12 +88,15 @@ def sales_group_revenue_graph(
 def sales_group_covers_graph(
     shift,
     metric,
-    df,
-    bounds,
-    current_col,
-    last_col,
-    vs_col
+    df, 
+    report
 ):
+
+    bounds = date_bounds[report]
+    current_col = date_columns['current'][report]
+    last_col = date_columns['last'][report]
+    vs_col = date_columns['vs'][report]
+    
     change_col, base_col = (vs_col, last_col) if metric in [vs_col, last_col] else ('vs. LY', 'Last Year')
     on_column = 'GenericLocation'
     measure = 'Covers'
@@ -113,12 +121,15 @@ def sales_group_spend_graph(
     shift,
     metric,
     rev_df,
-    cov_df,
-    bounds,
-    current_col,
-    last_col,
-    vs_col
+    cov_df, 
+    report
 ):
+
+    bounds = date_bounds[report]
+    current_col = date_columns['current'][report]
+    last_col = date_columns['last'][report]
+    vs_col = date_columns['vs'][report]
+    
     change_col, base_col = (vs_col, last_col) if metric in [vs_col, last_col] else ('vs. LY', 'Last Year')
     on_column = 'GenericLocation'
     measure = 'Spend'
@@ -144,12 +155,14 @@ def sales_site_revenue_graph(
     shift,
     metric,
     site,
-    df,
-    bounds,
-    current_col,
-    last_col,
-    vs_col
+    df, 
+    report
 ):
+
+    bounds = date_bounds[report]
+    current_col = date_columns['current'][report]
+    last_col = date_columns['last'][report]
+    vs_col = date_columns['vs'][report]
     
     change_col, base_col = (vs_col, last_col) if metric in [vs_col, last_col] else ('vs. LY', 'Last Year')
     on_column = 'LocationName'
@@ -176,11 +189,13 @@ def sales_site_covers_graph(
     metric,
     site,
     df,
-    bounds,
-    current_col,
-    last_col,
-    vs_col
+    report
 ):
+
+    bounds = date_bounds[report]
+    current_col = date_columns['current'][report]
+    last_col = date_columns['last'][report]
+    vs_col = date_columns['vs'][report]
     
     change_col, base_col = (vs_col, last_col) if metric in [vs_col, last_col] else ('vs. LY', 'Last Year')
     on_column = 'LocationName'
@@ -208,11 +223,13 @@ def sales_site_spend_graph(
     site,
     rev_df,
     cov_df,
-    bounds,
-    current_col,
-    last_col,
-    vs_col
+    report
 ):
+
+    bounds = date_bounds[report]
+    current_col = date_columns['current'][report]
+    last_col = date_columns['last'][report]
+    vs_col = date_columns['vs'][report]
     
     change_col, base_col = (vs_col, last_col) if metric in [vs_col, last_col] else ('vs. LY', 'Last Year')
     on_column = 'LocationName'
@@ -244,12 +261,14 @@ def sales_week_view_graph(
     weekmetric,
     rev_df,
     cov_df,
-    bounds,
-    day_df,
-    current_col,
-    last_col,
-    vs_col
+    report
 ):
+
+    bounds = date_bounds[report]
+    current_col = date_columns['current'][report]
+    last_col = date_columns['last'][report]
+    vs_col = date_columns['vs'][report]
+    day_df = day_counts[report]
     
     change_col, base_col = (vs_col, last_col) if metric in [vs_col, last_col] else ('vs. LY', 'Last Year')
     on_columns = ['Session','Day']
@@ -301,12 +320,14 @@ def sales_week_covers_graph(
     metric,
     weekmetric,
     cov_df,
-    bounds,
-    day_df,
-    current_col,
-    last_col,
-    vs_col
+    report
 ):
+
+    bounds = date_bounds[report]
+    current_col = date_columns['current'][report]
+    last_col = date_columns['last'][report]
+    vs_col = date_columns['vs'][report]
+    day_df = day_counts[report]
     
     change_col, base_col = (vs_col, last_col) if metric in [vs_col, last_col] else ('vs. LY', 'Last Year')
     on_columns = ['Session','Day']
@@ -341,7 +362,7 @@ def sales_week_covers_graph(
     
 # Tracker Graphs
 
-def tracker_group_8_weeks_graph(week,metric,site, df, measure):
+def tracker_group_8_weeks_graph(week, metric ,site, df, measure):
     
     dff = tracker_day_filter(
         tracker_group_df(
