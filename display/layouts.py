@@ -32,8 +32,8 @@ def sales_layout_template(report):
     week_metrics = ['vs. LW','vs. LY', 'Last Week', 'Last Year']
     month_metrics = ['vs. LM','vs. LY', 'Last Month', 'Last Year']
     
-    week_reports = ['Daily', 'WTD', 'Weekly']
-    month_reports = ['MTD','Monthly']
+    week_reports = ['daily','wtd','weekly']
+    month_reports = ['mtd','monthly']
 
     if report in week_reports:
         metrics = week_metrics
