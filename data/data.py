@@ -6,7 +6,7 @@ from authentication.authentication import auth
 from authentication.users import user_restaurants, bookings_user_restaurants
 
 from data.date_bounds import bound_filtering, daily_bounds, wtd_bounds, mtd_bounds, weekly_bounds, monthly_bounds
-from data.skeleton_df import generate_skeleton_df
+from data.skeleton import generate_skeleton_df
 
 from data.database.postgresql_tables import revenue, covers, tracker, pickup, future, trends
 
