@@ -258,7 +258,7 @@ def sales_layout_template(report):
         ]
     )
     
-    if report == 'Daily':
+    if report == 'daily':
         layout = html.Div(children = [title, summary_dropdowns, summary_graphs])
     else:
         layout = html.Div(children = [title, summary_dropdowns, summary_graphs, week_dropdowns, week_graphs])
