@@ -66,3 +66,4 @@ sales_dataframes = {
     'revenue':monthly_rev_df,
     'covers':monthly_cov_df
   },
+}
