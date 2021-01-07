@@ -134,6 +134,14 @@ all_bounds = [
     monthly_bounds
 ]
 
+date_bounds_dict = {
+    'daily':daily_bounds,
+    'wtd':wtd_bounds,
+    'mtd':mtd_bounds,
+    'weekly':weekly_bounds,
+    'monthly':monthly_bounds,
+}
+
 date_columns_dict = {
   'current':{
     'daily':'Today',
