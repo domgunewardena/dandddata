@@ -1,6 +1,6 @@
+import pandas as pd
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
-import pandas as pd
 
 from data.functions import trends_site_filter, trends_table_filter
 
