@@ -133,3 +133,27 @@ all_bounds = [
     weekly_bounds, 
     monthly_bounds
 ]
+
+date_columns_dict = {
+  'current':{
+    'daily':'Today',
+    'wtd':'This Week',
+    'weekly':'This Week',
+    'mtd':'This Month',
+    'monthly':'This Month',
+  },
+  'last':{
+    'daily':'Last Week',
+    'wtd':'Last Week',
+    'weekly':'Last Week',
+    'mtd':'Last Month',
+    'monthly':'Last Month',
+  },
+  'vs':{
+    'daily':'vs. LW',
+    'wtd':'vs. LW',
+    'weekly':'vs. LW',
+    'mtd':'vs. LM',
+    'monthly':'vs. LM',
+  },
+}
