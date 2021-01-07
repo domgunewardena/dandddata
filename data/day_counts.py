@@ -43,3 +43,10 @@ weekly_days = create_day_counts_df(weekly_bounds, week_current_col, weekly_last_
 
 mtd_days = create_day_counts_df(mtd_bounds, month_current_col, monthly_last_col)
 monthly_days = create_day_counts_df(monthly_bounds, month_current_col, monthly_last_col)
+
+day_counts = {
+    'wtd':wtd_days,
+    'weekly':weekly_days,
+    'mtd':mtd_days,
+    'monthly':monthly_days
+}
