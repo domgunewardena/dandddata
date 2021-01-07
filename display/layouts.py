@@ -442,10 +442,11 @@ def future():
         ]
     )
 
+def trends():
+
     today_weekday_num = date.today().weekday()
     today_week = date.today().isocalendar()[1]
-
-def trends():
+    
     return html.Div(
         children=[
             html.Div(
