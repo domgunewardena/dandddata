@@ -264,16 +264,28 @@ def sales_layout_template(report):
     else:
         layout = html.Div(children = [title, summary_dropdowns, summary_graphs, week_dropdowns, week_graphs])
     
-    return layout
-
-daily_layout = sales_layout_template('daily')
-wtd_layout = sales_layout_template('wtd')
-mtd_layout = sales_layout_template('mtd')
-weekly_layout = sales_layout_template('weekly')
-monthly_layout = sales_layout_template('monthly')
-                             
+    return layout                             
     
 def tracker_layout_template(report):
+    
+    tracker_weeks = [
+        'This Week',
+        'Next Week',
+        'Two Weeks',
+        'Three Weeks',
+        'Four Weeks',
+        'Five Weeks',
+        'Six Weeks',
+        'Seven Weeks',
+        'Eight Weeks'
+    ]
+    
+    tracker_metrics = [
+        'vs. LW',
+        'vs. LY',
+        'Last Week',
+        'Last Year'
+    ]
     
     if report == 'tracker':
         title_string = 'Cover Tracker'
