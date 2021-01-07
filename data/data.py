@@ -44,3 +44,25 @@ weekly_rev_df = bound_filtering(rev_df,weekly_bounds)
 weekly_cov_df = bound_filtering(cov_df,weekly_bounds)
 monthly_rev_df = bound_filtering(rev_df,monthly_bounds)
 monthly_cov_df = bound_filtering(cov_df,monthly_bounds)
+
+sales_dataframes = {
+  'daily':{
+    'revenue':daily_rev_df,
+    'covers':daily_cov_df
+  },
+  'wtd':{
+    'revenue':wtd_rev_df,
+    'covers':wtd_cov_df
+  },
+  'mtd':{
+    'revenue':mtd_rev_df,
+    'covers':mtd_cov_df
+  },
+  'weekly':{
+    'revenue':weekly_rev_df,
+    'covers':weekly_cov_df
+  },
+  'monthly':{
+    'revenue':monthly_rev_df,
+    'covers':monthly_cov_df
+  },
