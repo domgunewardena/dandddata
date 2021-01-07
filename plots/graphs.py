@@ -1,24 +1,20 @@
+from data.data import sales_dataframes
 from data.functions import *
 from data.date_bounds import date_bounds, date_columns
 from plots.figures import *
 from display.styling import *
-
-change_metrics = [
-    'vs. LW', 
-    'vs. LM', 
-    'vs. LY'
-]
 
 def sales_breakdown_graph(
     shift,
     area,
     measure,
     metric,
-    rev_df,
-    cov_df, 
     report
 ):
-
+    
+    rev_df = sales_dataframes[report]['revenue']
+    cov_df = sales_dataframes[report]['covers']
+    
     bounds = date_bounds[report]
     current_col = date_columns['current'][report]
     last_col = date_columns['last'][report]
@@ -48,7 +44,7 @@ def sales_breakdown_graph(
     
     title = area + ' ' + measure + ' ' + metric
     
-    if metric in change_metrics:
+    if 'vs.' in metric:
         return sales_breakdown_change_figure(dff, title, change_template, current_col, change_col, base_col) 
     else:
         return sales_breakdown_totals_figure(dff, title, total_template, color_last, color_current, current_col, change_col, base_col)
@@ -56,9 +52,10 @@ def sales_breakdown_graph(
 def sales_group_revenue_graph(
     shift,
     metric,
-    df, 
     report
 ):
+    
+    df = sales_dataframes[report]['revenue']
 
     bounds = date_bounds[report]
     current_col = date_columns['current'][report]
@@ -80,7 +77,7 @@ def sales_group_revenue_graph(
     
     title = 'Group Revenue ' + metric
     
-    if metric in change_metrics:
+    if 'vs.' in metric:
         return sales_change_figure(dff,on_column,change_template,title,measure,current_col,change_col,base_col)
     else:
         return sales_totals_figure(dff,on_column,color_current,color_last,total_template,title,measure,current_col,change_col,base_col)
@@ -88,9 +85,10 @@ def sales_group_revenue_graph(
 def sales_group_covers_graph(
     shift,
     metric,
-    df, 
     report
 ):
+    
+    df = sales_dataframes[report]['covers']
 
     bounds = date_bounds[report]
     current_col = date_columns['current'][report]
@@ -112,7 +110,7 @@ def sales_group_covers_graph(
     
     title = 'Group Covers ' + metric
     
-    if metric in change_metrics:
+    if 'vs.' in metric:
         return sales_change_figure(dff,on_column,change_template,title,measure,current_col,change_col,base_col)
     else:
         return sales_totals_figure(dff,on_column,color_current,color_last,total_template,title,measure,current_col,change_col,base_col)
@@ -120,10 +118,11 @@ def sales_group_covers_graph(
 def sales_group_spend_graph(
     shift,
     metric,
-    rev_df,
-    cov_df, 
     report
 ):
+    
+    rev_df = sales_dataframes[report]['revenue']
+    cov_df = sales_dataframes[report]['covers']
 
     bounds = date_bounds[report]
     current_col = date_columns['current'][report]
@@ -146,7 +145,7 @@ def sales_group_spend_graph(
     
     title = 'Group Restaurant Spend ' + metric
     
-    if metric in change_metrics:
+    if 'vs.' in metric:
         return sales_change_figure(dff,'RevenueType',change_template,title, measure,current_col,change_col,base_col)
     else:
         return sales_totals_figure(dff,'RevenueType',color_current,color_last,total_template,title,measure,current_col,change_col,base_col)
@@ -155,9 +154,10 @@ def sales_site_revenue_graph(
     shift,
     metric,
     site,
-    df, 
     report
 ):
+    
+    df = sales_dataframes[report]['revenue']
 
     bounds = date_bounds[report]
     current_col = date_columns['current'][report]
@@ -179,7 +179,7 @@ def sales_site_revenue_graph(
     
     title = site + ' Revenue ' + metric
     
-    if metric in change_metrics:
+    if 'vs.' in metric:
         return sales_change_figure(dff,on_column,change_template,title,measure,current_col,change_col,base_col)
     else:
         return sales_totals_figure(dff,on_column,color_current,color_last,total_template,title,measure,current_col,change_col,base_col)
@@ -188,9 +188,10 @@ def sales_site_covers_graph(
     shift,
     metric,
     site,
-    df,
     report
 ):
+    
+    df = sales_dataframes[report]['covers']
 
     bounds = date_bounds[report]
     current_col = date_columns['current'][report]
@@ -212,7 +213,7 @@ def sales_site_covers_graph(
     
     title = site + ' Covers ' + metric
     
-    if metric in change_metrics:
+    if 'vs.' in metric:
         return sales_change_figure(dff,on_column,change_template,title,measure,current_col,change_col,base_col)
     else:
         return sales_totals_figure(dff,on_column,color_current,color_last,total_template,title,measure,current_col,change_col,base_col)
@@ -221,10 +222,11 @@ def sales_site_spend_graph(
     shift,
     metric,
     site,
-    rev_df,
-    cov_df,
     report
 ):
+    
+    rev_df = sales_dataframes[report]['revenue']
+    cov_df = sales_dataframes[report]['covers']
 
     bounds = date_bounds[report]
     current_col = date_columns['current'][report]
@@ -247,7 +249,7 @@ def sales_site_spend_graph(
     
     title = site + ' Restaurant Spend ' + metric
     
-    if metric in change_metrics:
+    if 'vs.' in metric:
         return sales_change_figure(dff,'RevenueType',change_template,title,measure,current_col,change_col,base_col)
     else:
         return sales_totals_figure(dff,'RevenueType',color_current,color_last,total_template,title,measure,current_col,change_col,base_col)
@@ -259,10 +261,11 @@ def sales_week_view_graph(
     measure,
     metric,
     weekmetric,
-    rev_df,
-    cov_df,
     report
 ):
+    
+    rev_df = sales_dataframes[report]['revenue']
+    cov_df = sales_dataframes[report]['covers']
 
     bounds = date_bounds[report]
     current_col = date_columns['current'][report]
@@ -306,12 +309,10 @@ def sales_week_view_graph(
     title = site + "  " + area + "  " + category + " " + measure + "  " + metric
     customdata = dff[change_col + ' %']
         
-    if metric in change_metrics:
+    if 'vs.' in metric:
         return sales_week_change_figure(dff, y, change_template, title, measure, change_col)
     else:
         return sales_week_totals_figure(dff, y_last, y_current, color_last, color_current, total_template, title, measure, current_col, base_col)
-
-
 
 def sales_week_covers_graph(
     site,
@@ -319,9 +320,10 @@ def sales_week_covers_graph(
     measure,
     metric,
     weekmetric,
-    cov_df,
     report
 ):
+    
+    cov_df = sales_dataframes[report]['covers']
 
     bounds = date_bounds[report]
     current_col = date_columns['current'][report]
@@ -354,7 +356,7 @@ def sales_week_covers_graph(
         y_current = dff[current_col]
         y = dff[change_col] 
         
-    if metric in change_metrics:
+    if 'vs.' in metric:
         return sales_week_change_figure(dff, y, change_template, title, measure, change_col)
     else:
         return sales_week_totals_figure(dff, y_last, y_current, color_last, color_current, total_template, title, measure, current_col, base_col)
@@ -375,7 +377,7 @@ def tracker_group_8_weeks_graph(week, metric ,site, df, measure):
     x = dff['Week']
     graph = 'Next Eight Weeks - Group ' + measure
     
-    if metric in change_metrics:
+    if 'vs.' in metric:
         return tracker_change_figure(dff, x, metric, graph, measure)
     else:
         return tracker_totals_figure(dff, x, metric, graph, measure)
@@ -395,7 +397,7 @@ def tracker_group_week_graph(week, metric, site, df, measure):
     x = dff['Day']
     graph = week + ' - Group ' + measure
     
-    if metric in change_metrics:
+    if 'vs.' in metric:
         return tracker_change_figure(dff, x, metric, graph, measure)
     else:
         return tracker_totals_figure(dff, x, metric, graph, measure)
@@ -411,7 +413,7 @@ def tracker_site_8_weeks_graph(week, metric, site, df, measure):
     x = dff['Week']
     graph = 'Next Eight Weeks - ' + site + ' ' + measure
     
-    if metric in change_metrics:
+    if 'vs.' in metric:
         return tracker_change_figure(dff, x, metric, graph, measure)
     else:
         return tracker_totals_figure(dff, x, metric, graph, measure)
@@ -429,7 +431,7 @@ def tracker_site_week_graph(week, metric, site, df, measure):
     x = dff['Day']
     graph = week + ' - ' + site + ' ' + measure
     
-    if metric in change_metrics:
+    if 'vs.' in metric:
         return tracker_change_figure(dff, x, metric, graph, measure)
     else:
         return tracker_totals_figure(dff, x, metric, graph, measure)
@@ -446,7 +448,7 @@ def tracker_breakdown_graph(week, metric, site, df, measure):
     
     graph = week + ' ' + measure
             
-    if metric in change_metrics:
+    if 'vs.' in metric:
         return tracker_breakdown_change_figure(dff, metric, graph, measure)
     else:
         return tracker_breakdown_totals_figure(dff, metric, graph, measure)
