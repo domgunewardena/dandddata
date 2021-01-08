@@ -1,8 +1,9 @@
+import pandas as pd
+import os
 import psycopg2
 from sqlalchemy import create_engine
-import pandas as pd
 
-from data.database.secrets import postgres_host, postgres_database, postgres_user, postgres_password
+from data.database.secrets import postgres_host, postgres_database, postgres_user, postgres_password, postgres_url
 
 from data.database.postgresql_queries import create,select,column_names
 
@@ -34,6 +35,11 @@ class PostgreSQLTable(PostgreSQLDatabase):
             user=self.user,
             password=self.password
         )
+    
+    def connect_from_app(self):
+        
+        DATABASE_URL = os.environ['DATABASE_URL']
+        conn = psycopg2.connect(DATABASE_URL, sslmode='require')
         
     def create(self):
         
@@ -48,6 +54,18 @@ class PostgreSQLTable(PostgreSQLDatabase):
     def to_dataframe(self):
         
         conn = self.connect_to_database()
+        cur = conn.cursor()
+        
+        cur.execute(self.select_query)
+        tuples = cur.fetchall()
+        cur.close()
+        conn.close()
+        
+        return pd.DataFrame(tuples, columns=self.column_names)
+    
+    def to_app(self):
+        
+        conn = self.connect_from_app()
         cur = conn.cursor()
         
         cur.execute(self.select_query)
