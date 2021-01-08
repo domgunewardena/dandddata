@@ -25,7 +25,7 @@ class PostgreSQLTable(PostgreSQLDatabase):
         self.create_query = create[table]
         self.select_query = select[table]
         self.column_names = column_names[table]
-        self.dataframe = self.to_dataframe()
+        self.dataframe = self.to_app()
         
     def connect_to_database(self):
         
