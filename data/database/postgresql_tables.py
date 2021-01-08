@@ -15,6 +15,7 @@ class PostgreSQLDatabase():
         self.database = postgres_database
         self.user = postgres_user
         self.password = postgres_password
+        self.url = postgres_url
 
 class PostgreSQLTable(PostgreSQLDatabase):
     
@@ -38,7 +39,10 @@ class PostgreSQLTable(PostgreSQLDatabase):
     
     def connect_from_app(self):
         
-        return psycopg2.connect(postgres_url, sslmode='require')
+        DATABASE_URL = os.environ['DATABASE_URL']
+        return psycopg2.connect(DATABASE_URL, sslmode='require')
+    
+#         return psycopg2.connect(self.url, sslmode='require')
         
     def create(self):
         
