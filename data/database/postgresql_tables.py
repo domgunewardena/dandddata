@@ -74,10 +74,3 @@ class PostgreSQLTable(PostgreSQLDatabase):
         conn.close()
         
         return pd.DataFrame(tuples, columns=self.column_names)
-
-revenue = PostgreSQLTable('revenue')
-covers = PostgreSQLTable('covers')
-tracker = PostgreSQLTable('tracker')
-pickup = PostgreSQLTable('pickup')
-future = PostgreSQLTable('future')
-trends = PostgreSQLTable('trends')
