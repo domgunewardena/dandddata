@@ -2,13 +2,9 @@ import pandas as pd
 import numpy as np
 from datetime import date, datetime, timedelta
 
-from authentication.authentication import auth
-from authentication.users import user_restaurants, bookings_user_restaurants
-
 from data.date_bounds import bound_filtering, daily_bounds, wtd_bounds, mtd_bounds, weekly_bounds, monthly_bounds
 from data.skeleton import generate_skeleton_df
-
-from data.database.postgresql_tables import revenue, covers, tracker, pickup, future, trends
+from data.database.postgresql_tables import PostgreSQLTable
 
 # rev_df = pd.read_csv("data/App Revenue.csv")
 # cov_df = pd.read_csv("data/App Covers.csv")
@@ -17,19 +13,24 @@ from data.database.postgresql_tables import revenue, covers, tracker, pickup, fu
 # pickup_df = pd.read_csv('data/Pickup.csv').iloc[:,1:]
 
 # future_df = pd.read_csv("data/Future Bookings.csv")
-# future_df['weekday'] = pd.to_datetime(future_df['visit_day']).dt.weekday_name
-
 # trends_df = pd.read_csv('data/Booking Trends.csv')
+
+tracker = PostgreSQLTable('tracker')
+pickup = PostgreSQLTable('pickup')
+future = PostgreSQLTable('future')
+trends = PostgreSQLTable('trends')
+revenue = PostgreSQLTable('revenue')
+covers = PostgreSQLTable('covers')
 
 tracker_df = tracker.dataframe
 pickup_df = pickup.dataframe
 trends_df = trends.dataframe
 future_df = future.dataframe
-future_df['weekday'] = pd.to_datetime(future_df['visit_day']).dt.weekday_name
 rev_df = generate_skeleton_df(revenue.dataframe, 'Revenue')
 cov_df = generate_skeleton_df(covers.dataframe, 'Covers')
 
 # Add Date Columns
+future_df['weekday'] = pd.to_datetime(future_df['visit_day']).dt.weekday_name
 rev_df['Date'] = pd.to_datetime(rev_df['Date']).dt.date
 cov_df['Date'] = pd.to_datetime(cov_df['Date']).dt.date
 
