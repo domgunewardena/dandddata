@@ -39,10 +39,7 @@ class PostgreSQLTable(PostgreSQLDatabase):
     
     def connect_from_app(self):
         
-        DATABASE_URL = os.environ['DATABASE_URL']
-        return psycopg2.connect(DATABASE_URL, sslmode='require')
-    
-#         return psycopg2.connect(self.url, sslmode='require')
+        return psycopg2.connect(self.url, sslmode='require')
         
     def create(self):
         
