@@ -1,4 +1,4 @@
-from display.layouts import *
+from frontend.layouts import *
 from plots.graphs import *
 from app import app
 from data.data import tracker_df, pickup_df, trends_df, future_df
