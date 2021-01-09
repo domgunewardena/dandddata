@@ -2,8 +2,8 @@ from data.data import sales_dataframes
 from data.functions import *
 from data.date_bounds import date_bounds, date_columns
 from data.day_counts import day_counts
-from plots.figures import *
-from display.styling import *
+from frontend.plots.figures import *
+from frontend.styling import *
 
 def sales_breakdown_graph(
     shift,
