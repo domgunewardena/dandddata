@@ -4,9 +4,9 @@ import dash_html_components as html
 
 from app import app
 from app import server
-from display.layouts import *
-from display.callbacks import *
-from display.navbar import nav
+from frontend.layouts import *
+from frontend.callbacks import *
+from frontend.navbar import nav
 from authentication.authentication import auth
 
 app.layout = html.Div(
