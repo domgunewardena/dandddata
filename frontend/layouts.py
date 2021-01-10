@@ -39,10 +39,10 @@ def sales_layout_template(report):
     elif report in month_reports:
         metrics = month_metrics
     
-    if report == 'daily':
-        title_string = report.capitalize()
-    else:
+    if report in ['wtd', 'mtd']:
         title_string = report.upper()
+    else:
+        title_string = report.capitalize()
     
     title = html.Div(
         [
