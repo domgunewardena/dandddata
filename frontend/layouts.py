@@ -41,7 +41,7 @@ def sales_layout_template(report):
     
     if report == 'daily':
         title_string = report.capitalize()
-     else:
+    else:
         title_string = report.upper()
     
     title = html.Div(
