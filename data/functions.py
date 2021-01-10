@@ -301,7 +301,7 @@ def final_dataframe_week(df_tw, df_lw, df_ly, on_columns, current_column, last_c
     df[vs_col] = df[current_column] - df[last_col]
     df['vs. LY'] = df[current_column] - df['Last Year']
     df[vs_col + ' %'] = (df[vs_col].replace(0,1) / df[last_col].replace(0,1))
-    df['vs. LY %'] = (df[vs_col].replace(0,1) / df['vs. LY'].replace(0,1))
+    df['vs. LY %'] = (df['vs. LY'].replace(0,1) / df['Last Year'].replace(0,1))
     return df
 
 def date_filtering_week(df,bounds,current_column,last_col,vs_col,on_columns,func):
