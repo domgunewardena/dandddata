@@ -1,9 +1,11 @@
-from frontend.layouts import *
-from frontend.plots.graphs import *
-from app import app
-from data.data import tracker_df, pickup_df, trends_df, future_df
+import time
 
 from dash.dependencies import Input, Output
+
+from app import app
+from frontend.layouts import *
+from frontend.plots.graphs import *
+from data.data import tracker_df, pickup_df, trends_df, future_df
 
 # Dropdown Inputs
 
@@ -263,6 +265,7 @@ def update_monthly_site_week_dropdown(shift):
 
 @app.callback(Output('monthly sales total', 'figure'), monthly_dropdown_inputs)
 def update_monthly_sales_total(shift,area,measure,metric,site):
+    time.sleep(3)
     return sales_breakdown_graph(shift,area,measure,metric,'monthly')
     
 @app.callback(Output('monthly group revenue', 'figure'),monthly_dropdown_inputs)
