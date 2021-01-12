@@ -1,5 +1,3 @@
-import time
-
 from dash.dependencies import Input, Output
 
 from app import app
@@ -265,37 +263,30 @@ def update_monthly_site_week_dropdown(shift):
 
 @app.callback(Output('monthly sales total', 'figure'), monthly_dropdown_inputs)
 def update_monthly_sales_total(shift,area,measure,metric,site):
-    time.sleep(1)
     return sales_breakdown_graph(shift,area,measure,metric,'monthly')
     
 @app.callback(Output('monthly group revenue', 'figure'),monthly_dropdown_inputs)
 def update_monthly_group_revenue(shift,area,measure,metric,site):
-    time.sleep(1)
     return sales_group_revenue_graph(shift,metric,'monthly')
     
 @app.callback(Output('monthly group covers', 'figure'),monthly_dropdown_inputs)
 def update_monthly_group_covers(shift,area,measure,metric,site):
-    time.sleep(1)
     return sales_group_covers_graph(shift,metric,'monthly')
 
 @app.callback(Output('monthly group spend', 'figure'),monthly_dropdown_inputs)
 def update_monthly_group_spend(shift,area,measure,metric,site):
-    time.sleep(1)
     return sales_group_spend_graph(shift,metric,'monthly')
 
 @app.callback(Output('monthly site revenue', 'figure'),monthly_dropdown_inputs)
 def update_monthly_site_revenue(shift,area,measure,metric,site):
-    time.sleep(1)
     return sales_site_revenue_graph(shift,metric,site,'monthly')
 
 @app.callback(Output('monthly site covers', 'figure'),monthly_dropdown_inputs)
 def update_monthly_site_covers(shift,area,measure,metric,site):
-    time.sleep(1)
     return sales_site_covers_graph(shift,metric,site,'monthly')
     
 @app.callback(Output('monthly site spend', 'figure'),monthly_dropdown_inputs)
 def update_monthly_site_spend(shift,area,measure,metric,site):
-    time.sleep(1)
     return sales_site_spend_graph(shift,metric,site,'monthly')
 
 @app.callback(Output('monthly week view', 'figure'),monthly_week_dropdown_inputs)
