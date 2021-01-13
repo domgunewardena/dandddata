@@ -46,7 +46,7 @@ def display_page(pathname):
 #     if pathname == '/sales-mix':
 #         return Sales_Mix_Layout
     else:
-        return home_page
+        return home_page_layout
     
 if __name__ == '__main__':
     app.run_server(debug=False)
