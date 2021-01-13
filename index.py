@@ -43,8 +43,6 @@ def display_page(pathname):
         return future_layout
     if pathname == '/trends':
         return trends_layout
-#     if pathname == '/sales-mix':
-#         return Sales_Mix_Layout
     else:
         return home_page_layout
     
