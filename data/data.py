@@ -26,8 +26,10 @@ tracker_df = tracker.dataframe
 pickup_df = pickup.dataframe
 trends_df = trends.dataframe
 future_df = future.dataframe
-rev_df = generate_skeleton_df(revenue.dataframe, 'Revenue')
-cov_df = generate_skeleton_df(covers.dataframe, 'Covers')
+# rev_df = generate_skeleton_df(revenue.dataframe, 'Revenue')
+# cov_df = generate_skeleton_df(covers.dataframe, 'Covers')
+rev_df = revenue.dataframe
+cov_df = covers.dataframe
 
 # Add Date Columns
 future_df['weekday'] = pd.to_datetime(future_df['visit_day']).dt.weekday_name
