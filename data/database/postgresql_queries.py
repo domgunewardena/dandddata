@@ -174,7 +174,7 @@ column_names = {
 
 column_renaming_map = {
     'tracker':{
-        'restaurant:''Restaurant',
+        'restaurant':'Restaurant',
         'week':'Week',
         'day':'Day',
         'this_week':'This Week',
@@ -186,7 +186,7 @@ column_renaming_map = {
         'vs_ly_p':'vs. LY %',
     },
     'pickup':{
-        'restaurant:''Restaurant',
+        'restaurant':'Restaurant',
         'week':'Week',
         'day':'Day',
         'this_week':'This Week',
