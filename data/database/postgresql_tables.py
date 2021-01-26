@@ -76,6 +76,6 @@ class PostgreSQLTable(PostgreSQLDatabase):
 #         return pd.DataFrame(tuples, columns=self.column_names)
 
     def to_app(self):
-        engine = create_engine(self.url, sslmode='require')
+        engine = create_engine(self.url)
         raw_engine = engine.raw_connection()
         return pd.read_sql_query(self.select_query, raw_engine)
