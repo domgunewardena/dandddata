@@ -96,7 +96,7 @@ def home_page():
                 [
                     html.Div(
                         [
-                            tracker_graph('summary_tracker'),
+                            tracker_graph('summary tracker'),
                         ],
                         style = {
                             'display':'inline-block',
@@ -106,7 +106,7 @@ def home_page():
                     ),
                     html.Div(
                         [
-                            tracker_graph('summary_pickup'),
+                            tracker_graph('summary pickup'),
                         ],
                         style = {
                             'display':'inline-block',
