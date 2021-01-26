@@ -211,7 +211,7 @@ column_renaming_map = {
         'days_before_week_commencing':'Days Before Week Commencing',
         'reservation_week':'Reservation Week',
         'covers':'Covers',
-        'table_name':'Table',
+        'table':'Table',
         'week':'Week',
         'color':'Color',
         'alpha':'Alpha'
