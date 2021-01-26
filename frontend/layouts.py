@@ -14,26 +14,133 @@ from data.data import trends_df
 
 def home_page():
     
+    metrics = ['vs. LW','vs. LY', 'Last Week', 'Last Year']
+    
     return html.Div(
         children=[
             html.Div(
                 [
                     dbc.Jumbotron(
                         [
-                            html.H1('Welcome to D&D Data '),
+                            html.H1('Welcome to D&D Data ' + auth._username),
                             html.Hr(),
-#                             html.Br(),
-#                             html.P('To begin, select a report from the top-right corner'),
-#                             html.Br(),
-#                             html.Br(),
-#                             dcc.Markdown(" **ProTip!** To get the best experience, you'll want to zoom out on your browser - about 75% should do it ")
-                            
                         ]
                     )
+                ]
+            ),
+            html.Div(
+                [
+                    html.Div(
+                        [
+                            html.P(
+                                ['Choose the metric of the report:']
+                            ),
+                            dcc.Dropdown(
+                                id ='summary metric dropdown',
+                                options = [{'label':i, 'value':i} for i in metrics],
+                                value = metrics[0],
+                                style = {
+                                    'textAlign':'center',
+                                    'width':'100%',
+                                }
+                            )
+                        ]
+                    )
+                ],
+                style = {
+                    'width': '100%', 
+                    'display': 'flex', 
+                    'align-items': 'center', 
+                    'justify-content': 'center',
+                    'borderBottom': header_colors['border'],
+                    'borderRight': header_colors['border'],
+                    'backgroundColor': header_colors['background'],
+                    'padding': '10px 5px'
+                }
+            ),
+            html.Div(
+                [
+                    html.Div(
+                        [
+                            small_graph('summary daily revenue'),
+                        ],
+                        style = {
+                            'display':'inline-block',
+                            'height':dimensions['main']['height'],
+                            'width':dimensions['main']['width']
+                        }
+                    ),
+                    html.Div(
+                        [
+                            small_graph('summary wtd revenue'),
+                        ],
+                        style = {
+                            'display':'inline-block',
+                            'height':dimensions['main']['height'],
+                            'width':dimensions['main']['width']
+                        }
+                    )
+                    html.Div(
+                        [
+                            small_graph('summary mtd revenue'),
+                        ],
+                        style = {
+                            'display':'inline-block',
+                            'height':dimensions['main']['height'],
+                            'width':dimensions['main']['width']
+                        }
+                    )
+                ]
+            ),
+            html.Div(
+                [
+                    html.Div(
+                        [
+                            tracker_graph('summary_tracker'),
+                        ],
+                        style = {
+                            'display':'inline-block',
+                            'height':dimensions['main']['height'],
+                            'width':'50%'
+                        }
+                    ),
+                    html.Div(
+                        [
+                            tracker_graph('summary_pickup'),
+                        ],
+                        style = {
+                            'display':'inline-block',
+                            'height':dimensions['main']['height'],
+                            'width':'50%'
+                        }
+                    ),
                 ]
             )
         ]
     )
+
+# def home_page():
+    
+#     return html.Div(
+#         children=[
+#             html.Div(
+#                 [
+#                     dbc.Jumbotron(
+#                         [
+#                             html.H1('Welcome to D&D Data '),
+#                             html.Hr(),
+# #                             html.Br(),
+# #                             html.P('To begin, select a report from the top-right corner'),
+# #                             html.Br(),
+# #                             html.Br(),
+# #                             dcc.Markdown(" **ProTip!** To get the best experience, you'll want to zoom out on your browser - about 75% should do it ")
+                            
+#                         ]
+#                     )
+#                 ]
+#             )
+#         ]
+#     )
 
 def sales_layout_template(report):
         
