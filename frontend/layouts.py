@@ -79,7 +79,7 @@ def home_page():
                             'height':dimensions['main']['height'],
                             'width':dimensions['main']['width']
                         }
-                    )
+                    ),
                     html.Div(
                         [
                             small_graph('summary mtd revenue'),
