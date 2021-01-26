@@ -281,3 +281,10 @@ def tracker_graph(graph_id):
             'width':'100%'
         },
         config={'displayModeBar':False})
+
+def capitalize_report_title(report):
+    
+    if report in ['wtd', 'mtd']:
+        return report.upper()
+    else:
+        return report.capitalize()
