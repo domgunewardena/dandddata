@@ -76,7 +76,7 @@ def home_page():
                         ],
                         style = {
                             'display':'inline-block',
-                            'height':dimensions['main']['height'],
+                            'height':dimensions['mini']['height'],
                             'width':dimensions['main']['width']
                         }
                     ),
@@ -86,7 +86,7 @@ def home_page():
                         ],
                         style = {
                             'display':'inline-block',
-                            'height':dimensions['main']['height'],
+                            'height':dimensions['mini']['height'],
                             'width':dimensions['main']['width']
                         }
                     )
@@ -100,7 +100,7 @@ def home_page():
                         ],
                         style = {
                             'display':'inline-block',
-                            'height':dimensions['main']['height'],
+                            'height':dimensions['mini']['height'],
                             'width':'50%'
                         }
                     ),
@@ -110,7 +110,7 @@ def home_page():
                         ],
                         style = {
                             'display':'inline-block',
-                            'height':dimensions['main']['height'],
+                            'height':dimensions['mini']['height'],
                             'width':'50%'
                         }
                     ),
