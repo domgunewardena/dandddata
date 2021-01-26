@@ -18,16 +18,16 @@ def home_page():
     
     return html.Div(
         children=[
-            html.Div(
-                [
-                    dbc.Jumbotron(
-                        [
-                            html.H1('Welcome to D&D Data'),
-                            html.Hr(),
-                        ]
-                    )
-                ]
-            ),
+#             html.Div(
+#                 [
+#                     dbc.Jumbotron(
+#                         [
+#                             html.H1('Welcome to D&D Data'),
+#                             html.Hr(),
+#                         ]
+#                     )
+#                 ]
+#             ),
             html.Div(
                 [
                     html.Div(
