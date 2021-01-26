@@ -1,4 +1,5 @@
 import pandas as pd
+import pandas.io.sql as psql
 import os
 import psycopg2
 from sqlalchemy import create_engine
@@ -76,6 +77,6 @@ class PostgreSQLTable(PostgreSQLDatabase):
 #         return pd.DataFrame(tuples, columns=self.column_names)
 
     def to_app(self):
-        engine = create_engine(self.url)
-        raw_engine = engine.raw_connection()
-        return pd.read_sql_query(self.select_query, raw_engine)
+        
+        conn = self.connect_from_app()
+        return psql.read_sql(self.select_query, conn)
