@@ -277,7 +277,7 @@ def tracker_graph(graph_id):
     return dcc.Graph(
         id=graph_id,
         style={
-            'height':450,
+            'height':'50%',
             'width':'100%'
         },
         config={'displayModeBar':False})
