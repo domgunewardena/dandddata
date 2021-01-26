@@ -76,7 +76,8 @@ def sales_group_revenue_graph(
     color_current = total_colors[measure]['Current']
     color_last = total_colors[measure]['Last']
     
-    title = 'Group Revenue ' + metric
+    title_string = capitalize_report_title(report)
+    title = title_string + ' Group Revenue ' + metric
     
     if 'vs.' in metric:
         return sales_change_figure(dff,on_column,change_template,title,measure,current_col,change_col,base_col)
@@ -109,7 +110,8 @@ def sales_group_covers_graph(
     color_current = total_colors[measure]['Current']
     color_last = total_colors[measure]['Last']
     
-    title = 'Group Covers ' + metric
+    title_string = capitalize_report_title(report)
+    title = title_string + ' Group Covers ' + metric
     
     if 'vs.' in metric:
         return sales_change_figure(dff,on_column,change_template,title,measure,current_col,change_col,base_col)
@@ -144,7 +146,8 @@ def sales_group_spend_graph(
     color_current = total_colors[measure]['Current']
     color_last = total_colors[measure]['Last']
     
-    title = 'Group Restaurant Spend ' + metric
+    title_string = capitalize_report_title(report)
+    title = title_string + ' Group Restaurant Spend ' + metric
     
     if 'vs.' in metric:
         return sales_change_figure(dff,'RevenueType',change_template,title, measure,current_col,change_col,base_col)
