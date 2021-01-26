@@ -172,7 +172,7 @@ column_names = {
     ]
 }
 
-column_renames_map = {
+column_renaming_map = {
     'tracker':{
         'restaurant:''Restaurant',
         'week':'Week',
