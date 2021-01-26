@@ -22,7 +22,7 @@ def home_page():
                 [
                     dbc.Jumbotron(
                         [
-                            html.H1('Welcome to D&D Data ' + auth._username),
+                            html.H1('Welcome to D&D Data'),
                             html.Hr(),
                         ]
                     )
