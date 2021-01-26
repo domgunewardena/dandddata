@@ -44,6 +44,33 @@ pickup_dropdown_inputs = [Input(x, 'value') for x in pickup_dropdown_ids]
 
 # Callbacks
 
+# Home Page
+
+@app.callback(Output('summary daily revenue','figure'),
+             [Input('summary metric dropdown','value')])
+def update_summary_daily_sales(metric):
+    return sales_group_revenue_graph('All Shifts',metric,'daily')
+
+@app.callback(Output('summary wtd revenue','figure'),
+             [Input('summary metric dropdown','value')])
+def update_summary_wtd_sales(metric):
+    return sales_group_revenue_graph('All Shifts',metric,'wtd')
+
+@app.callback(Output('summary mtd revenue','figure'),
+             [Input('summary metric dropdown','value')])
+def update_summary_mtd_sales(metric):
+    return sales_group_revenue_graph('All Shifts',metric,'mtd')
+
+@app.callback(Output('summary tracker','figure'),
+             [Input('summary metric dropdown','value')])
+def update_summary_tracker(metric):
+    return tracker_group_8_weeks_graph('This Week',metric,'100 Wardour St', tracker_df, 'Booked Covers')
+
+@app.callback(Output('summary pickup','figure'),
+             [Input('summary metric dropdown','value')])
+def update_summary_pickup(metric):
+    return tracker_group_8_weeks_graph('This Week',metric,'100 Wardour St', pickup_df, 'Pickup')
+
 # Daily Sales
 
 @app.callback(Output('daily site dropdown', 'options'),
