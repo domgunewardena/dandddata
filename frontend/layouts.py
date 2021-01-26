@@ -7,6 +7,7 @@ from datetime import date, datetime, timedelta
 
 from frontend.styling import *
 from authentication.users import bookings_user_restaurants
+from authentication.authentication import auth
 
 from frontend.plots.figures import trends_group_pickup_figure, trends_group_future_figure
 from data.data import trends_df
@@ -19,7 +20,7 @@ def home_page():
                 [
                     dbc.Jumbotron(
                         [
-                            html.H1('Welcome to D&D Data'),
+                            html.H1('Welcome to D&D Data ' + auth._username),
                             html.Hr(),
 #                             html.Br(),
 #                             html.P('To begin, select a report from the top-right corner'),
