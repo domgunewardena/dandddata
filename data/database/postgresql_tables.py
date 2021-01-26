@@ -6,7 +6,7 @@ from sqlalchemy import create_engine
 
 from data.database.secrets import postgres_host, postgres_database, postgres_user, postgres_password, postgres_url
 
-from data.database.postgresql_queries import create,select,column_names
+from data.database.postgresql_queries import create,select,column_names,column_renaming_map
 
 class PostgreSQLDatabase():
     
@@ -27,6 +27,7 @@ class PostgreSQLTable(PostgreSQLDatabase):
         self.create_query = create[table]
         self.select_query = select[table]
         self.column_names = column_names[table]
+        self.column_renaming_map = column_renaming_map[table]
         self.dataframe = self.to_app()
         
     def connect_to_database(self):
@@ -79,4 +80,5 @@ class PostgreSQLTable(PostgreSQLDatabase):
     def to_app(self):
         
         conn = self.connect_from_app()
-        return psql.read_sql(self.select_query, conn)
+        df = psql.read_sql(self.select_query, conn)
+        return df.rename(columns = self.column_renaming_map)
