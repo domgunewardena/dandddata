@@ -63,7 +63,7 @@ def sales_group_revenue_graph(
     last_col = date_columns['last'][report]
     vs_col = date_columns['vs'][report]
     
-    change_col, base_col = (vs_col, last_col) if metric in [vs_col, last_col] else ('vs. LY', 'Last Year')
+    change_col, base_col = ('vs. LY', 'Last Year') if metric in ['vs. LY', 'Last Year'] else (vs_col, last_col)
     on_column = 'GenericLocation'
     measure = 'Revenue'
     
