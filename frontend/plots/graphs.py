@@ -56,6 +56,13 @@ def sales_group_revenue_graph(
     report
 ):
     
+#     Logic to convert summary page week metrics from metric input to month metrics
+    if report == 'mtd':
+        if metric == 'vs. LW':
+            metric = 'vs. LM'
+        elif metric == 'Last Week':
+            metric = 'Last Month'
+    
     df = sales_dataframes[report]['revenue']
 
     bounds = date_bounds[report]
