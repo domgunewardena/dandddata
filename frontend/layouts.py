@@ -16,98 +16,105 @@ def home_page():
     
     metrics = ['vs. LW','vs. LY', 'Last Week', 'Last Year']
     
-    return html.Div(
-        children=[
+    homepage_dropdowns =  html.Div(
+        [
             html.Div(
                 [
-                    html.Div(
-                        [
-                            html.P(
-                                ['Choose the metric of the report:']
-                            ),
-                            dcc.Dropdown(
-                                id ='summary metric dropdown',
-                                options = [{'label':i, 'value':i} for i in metrics],
-                                value = metrics[0],
-                                style = {
-                                    'textAlign':'center',
-                                    'width':'100%',
-                                }
-                            )
-                        ]
+                    html.P(
+                        ['Choose the metric of the report:']
+                    ),
+                    dcc.Dropdown(
+                        id = 'homepage metric dropdown',
+                        options = [{'label':i, 'value':i} for i in metrics],
+                        value = metrics[0],
+                        style = {'width':dimensions['homepage']['dropdowns']['dropdown_width']}
+                    ),
+                ],
+                style = div_style_simple(dimensions['homepage']['dropdowns']['div_width'])
+            ),
+            html.Div(
+                [
+                    html.P(
+                        ['Choose the measure of the sales graphs:']
+                    ),
+                    dcc.Dropdown(
+                        id = 'homepage measure dropdown',
+                        options = [{'label':i,'value':i} for i in dropdown_values['measures']],
+                        value = 'Revenue',
+                        style = {
+                            'width':dimensions['homepage']['dropdowns']['dropdown_width'],
+                            'padding':'2px 0px'
+                        }
                     )
                 ],
+                style = div_style_simple(dimensions['homepage']['dropdowns']['div_width'])
+            ),
+        ],
+        style = dropdown_row_style
+    )
+    
+    homepage_sales_graphs = html.Div(
+        [
+            html.Div(
+                [
+                    small_graph('summary daily sales'),
+                ],
                 style = {
-                    'width': '100%', 
-                    'display': 'flex', 
-                    'align-items': 'center', 
-                    'justify-content': 'center',
-                    'borderBottom': header_colors['border'],
-                    'borderRight': header_colors['border'],
-                    'backgroundColor': header_colors['background'],
-                    'padding': '10px 5px'
+                    'display':'inline-block',
+                    'height':dimensions['mini']['height'],
+                    'width':dimensions['main']['width']
                 }
             ),
             html.Div(
                 [
-                    html.Div(
-                        [
-                            small_graph('summary daily sales'),
-                        ],
-                        style = {
-                            'display':'inline-block',
-                            'height':dimensions['mini']['height'],
-                            'width':dimensions['main']['width']
-                        }
-                    ),
-                    html.Div(
-                        [
-                            small_graph('summary wtd sales'),
-                        ],
-                        style = {
-                            'display':'inline-block',
-                            'height':dimensions['mini']['height'],
-                            'width':dimensions['main']['width']
-                        }
-                    ),
-                    html.Div(
-                        [
-                            small_graph('summary mtd sales'),
-                        ],
-                        style = {
-                            'display':'inline-block',
-                            'height':dimensions['mini']['height'],
-                            'width':dimensions['main']['width']
-                        }
-                    )
-                ]
+                    small_graph('summary wtd sales'),
+                ],
+                style = {
+                    'display':'inline-block',
+                    'height':dimensions['mini']['height'],
+                    'width':dimensions['main']['width']
+                }
             ),
             html.Div(
                 [
-                    html.Div(
-                        [
-                            tracker_graph('summary tracker'),
-                        ],
-                        style = {
-                            'display':'inline-block',
-                            'height':dimensions['main']['height'],
-                            'width':'50%'
-                        }
-                    ),
-                    html.Div(
-                        [
-                            tracker_graph('summary pickup'),
-                        ],
-                        style = {
-                            'display':'inline-block',
-                            'height':dimensions['main']['height'],
-                            'width':'50%'
-                        }
-                    ),
-                ]
+                    small_graph('summary mtd sales'),
+                ],
+                style = {
+                    'display':'inline-block',
+                    'height':dimensions['mini']['height'],
+                    'width':dimensions['main']['width']
+                }
             )
         ]
     )
+    
+    homepage_tracker_graphs = html.Div(
+        [
+            html.Div(
+                [
+                    tracker_graph('summary tracker'),
+                ],
+                style = {
+                    'display':'inline-block',
+                    'height':dimensions['main']['height'],
+                    'width':'50%'
+                }
+            ),
+            html.Div(
+                [
+                    tracker_graph('summary pickup'),
+                ],
+                style = {
+                    'display':'inline-block',
+                    'height':dimensions['main']['height'],
+                    'width':'50%'
+                }
+            ),
+        ]
+    )
+    
+    return html.Div(children=[homepage_dropdowns, homepage_sales_graphs, homepage_tracker_graphs])
+       
 
 def sales_layout_template(report):
         
