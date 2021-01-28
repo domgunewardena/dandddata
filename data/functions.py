@@ -457,9 +457,9 @@ def tracker_group_df(df):
     def add_comparison_columns(df):
 
         df['vs. LW'] = df['This Week'] - df['Last Week']
-        df['vs. LW %'] = (df['vs. LW'].replace(0,1) / df['Last Week'].replace(0,1))
+        df['vs. LW %'] = (df['vs. LW'].replace(0,1) / abs(df['Last Week'].replace(0,1)))
         df['vs. LY'] = df['This Week'] - df['Last Year']
-        df['vs. LY %'] = (df['vs. LY'].replace(0,1)  / df['Last Year'].replace(0,1))
+        df['vs. LY %'] = (df['vs. LY'].replace(0,1)  / abs(df['Last Year'].replace(0,1)))
 
         return df   
         
