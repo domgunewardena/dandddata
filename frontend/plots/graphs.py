@@ -21,7 +21,7 @@ def sales_breakdown_graph(
     last_col = date_columns['last'][report]
     vs_col = date_columns['vs'][report]
     
-    change_col, base_col = (vs_col, last_col) if metric in [vs_col, last_col + ' Totals] else ('vs. LY', 'Last Year')
+    change_col, base_col = (vs_col, last_col) if metric in [vs_col, 'Totals ' + last_col] else ('vs. LY', 'Last Year')
     on_column = 'SiteName'
     
     if measure == 'Revenue':
@@ -70,7 +70,7 @@ def sales_group_revenue_graph(
     last_col = date_columns['last'][report]
     vs_col = date_columns['vs'][report]
     
-    change_col, base_col = ('vs. LY', 'Last Year') if metric in ['vs. LY', 'Last Year Totals'] else (vs_col, last_col)
+    change_col, base_col = ('vs. LY', 'Last Year') if metric in ['vs. LY', 'Totals Last Year'] else (vs_col, last_col)
     on_column = 'GenericLocation'
     measure = 'Revenue'
     
@@ -104,7 +104,7 @@ def sales_group_covers_graph(
     last_col = date_columns['last'][report]
     vs_col = date_columns['vs'][report]
     
-    change_col, base_col = (vs_col, last_col) if metric in [vs_col, last_col + ' Totals] else ('vs. LY', 'Last Year')
+    change_col, base_col = (vs_col, last_col) if metric in [vs_col, 'Totals ' + last_col] else ('vs. LY', 'Last Year')
     on_column = 'GenericLocation'
     measure = 'Covers'
     
@@ -139,7 +139,7 @@ def sales_group_spend_graph(
     last_col = date_columns['last'][report]
     vs_col = date_columns['vs'][report]
     
-    change_col, base_col = (vs_col, last_col) if metric in [vs_col, last_col + ' Totals] else ('vs. LY', 'Last Year')
+    change_col, base_col = (vs_col, last_col) if metric in [vs_col, 'Totals ' + last_col] else ('vs. LY', 'Last Year')
     on_column = 'GenericLocation'
     measure = 'Spend'
     
@@ -175,7 +175,7 @@ def sales_site_revenue_graph(
     last_col = date_columns['last'][report]
     vs_col = date_columns['vs'][report]
     
-    change_col, base_col = (vs_col, last_col) if metric in [vs_col, last_col + ' Totals] else ('vs. LY', 'Last Year')
+    change_col, base_col = (vs_col, last_col) if metric in [vs_col, 'Totals ' + last_col] else ('vs. LY', 'Last Year')
     on_column = 'LocationName'
     measure = 'Revenue'
     
@@ -209,7 +209,7 @@ def sales_site_covers_graph(
     last_col = date_columns['last'][report]
     vs_col = date_columns['vs'][report]
     
-    change_col, base_col = (vs_col, last_col) if metric in [vs_col, last_col + ' Totals] else ('vs. LY', 'Last Year')
+    change_col, base_col = (vs_col, last_col) if metric in [vs_col, 'Totals ' + last_col] else ('vs. LY', 'Last Year')
     on_column = 'LocationName'
     measure = 'Covers'
     
@@ -244,7 +244,7 @@ def sales_site_spend_graph(
     last_col = date_columns['last'][report]
     vs_col = date_columns['vs'][report]
     
-    change_col, base_col = (vs_col, last_col) if metric in [vs_col, last_col + ' Totals] else ('vs. LY', 'Last Year')
+    change_col, base_col = (vs_col, last_col) if metric in [vs_col, 'Totals ' + last_col] else ('vs. LY', 'Last Year')
     on_column = 'LocationName'
     measure = 'Spend'
     
@@ -284,7 +284,7 @@ def sales_week_view_graph(
     vs_col = date_columns['vs'][report]
     day_df = day_counts[report]
     
-    change_col, base_col = (vs_col, last_col) if metric in [vs_col, last_col + ' Totals] else ('vs. LY', 'Last Year')
+    change_col, base_col = (vs_col, last_col) if metric in [vs_col, 'Totals ' + last_col] else ('vs. LY', 'Last Year')
     on_columns = ['Session','Day']
     
     if measure == 'Revenue':
@@ -342,7 +342,7 @@ def sales_week_covers_graph(
     vs_col = date_columns['vs'][report]
     day_df = day_counts[report]
     
-    change_col, base_col = (vs_col, last_col) if metric in [vs_col, last_col + ' Totals] else ('vs. LY', 'Last Year')
+    change_col, base_col = (vs_col, last_col) if metric in [vs_col, 'Totals ' + last_col] else ('vs. LY', 'Last Year')
     on_columns = ['Session','Day']
     measure = 'Covers'
     
@@ -391,6 +391,7 @@ def tracker_group_8_weeks_graph(week, metric ,site, df, measure):
     if 'vs.' in metric:
         return tracker_change_figure(dff, x, metric, graph, measure)
     else:
+        metric = metric.replace('Totals ', '')
         return tracker_totals_figure(dff, x, metric, graph, measure)
     
 def tracker_group_week_graph(week, metric, site, df, measure):
@@ -411,6 +412,7 @@ def tracker_group_week_graph(week, metric, site, df, measure):
     if 'vs.' in metric:
         return tracker_change_figure(dff, x, metric, graph, measure)
     else:
+        metric = metric.replace('Totals ', '')
         return tracker_totals_figure(dff, x, metric, graph, measure)
     
 def tracker_site_8_weeks_graph(week, metric, site, df, measure):
@@ -427,6 +429,7 @@ def tracker_site_8_weeks_graph(week, metric, site, df, measure):
     if 'vs.' in metric:
         return tracker_change_figure(dff, x, metric, graph, measure)
     else:
+        metric = metric.replace('Totals ', '')
         return tracker_totals_figure(dff, x, metric, graph, measure)
     
 def tracker_site_week_graph(week, metric, site, df, measure):
@@ -445,6 +448,7 @@ def tracker_site_week_graph(week, metric, site, df, measure):
     if 'vs.' in metric:
         return tracker_change_figure(dff, x, metric, graph, measure)
     else:
+        metric = metric.replace('Totals ', '')
         return tracker_totals_figure(dff, x, metric, graph, measure)
     
 def tracker_breakdown_graph(week, metric, site, df, measure):
@@ -462,7 +466,5 @@ def tracker_breakdown_graph(week, metric, site, df, measure):
     if 'vs.' in metric:
         return tracker_breakdown_change_figure(dff, metric, graph, measure)
     else:
+        metric = metric.replace('Totals ', '')
         return tracker_breakdown_totals_figure(dff, metric, graph, measure)
-
-
-
