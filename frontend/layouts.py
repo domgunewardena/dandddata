@@ -67,7 +67,7 @@ def home_page():
             ),
             html.Div(
                 [
-                    small_graph('hompage wtd sales'),
+                    small_graph('homepage wtd sales'),
                 ],
                 style = {
                     'display':'inline-block',
