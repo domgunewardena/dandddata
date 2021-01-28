@@ -149,7 +149,9 @@ def div_style_simple(width):
     return {
         'textAlign':'center',
         'display': 'inline-block',
-        'width':width
+        'width':width,
+        'align-items':'center',
+        'justify-content':'center',
     }
 
 def small_graph(graph_id):
