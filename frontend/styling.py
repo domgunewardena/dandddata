@@ -148,8 +148,8 @@ dropdown_row_style = {
 def div_style_simple(width):
     return {
         'textAlign':'center',
-        'display': 'inline-block',
-#         'display':'inline-flex',
+#         'display': 'inline-block',
+        'display':'inline-flex',
 #         'display':'flex',
         'width':width,
         'align-items':'center',
