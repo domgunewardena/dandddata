@@ -46,29 +46,29 @@ pickup_dropdown_inputs = [Input(x, 'value') for x in pickup_dropdown_ids]
 
 # Home Page
 
-@app.callback(Output('summary daily sales','figure'),
-             [Input('summary metric dropdown','value')])
-def update_summary_daily_sales(metric):
+@app.callback(Output('homepage daily sales','figure'),
+             [Input('homepage metric dropdown','value')])
+def update_homepage_daily_sales(metric):
     return sales_group_revenue_graph('All Shifts',metric,'daily')
 
-@app.callback(Output('summary wtd sales','figure'),
-             [Input('summary metric dropdown','value')])
-def update_summary_wtd_sales(metric):
+@app.callback(Output('homepage wtd sales','figure'),
+             [Input('homepage metric dropdown','value')])
+def update_homepage_wtd_sales(metric):
     return sales_group_revenue_graph('All Shifts',metric,'wtd')
 
-@app.callback(Output('summary mtd sales','figure'),
-             [Input('summary metric dropdown','value')])
-def update_summary_mtd_sales(metric):
+@app.callback(Output('homepage mtd sales','figure'),
+             [Input('homepage metric dropdown','value')])
+def update_homepage_mtd_sales(metric):
     return sales_group_revenue_graph('All Shifts',metric,'mtd')
 
-@app.callback(Output('summary tracker','figure'),
-             [Input('summary metric dropdown','value')])
-def update_summary_tracker(metric):
+@app.callback(Output('homepage tracker','figure'),
+             [Input('homepage metric dropdown','value')])
+def update_homepage_tracker(metric):
     return tracker_group_8_weeks_graph('This Week',metric,'100 Wardour St', tracker_df, 'Booked Covers')
 
-@app.callback(Output('summary pickup','figure'),
-             [Input('summary metric dropdown','value')])
-def update_summary_pickup(metric):
+@app.callback(Output('homepage pickup','figure'),
+             [Input('homepage metric dropdown','value')])
+def update_homepage_pickup(metric):
     return tracker_group_8_weeks_graph('This Week',metric,'100 Wardour St', pickup_df, 'Pickup')
 
 # Daily Sales
