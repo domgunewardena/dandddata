@@ -46,20 +46,50 @@ pickup_dropdown_inputs = [Input(x, 'value') for x in pickup_dropdown_ids]
 
 # Home Page
 
-@app.callback(Output('homepage daily sales','figure'),
-             [Input('homepage metric dropdown','value')])
-def update_homepage_daily_sales(metric):
-    return sales_group_revenue_graph('All Shifts',metric,'daily')
+@app.callback(
+    Output('homepage daily sales','figure'),
+    [Input('homepage metric dropdown','value'),
+     Input('homepage measure dropdown', 'value'),])
+def update_homepage_daily_sales(metric,measure):
+    
+    if measure == 'Revenue':
+        func = sales_group_revenue_graph
+    elif measure == 'Covers':
+        func = sales_group_covers_graph
+    elif measure == 'Spend':
+        func = sales_group_spend_graph
+        
+    return func('All Shifts',metric,'daily')
 
-@app.callback(Output('homepage wtd sales','figure'),
-             [Input('homepage metric dropdown','value')])
-def update_homepage_wtd_sales(metric):
-    return sales_group_revenue_graph('All Shifts',metric,'wtd')
+@app.callback(
+    Output('homepage wtd sales','figure'),
+    [Input('homepage metric dropdown','value'),
+     Input('homepage measure dropdown', 'value'),])
+def update_homepage_wtd_sales(metric,measure):
+    
+    if measure == 'Revenue':
+        func = sales_group_revenue_graph
+    elif measure == 'Covers':
+        func = sales_group_covers_graph
+    elif measure == 'Spend':
+        func = sales_group_spend_graph
+        
+    return func('All Shifts',metric,'wtd')
 
-@app.callback(Output('homepage mtd sales','figure'),
-             [Input('homepage metric dropdown','value')])
-def update_homepage_mtd_sales(metric):
-    return sales_group_revenue_graph('All Shifts',metric,'mtd')
+@app.callback(
+    Output('homepage mtd sales','figure'),
+    [Input('homepage metric dropdown','value'),
+     Input('homepage measure dropdown', 'value'),])
+def update_homepage_mtd_sales(metric,measure):
+    
+    if measure == 'Revenue':
+        func = sales_group_revenue_graph
+    elif measure == 'Covers':
+        func = sales_group_covers_graph
+    elif measure == 'Spend':
+        func = sales_group_spend_graph
+        
+    return func('All Shifts',metric,'mtd')
 
 @app.callback(Output('homepage tracker','figure'),
              [Input('homepage metric dropdown','value')])
