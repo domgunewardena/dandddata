@@ -52,7 +52,7 @@ def home_page():
                 [
                     html.Div(
                         [
-                            small_graph('summary daily revenue'),
+                            small_graph('summary daily sales'),
                         ],
                         style = {
                             'display':'inline-block',
@@ -62,7 +62,7 @@ def home_page():
                     ),
                     html.Div(
                         [
-                            small_graph('summary wtd revenue'),
+                            small_graph('summary wtd sales'),
                         ],
                         style = {
                             'display':'inline-block',
@@ -72,7 +72,7 @@ def home_page():
                     ),
                     html.Div(
                         [
-                            small_graph('summary mtd revenue'),
+                            small_graph('summary mtd sales'),
                         ],
                         style = {
                             'display':'inline-block',
