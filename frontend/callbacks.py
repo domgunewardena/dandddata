@@ -46,17 +46,17 @@ pickup_dropdown_inputs = [Input(x, 'value') for x in pickup_dropdown_ids]
 
 # Home Page
 
-@app.callback(Output('summary daily revenue','figure'),
+@app.callback(Output('summary daily sales','figure'),
              [Input('summary metric dropdown','value')])
 def update_summary_daily_sales(metric):
     return sales_group_revenue_graph('All Shifts',metric,'daily')
 
-@app.callback(Output('summary wtd revenue','figure'),
+@app.callback(Output('summary wtd sales','figure'),
              [Input('summary metric dropdown','value')])
 def update_summary_wtd_sales(metric):
     return sales_group_revenue_graph('All Shifts',metric,'wtd')
 
-@app.callback(Output('summary mtd revenue','figure'),
+@app.callback(Output('summary mtd sales','figure'),
              [Input('summary metric dropdown','value')])
 def update_summary_mtd_sales(metric):
     return sales_group_revenue_graph('All Shifts',metric,'mtd')
