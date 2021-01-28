@@ -84,6 +84,12 @@ dimensions = {
     'trends':{
         'height':400,
         'width':'50%'
+    },
+    'homepage':{
+        'dropdowns':{
+            'width':'33%',
+            'dropdown_width':'50%'
+        }
     }
 }
 
