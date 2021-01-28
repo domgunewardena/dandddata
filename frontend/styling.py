@@ -87,7 +87,7 @@ dimensions = {
     },
     'homepage':{
         'dropdowns':{
-            'width':'50%',
+            'div_width':'50%',
             'dropdown_width':'50%'
         }
     }
