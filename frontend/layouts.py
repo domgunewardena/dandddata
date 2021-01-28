@@ -14,7 +14,7 @@ from data.data import trends_df
 
 def home_page():
     
-    metrics = ['vs. LW','vs. LY', 'Last Week', 'Last Year']
+    metrics = ['vs. LW','vs. LY', 'Totals Last Week', 'Totals Last Year']
     
     homepage_dropdowns =  html.Div(
         [
@@ -117,8 +117,8 @@ def home_page():
 
 def sales_layout_template(report):
         
-    week_metrics = ['vs. LW','vs. LY', 'Last Week', 'Last Year']
-    month_metrics = ['vs. LM','vs. LY', 'Last Month', 'Last Year']
+    week_metrics = ['vs. LW','vs. LY', 'Totals Last Week', 'Totals Last Year']
+    month_metrics = ['vs. LM','vs. LY', 'Totals Last Month', 'Totals Last Year']
     
     week_reports = ['daily','wtd','weekly']
     month_reports = ['mtd','monthly']
@@ -373,8 +373,8 @@ def tracker_layout_template(report):
     tracker_metrics = [
         'vs. LW',
         'vs. LY',
-        'Last Week',
-        'Last Year'
+        'Totals Last Week',
+        'Totals Last Year'
     ]
     
     if report == 'tracker':
