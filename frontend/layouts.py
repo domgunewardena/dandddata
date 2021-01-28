@@ -57,7 +57,7 @@ def home_page():
         [
             html.Div(
                 [
-                    small_graph('summary daily sales'),
+                    small_graph('homepage daily sales'),
                 ],
                 style = {
                     'display':'inline-block',
@@ -67,7 +67,7 @@ def home_page():
             ),
             html.Div(
                 [
-                    small_graph('summary wtd sales'),
+                    small_graph('hompage wtd sales'),
                 ],
                 style = {
                     'display':'inline-block',
@@ -77,7 +77,7 @@ def home_page():
             ),
             html.Div(
                 [
-                    small_graph('summary mtd sales'),
+                    small_graph('homepage mtd sales'),
                 ],
                 style = {
                     'display':'inline-block',
@@ -92,7 +92,7 @@ def home_page():
         [
             html.Div(
                 [
-                    tracker_graph('summary tracker'),
+                    tracker_graph('homepage tracker'),
                 ],
                 style = {
                     'display':'inline-block',
@@ -102,7 +102,7 @@ def home_page():
             ),
             html.Div(
                 [
-                    tracker_graph('summary pickup'),
+                    tracker_graph('homepage pickup'),
                 ],
                 style = {
                     'display':'inline-block',
