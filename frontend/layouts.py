@@ -43,7 +43,6 @@ def home_page():
                         value = 'Revenue',
                         style = {
                             'width':dimensions['homepage']['dropdowns']['dropdown_width'],
-                            'padding':'2px 0px'
                         }
                     )
                 ],
