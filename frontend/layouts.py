@@ -109,29 +109,6 @@ def home_page():
         ]
     )
 
-# def home_page():
-    
-#     return html.Div(
-#         children=[
-#             html.Div(
-#                 [
-#                     dbc.Jumbotron(
-#                         [
-#                             html.H1('Welcome to D&D Data '),
-#                             html.Hr(),
-# #                             html.Br(),
-# #                             html.P('To begin, select a report from the top-right corner'),
-# #                             html.Br(),
-# #                             html.Br(),
-# #                             dcc.Markdown(" **ProTip!** To get the best experience, you'll want to zoom out on your browser - about 75% should do it ")
-                            
-#                         ]
-#                     )
-#                 ]
-#             )
-#         ]
-#     )
-
 def sales_layout_template(report):
         
     week_metrics = ['vs. LW','vs. LY', 'Last Week', 'Last Year']
