@@ -4,11 +4,11 @@ import os
 import psycopg2
 from sqlalchemy import create_engine
 
-from data.database.secrets import postgres_host, postgres_database, postgres_user, postgres_password
-
-# postgres_url = os.environ['DATABASE_URL']
+postgres_host = os.environ['POSTGRESQL_HOST']
+postgres_database = os.environ['POSTGRESQL_DATABASE']
+postgres_user = os.environ['POSTGRESQL_USER']
+postgres_password = os.environ['POSTGRESQL_PASSWORD']
 postgres_url = os.environ['HEROKU_POSTGRESQL_CHARCOAL_URL']
-
 
 from data.database.postgresql_queries import create,select,column_names,column_renaming_map
 
@@ -34,7 +34,7 @@ class PostgreSQLTable(PostgreSQLDatabase):
         self.column_renaming_map = column_renaming_map[table]
         self.dataframe = self.to_app()
         
-    def connect_to_database(self):
+    def connect_remotely(self):
         
         return psycopg2.connect(
             host=self.host,
@@ -49,7 +49,7 @@ class PostgreSQLTable(PostgreSQLDatabase):
         
     def create(self):
         
-        conn = self.connect_to_database()
+        conn = self.connect_remotely()
         cur = conn.cursor()
         cur.execute(self.create_query)
 
@@ -59,7 +59,7 @@ class PostgreSQLTable(PostgreSQLDatabase):
         
     def to_dataframe(self):
         
-        conn = self.connect_to_database()
+        conn = self.connect_remotely()
         cur = conn.cursor()
         
         cur.execute(self.select_query)
@@ -68,6 +68,14 @@ class PostgreSQLTable(PostgreSQLDatabase):
         conn.close()
         
         return pd.DataFrame(tuples, columns=self.column_names)
+
+    def to_app(self):
+        
+        conn = self.connect_from_app()
+        df = psql.read_sql(self.select_query, conn)
+        return df.rename(columns = self.column_renaming_map)
+    
+    
     
 #     def to_app(self):
         
@@ -80,9 +88,3 @@ class PostgreSQLTable(PostgreSQLDatabase):
 #         conn.close()
         
 #         return pd.DataFrame(tuples, columns=self.column_names)
-
-    def to_app(self):
-        
-        conn = self.connect_from_app()
-        df = psql.read_sql(self.select_query, conn)
-        return df.rename(columns = self.column_renaming_map)
