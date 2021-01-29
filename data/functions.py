@@ -96,7 +96,7 @@ def spend_df(rev_df,cov_df,on_column,current_column,last_col,vs_col):
     return df[[on_column,current_column,last_col,'Last Year',vs_col,vs_col + ' %','vs. LY','vs. LY %']]
   
 def group_by(df, group_by_column, measure_column):
-  return df[group_by_column, measure_column].groupby(group_by_column).sum().reset_index()
+  return df[[group_by_column, measure_column]].groupby(group_by_column).sum().reset_index()
   
 def group_revenue_by_area(df):
   return group_by(df, 'GenericLocation', 'Revenue')
