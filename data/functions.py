@@ -445,7 +445,7 @@ def site_filter(df, site):
     return df[df['SiteName']==site] if site !='Group' else df
 
 def user_site_filter(df):
-    return df[df['SiteName'].isin(user_restaurants[auth._username][‘sales’)]
+    return df[df['SiteName'].isin(user_restaurants[auth._username][‘sales’])]
 
 
 # Tracker Functions
