@@ -28,7 +28,7 @@ sales_restaurants = [
     'White City',
 ]
 
-bookings_restaurants:[
+bookings_restaurants = [
     '100 Wardour St',
     '14 Hills',
     '20 Stories',
