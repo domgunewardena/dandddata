@@ -6,7 +6,7 @@ import dash_bootstrap_components as dbc
 from datetime import date, datetime, timedelta
 
 from frontend.styling import *
-from authentication.users import bookings_user_restaurants
+from authentication.users import user_restaurants
 from authentication.authentication import auth
 
 from frontend.plots.figures import trends_group_pickup_figure, trends_group_future_figure
