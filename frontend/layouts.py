@@ -556,7 +556,7 @@ def trends():
                             ),
                             dcc.Dropdown(
                                 id='trends site dropdown',
-                                options = [{'label':i,'value':i} for i in user_restaurants['dandd']['bookings'],
+                                options = [{'label':i,'value':i} for i in user_restaurants['dandd']['bookings']],
                                 value=user_restaurants['dandd']['bookings'][0],
                                 style={
                                     'textAlign':'center',
