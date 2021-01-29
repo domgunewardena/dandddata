@@ -6,7 +6,7 @@ import dash_bootstrap_components as dbc
 from datetime import date, datetime, timedelta
 
 from frontend.styling import *
-from authentication.users import sales_restaurants, bookings_restaurants, user_restaurants
+from authentication.users import user_restaurants
 from authentication.authentication import auth
 
 from frontend.plots.figures import trends_group_pickup_figure, trends_group_future_figure
@@ -428,8 +428,8 @@ def tracker_layout_template(report):
                     ),
                     dcc.Dropdown(
                         id=report + '_site_dropdown',
-                        options=[{'label':i,'value':i} for i in sales_restaurants],
-                        value=sales_restaurants[0],
+                        options=[{'label':i,'value':i} for i in dropdown_values['restaurants']],
+                        value=dropdown_values['restaurants'],
                         style={'width':dimensions['div']['dropdown_width']}
                     )
                 ],
