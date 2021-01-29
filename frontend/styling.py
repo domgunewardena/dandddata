@@ -1,37 +1,9 @@
 import dash_core_components as dcc
-
-available_restaurants = [
-    '100 Wardour Street', 
-     '20 Stories', 
-     'Aster', 
-     'Avenue', 
-     'Bluebird Chelsea', 
-     'Blueprint Café', 
-     'Butlers Wharf Chophouse', 
-     'Cantina', 
-     "Coq d'Argent", 
-     'East 59th', 
-     'Fiume', 
-     'German Gymnasium', 
-     'Issho', 
-     'Launceston Place', 
-     'Le Pont de la Tour', 
-     'Madison', 
-     'New Street Warehouse', 
-     'Orrery', 
-     'Paternoster Chophouse', 
-     'Plateau', 
-     'Quaglinos', 
-     'Radici', 
-     'Sartoria', 
-     'Skylon', 
-     'South Place Hotel', 
-     'Trinity', 
-     'White City']
+from authentication.users import sales_restaurants
 
 dropdown_values = {
-    'restaurants':available_restaurants,
-    'restaurants_week': ['Group'] + available_restaurants,
+    'restaurants':sales_restaurants,
+    'restaurants_week': ['Group'] + sales_restaurants,
     'shifts':[
         'All Shifts', 
         'Lunch', 
@@ -58,7 +30,6 @@ dropdown_values = {
         "Non-Wine"
     ]
 }
-
 
 dimensions = {
     'main':{
@@ -149,8 +120,6 @@ def div_style_simple(width):
     return {
         'textAlign':'center',
         'display': 'inline-block',
-#         'display':'inline-flex',
-#         'display':'flex',
         'width':width,
         'align-items':'center',
         'justify-content':'center',
@@ -161,7 +130,6 @@ def small_graph(graph_id):
         id=graph_id,
         style={
             'height':dimensions['mini']['height'],
-#             'width':dimensions['mini']['width']
             'width':'100%'
         },
         config={'displayModeBar':False})
@@ -171,7 +139,6 @@ def week_graph(graph_id):
         id=graph_id,
         style={
             'height':dimensions['week']['height'],
-#             'width':dimensions['week']['width']
             'width':'100%'
         },
         config={'displayModeBar':False})
@@ -293,7 +260,6 @@ def tracker_graph(graph_id):
         config={'displayModeBar':False})
 
 def capitalize_report_title(report):
-    
     if report in ['wtd', 'mtd']:
         return report.upper()
     else:
