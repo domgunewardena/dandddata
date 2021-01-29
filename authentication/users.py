@@ -1,4 +1,155 @@
+sales_restaurants = [
+    '100 Wardour Street', 
+    '20 Stories', 
+    'Aster', 
+    'Avenue', 
+    'Bluebird Chelsea', 
+    'Blueprint Café', 
+    'Butlers Wharf Chophouse', 
+    'Cantina', 
+    "Coq d'Argent", 
+    'East 59th', 
+    'Fiume', 
+    'German Gymnasium', 
+    'Issho', 
+    'Launceston Place', 
+    'Le Pont de la Tour', 
+    'Madison', 
+    'New Street Warehouse', 
+    'Orrery', 
+    'Paternoster Chophouse', 
+    'Plateau', 
+    'Quaglinos', 
+    'Radici', 
+    'Sartoria', 
+    'Skylon', 
+    'South Place Hotel', 
+    'Trinity', 
+    'White City',
+]
+
+bookings_restaurants:[
+    '100 Wardour St',
+    '14 Hills',
+    '20 Stories',
+    'Angelica',
+    'Angler Restaurant',
+    'Aster',
+    'Avenue',
+    'Bluebird Chelsea Restaurant',
+    'Bluebird White City',
+    'Butlers Wharf Chophouse Restaurant',
+    'Cantina del Ponte',
+    "Coq d'Argent",
+    'Crafthouse',
+    'East 59th',
+    'Fish Market',
+    'Fiume',
+    'German Gymnasium',
+    'Issho Restaurant',
+    'Klosterhaus',
+    'Launceston Place',
+    'Madison Restaurant',
+    'New Street Grill',
+    'Orrery',
+    'Paternoster Chophouse',
+    'Plateau',
+    'Pont de la Tour',
+    "Quaglino's Restaurant",
+    'Radici',
+    'Sartoria',
+    'Skylon Restaurant',
+    'South Place Chop House',
+    'The Modern Pantry',
+]
+
 user_restaurants = {
+    'dandd':{
+        'sales' : sales_restaurants,
+        'bookings' : bookings_restaurants,
+    },
+    'michaelf':{
+        'sales':[
+            '100 Wardour Street',
+            'Avenue',
+            'Bluebird Chelsea',
+            'Madison', 
+            'Quaglinos', 
+            'Skylon', 
+            'White City'
+        ],
+        'bookings':[
+            '100 Wardour St',
+            '14 Hills',
+            'Avenue',
+            'Bluebird Chelsea Restaurant',
+            'Bluebird White City',
+            'Madison Restaurant',
+            "Quaglino's Restaurant",
+            'Skylon Restaurant'
+        ],
+    },
+    'jb':{
+        'sales':[
+            '20 Stories', 
+            'Aster', 
+            "Coq d'Argent", 
+            'East 59th', 
+            'German Gymnasium', 
+            'Issho',
+            'New Street Warehouse',
+            'Paternoster Chophouse', 
+            'Plateau', 
+            'Trinity'
+        ],
+        'bookings':[
+            '20 Stories',
+            'Angelica',
+            'Angler Restaurant',
+            'Aster',
+            "Coq d'Argent",
+            'Crafthouse',
+            'East 59th',
+            'Fish Market',
+            'German Gymnasium',
+            'Issho Restaurant',
+            'Klosterhaus',
+            'New Street Grill',
+            'Orrery',
+            'Paternoster Chophouse',
+            'Plateau'
+        ],
+    },
+    'sharon':{
+        'sales':[
+            'Butlers Wharf Chophouse', 
+            'Cantina', 
+            'Fiume',
+            'Launceston Place',
+            'Le Pont de la Tour', 
+            'Orrery', 
+            'Radici',
+            'Sartoria'
+        ],
+        'bookings':[
+            'Butlers Wharf Chophouse Restaurant',
+            'Cantina del Ponte',
+            'Fiume',
+            'Launceston Place',
+            'Orrery',
+            'Pont de la Tour',
+            'Radici',
+            'Sartoria',
+            'The Modern Pantry',
+        ],
+    },
+        
+            
+    
+            
+            
+
+sales_user_restaurants = {
     'dandd':[
         '100 Wardour Street', 
         '20 Stories', 
