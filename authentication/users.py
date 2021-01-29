@@ -143,6 +143,7 @@ user_restaurants = {
             'The Modern Pantry',
         ],
     },
+}
         
             
     
