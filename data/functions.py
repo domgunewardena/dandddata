@@ -5,7 +5,7 @@ import numpy as np
 from datetime import date, datetime, timedelta
 
 from authentication.authentication import auth
-from authentication.users import user_restaurants, bookings_user_restaurants
+from authentication.users import user_restaurants
 
 # Returns final dataframe that gets fed into figure functions - generating columns for each time period (current, last, last year) & comparison columns    
 def final_dataframe(dfs, on_column, current_column, last_col, vs_col):
@@ -413,7 +413,7 @@ def site_filter(df, site):
     return df[df['SiteName']==site] if site !='Group' else df
 
 def user_site_filter(df):
-    return df[df['SiteName'].isin(user_restaurants[auth._username])]
+    return df[df['SiteName'].isin(user_restaurants[auth._username][‘sales’)]
 
 
 # Tracker Functions
@@ -469,7 +469,7 @@ def tracker_group_df(df):
     return add_comparison_columns(group_sort_columns(df[df_columns].groupby(groupby_columns).sum().reset_index()))
 
 def tracker_user_site_filter(df):
-    return df[df['Restaurant'].isin(bookings_user_restaurants[auth._username])]
+    return df[df['Restaurant'].isin(user_restaurants[auth._username][‘bookings’])]
 
 def tracker_site_filter(df, site):
     return df[df['Restaurant']==site]
