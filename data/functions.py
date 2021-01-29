@@ -5,10 +5,12 @@ import numpy as np
 from datetime import date, datetime, timedelta
 
 from authentication.authentication import auth
-from authentication.users import user_restaurants
+from authentication.users import user_restaurants   
 
-# Returns final dataframe that gets fed into figure functions - generating columns for each time period (current, last, last year) & comparison columns    
 def final_dataframe(dfs, on_column, current_column, last_col, vs_col):
+  
+#   This function returns the final dataframe that gets fed into the figure functions
+#   It generates the columns for each time period (current, last, last year) & the comparison columns (vs. last, vs. last %, vs. last year, vs. last year %)
     
     df_ty = pd.merge(
         left=dfs[0],
@@ -32,7 +34,7 @@ def final_dataframe(dfs, on_column, current_column, last_col, vs_col):
     df['vs. LY %'] = (df['vs. LY'].replace(0,1) / df['Last Year'].replace(0,1))
     return df
 
-def date_filtering(df,bounds,current_column,last_col,vs_col,on_column,func):
+def date_filtering(df,bounds,current_column,last_col,vs_col,on_column,group_by_func):
 
     mask1 = df['Date'] <= bounds[0]
     mask2 = df['Date'] >= bounds[1]
@@ -41,19 +43,22 @@ def date_filtering(df,bounds,current_column,last_col,vs_col,on_column,func):
     mask5 = df['Date'] <= bounds[4]
     mask6 = df['Date'] >= bounds[5]
 
-    df1 = func(df[mask1 & mask2])
-    df2 = func(df[mask3 & mask4])
-    df3 = func(df[mask5 & mask6])
+    df1 = group_by_func(df[mask1 & mask2])
+    df2 = group_by_func(df[mask3 & mask4])
+    df3 = group_by_func(df[mask5 & mask6])
     
     dfs = [df1,df2,df3]
     
     def fill_empty_dataframe_with_zero_values(dfs):
+      
+#         If there are no sales for one of the time periods that the data is divided into, the date filtering above will produce an empty dataframe, which cannot be merged with the other dataframes in the final_dataframe function.
+#         This function uses the skeleton of a populated dataframe to create a valid dataframe with zero values, which can be properly merged with the other dataframes in the final_dataframe function.
         
         def get_populated_df(dfs):
             
             return [df for df in dfs if df.empty==False][0].copy()
         
-        def get_empty_df(populated_df):
+        def get_zero_df(populated_df):
             
             df = populated_df.copy()
             
@@ -63,9 +68,9 @@ def date_filtering(df,bounds,current_column,last_col,vs_col,on_column,func):
                     
             return df
         
-        empty_df = get_empty_df(get_populated_df(dfs))
+        zero_df = get_zero_df(get_populated_df(dfs))
         
-        return [empty_df if df.empty else df for df in dfs]
+        return [zero_df if df.empty else df for df in dfs]
     
     dfs = fill_empty_dataframe_with_zero_values(dfs)
 
@@ -89,52 +94,79 @@ def spend_df(rev_df,cov_df,on_column,current_column,last_col,vs_col):
     df['vs. LY %'] = (df['vs. LY'].replace(0,1) / df['Last Year'].replace(0,1))
     
     return df[[on_column,current_column,last_col,'Last Year',vs_col,vs_col + ' %','vs. LY','vs. LY %']]
-
-
+  
+def group_by(df, group_by_column, measure_column):
+  return df[group_by_column, measure_column].groupby(group_by_column).sum().reset_index()
+  
 def group_revenue_by_area(df):
-    df_cols = ['GenericLocation', 'Revenue']
-    groupby_cols = df_cols[:-1]
-    return df[df_cols].groupby(groupby_cols).sum().reset_index()
+  return group_by(df, 'GenericLocation', 'Revenue')
 
 def group_revenue_by_location(df):
-    df_cols = ['LocationName', 'Revenue']
-    groupby_cols = df_cols[:-1]
-    return df[df_cols].groupby(groupby_cols).sum().reset_index()
-
+  return group_by(df, 'LocationName', 'Revenue')
+  
 def group_revenue_by_type(df):
-    df_cols = ['RevenueType', 'Revenue']
-    groupby_cols = df_cols[:-1]
-    return df[df_cols].groupby(groupby_cols).sum().reset_index()
+  return group_by(df, 'RevenueType', 'Revenue')
 
 def group_revenue_by_wine(df):
-    df_cols = ['Wine', 'Revenue']
-    groupby_cols = df_cols[:-1]
-    return df[df_cols].groupby(groupby_cols).sum().reset_index()
+  return group_by(df, 'Wine', 'Revenue')
 
 def group_revenue_by_site(df):
-    df_cols = ['SiteName', 'Revenue']
-    groupby_cols = df_cols[:-1]
-    return df[df_cols].groupby(groupby_cols).sum().reset_index()
+  return group_by(df, 'SiteName', 'Revenue')
 
 def group_covers_by_area(df):
-    df_cols = ['GenericLocation', 'Covers']
-    groupby_cols = df_cols[:-1]
-    return df[df_cols].groupby(groupby_cols).sum().reset_index()
+  return group_by(df, 'GenericLocation', 'Covers')
 
 def group_covers_by_location(df):
-    df_cols = ['LocationName', 'Covers']
-    groupby_cols = df_cols[:-1]
-    return df[df_cols].groupby(groupby_cols).sum().reset_index()
+  return group_by(df, 'LocationName', 'Covers')
 
 def group_covers_by_site(df):
-    df_cols = ['SiteName', 'Covers']
-    groupby_cols = df_cols[:-1]
-    return df[df_cols].groupby(groupby_cols).sum().reset_index()
+  return group_by(df, 'SiteName', 'Covers')
+
+# def group_revenue_by_area(df):
+                             
+#     df_cols = ['GenericLocation', 'Revenue']
+#     groupby_cols = df_cols[:-1]
+#     return df[df_cols].groupby(groupby_cols).sum().reset_index()
+
+# def group_revenue_by_location(df):
+#     df_cols = ['LocationName', 'Revenue']
+#     groupby_cols = df_cols[:-1]
+#     return df[df_cols].groupby(groupby_cols).sum().reset_index()
+
+# def group_revenue_by_type(df):
+#     df_cols = ['RevenueType', 'Revenue']
+#     groupby_cols = df_cols[:-1]
+#     return df[df_cols].groupby(groupby_cols).sum().reset_index()
+
+# def group_revenue_by_wine(df):
+#     df_cols = ['Wine', 'Revenue']
+#     groupby_cols = df_cols[:-1]
+#     return df[df_cols].groupby(groupby_cols).sum().reset_index()
+
+# def group_revenue_by_site(df):
+#     df_cols = ['SiteName', 'Revenue']
+#     groupby_cols = df_cols[:-1]
+#     return df[df_cols].groupby(groupby_cols).sum().reset_index()
+
+# def group_covers_by_area(df):
+#     df_cols = ['GenericLocation', 'Covers']
+#     groupby_cols = df_cols[:-1]
+#     return df[df_cols].groupby(groupby_cols).sum().reset_index()
+
+# def group_covers_by_location(df):
+#     df_cols = ['LocationName', 'Covers']
+#     groupby_cols = df_cols[:-1]
+#     return df[df_cols].groupby(groupby_cols).sum().reset_index()
+
+# def group_covers_by_site(df):
+#     df_cols = ['SiteName', 'Covers']
+#     groupby_cols = df_cols[:-1]
+#     return df[df_cols].groupby(groupby_cols).sum().reset_index()
 
 
-def group_general_df(df,bounds,current_column,last_col,vs_col,oncolumn,func):
+def group_general_df(df,bounds,current_column,last_col,vs_col,oncolumn,group_by_func):
     
-    df = date_filtering(df,bounds,current_column,last_col,vs_col,oncolumn,func)
+    df = date_filtering(df,bounds,current_column,last_col,vs_col,oncolumn,group_by_func)
     sorter = ['Total',"Restaurant", "Bar", "PDR", "Events & Ex Hires", "Retail & Other"]
     df[oncolumn] = df[oncolumn].astype("category")
     df[oncolumn].cat.set_categories(sorter, inplace=True)
@@ -196,8 +228,8 @@ def group_spend_df(rev_df, cov_df, bounds, current_column,last_col,vs_col,oncolu
     
     return df.drop_duplicates().sort_values(by=oncolumn)
 
-def site_general_df(site,df,bounds,current_column,last_col,vs_col,oncolumn,func):
-    df = date_filtering(df[df['SiteName'] == site],bounds,current_column,last_col,vs_col,oncolumn,func)
+def site_general_df(site,df,bounds,current_column,last_col,vs_col,oncolumn,group_by_func):
+    df = date_filtering(df[df['SiteName'] == site],bounds,current_column,last_col,vs_col,oncolumn,group_by_func)
     sorter = ['Total'] + df[oncolumn].drop(index=len(df)-1).to_list()
     df[oncolumn] = df[oncolumn].astype("category")
     df[oncolumn].cat.set_categories(sorter, inplace=True)
@@ -260,8 +292,8 @@ def site_spend_df(site,rev_df,cov_df,bounds,current_column,last_col,vs_col,oncol
     return df.drop_duplicates().sort_values(by=oncolumn)
 
 
-def breakdown_general_df(df,bounds,current_column,last_col,vs_col,oncolumn,func):
-    df = date_filtering(df,bounds,current_column,last_col,vs_col,oncolumn,func)
+def breakdown_general_df(df,bounds,current_column,last_col,vs_col,oncolumn,group_by_func):
+    df = date_filtering(df,bounds,current_column,last_col,vs_col,oncolumn,group_by_func)
     return df.drop(index=len(df)-1)
     
 def breakdown_revenue_df(df,bounds,current_column,last_col,vs_col,oncolumn):
@@ -304,7 +336,7 @@ def final_dataframe_week(df_tw, df_lw, df_ly, on_columns, current_column, last_c
     df['vs. LY %'] = (df['vs. LY'].replace(0,1) / df['Last Year'].replace(0,1))
     return df
 
-def date_filtering_week(df,bounds,current_column,last_col,vs_col,on_columns,func):
+def date_filtering_week(df,bounds,current_column,last_col,vs_col,on_columns,group_by_func):
 
     mask1 = df['Date'] <= bounds[0]
     mask2 = df['Date'] >= bounds[1]
@@ -313,9 +345,9 @@ def date_filtering_week(df,bounds,current_column,last_col,vs_col,on_columns,func
     mask5 = df['Date'] <= bounds[4]
     mask6 = df['Date'] >= bounds[5]
 
-    df_tw = func(df[mask1 & mask2])
-    df_lw = func(df[mask3 & mask4])
-    df_ly = func(df[mask5 & mask6])
+    df_tw = group_by_func(df[mask1 & mask2])
+    df_lw = group_by_func(df[mask3 & mask4])
+    df_ly = group_by_func(df[mask5 & mask6])
 
     return final_dataframe_week(df_tw, df_lw, df_ly, on_columns, current_column, last_col, vs_col)
 
@@ -360,12 +392,12 @@ def sort_by_session_day(df):
     df['Day'].cat.set_categories(day_sorter, inplace=True)
     return df[df['Session'].isin(['Lunch','Dinner'])].sort_values(by=['Session','Day'])
 
-def week_general_df(site,df,bounds,current_column,last_col,vs_col,on_columns,func):
+def week_general_df(site,df,bounds,current_column,last_col,vs_col,on_columns,group_by_func):
     if site=='Group':
         df = df
     else:
         df = df[df['SiteName'] == site]
-    return sort_by_session_day(date_filtering_week(df,bounds,current_column,last_col,vs_col,on_columns,func))
+    return sort_by_session_day(date_filtering_week(df,bounds,current_column,last_col,vs_col,on_columns,group_by_func))
                 
 def week_revenue_df(site,category,df,bounds,day_df,current_column,last_col,vs_col,on_columns):
     if category == 'Beverage' or category == 'Food':
