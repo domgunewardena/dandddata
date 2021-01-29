@@ -12,9 +12,6 @@ from authentication.authentication import auth
 from frontend.plots.figures import trends_group_pickup_figure, trends_group_future_figure
 from data.data import trends_df
 
-import os
-test_config = os.environ['TEST_CONFIG']
-
 def home_page():
     
     metrics = ['vs. LW','vs. LY', 'Totals Last Week', 'Totals Last Year']
@@ -136,7 +133,7 @@ def sales_layout_template(report):
     title = html.Div(
         [
             html.H1(
-                children = test_config + title_string + ' Sales',
+                children = title_string + ' Sales',
                 style = h1_style
             )
         ]
