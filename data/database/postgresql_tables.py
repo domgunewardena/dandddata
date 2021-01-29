@@ -4,7 +4,9 @@ import os
 import psycopg2
 from sqlalchemy import create_engine
 
-from data.database.secrets import postgres_host, postgres_database, postgres_user, postgres_password, postgres_url
+from data.database.secrets import postgres_host, postgres_database, postgres_user, postgres_password
+
+postgres_url = os.environ['DATABASE_URL']
 
 from data.database.postgresql_queries import create,select,column_names,column_renaming_map
 
