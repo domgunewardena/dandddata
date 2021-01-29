@@ -106,7 +106,7 @@ def update_homepage_pickup(metric):
 @app.callback(Output('daily site dropdown', 'options'),
               [Input('daily shift dropdown', 'options')])
 def update_daily_site_dropdown(shift):
-    return [{'label':i,'value':i} for i in user_restaurants[auth._username]]
+    return [{'label':i,'value':i} for i in user_restaurants[auth._username]['sales']]
 
 @app.callback(Output('daily site dropdown', 'value'),
               [Input('daily site dropdown', 'options')])
@@ -146,7 +146,7 @@ def update_daily_site_spend(shift,area,measure,metric,site):
 @app.callback(Output('wtd site dropdown', 'options'),
               [Input('wtd shift dropdown', 'options')])
 def update_wtd_site_dropdown(shift):
-    return [{'label':i,'value':i} for i in user_restaurants[auth._username]]
+    return [{'label':i,'value':i} for i in user_restaurants[auth._username]['sales']]
 
 @app.callback(Output('wtd site dropdown', 'value'),
               [Input('wtd site dropdown', 'options')])
@@ -156,7 +156,7 @@ def set_wtd_site_dropdown_value(available_options):
 @app.callback(Output('wtd site week dropdown', 'options'),
               [Input('wtd shift dropdown', 'options')])
 def update_wtd_site_week_dropdown(shift):
-    return [{'label':i,'value':i} for i in ['Group'] + user_restaurants[auth._username]]
+    return [{'label':i,'value':i} for i in ['Group'] + user_restaurants[auth._username]['sales']]
 
 @app.callback(Output('wtd sales total', 'figure'), wtd_dropdown_inputs)
 def update_wtd_sales_total(shift,area,measure,metric,site):
@@ -200,7 +200,7 @@ def update_wtd_week_covers(site,area,category,measure,metric,weekmetric):
 @app.callback(Output('mtd site dropdown', 'options'),
               [Input('mtd shift dropdown', 'options')])
 def update_mtd_site_dropdown(shift):
-    return [{'label':i,'value':i} for i in user_restaurants[auth._username]]
+    return [{'label':i,'value':i} for i in user_restaurants[auth._username]['sales']]
 
 @app.callback(Output('mtd site dropdown', 'value'),
               [Input('mtd site dropdown', 'options')])
@@ -210,7 +210,7 @@ def set_mtd_site_dropdown_value(available_options):
 @app.callback(Output('mtd site week dropdown', 'options'),
               [Input('mtd shift dropdown', 'options')])
 def update_mtd_site_week_dropdown(shift):
-    return [{'label':i,'value':i} for i in ['Group'] + user_restaurants[auth._username]]
+    return [{'label':i,'value':i} for i in ['Group'] + user_restaurants[auth._username]['sales']]
 
 @app.callback(Output('mtd sales total', 'figure'), mtd_dropdown_inputs)
 def update_mtd_sales_total(shift,area,measure,metric,site):
@@ -253,7 +253,7 @@ def update_mtd_week_covers(site,area,category,measure,metric,weekmetric):
 @app.callback(Output('weekly site dropdown', 'options'),
               [Input('weekly shift dropdown', 'options')])
 def update_weekly_site_dropdown(shift):
-    return [{'label':i,'value':i} for i in user_restaurants[auth._username]]
+    return [{'label':i,'value':i} for i in user_restaurants[auth._username]['sales']]
 
 @app.callback(Output('weekly site dropdown', 'value'),
               [Input('weekly site dropdown', 'options')])
@@ -263,7 +263,7 @@ def set_weekly_site_dropdown_value(available_options):
 @app.callback(Output('weekly site week dropdown', 'options'),
               [Input('weekly shift dropdown', 'options')])
 def update_weekly_site_week_dropdown(shift):
-    return [{'label':i,'value':i} for i in ['Group'] + user_restaurants[auth._username]]
+    return [{'label':i,'value':i} for i in ['Group'] + user_restaurants[auth._username]['sales']]
 
 @app.callback(Output('weekly sales total', 'figure'), weekly_dropdown_inputs)
 def update_weekly_sales_total(shift,area,measure,metric,site):
@@ -306,7 +306,7 @@ def update_weekly_week_covers(site,area,category,measure,metric,weekmetric):
 @app.callback(Output('monthly site dropdown', 'options'),
               [Input('monthly shift dropdown', 'options')])
 def update_monthly_site_dropdown(shift):
-    return [{'label':i,'value':i} for i in user_restaurants[auth._username]]
+    return [{'label':i,'value':i} for i in user_restaurants[auth._username]['sales']]
 
 @app.callback(Output('monthly site dropdown', 'value'),
               [Input('monthly site dropdown', 'options')])
@@ -316,7 +316,7 @@ def set_monthly_site_dropdown_value(available_options):
 @app.callback(Output('monthly site week dropdown', 'options'),
               [Input('monthly shift dropdown', 'options')])
 def update_monthly_site_week_dropdown(shift):
-    return [{'label':i,'value':i} for i in ['Group'] + user_restaurants[auth._username]]
+    return [{'label':i,'value':i} for i in ['Group'] + user_restaurants[auth._username]['sales']]
 
 @app.callback(Output('monthly sales total', 'figure'), monthly_dropdown_inputs)
 def update_monthly_sales_total(shift,area,measure,metric,site):
@@ -359,7 +359,7 @@ def update_monthly_week_covers(site,area,category,measure,metric,weekmetric):
 @app.callback(Output('tracker_site_dropdown', 'options'),
               [Input('tracker_week_dropdown', 'options')])
 def update_tracker_site_dropdown(week):
-    return [{'label':i,'value':i} for i in bookings_user_restaurants[auth._username]]
+    return [{'label':i,'value':i} for i in user_restaurants[auth._username]['bookings']]
 
 @app.callback(Output('tracker_site_dropdown', 'value'),
               [Input('tracker_site_dropdown', 'options')])
@@ -391,7 +391,7 @@ def update_tracker_breakdown(week,metric,site):
 @app.callback(Output('pickup_site_dropdown', 'options'),
               [Input('pickup_week_dropdown', 'options')])
 def update_pickup_site_dropdown(week):
-    return [{'label':i,'value':i} for i in bookings_user_restaurants[auth._username]]
+    return [{'label':i,'value':i} for i in user_restaurants[auth._username]['bookings']]
 
 @app.callback(Output('pickup_site_dropdown', 'value'),
               [Input('pickup_site_dropdown', 'options')])
@@ -425,9 +425,9 @@ def update_pickup_breakdown(week,metric,site):
               [Input('future dropdown', 'value')])
 def update_daily_site_dropdown(metric):
     if metric == 'Total Bookings':
-        return future_totals_figure(bookings_user_restaurants[auth._username],future_df)
+        return future_totals_figure(user_restaurants[auth._username]['bookings'],future_df)
     else:
-        return future_changes_figure(bookings_user_restaurants[auth._username],future_df)
+        return future_changes_figure(user_restaurants[auth._username]['bookings'],future_df)
     
     
 # Booking Trends
@@ -435,7 +435,7 @@ def update_daily_site_dropdown(metric):
 @app.callback(Output('trends site dropdown', 'options'),
               [Input('textarea-example', 'value')])
 def update_daily_site_dropdown(shift):
-    return [{'label':i,'value':i} for i in bookings_user_restaurants[auth._username]]
+    return [{'label':i,'value':i} for i in user_restaurants[auth._username]['bookings']]
 
 @app.callback(Output('trends site dropdown', 'value'),
               [Input('trends site dropdown', 'options')])
