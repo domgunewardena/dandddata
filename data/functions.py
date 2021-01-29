@@ -501,7 +501,7 @@ def tracker_group_df(df):
     return add_comparison_columns(group_sort_columns(df[df_columns].groupby(groupby_columns).sum().reset_index()))
 
 def tracker_user_site_filter(df):
-    return df[df['Restaurant'].isin(user_restaurants[auth._username][‘bookings’])]
+    return df[df['Restaurant'].isin(user_restaurants[auth._username]['bookings'])]
 
 def tracker_site_filter(df, site):
     return df[df['Restaurant']==site]
