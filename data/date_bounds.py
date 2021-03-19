@@ -20,13 +20,17 @@ def fourweeksago(date):
     return date - timedelta(28)
 
 def oneyearago(date):
-    return date - timedelta(364)
+#     return date - timedelta(364)
+    return date - timedelta(364)*2
 
 def twelvemonthsago(date):
     if date.month==2 and date.day==29:
-        return (date-timedelta(1)).replace(year=date.year-1) 
+#         return (date-timedelta(1)).replace(year=date.year-1)
+        return (date-timedelta(1)).replace(year=date.year-2)
+        
     else:
-        return date.replace(year=date.year-1) 
+#         return date.replace(year=date.year-1) 
+        return date.replace(year=date.year-2) 
 
 def first_day_of_week(date):
     return date - timedelta(get_weekdaynum(date)-1)
