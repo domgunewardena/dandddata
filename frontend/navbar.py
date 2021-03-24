@@ -5,6 +5,7 @@ def Navbar():
     
     navbar = dbc.NavbarSimple(
         children=[
+            dbc.NavItem(dbc.NavLink("Breakdown", href="/breakdown")),
             dbc.DropdownMenu(
                 children=[
                     dbc.DropdownMenuItem(
