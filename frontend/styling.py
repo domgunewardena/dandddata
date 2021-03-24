@@ -59,7 +59,7 @@ dimensions = {
     'homepage':{
         'dropdowns':{
             'div_width':'50%',
-            'dropdown_width':'100%'
+            'dropdown_width':'99%'
         }
     }
 }
