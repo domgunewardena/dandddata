@@ -46,9 +46,9 @@ def sales_breakdown_graph(
     
     title_string = capitalize_report_title(report)
     if area == 'Full Site':
-        title = title_string + ' ' + area + ' ' + measure + ' ' + metric
-    else:
         title = title_string + ' ' + measure + ' ' + metric
+    else:
+        title = title_string + ' ' + area + ' ' + measure + ' ' + metric
     
     if 'vs.' in metric:
         return sales_breakdown_change_figure(dff, title, change_template, current_col, change_col, base_col) 

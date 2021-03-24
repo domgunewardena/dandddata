@@ -243,7 +243,7 @@ def breakdown():
         ]
     )
     
-    return html.Div(children=[breakdown_dropdowns, breakdown_sales_graphs, breakdown_tracker_graphs])
+    return html.Div(children=[breakdown_dropdowns, breakdown_tracker_graphs, breakdown_sales_graphs])
        
        
 
