@@ -6,8 +6,16 @@ from app import app
 from app import server
 from frontend.layouts import *
 from frontend.callbacks import *
-from frontend.navbar import nav
+from frontend.navbar import nav, sidebar
 from authentication.authentication import auth
+
+CONTENT_STYLE = {
+    "margin-left": "20rem",
+#     "margin-right": "2rem",
+#     "padding": "2rem 1rem",
+}
+
+content = html.Div(id="page-content", style=CONTENT_STYLE)
 
 app.layout = html.Div(
     [
@@ -15,8 +23,9 @@ app.layout = html.Div(
             id='url', 
             refresh=False
         ),
-        html.Div([nav]),
-        html.Div(id='page-content')
+#         html.Div([nav]),
+        sidebar,
+        content
     ]
 )
 
@@ -25,6 +34,8 @@ app.title='D&D Data'
 @app.callback(dash.dependencies.Output('page-content', 'children'),
               [dash.dependencies.Input('url', 'pathname')])
 def display_page(pathname):
+    if pathname == '/group':
+        return home_page_layout
     if pathname == '/breakdown':
         return breakdown_layout
     if pathname == '/restaurant':

@@ -95,7 +95,7 @@ def home_page():
                 ],
                 style = {
                     'display':'inline-block',
-                    'height':dimensions['mini']['height'],
+                    'height':dimensions['mini_tracker']['height'],
                     'width':'50%'
                 }
             ),
@@ -105,7 +105,7 @@ def home_page():
                 ],
                 style = {
                     'display':'inline-block',
-                    'height':dimensions['mini']['height'],
+                    'height':dimensions['mini_tracker']['height'],
                     'width':'50%'
                 }
             ),
@@ -355,7 +355,7 @@ def restaurant():
             )
         ]
     )
-    tracker_graphs_extra_height = 100
+    
     restaurant_tracker_graphs = html.Div(
         [
             html.Div(
@@ -364,7 +364,7 @@ def restaurant():
                 ],
                 style = {
                     'display':'inline-block',
-                    'height':dimensions['mini']['height'] + tracker_graphs_extra_height,
+                    'height':dimensions['mini_tracker']['height'],
                     'width':'50%'
                 }
             ),
@@ -374,7 +374,7 @@ def restaurant():
                 ],
                 style = {
                     'display':'inline-block',
-                    'height':dimensions['mini']['height'] + tracker_graphs_extra_height,
+                    'height':dimensions['mini_tracker']['height'],
                     'width':'50%'
                 }
             ),
