@@ -259,6 +259,15 @@ def tracker_graph(graph_id):
         },
         config={'displayModeBar':False})
 
+def home_tracker_graph(graph_id):
+    return dcc.Graph(
+        id=graph_id,
+        style={
+            'height':'100%',
+            'width':'100%'
+        },
+        config={'displayModeBar':False})
+
 def capitalize_report_title(report):
     if report in ['wtd', 'mtd']:
         return report.upper()

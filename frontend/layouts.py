@@ -91,7 +91,7 @@ def home_page():
         [
             html.Div(
                 [
-                    tracker_graph('homepage tracker'),
+                    home_tracker_graph('homepage tracker'),
                 ],
                 style = {
                     'display':'inline-block',
@@ -101,7 +101,7 @@ def home_page():
             ),
             html.Div(
                 [
-                    tracker_graph('homepage pickup'),
+                    home_tracker_graph('homepage pickup'),
                 ],
                 style = {
                     'display':'inline-block',
@@ -360,7 +360,7 @@ def restaurant():
         [
             html.Div(
                 [
-                    tracker_graph('restaurant tracker'),
+                    home_tracker_graph('restaurant tracker'),
                 ],
                 style = {
                     'display':'inline-block',
@@ -370,7 +370,7 @@ def restaurant():
             ),
             html.Div(
                 [
-                    tracker_graph('restaurant pickup'),
+                    home_tracker_graph('restaurant pickup'),
                 ],
                 style = {
                     'display':'inline-block',
