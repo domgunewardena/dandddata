@@ -507,7 +507,7 @@ def tracker_site_filter(df, site):
     if type(site) == str:
         return df[df['Restaurant']==site]
     else:
-        return df[df['Restaurant'].isin(site)]
+        df = df[df['Restaurant'].isin(site)]
 
 def tracker_week_filter(df, week):
     return df[df['Week']==week]

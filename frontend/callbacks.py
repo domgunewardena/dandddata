@@ -1,7 +1,7 @@
 from dash.dependencies import Input, Output
 
 from app import app
-from authentication.users import sales_to_bookings_restaurants_dict
+from authentication.users import bookings_to_sales_restaurants_dict
 from frontend.layouts import *
 from frontend.plots.graphs import *
 from data.data import tracker_df, pickup_df, trends_df, future_df
@@ -176,7 +176,7 @@ def update_breakdown_two_weeks_tracker(metric):
 @app.callback(Output('restaurant site dropdown', 'options'),
               [Input('restaurant metric dropdown', 'options')])
 def update_daily_site_dropdown(shift):
-    return [{'label':i,'value':i} for i in user_restaurants[auth._username]['sales']]
+    return [{'label':i,'value':i} for i in user_restaurants[auth._username]['bookings']]
 
 @app.callback(Output('restaurant site dropdown', 'value'),
               [Input('restaurant site dropdown', 'options')])
@@ -188,6 +188,7 @@ def set_daily_site_dropdown_value(available_options):
     [Input('restaurant metric dropdown','value'),
      Input('restaurant site dropdown', 'value'),])
 def update_restaurant_daily_sales(metric,site):
+    site = bookings_to_sales_restaurants_dict[site]
     return sales_site_revenue_graph('All Shifts', metric, site, 'daily')
 
 @app.callback(
@@ -195,6 +196,7 @@ def update_restaurant_daily_sales(metric,site):
     [Input('restaurant metric dropdown','value'),
      Input('restaurant site dropdown', 'value'),])
 def update_restaurant_wtd_sales(metric,site):
+    site = bookings_to_sales_restaurants_dict[site]
     return sales_site_revenue_graph('All Shifts', metric, site, 'wtd')
 
 @app.callback(
@@ -202,6 +204,7 @@ def update_restaurant_wtd_sales(metric,site):
     [Input('restaurant metric dropdown','value'),
      Input('restaurant site dropdown', 'value'),])
 def update_restaurant_mtd_sales(metric,site):
+    site = bookings_to_sales_restaurants_dict[site]
     return sales_site_revenue_graph('All Shifts', metric, site, 'mtd')
 
 
@@ -210,6 +213,7 @@ def update_restaurant_mtd_sales(metric,site):
     [Input('restaurant metric dropdown','value'),
      Input('restaurant site dropdown', 'value'),])
 def update_restaurant_daily_spend(metric,site):
+    site = bookings_to_sales_restaurants_dict[site]
     return sales_site_spend_graph('All Shifts', metric, site, 'daily')
 
 @app.callback(
@@ -217,6 +221,7 @@ def update_restaurant_daily_spend(metric,site):
     [Input('restaurant metric dropdown','value'),
      Input('restaurant site dropdown', 'value'),])
 def update_restaurant_wtd_spend(metric,site):
+    site = bookings_to_sales_restaurants_dict[site]
     return sales_site_spend_graph('All Shifts', metric, site, 'wtd')
 
 @app.callback(
@@ -224,6 +229,7 @@ def update_restaurant_wtd_spend(metric,site):
     [Input('restaurant metric dropdown','value'),
      Input('restaurant site dropdown', 'value'),])
 def update_restaurant_mtd_spend(metric,site):
+    site = bookings_to_sales_restaurants_dict[site]
     return sales_site_spend_graph('All Shifts', metric, site, 'mtd')
 
 
@@ -232,10 +238,7 @@ def update_restaurant_mtd_spend(metric,site):
     [Input('restaurant metric dropdown', 'value'),
      Input('restaurant site dropdown', 'value'),])
 def update_restaurant_future(metric,site):
-    site = sales_to_bookings_restaurants_dict[site]
-    if type(site) == str:
-        site = [site]
-    return future_totals_figure(site,future_df)
+    return future_totals_figure([site],future_df)
 
 
 @app.callback(
@@ -243,7 +246,6 @@ def update_restaurant_future(metric,site):
     [Input('restaurant metric dropdown','value'),
      Input('restaurant site dropdown', 'value'),])
 def update_restaurant_tracker(metric,site):
-    site = sales_to_bookings_restaurants_dict[site]
     return tracker_site_8_weeks_graph('This Week', metric, site, tracker_df, 'Booked Covers')
 
 @app.callback(
@@ -251,7 +253,6 @@ def update_restaurant_tracker(metric,site):
     [Input('restaurant metric dropdown','value'),
      Input('restaurant site dropdown', 'value'),])
 def update_restaurant_pickup(metric,site):
-    site = sales_to_bookings_restaurants_dict[site]
     return tracker_site_8_weeks_graph('This Week', metric, site, pickup_df, 'Pickup')
 
 
