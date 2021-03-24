@@ -143,7 +143,7 @@ def breakdown():
                     dcc.Dropdown(
                         id = 'breakdown measure dropdown',
                         options = [{'label':i,'value':i} for i in dropdown_values['measures']],
-                        value = 'Revenue',
+                        value = '100 Wardour Street',
                         style = {
                             'width':dimensions['homepage']['dropdowns']['dropdown_width'],
                         }
@@ -272,7 +272,7 @@ def restaurant():
                         ['Choose the restaurant of the report:']
                     ),
                     dcc.Dropdown(
-                        id = 'restaurant restaurants dropdown',
+                        id = 'restaurant site dropdown',
                         options = [{'label':i,'value':i} for i in dropdown_values['restaurants']],
                         value = 'Revenue',
                         style = {
@@ -355,7 +355,7 @@ def restaurant():
             )
         ]
     )
-    
+    tracker_graphs_extra_height = 100
     restaurant_tracker_graphs = html.Div(
         [
             html.Div(
@@ -364,7 +364,7 @@ def restaurant():
                 ],
                 style = {
                     'display':'inline-block',
-                    'height':dimensions['mini']['height'],
+                    'height':dimensions['mini']['height'] + tracker_graphs_extra_height,
                     'width':'50%'
                 }
             ),
@@ -374,7 +374,7 @@ def restaurant():
                 ],
                 style = {
                     'display':'inline-block',
-                    'height':dimensions['mini']['height'],
+                    'height':dimensions['mini']['height'] + tracker_graphs_extra_height,
                     'width':'50%'
                 }
             ),
