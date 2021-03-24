@@ -89,6 +89,11 @@ def update_homepage_mtd_sales(metric,measure):
     elif measure == 'Spend':
         func = sales_group_spend_graph
         
+    if metric == 'vs. LW':
+        metric = 'vs. LM'
+    elif metric == 'Totals Last Week':
+        metric = 'Totals Last Month'
+        
     return func('All Shifts',metric,'mtd')
 
 @app.callback(Output('homepage tracker','figure'),
@@ -135,6 +140,12 @@ def update_breakdown_daily_sales(metric,measure):
     [Input('breakdown metric dropdown','value'),
      Input('breakdown measure dropdown', 'value'),])
 def update_breakdown_daily_sales(metric,measure):
+        
+    if metric == 'vs. LW':
+        metric = 'vs. LM'
+    elif metric == 'Totals Last Week':
+        metric = 'Totals Last Month'
+        
     return sales_breakdown_graph(
         'All Shifts',
         'Full Site',
