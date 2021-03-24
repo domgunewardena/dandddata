@@ -43,7 +43,8 @@ def sales_breakdown_graph(
     color_current = total_colors[measure]['Current']
     color_last = total_colors[measure]['Last']
     
-    title = area + ' ' + measure + ' ' + metric
+    title_string = capitalize_report_title(report)
+    title = title_string + ' ' + area + ' ' + measure + ' ' + metric
     
     if 'vs.' in metric:
         return sales_breakdown_change_figure(dff, title, change_template, current_col, change_col, base_col) 
