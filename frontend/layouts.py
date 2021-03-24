@@ -119,7 +119,7 @@ def breakdown():
     
     metrics = ['vs. LW','vs. LY', 'Totals Last Week', 'Totals Last Year']
     
-    breakdown_dropdown_row = html.Div(
+    breakdown_dropdowns =  html.Div(
         [
             html.Div(
                 [
@@ -135,17 +135,24 @@ def breakdown():
                 ],
                 style = div_style_simple(dimensions['homepage']['dropdowns']['div_width'])
             ),
+            html.Div(
+                [
+                    html.P(
+                        ['Choose the measure of the sales graphs:']
+                    ),
+                    dcc.Dropdown(
+                        id = 'breakdown measure dropdown',
+                        options = [{'label':i,'value':i} for i in dropdown_values['measures']],
+                        value = 'Revenue',
+                        style = {
+                            'width':dimensions['homepage']['dropdowns']['dropdown_width'],
+                        }
+                    )
+                ],
+                style = div_style_simple(dimensions['homepage']['dropdowns']['div_width'])
+            ),
         ],
-        style = {
-            'width': '100%', 
-            'display': 'flex', 
-            'align-items': 'center', 
-            'justify-content': 'center',
-            'borderBottom': header_colors['border'],
-            'borderRight': header_colors['border'],
-            'backgroundColor': header_colors['background'],
-            'padding': '10px 5px'
-        }
+        style = dropdown_row_style
     )
     
     breakdown_sales_graphs = html.Div(

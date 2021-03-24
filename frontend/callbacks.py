@@ -101,6 +101,63 @@ def update_homepage_tracker(metric):
 def update_homepage_pickup(metric):
     return tracker_group_8_weeks_graph('This Week',metric,'100 Wardour St', pickup_df, 'Pickup')
 
+
+# Breakdown 
+
+@app.callback(
+    Output('breakdown daily sales','figure'),
+    [Input('breakdown metric dropdown','value'),
+     Input('breakdown measure dropdown', 'value'),])
+def update_breakdown_daily_sales(metric,measure):
+    return sales_breakdown_graph(
+        'All Shifts',
+        'Full Site',
+        measure,
+        metric,
+        'daily'
+    ) 
+
+@app.callback(
+    Output('breakdown wtd sales','figure'),
+    [Input('breakdown metric dropdown','value'),
+     Input('breakdown measure dropdown', 'value'),])
+def update_breakdown_daily_sales(metric,measure):
+    return sales_breakdown_graph(
+        'All Shifts',
+        'Full Site',
+        measure,
+        metric,
+        'wtd'
+    ) 
+
+@app.callback(
+    Output('breakdown mtd sales','figure'),
+    [Input('breakdown metric dropdown','value'),
+     Input('breakdown measure dropdown', 'value'),])
+def update_breakdown_daily_sales(metric,measure):
+    return sales_breakdown_graph(
+        'All Shifts',
+        'Full Site',
+        measure,
+        metric,
+        'mtd'
+    )
+
+@app.callback(Output('breakdown this week tracker','figure'),
+             [Input('breakdown metric dropdown','value')])
+def update_breakdown_this_week_tracker(metric):
+    return tracker_breakdown_graph('This Week', metric, 'Group', tracker_df, 'Booked Covers')
+
+@app.callback(Output('breakdown next week tracker','figure'),
+             [Input('breakdown metric dropdown','value')])
+def update_breakdown_next_week_tracker(metric):
+    return tracker_breakdown_graph('Next Week', metric, 'Group', tracker_df, 'Booked Covers')
+
+@app.callback(Output('breakdown two weeks tracker','figure'),
+             [Input('breakdown metric dropdown','value')])
+def update_breakdown_two_weeks_tracker(metric):
+    return tracker_breakdown_graph('Two Weeks', metric, 'Group', tracker_df, 'Booked Covers')
+
 # Daily Sales
 
 @app.callback(Output('daily site dropdown', 'options'),
