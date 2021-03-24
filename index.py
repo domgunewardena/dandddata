@@ -47,4 +47,5 @@ def display_page(pathname):
         return home_page_layout
     
 if __name__ == '__main__':
-    app.run_server(debug=False, processes=4)
+#     app.run_server(debug=False, processes=4)
+    app.run_server(debug=False)
