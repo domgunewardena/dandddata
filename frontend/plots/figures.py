@@ -600,7 +600,12 @@ def future_totals_figure(restaurant_list, df):
 
         dff = df[df['restaurant'] == restaurant_list[i]]
         ymax = max(max(dff['max_guests TW'], default=0), max(dff['capacity'], default=0))
-        row = (i*2)+num
+        
+#         row = (i*2)+num
+#         col = 1
+        row = i+1
+        col = num
+        
         bookings_template = '%{y} - %{customdata} %{x}'
         capacity_template = '%{y}'
         text_template = '%{y}'
@@ -621,7 +626,7 @@ def future_totals_figure(restaurant_list, df):
                     coloraxis='coloraxis'
                 )
             ),
-            row=row, col=1
+            row=row, col=col
         )   
         fig.add_trace(
             go.Scatter(
@@ -631,7 +636,7 @@ def future_totals_figure(restaurant_list, df):
                 hovertemplate=capacity_template,
                 marker=dict(color='black')
             ),
-            row=row, col=1
+            row=row, col=col
         ) 
 
         return fig
@@ -644,8 +649,10 @@ def future_totals_figure(restaurant_list, df):
     titles = tuple(title_strings[i][j] for i in range(len(restaurant_list)) for j in [0,1])
     
     fig = make_subplots(
-        rows=len(restaurant_list)*2,
-        cols=1,
+#         rows=len(restaurant_list)*2,
+#         cols=1,
+        rows=len(restaurant_list),
+        cols=2,
         subplot_titles = titles
     )
     
