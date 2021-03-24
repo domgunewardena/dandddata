@@ -1,6 +1,7 @@
 from dash.dependencies import Input, Output
 
 from app import app
+from authentication.users import sales_to_bookings_restaurants_dict
 from frontend.layouts import *
 from frontend.plots.graphs import *
 from data.data import tracker_df, pickup_df, trends_df, future_df
@@ -168,6 +169,78 @@ def update_breakdown_next_week_tracker(metric):
              [Input('breakdown metric dropdown','value')])
 def update_breakdown_two_weeks_tracker(metric):
     return tracker_breakdown_graph('Two Weeks', metric, 'Group', tracker_df, 'Booked Covers')
+
+
+# Restaurant
+
+@app.callback(
+    Output('restaurant daily sales','figure'),
+    [Input('restaurant metric dropdown','value'),
+     Input('restaurant restaurants dropdown', 'value'),])
+def update_restaurant_daily_sales(metric,site):
+    return sales_site_revenue_graph('All Shifts', metric, site, 'daily')
+
+@app.callback(
+    Output('restaurant wtd sales','figure'),
+    [Input('restaurant metric dropdown','value'),
+     Input('restaurant restaurants dropdown', 'value'),])
+def update_restaurant_wtd_sales(metric,site):
+    return sales_site_revenue_graph('All Shifts', metric, site, 'wtd')
+
+@app.callback(
+    Output('restaurant mtd sales','figure'),
+    [Input('restaurant metric dropdown','value'),
+     Input('restaurant restaurants dropdown', 'value'),])
+def update_restaurant_mtd_sales(metric,site):
+    return sales_site_revenue_graph('All Shifts', metric, site, 'mtd')
+
+@app.callback(
+    Output('restaurant daily spend','figure'),
+    [Input('restaurant metric dropdown','value'),
+     Input('restaurant restaurants dropdown', 'value'),])
+def update_restaurant_daily_spend(metric,site):
+    return sales_site_spend_graph('All Shifts', metric, site, 'daily')
+
+@app.callback(
+    Output('restaurant wtd spend','figure'),
+    [Input('restaurant metric dropdown','value'),
+     Input('restaurant restaurants dropdown', 'value'),])
+def update_restaurant_wtd_spend(metric,site):
+    return sales_site_spend_graph('All Shifts', metric, site, 'wtd')
+
+@app.callback(
+    Output('restaurant mtd spend','figure'),
+    [Input('restaurant metric dropdown','value'),
+     Input('restaurant restaurants dropdown', 'value'),])
+def update_restaurant_mtd_spend(metric,site):
+    return sales_site_spend_graph('All Shifts', metric, site, 'mtd')
+
+
+@app.callback(
+    Output('restaurant future', 'figure'),
+    [Input('restaurant metric dropdown', 'value'),
+     Input('restaurant restaurants dropdown', 'value'),])
+def update_restaurant_future(metric,site):
+    site = sales_to_bookings_restaurants_dict[site]
+    return future_totals_figure([site],future_df)
+
+
+@app.callback(
+    Output('restaurant tracker','figure'),
+    [Input('restaurant metric dropdown','value'),
+     Input('restaurant restaurants dropdown', 'value'),])
+def update_restaurant_tracker(metric,site):
+    site = sales_to_bookings_restaurants_dict[site]
+    return tracker_group_8_weeks_graph('This Week', metric, site, tracker_df, 'Booked Covers')
+
+@app.callback(
+    Output('restaurant pickup','figure'),
+    [Input('restaurant metric dropdown','value'),
+     Input('restaurant restaurants dropdown', 'value'),])
+def update_restaurant_pickup(metric,site):
+    site = sales_to_bookings_restaurants_dict[site]
+    return tracker_group_8_weeks_graph('This Week', metric, site, pickup_df, 'Pickup')
+
 
 
 # Daily Sales

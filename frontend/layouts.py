@@ -112,7 +112,7 @@ def home_page():
         ]
     )
     
-    return html.Div(children=[homepage_dropdowns, homepage_sales_graphs, homepage_tracker_graphs])
+    return html.Div(children=[homepage_dropdowns, homepage_tracker_graphs, homepage_sales_graphs])
 
 
 def breakdown():
@@ -384,7 +384,7 @@ def restaurant():
     restaurant_future_graph = html.Div(
         [
             dcc.Graph(
-                id='restaurant future graph',
+                id='restaurant future',
                 config={'displayModeBar':False},
                 style={'width':'100%'}
             )
