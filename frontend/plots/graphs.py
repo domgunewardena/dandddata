@@ -193,7 +193,8 @@ def sales_site_revenue_graph(
     color_current = total_colors[measure]['Current']
     color_last = total_colors[measure]['Last']
     
-    title = site + ' Revenue ' + metric
+    title_string = capitalize_report_title(report)    
+    title = site + ' ' + title_string + ' Revenue ' + metric
     
     if 'vs.' in metric:
         return sales_change_figure(dff,on_column,change_template,title,measure,current_col,change_col,base_col)
@@ -227,7 +228,8 @@ def sales_site_covers_graph(
     color_current = total_colors[measure]['Current']
     color_last = total_colors[measure]['Last']
     
-    title = site + ' Covers ' + metric
+    title_string = capitalize_report_title(report)    
+    title = site + ' ' + title_string + ' Covers ' + metric
     
     if 'vs.' in metric:
         return sales_change_figure(dff,on_column,change_template,title,measure,current_col,change_col,base_col)
@@ -263,7 +265,8 @@ def sales_site_spend_graph(
     color_current = total_colors[measure]['Current']
     color_last = total_colors[measure]['Last']
     
-    title = site + ' Restaurant Spend ' + metric
+    title_string = capitalize_report_title(report)    
+    title = site + ' ' + title_string + ' Restaurant Spend ' + metric
     
     if 'vs.' in metric:
         return sales_change_figure(dff,'RevenueType',change_template,title,measure,current_col,change_col,base_col)

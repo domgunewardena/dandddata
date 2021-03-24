@@ -143,7 +143,7 @@ def breakdown():
                     dcc.Dropdown(
                         id = 'breakdown measure dropdown',
                         options = [{'label':i,'value':i} for i in dropdown_values['measures']],
-                        value = '100 Wardour Street',
+                        value = 'Revenue',
                         style = {
                             'width':dimensions['homepage']['dropdowns']['dropdown_width'],
                         }

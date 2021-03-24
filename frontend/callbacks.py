@@ -244,7 +244,7 @@ def update_restaurant_future(metric,site):
      Input('restaurant site dropdown', 'value'),])
 def update_restaurant_tracker(metric,site):
     site = sales_to_bookings_restaurants_dict[site]
-    return tracker_group_8_weeks_graph('This Week', metric, site, tracker_df, 'Booked Covers')
+    return tracker_site_8_weeks_graph('This Week', metric, site, tracker_df, 'Booked Covers')
 
 @app.callback(
     Output('restaurant pickup','figure'),
@@ -252,7 +252,7 @@ def update_restaurant_tracker(metric,site):
      Input('restaurant site dropdown', 'value'),])
 def update_restaurant_pickup(metric,site):
     site = sales_to_bookings_restaurants_dict[site]
-    return tracker_group_8_weeks_graph('This Week', metric, site, pickup_df, 'Pickup')
+    return tracker_site_8_weeks_graph('This Week', metric, site, pickup_df, 'Pickup')
 
 
 
