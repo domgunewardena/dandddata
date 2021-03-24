@@ -113,6 +113,131 @@ def home_page():
     )
     
     return html.Div(children=[homepage_dropdowns, homepage_sales_graphs, homepage_tracker_graphs])
+
+
+def breakdown():
+    
+    metrics = ['vs. LW','vs. LY', 'Totals Last Week', 'Totals Last Year']
+    
+    breakdown_dropdown_row = html.Div(
+        [
+            html.Div(
+                [
+                    html.P(
+                        ['Choose the metric of the report:']
+                    ),
+                    dcc.Dropdown(
+                        id = 'breakdown metric dropdown',
+                        options = [{'label':i, 'value':i} for i in metrics],
+                        value = metrics[0],
+                        style = {'width':dimensions['homepage']['dropdowns']['dropdown_width']}
+                    ),
+                ],
+                style = div_style_simple(dimensions['homepage']['dropdowns']['div_width'])
+            ),
+        ],
+        style = {
+            'width': '100%', 
+            'display': 'flex', 
+            'align-items': 'center', 
+            'justify-content': 'center',
+            'borderBottom': header_colors['border'],
+            'borderRight': header_colors['border'],
+            'backgroundColor': header_colors['background'],
+            'padding': '10px 5px'
+        }
+    )
+    
+    breakdown_sales_graphs = html.Div(
+        [
+            html.Div(
+                [
+                    dcc.Graph(
+                        id = 'breakdown daily sales',
+                        config = {'displayModeBar':False}
+                    )
+                ],    
+                style = {
+                    'display':'inline-block',
+                    'height':dimensions['main']['height'],
+                    'width':dimensions['main']['width']
+                }
+            ),
+            html.Div(
+                [
+                    dcc.Graph(
+                        id = 'breakdown wtd sales',
+                        config = {'displayModeBar':False}
+                    )
+                ],    
+                style = {
+                    'display':'inline-block',
+                    'height':dimensions['main']['height'],
+                    'width':dimensions['main']['width']
+                }
+            ),
+            html.Div(
+                [
+                    dcc.Graph(
+                        id = 'breakdown mtd sales',
+                        config = {'displayModeBar':False}
+                    )
+                ],    
+                style = {
+                    'display':'inline-block',
+                    'height':dimensions['main']['height'],
+                    'width':dimensions['main']['width']
+                }
+            )
+        ]
+    )
+    
+    breakdown_tracker_graphs = html.Div(
+        [
+            html.Div(
+                [
+                    dcc.Graph(
+                        id = 'breakdown this week tracker',
+                        config = {'displayModeBar':False}
+                    )
+                ],    
+                style = {
+                    'display':'inline-block',
+                    'height':dimensions['main']['height'],
+                    'width':dimensions['main']['width']
+                }
+            ),
+            html.Div(
+                [
+                    dcc.Graph(
+                        id = 'breakdown next week tracker',
+                        config = {'displayModeBar':False}
+                    )
+                ],    
+                style = {
+                    'display':'inline-block',
+                    'height':dimensions['main']['height'],
+                    'width':dimensions['main']['width']
+                }
+            ),
+            html.Div(
+                [
+                    dcc.Graph(
+                        id = 'breakdown two weeks tracker',
+                        config = {'displayModeBar':False}
+                    )
+                ],    
+                style = {
+                    'display':'inline-block',
+                    'height':dimensions['main']['height'],
+                    'width':dimensions['main']['width']
+                }
+            )
+        ]
+    )
+    
+    return html.Div(children=[breakdown_dropdowns, breakdown_sales_graphs, breakdown_tracker_graphs])
+       
        
 
 def sales_layout_template(report):
