@@ -25,6 +25,8 @@ app.title='D&D Data'
 @app.callback(dash.dependencies.Output('page-content', 'children'),
               [dash.dependencies.Input('url', 'pathname')])
 def display_page(pathname):
+    if pathname == '/breakdown':
+        return breakdown_layout
     if pathname == '/daily-sales':
         return daily_layout
     if pathname == '/wtd-sales':

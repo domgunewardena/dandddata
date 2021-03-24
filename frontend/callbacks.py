@@ -158,6 +158,7 @@ def update_breakdown_next_week_tracker(metric):
 def update_breakdown_two_weeks_tracker(metric):
     return tracker_breakdown_graph('Two Weeks', metric, 'Group', tracker_df, 'Booked Covers')
 
+
 # Daily Sales
 
 @app.callback(Output('daily site dropdown', 'options'),

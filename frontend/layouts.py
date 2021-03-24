@@ -767,6 +767,7 @@ def trends():
     )
 
 home_page_layout = home_page()
+breakdown_layout = breakdown()
 daily_layout = sales_layout_template('daily')
 wtd_layout = sales_layout_template('wtd')
 mtd_layout = sales_layout_template('mtd')
