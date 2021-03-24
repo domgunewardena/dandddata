@@ -194,6 +194,7 @@ def update_restaurant_wtd_sales(metric,site):
 def update_restaurant_mtd_sales(metric,site):
     return sales_site_revenue_graph('All Shifts', metric, site, 'mtd')
 
+
 @app.callback(
     Output('restaurant daily spend','figure'),
     [Input('restaurant metric dropdown','value'),
@@ -222,7 +223,9 @@ def update_restaurant_mtd_spend(metric,site):
      Input('restaurant restaurants dropdown', 'value'),])
 def update_restaurant_future(metric,site):
     site = sales_to_bookings_restaurants_dict[site]
-    return future_totals_figure([site],future_df)
+    if type(site) == str:
+        site = [site]
+    return future_totals_figure(site,future_df)
 
 
 @app.callback(

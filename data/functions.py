@@ -504,7 +504,10 @@ def tracker_user_site_filter(df):
     return df[df['Restaurant'].isin(user_restaurants[auth._username]['bookings'])]
 
 def tracker_site_filter(df, site):
-    return df[df['Restaurant']==site]
+    if type(site) == str:
+        return df[df['Restaurant']==site]
+    else:
+        return df[df['Restaurant'] in site]
 
 def tracker_week_filter(df, week):
     return df[df['Week']==week]

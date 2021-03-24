@@ -27,6 +27,8 @@ app.title='D&D Data'
 def display_page(pathname):
     if pathname == '/breakdown':
         return breakdown_layout
+    if pathname == '/restaurant':
+        return restaurant_layout
     if pathname == '/daily-sales':
         return daily_layout
     if pathname == '/wtd-sales':
