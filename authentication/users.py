@@ -1,5 +1,6 @@
 sales_restaurants = [
-    '100 Wardour Street', 
+    '100 Wardour Street',
+    '14 Hills',
     '20 Stories', 
     'Aster', 
     'Avenue', 
@@ -11,7 +12,8 @@ sales_restaurants = [
     'East 59th', 
     'Fiume', 
     'German Gymnasium', 
-    'Issho', 
+    'Issho',
+    'Klosterhaus',
     'Launceston Place', 
     'Le Pont de la Tour', 
     'Madison', 
@@ -26,6 +28,7 @@ sales_restaurants = [
     'South Place Hotel', 
     'Trinity', 
     'White City',
+    'The Modern Pantry',
 ]
 
 bookings_restaurants = [
@@ -62,6 +65,39 @@ bookings_restaurants = [
     'South Place Chop House',
     'The Modern Pantry',
 ]
+
+sales_to_bookings_restaurants_dict = {
+    '100 Wardour Street': '100 Wardour St',
+    '14 Hills': '14 Hills',
+    '20 Stories': '20 Stories',
+    'Aster': 'Aster',
+    'Avenue': 'Avenue',
+    'Bluebird Chelsea': 'Bluebird Chelsea Restaurant',
+    'Blueprint Café': 'Blueprint Café',
+    'Butlers Wharf Chophouse': 'Butlers Wharf Chophouse Restaurant',
+    'Cantina': 'Cantina del Ponte',
+    "Coq d'Argent": "Coq d'Argent",
+    'East 59th': 'East 59th',
+    'Fiume': 'Fiume',
+    'German Gymnasium': 'German Gymnasium',
+    'Issho': 'Issho Restaurant',
+    'Klosterhaus': 'Klosterhaus',
+    'Launceston Place': 'Launceston Place',
+    'Le Pont de la Tour': 'Pont de la Tour',
+    'Madison': 'Madison Restaurant',
+    'New Street Warehouse': ['New Street Grill', 'Fish Market'],
+    'Orrery': 'Orrery',
+    'Paternoster Chophouse': 'Paternoster Chophouse',
+    'Plateau': 'Plateau',
+    'Quaglinos': "Quaglino's Restaurant",
+    'Radici': 'Radici',
+    'Sartoria': 'Sartoria',
+    'Skylon': 'Skylon',
+    'South Place Hotel': ['South Place Chop House','Angler Restaurant'],
+    'Trinity': ['Angelica','Crafthouse'],
+    'White City': 'Bluebird White City',
+    'The Modern Pantry':'The Modern Pantry',
+}
 
 user_restaurants = {
     'dandd':{
@@ -129,7 +165,8 @@ user_restaurants = {
             'Le Pont de la Tour', 
             'Orrery', 
             'Radici',
-            'Sartoria'
+            'Sartoria',
+            'The Modern Pantry',
         ],
         'bookings':[
             'Butlers Wharf Chophouse Restaurant',
