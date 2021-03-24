@@ -194,7 +194,7 @@ def sales_site_revenue_graph(
     color_last = total_colors[measure]['Last']
     
     title_string = capitalize_report_title(report)    
-    title = site + ' ' + title_string + ' Revenue ' + metric
+    title = title_string + ' Revenue ' + metric
     
     if 'vs.' in metric:
         return sales_change_figure(dff,on_column,change_template,title,measure,current_col,change_col,base_col)
@@ -229,7 +229,7 @@ def sales_site_covers_graph(
     color_last = total_colors[measure]['Last']
     
     title_string = capitalize_report_title(report)    
-    title = site + ' ' + title_string + ' Covers ' + metric
+    title = title_string + ' Covers ' + metric
     
     if 'vs.' in metric:
         return sales_change_figure(dff,on_column,change_template,title,measure,current_col,change_col,base_col)
@@ -266,7 +266,7 @@ def sales_site_spend_graph(
     color_last = total_colors[measure]['Last']
     
     title_string = capitalize_report_title(report)    
-    title = site + ' ' + title_string + ' Restaurant Spend ' + metric
+    title = title_string + ' Restaurant Spend ' + metric
     
     if 'vs.' in metric:
         return sales_change_figure(dff,'RevenueType',change_template,title,measure,current_col,change_col,base_col)
@@ -432,7 +432,7 @@ def tracker_site_8_weeks_graph(week, metric, site, df, measure):
     )
     
     x = dff['Week']
-    graph = 'Next Eight Weeks - ' + site + ' ' + measure
+    graph = 'Next Eight Weeks - ' + measure
     
     if 'vs.' in metric:
         return tracker_change_figure(dff, x, metric, graph, measure)
@@ -451,7 +451,7 @@ def tracker_site_week_graph(week, metric, site, df, measure):
     )
 
     x = dff['Day']
-    graph = week + ' - ' + site + ' ' + measure
+    graph = week + ' - ' + measure
     
     if 'vs.' in metric:
         return tracker_change_figure(dff, x, metric, graph, measure)
