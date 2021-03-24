@@ -199,6 +199,7 @@ def breakdown():
         ]
     )
     
+    tracker_graphs_extra_height = 100
     breakdown_tracker_graphs = html.Div(
         [
             html.Div(
@@ -210,7 +211,7 @@ def breakdown():
                 ],    
                 style = {
                     'display':'inline-block',
-                    'height':dimensions['main']['height'],
+                    'height':dimensions['main']['height']+tracker_graphs_extra_height,
                     'width':dimensions['main']['width']
                 }
             ),
@@ -223,7 +224,7 @@ def breakdown():
                 ],    
                 style = {
                     'display':'inline-block',
-                    'height':dimensions['main']['height'],
+                    'height':dimensions['main']['height']+tracker_graphs_extra_height,
                     'width':dimensions['main']['width']
                 }
             ),
@@ -236,7 +237,7 @@ def breakdown():
                 ],    
                 style = {
                     'display':'inline-block',
-                    'height':dimensions['main']['height'],
+                    'height':dimensions['main']['height']+tracker_graphs_extra_height,
                     'width':dimensions['main']['width']
                 }
             )
@@ -245,7 +246,158 @@ def breakdown():
     
     return html.Div(children=[breakdown_dropdowns, breakdown_tracker_graphs, breakdown_sales_graphs])
        
-       
+def restaurant():
+    
+    metrics = ['vs. LW','vs. LY', 'Totals Last Week', 'Totals Last Year']
+    
+    restaurant_dropdowns =  html.Div(
+        [
+            html.Div(
+                [
+                    html.P(
+                        ['Choose the metric of the report:']
+                    ),
+                    dcc.Dropdown(
+                        id = 'restaurant metric dropdown',
+                        options = [{'label':i, 'value':i} for i in metrics],
+                        value = metrics[0],
+                        style = {'width':dimensions['homepage']['dropdowns']['dropdown_width']}
+                    ),
+                ],
+                style = div_style_simple(dimensions['homepage']['dropdowns']['div_width'])
+            ),
+            html.Div(
+                [
+                    html.P(
+                        ['Choose the restaurant of the report:']
+                    ),
+                    dcc.Dropdown(
+                        id = 'restaurant restaurants dropdown',
+                        options = [{'label':i,'value':i} for i in dropdown_values['restaurants']],
+                        value = 'Revenue',
+                        style = {
+                            'width':dimensions['homepage']['dropdowns']['dropdown_width'],
+                        }
+                    )
+                ],
+                style = div_style_simple(dimensions['homepage']['dropdowns']['div_width'])
+            ),
+        ],
+        style = dropdown_row_style
+    )
+    
+    restaurant_revenue_graphs = html.Div(
+        [
+            html.Div(
+                [
+                    small_graph('restaurant daily sales'),
+                ],
+                style = {
+                    'display':'inline-block',
+                    'height':dimensions['mini']['height'],
+                    'width':dimensions['main']['width']
+                }
+            ),
+            html.Div(
+                [
+                    small_graph('restaurant wtd sales'),
+                ],
+                style = {
+                    'display':'inline-block',
+                    'height':dimensions['mini']['height'],
+                    'width':dimensions['main']['width']
+                }
+            ),
+            html.Div(
+                [
+                    small_graph('restaurant mtd sales'),
+                ],
+                style = {
+                    'display':'inline-block',
+                    'height':dimensions['mini']['height'],
+                    'width':dimensions['main']['width']
+                }
+            )
+        ]
+    )
+    
+    restaurant_spend_graphs = html.Div(
+        [
+            html.Div(
+                [
+                    small_graph('restaurant daily spend'),
+                ],
+                style = {
+                    'display':'inline-block',
+                    'height':dimensions['mini']['height'],
+                    'width':dimensions['main']['width']
+                }
+            ),
+            html.Div(
+                [
+                    small_graph('restaurant wtd spend'),
+                ],
+                style = {
+                    'display':'inline-block',
+                    'height':dimensions['mini']['height'],
+                    'width':dimensions['main']['width']
+                }
+            ),
+            html.Div(
+                [
+                    small_graph('restaurant mtd spend'),
+                ],
+                style = {
+                    'display':'inline-block',
+                    'height':dimensions['mini']['height'],
+                    'width':dimensions['main']['width']
+                }
+            )
+        ]
+    )
+    
+    restaurant_tracker_graphs = html.Div(
+        [
+            html.Div(
+                [
+                    tracker_graph('restaurant tracker'),
+                ],
+                style = {
+                    'display':'inline-block',
+                    'height':dimensions['main']['height'],
+                    'width':'50%'
+                }
+            ),
+            html.Div(
+                [
+                    tracker_graph('restaurant pickup'),
+                ],
+                style = {
+                    'display':'inline-block',
+                    'height':dimensions['main']['height'],
+                    'width':'50%'
+                }
+            ),
+        ]
+    )
+    
+    restaurant_future_graph = html.Div(
+        [
+            dcc.Graph(
+                id='restaurant future graph',
+                config={'displayModeBar':False},
+                style={'width':'100%'}
+            )
+        ],
+        style = {
+            'width': '100%', 
+            'display': 'flex', 
+            'align-items': 'center', 
+            'justify-content': 'center'
+        }
+    )
+    
+    return html.Div(children=[restaurant_dropdowns, restaurant_future_graph, restaurant_tracker_graphs, restaurant_sales_graphs, restaurant_spend_graphs])
 
 def sales_layout_template(report):
         
@@ -651,7 +803,7 @@ def future():
                     dcc.Graph(
                         id='future graph',
                         config={'displayModeBar':False},
-                        style={'width':'50%'}
+                        style={'width':'100%'}
                     )
                 ],
                 style = {
