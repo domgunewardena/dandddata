@@ -95,7 +95,7 @@ def home_page():
                 ],
                 style = {
                     'display':'inline-block',
-                    'height':dimensions['main']['height'],
+                    'height':dimensions['mini']['height'],
                     'width':'50%'
                 }
             ),
@@ -105,7 +105,7 @@ def home_page():
                 ],
                 style = {
                     'display':'inline-block',
-                    'height':dimensions['main']['height'],
+                    'height':dimensions['mini']['height'],
                     'width':'50%'
                 }
             ),
@@ -364,7 +364,7 @@ def restaurant():
                 ],
                 style = {
                     'display':'inline-block',
-                    'height':dimensions['main']['height'],
+                    'height':dimensions['mini']['height'],
                     'width':'50%'
                 }
             ),
@@ -374,7 +374,7 @@ def restaurant():
                 ],
                 style = {
                     'display':'inline-block',
-                    'height':dimensions['main']['height'],
+                    'height':dimensions['mini']['height'],
                     'width':'50%'
                 }
             ),
@@ -397,7 +397,7 @@ def restaurant():
         }
     )
     
-    return html.Div(children=[restaurant_dropdowns, restaurant_future_graph, restaurant_tracker_graphs, restaurant_sales_graphs, restaurant_spend_graphs])
+    return html.Div(children=[restaurant_dropdowns, restaurant_future_graph, restaurant_tracker_graphs, restaurant_revenue_graphs, restaurant_spend_graphs])
 
 def sales_layout_template(report):
         
