@@ -1,6 +1,6 @@
 def first_restaurant(restaurant_list, restaurant_string):
     l = restaurant_list.copy()
-    l.insert(0, restaurant_list.pop(restaurant_list.index(restaurant_string)))
+    l.insert(0, l.pop(l.index(restaurant_string)))
     return l
     
 
@@ -141,6 +141,10 @@ bookings_to_sales_restaurants_dict = {
 }
 
 user_restaurants = {
+    'dandd':{
+        'sales' : sales_restaurants,
+        'bookings' : bookings_restaurants,
+    },
     'des@danddlondon.com':{
         'sales' : sales_restaurants,
         'bookings' : bookings_restaurants,
