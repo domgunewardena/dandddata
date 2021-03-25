@@ -105,7 +105,7 @@ def update_homepage_tracker(metric):
 @app.callback(Output('homepage pickup','figure'),
              [Input('homepage metric dropdown','value')])
 def update_homepage_pickup(metric):
-    return tracker_group_8_weeks_graph('This Week',metric,'100 Wardour St', pickup_df, 'Pickup')
+    return tracker_group_8_weeks_graph('This Week',metric,'100 Wardour St', pickup_df, 'Daily Pickup')
 
 
 # Breakdown 
@@ -253,7 +253,7 @@ def update_restaurant_tracker(metric,site):
     [Input('restaurant metric dropdown','value'),
      Input('restaurant site dropdown', 'value'),])
 def update_restaurant_pickup(metric,site):
-    return tracker_site_8_weeks_graph('This Week', metric, site, pickup_df, 'Pickup')
+    return tracker_site_8_weeks_graph('This Week', metric, site, pickup_df, 'Daily Pickup')
 
 
 
@@ -556,23 +556,23 @@ def set_pickup_site_dropdown_value(available_options):
 
 @app.callback(Output('pickup_group_8_weeks', 'figure'),pickup_dropdown_inputs)
 def update_pickup_group_8_weeks(week,metric,site):
-    return tracker_group_8_weeks_graph(week,metric,site, pickup_df, 'Pickup')
+    return tracker_group_8_weeks_graph(week,metric,site, pickup_df, 'Daily Pickup')
     
 @app.callback(Output('pickup_group_week', 'figure'),pickup_dropdown_inputs)
 def update_pickup_group_week(week,metric,site):
-    return tracker_group_week_graph(week, metric, site, pickup_df, 'Pickup')
+    return tracker_group_week_graph(week, metric, site, pickup_df, 'Daily Pickup')
 
 @app.callback(Output('pickup_site_8_weeks', 'figure'),pickup_dropdown_inputs)
 def update_pickup_site_8_weeks(week,metric,site):
-    return tracker_site_8_weeks_graph(week, metric, site, pickup_df, 'Pickup')
+    return tracker_site_8_weeks_graph(week, metric, site, pickup_df, 'Daily Pickup')
     
 @app.callback(Output('pickup_site_week', 'figure'),pickup_dropdown_inputs)
 def update_pickup_site_week(week,metric,site):
-    return tracker_site_week_graph(week, metric, site, pickup_df, 'Pickup')
+    return tracker_site_week_graph(week, metric, site, pickup_df, 'Daily Pickup')
     
 @app.callback(Output('pickup_breakdown', 'figure'),pickup_dropdown_inputs)
 def update_pickup_breakdown(week,metric,site):
-    return tracker_breakdown_graph(week, metric, site, pickup_df, 'Pickup')
+    return tracker_breakdown_graph(week, metric, site, pickup_df, 'Daily Pickup')
 
 
 # Future Bookings
