@@ -1,3 +1,9 @@
+def first_restaurant(restaurant_list, restaurant_string):
+    l = restaurant_list.copy()
+    l.insert(0, restaurant_list.pop(restaurant_list.index(restaurant_string)))
+    return l
+    
+
 sales_restaurants = [
 #     '100 Wardour Street',
 #     '14 Hills',
@@ -121,7 +127,7 @@ bookings_to_sales_restaurants_dict = {
     'Klosterhaus': 'Klosterhaus',
     'Launceston Place': 'Launceston Place',
     'Madison': 'Madison',
-    'New Street Grill': 'New Street Grill',
+    'New Street Grill': 'New Street Warehouse',
     'Orrery': 'Orrery',
     'Paternoster Chophouse': 'Paternoster Chophouse',
     'Plateau': 'Plateau',
@@ -135,13 +141,42 @@ bookings_to_sales_restaurants_dict = {
 }
 
 user_restaurants = {
-    'dandd':{
+    'des@danddlondon.com':{
         'sales' : sales_restaurants,
         'bookings' : bookings_restaurants,
     },
-    'michaelf':{
+    'davidloewi@danddlondon.com':{
+        'sales' : sales_restaurants,
+        'bookings' : bookings_restaurants,
+    },
+    'annabels@danddlondon.com':{
+        'sales' : sales_restaurants,
+        'bookings' : bookings_restaurants,
+    },
+    'marki@danddlondon.com':{
+        'sales' : sales_restaurants,
+        'bookings' : bookings_restaurants,
+    },
+    'lisaf@danddlondon.com':{
+        'sales' : sales_restaurants,
+        'bookings' : bookings_restaurants,
+    },
+    'benc@danddlondon.com':{
+        'sales' : sales_restaurants,
+        'bookings' : bookings_restaurants,
+    },
+    'jaspreetr@danddlondon.com':{
+        'sales' : sales_restaurants,
+        'bookings' : bookings_restaurants,
+    },
+    'carolc@danddlondon.com':{
+        'sales' : sales_restaurants,
+        'bookings' : bookings_restaurants,
+    },
+    'michaelf@danddlondon.com':{
         'sales':[
 #             '100 Wardour Street',
+#             '14 Hills',
 #             'Avenue',
             'Bluebird Chelsea',
             'Madison', 
@@ -157,10 +192,10 @@ user_restaurants = {
             'Bluebird White City',
             'Madison',
 #             "Quaglino's",
-            'Skylon Restaurant'
+            'Skylon'
         ],
     },
-    'jb':{
+    'jb@danddlondon.com':{
         'sales':[
             '20 Stories', 
 #             'Aster', 
@@ -176,10 +211,9 @@ user_restaurants = {
         'bookings':[
             '20 Stories',
             'Angelica',
-            'Angler',
-            'Aster',
+#             'Aster',
             "Coq d'Argent",
-            'Crafthouse',
+#             'Crafthouse',
             'East 59th',
             'Fish Market',
             'German Gymnasium',
@@ -191,7 +225,7 @@ user_restaurants = {
             'Plateau'
         ],
     },
-    'sharon':{
+    'sharonw@danddlondon.com':{
         'sales':[
             'Butlers Wharf Chophouse', 
             'Cantina', 
@@ -215,143 +249,130 @@ user_restaurants = {
 #             'The Modern Pantry',
         ],
     },
-}
-        
-            
-    
-            
-            
-
-sales_user_restaurants = {
-    'dandd':[
-        '100 Wardour Street', 
-        '20 Stories', 
-        'Aster', 
-        'Avenue', 
-        'Bluebird Chelsea', 
-        'Blueprint Café', 
-        'Butlers Wharf Chophouse', 
-        'Cantina', 
-        "Coq d'Argent", 
-        'East 59th', 
-        'Fiume', 
-        'German Gymnasium', 
-        'Issho', 
-        'Launceston Place', 
-        'Le Pont de la Tour', 
-        'Madison', 
-        'New Street Warehouse', 
-        'Orrery', 
-        'Paternoster Chophouse', 
-        'Plateau', 
-        'Quaglinos', 
-        'Radici', 
-        'Sartoria', 
-        'Skylon', 
-        'South Place Hotel', 
-        'Trinity', 
-        'White City'],
-    'michaelf':[
-        '100 Wardour Street',
-        'Avenue',
-        'Bluebird Chelsea',
-        'Madison', 
-        'Quaglinos', 
-        'Skylon', 
-        'White City'],
-    'jb':[
-        '20 Stories', 
-        'Aster', 
-        "Coq d'Argent", 
-        'East 59th', 
-        'German Gymnasium', 
-        'Issho',
-        'New Street Warehouse',
-        'Paternoster Chophouse', 
-        'Plateau', 
-        'Trinity'],
-    'sharon':[
-        'Butlers Wharf Chophouse', 
-        'Cantina', 
-        'Fiume',
-        'Launceston Place',
-        'Le Pont de la Tour', 
-        'Orrery', 
-        'Radici',
-        'Sartoria']
-}
-
-bookings_user_restaurants = {
-    'dandd':[
-        '100 Wardour St',
-        '14 Hills',
-        '20 Stories',
-        'Angelica',
-        'Angler Restaurant',
-        'Aster',
-        'Avenue',
-        'Bluebird Chelsea Restaurant',
-        'Bluebird White City',
-        'Butlers Wharf Chophouse Restaurant',
-        'Cantina del Ponte',
-        "Coq d'Argent",
-        'Crafthouse',
-        'East 59th',
-        'Fish Market',
-        'Fiume',
-        'German Gymnasium',
-        'Issho Restaurant',
-        'Klosterhaus',
-        'Launceston Place',
-        'Madison Restaurant',
-        'New Street Grill',
-        'Orrery',
-        'Paternoster Chophouse',
-        'Plateau',
-        'Pont de la Tour',
-        "Quaglino's Restaurant",
-        'Radici',
-        'Sartoria',
-        'Skylon Restaurant',
-        'South Place Chop House',
-        'The Modern Pantry'
-    ],
-    'michaelf':[
-        '100 Wardour St',
-         '14 Hills',
-         'Avenue',
-         'Bluebird Chelsea Restaurant',
-         'Bluebird White City',
-         'Madison Restaurant',
-         "Quaglino's Restaurant",
-         'Skylon Restaurant'
-    ],
-    'sharon':[
-         'Butlers Wharf Chophouse Restaurant',
-         'Cantina del Ponte',
-         'Fiume',
-         'Launceston Place',
-         'Orrery',
-         'Pont de la Tour',
-         'Radici',
-         'Sartoria',
-         'The Modern Pantry'
-    ],
-    'jb':[
-        '20 Stories',
-         'Angelica',
-         'Angler Restaurant',
-         'Aster',
-         "Coq d'Argent",
-         'Crafthouse',
-         'East 59th',
-         'Fish Market',
-         'German Gymnasium',
-         'Issho Restaurant',
-         'Klosterhaus',
-         'New Street Grill',
-         'Orrery',
-         'Paternoster Chophouse',
-         'Plateau'
-    ]
+    'kimst@danddlondon.com':{
+#         'sales':first_restaurant(sales_restaurants,'100 Wardour Street'),
+#         'bookings':first_restaurant(bookings_restaurants,'100 Wardour St'),
+        'sales':sales_restaurants,
+        'bookings':bookings_restaurants
+    },
+    'massimilianod@danddlondon.com':{
+#         'sales':first_restaurant(sales_restaurants,'14 Hills'),
+#         'bookings':first_restaurant(bookings_restaurants,'14 Hills'),
+        'sales':sales_restaurants,
+        'bookings':bookings_restaurants
+    },
+    'philipu@danddlondon.com':{
+        'sales':first_restaurant(sales_restaurants,'20 Stories'),
+        'bookings':first_restaurant(bookings_restaurants,'20 Stories'),
+    },
+    'radk@danddlondon.com':{
+#         'sales':first_restaurant(sales_restaurants,'Aster'),
+#         'bookings':first_restaurant(bookings_restaurants,'Aster'),
+        'sales':sales_restaurants,
+        'bookings':bookings_restaurants
+    },
+    'joseu@danddlondon.com':{
+#         'sales':first_restaurant(sales_restaurants,'Avenue'),
+#         'bookings':first_restaurant(bookings_restaurants,'Avenue'),
+        'sales':sales_restaurants,
+        'bookings':bookings_restaurants
+    },
+    'matthewm@danddlondon.com':{
+        'sales':first_restaurant(sales_restaurants,'Bluebird Chelsea'),
+        'bookings':first_restaurant(bookings_restaurants,'Bluebird Chelsea'),
+    },
+    'mattheol@danddlondon.com':{
+        'sales':first_restaurant(sales_restaurants,'White City'),
+        'bookings':first_restaurant(bookings_restaurants,'Bluebird White City'),
+    },
+    'imantsz@danddlondon.com':{
+        'sales':first_restaurant(sales_restaurants,'Butlers Wharf Chophouse'),
+        'bookings':first_restaurant(bookings_restaurants,'Butlers Wharf Chophouse'),
+    },
+    'ornetsf@danddlondon.com':{
+        'sales':first_restaurant(sales_restaurants,'Cantina'),
+        'bookings':first_restaurant(bookings_restaurants,'Cantina del Ponte'),
+    },
+    'seang@danddlondon.com':{
+        'sales':first_restaurant(sales_restaurants,"Coq d'Argent"),
+        'bookings':first_restaurant(bookings_restaurants,"Coq d'Argent"),
+    },
+    'jonathanpf@danddlondon.com':{
+        'sales':first_restaurant(sales_restaurants,'East 59th'),
+        'bookings':first_restaurant(bookings_restaurants,'East 59th'),
+    },
+    'micharb@danddlondon.com':{
+        'sales':first_restaurant(sales_restaurants,'Fiume'),
+        'bookings':first_restaurant(bookings_restaurants,'Fiume'),
+    },
+    'samb@danddlondon.com':{
+        'sales':first_restaurant(sales_restaurants,'German Gymnasium'),
+        'bookings':first_restaurant(bookings_restaurants,'German Gymnasium'),
+    },
+    'williamg@danddlondon.com':{
+        'sales':first_restaurant(sales_restaurants,'Issho'),
+        'bookings':first_restaurant(bookings_restaurants,'Issho'),
+    },
+    'tiagop@danddlondon.com':{
+        'sales':first_restaurant(sales_restaurants,'Klosterhaus'),
+        'bookings':first_restaurant(bookings_restaurants,'Klosterhaus'),
+    },
+    'carlos@danddlondon.com':{
+#         'sales':first_restaurant(sales_restaurants,'Launceston Place'),
+#         'bookings':first_restaurant(bookings_restaurants,'Launceston Place'),
+        'sales':sales_restaurants,
+        'bookings':bookings_restaurants
+    },
+    'medr@danddlondon.com':{
+        'sales':first_restaurant(sales_restaurants,'Madison'),
+        'bookings':first_restaurant(bookings_restaurants,'Madison'),
+    },
+    'fadiln@danddlondon.com':{
+        'sales':first_restaurant(sales_restaurants,'Orrery'),
+        'bookings':first_restaurant(bookings_restaurants,'Orrery'),
+    },
+    'hannahn@danddlondon.com':{
+        'sales':first_restaurant(sales_restaurants,'Paternoster Chophouse'),
+        'bookings':first_restaurant(bookings_restaurants,'Paternoster Chophouse'),
+    },
+    'alfonsoc@danddlondon.com':{
+        'sales':first_restaurant(sales_restaurants,'Plateau'),
+        'bookings':first_restaurant(bookings_restaurants,'Plateau'),
+    },
+    'olgag@danddlondon.com':{
+        'sales':first_restaurant(sales_restaurants,'Le Pont de la Tour'),
+        'bookings':first_restaurant(bookings_restaurants,'Pont de la Tour'),
+    },
+    'vidmantasg@danddlondon.com':{
+#         'sales':first_restaurant(sales_restaurants,"Quaglino's"),
+#         'bookings':first_restaurant(bookings_restaurants,"Quaglino's"),
+        'sales':sales_restaurants,
+        'bookings':bookings_restaurants
+    },
+    'vitoc@danddlondon.com':{
+        'sales':first_restaurant(sales_restaurants,'Radici'),
+        'bookings':first_restaurant(bookings_restaurants,'Radici'),
+    },
+    'encirobf@danddlondon.com':{
+#         'sales':first_restaurant(sales_restaurants,'Sartoria'),
+#         'bookings':first_restaurant(bookings_restaurants,'Sartoria'),
+        'sales':sales_restaurants,
+        'bookings':bookings_restaurants
+    },
+    'dainiusk@danddlondon.com':{
+        'sales':first_restaurant(sales_restaurants,'Skylon'),
+        'bookings':first_restaurant(bookings_restaurants,'Skylon'),
+    },
+    'nono@danddlondon.com':{
+#         'sales':first_restaurant(sales_restaurants,'South Place Chop House'),
+#         'bookings':first_restaurant(bookings_restaurants,'South Place Hotel'),
+        'sales':sales_restaurants,
+        'bookings':bookings_restaurants
+    },
+    'annap@danddlondon.com':{
+#         'sales':first_restaurant(sales_restaurants,'The Modern Pantry'),
+#         'bookings':first_restaurant(bookings_restaurants,'The Modern Pantry'),
+        'sales':sales_restaurants,
+        'bookings':bookings_restaurants
+    },
 }
