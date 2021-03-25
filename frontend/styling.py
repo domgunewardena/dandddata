@@ -44,7 +44,7 @@ dimensions = {
         'width':'100%'
     },
     'mini_tracker':{
-        'height':400,
+        'height':350,
         'width':'100%'
     },
     'week':{

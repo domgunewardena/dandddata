@@ -661,7 +661,7 @@ def future_totals_figure(restaurant_list, df):
         fig = add_totals(dinner_df, i, 2, restaurant_list, fig)    
         
     fig.update_layout(
-        height=len(restaurant_list)*300,
+        height=len(restaurant_list)*200,
         coloraxis=dict(
             colorscale='RdYlGn',
             cmin=0,

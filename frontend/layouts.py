@@ -54,6 +54,22 @@ def home_page():
         style = dropdown_row_style
     )
     
+    homepage_future_graph = html.Div(
+        [
+            dcc.Graph(
+                id='homepage future',
+                config={'displayModeBar':False},
+                style={'width':'100%'}
+            )
+        ],
+        style = {
+            'width': '100%', 
+            'display': 'flex', 
+            'align-items': 'center', 
+            'justify-content': 'center'
+        }
+    )
+    
     homepage_sales_graphs = html.Div(
         [
             html.Div(
@@ -114,7 +130,7 @@ def home_page():
         ]
     )
     
-    return html.Div(children=[homepage_dropdowns, homepage_tracker_graphs, homepage_sales_graphs])
+    return html.Div(children=[homepage_dropdowns, homepage_future_graph, homepage_tracker_graphs, homepage_sales_graphs])
 
 
 def breakdown():

@@ -48,6 +48,23 @@ pickup_dropdown_inputs = [Input(x, 'value') for x in pickup_dropdown_ids]
 # Home Page
 
 @app.callback(
+    Output('homepage future', 'figure'),
+    [Input('homepage metric dropdown', 'value')])
+def update_restaurant_future(metric):
+    
+    df = future_df.copy()
+    dff = df[df.restaurant.isin(user_restaurants[auth._username]['bookings'])]
+    
+    df_columns = ['visit_day','weekday','shift','max_guests TW','capacity']
+    groupby_columns = ['visit_day','weekday','shift']
+    
+    grouped_df = dff[df_columns].groupby(groupby_columns).sum().reset_index()
+    grouped_df['restaurant'] = 'Group'
+    grouped_df['full TW'] = grouped_df['max_guests TW']/grouped_df['capacity']
+    
+    return future_totals_figure(['Group'],grouped_df)
+
+@app.callback(
     Output('homepage daily sales','figure'),
     [Input('homepage metric dropdown','value'),
      Input('homepage measure dropdown', 'value'),])
