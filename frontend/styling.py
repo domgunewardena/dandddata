@@ -31,6 +31,9 @@ dropdown_values = {
     ]
 }
 
+metrics = ['vs. LW','vs. LY', 'Totals Last Week', 'Totals Last Year']
+default_metric_index = 1
+
 dimensions = {
     'main':{
         'height':900,

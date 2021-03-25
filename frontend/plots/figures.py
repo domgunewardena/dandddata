@@ -645,7 +645,7 @@ def future_totals_figure(restaurant_list, df):
     dinner_df = df[df['shift'] == 'DINNER']
     mondays = [x for x in df['visit_day'].unique() if pd.to_datetime(x).date().weekday() == 0]
 
-    title_strings = [[x + ' - Lunch', x + ' - Dinner'] for x in restaurant_list]
+    title_strings = [[x + ' - Lunch Bookings', x + ' - Dinner Bookings'] for x in restaurant_list]
     titles = tuple(title_strings[i][j] for i in range(len(restaurant_list)) for j in [0,1])
     
     fig = make_subplots(
@@ -684,7 +684,12 @@ def future_changes_figure(restaurant_list,df):
     def add_changes(df, i, num, restaurant_list, fig):
     
         dff = df[df['restaurant'] == restaurant_list[i]]
-        row = (i*2)+num
+        
+#         row = (i*2)+num
+#         col = 1
+        row = i+1
+        col = num
+        
         bookings_template = '%{y:+.0f} - %{customdata} %{x}'
 
         fig.add_trace(
@@ -699,21 +704,23 @@ def future_changes_figure(restaurant_list,df):
                     coloraxis='coloraxis'
                 )
             ),
-            row=row, col=1
+            row=row, col=col
         )  
 
         return fig
     
-    lunch_df = df[df['shift_category'] == 'LUNCH']
-    dinner_df = df[df['shift_category'] == 'DINNER']
+    lunch_df = df[df['shift'] == 'LUNCH']
+    dinner_df = df[df['shift'] == 'DINNER']
     mondays = [x for x in df['visit_day'].unique() if pd.to_datetime(x).date().weekday() == 0]
 
-    title_strings = [[x + ' - Lunch', x + ' - Dinner'] for x in restaurant_list]
+    title_strings = [[x + ' - Lunch Bookings', x + ' - Dinner Bookings'] for x in restaurant_list]
     titles = tuple(title_strings[i][j] for i in range(len(restaurant_list)) for j in [0,1])
     
     fig_change = make_subplots(
-        rows=len(restaurant_list)*2,
-        cols=1,
+#         rows=len(restaurant_list)*2,
+#         cols=1,
+        rows=len(restaurant_list),
+        cols=2,
         subplot_titles = titles
     )   
     
@@ -735,7 +742,7 @@ def future_changes_figure(restaurant_list,df):
     fig_change.add_hline(
         y=0,
         opacity=0.2,
-        row='all',col=1
+        row='all',col='all'
     )
         
     fig_change.update_xaxes(

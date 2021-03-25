@@ -12,6 +12,8 @@ from authentication.authentication import auth
 from frontend.plots.figures import trends_group_pickup_figure, trends_group_future_figure
 from data.data import trends_df
 
+default_metric = ['vs. LW']
+
 def home_page():
     
     metrics = ['vs. LW','vs. LY', 'Totals Last Week', 'Totals Last Year']
@@ -26,7 +28,7 @@ def home_page():
                     dcc.Dropdown(
                         id = 'homepage metric dropdown',
                         options = [{'label':i, 'value':i} for i in metrics],
-                        value = metrics[0],
+                        value = metrics[default_metric_index],
                         style = {'width':dimensions['homepage']['dropdowns']['dropdown_width']}
                     ),
                 ],
@@ -129,7 +131,7 @@ def breakdown():
                     dcc.Dropdown(
                         id = 'breakdown metric dropdown',
                         options = [{'label':i, 'value':i} for i in metrics],
-                        value = metrics[0],
+                        value = metrics[default_metric_index],
                         style = {'width':dimensions['homepage']['dropdowns']['dropdown_width']}
                     ),
                 ],
@@ -260,7 +262,7 @@ def restaurant():
                     dcc.Dropdown(
                         id = 'restaurant metric dropdown',
                         options = [{'label':i, 'value':i} for i in metrics],
-                        value = metrics[0],
+                        value = metrics[default_metric_index],
                         style = {'width':dimensions['homepage']['dropdowns']['dropdown_width']}
                     ),
                 ],
@@ -433,7 +435,7 @@ def sales_layout_template(report):
                     dcc.Dropdown(
                         id = report + ' metric dropdown',
                         options = [{'label':i, 'value':i} for i in metrics],
-                        value = metrics[0],
+                        value = metrics[default_metric_index],
                         style = {'width':dimensions['div']['dropdown_width']}
                     ),
                     dcc.Dropdown(
@@ -685,7 +687,7 @@ def tracker_layout_template(report):
                     dcc.Dropdown(
                         id=report + '_metric_dropdown',
                         options = [{'label':i,'value':i} for i in tracker_metrics],
-                        value='vs. LW',
+                        value = tracker_metrics[default_metric_index],
                         style={'width':dimensions['div']['dropdown_width']}
                     )
                 ],
