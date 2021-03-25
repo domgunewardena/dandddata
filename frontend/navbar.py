@@ -114,64 +114,6 @@ sidebar = html.Div(
                 dbc.NavItem(dbc.NavLink('Cover Tracker', href="/tracker", active="exact")),
                 dbc.NavItem(dbc.NavLink('Daily Pickup', href="/pickup", active="exact")),
                 dbc.NavItem(dbc.NavLink('Future Bookings', href="/future", active="exact")),
-#                 dbc.DropdownMenu(
-#                     children=[
-#                         dbc.DropdownMenuItem(
-#                             'Sales Reports', 
-#                             header=True
-#                         ),
-#                         dbc.DropdownMenuItem(
-#                             'Daily Sales', 
-#                             href="/daily-sales"
-#                         ),
-#                         dbc.DropdownMenuItem(
-#                             'WTD Sales', 
-#                             href="/wtd-sales"
-#                         ),
-#                         dbc.DropdownMenuItem(
-#                             'MTD Sales', 
-#                             href="/mtd-sales"
-#                         ),
-#                         dbc.DropdownMenuItem(
-#                             'Weekly Sales', 
-#                             href="/weekly-sales"
-#                         ),
-#                         dbc.DropdownMenuItem(
-#                             'Monthly Sales', 
-#                             href="/monthly-sales"
-#                         ),
-#                     ],
-#                     nav=True,
-#                     in_navbar=True,
-#                     label='Sales',
-#                 ),
-#                 dbc.DropdownMenu(
-#                     children=[
-#                         dbc.DropdownMenuItem(
-#                             'Bookings Reports', 
-#                             header=True
-#                         ),
-#                         dbc.DropdownMenuItem(
-#                             'Cover Tracker', 
-#                             href="/tracker"
-#                         ),
-#                         dbc.DropdownMenuItem(
-#                             'Daily Pickup', 
-#                             href="/pickup"
-#                         ),
-#                         dbc.DropdownMenuItem(
-#                             'Future Bookings', 
-#                             href="/future"
-#                         ),
-#                         dbc.DropdownMenuItem(
-#                             'Booking Trends', 
-#                             href="/trends"
-#                         ),
-#                     ],
-#                     nav=True,
-#                     in_navbar=True,
-#                     label='Bookings',
-#                 ),
             ],
             vertical=True,
             pills=True,
