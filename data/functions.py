@@ -468,6 +468,10 @@ def tracker_group_df(df):
             'Ten Weeks',
             'Eleven Weeks',
             'Twelve Weeks',
+            'Thirteen Weeks',
+            'Fourteen Weeks',
+            'Fifteen Weeks',
+            'Sixteen Weeks',
         ]
 
         day_sorter = [
