@@ -394,7 +394,7 @@ def tracker_group_8_weeks_graph(week, metric ,site, df, measure):
     )
     
     x = dff['Week']
-    graph = 'Next Eight Weeks - Group ' + measure
+    graph = 'Next 16 Weeks - Group ' + measure
     
     if 'vs.' in metric:
         return tracker_change_figure(dff, x, metric, graph, measure)
@@ -432,7 +432,7 @@ def tracker_site_8_weeks_graph(week, metric, site, df, measure):
     )
     
     x = dff['Week']
-    graph = 'Next Eight Weeks - ' + measure
+    graph = 'Next 16 Weeks - ' + measure
     
     if 'vs.' in metric:
         return tracker_change_figure(dff, x, metric, graph, measure)
