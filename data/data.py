@@ -72,3 +72,57 @@ sales_dataframes = {
     'covers':monthly_cov_df
   },
 }
+
+# Getting last year reviews
+
+def create_weeks_ago_column(df):
+    
+    def weeks_ago(date):
+        return -floor(((today - date).days)/7)-1
+
+    df['weeks_ago'] = df['date'].apply(weeks_ago)
+    
+    return df
+
+def convert_to_bookings_restaurants(df)
+
+    def map_restaurant(restaurant):
+
+        restaurant_map = {
+            '100 Wardour Street':'100 Wardour St',
+            'Cantina':'Cantina del Ponte',
+            'South Place Chophouse':'South Place Chop House'        
+        }
+
+        try:
+            return restaurant_map[restaurant]
+        except KeyError:
+            return restaurant
+    
+    df.restaurant = df.restaurant.apply(map_restaurant)
+    
+    return df
+
+def remove_null_scores(df):
+    
+    def remove_0(score):
+        return None if score==0 else score
+
+    for col in ['food','service','ambience','value']:
+        df[col]=df[col].apply(remove_0)
+        
+    return df
+
+def get_last_year_reviews(df):
+    
+    return df[df.weeks_ago > -52]
+
+last_year_reviews = get_last_year_reviews(
+    remove_null_scores(
+        convert_to_bookings_restaurants(
+            create_weeks_ago_columns(
+                reviews_df
+            )
+        )
+    )
+)

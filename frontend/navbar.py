@@ -92,7 +92,7 @@ SIDEBAR_STYLE = {
 
 sidebar = html.Div(
     [
-        html.H2("D&D Data", className="display-4"),
+        html.H2("D&D DATA", className="display-5"),
         html.Hr(),
         html.P(
             "Click below to navigate the app", className="lead"

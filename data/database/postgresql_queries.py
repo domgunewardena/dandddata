@@ -269,7 +269,6 @@ column_renaming_map = {
         'ord_day':'OrdDay',
         'covers':'Covers',
     },
-    ,
     'reviews': {
         'source': 'source',
         'restaurant': 'restaurant',
