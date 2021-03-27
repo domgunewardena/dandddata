@@ -21,6 +21,7 @@ future = PostgreSQLTable('future')
 trends = PostgreSQLTable('trends')
 revenue = PostgreSQLTable('revenue')
 covers = PostgreSQLTable('covers')
+reviews = PostgreSQLTable('reviews')
 
 tracker_df = tracker.dataframe
 pickup_df = pickup.dataframe
@@ -30,6 +31,7 @@ future_df = future.dataframe
 # cov_df = generate_skeleton_df(covers.dataframe, 'Covers')
 rev_df = revenue.dataframe
 cov_df = covers.dataframe
+reviews_df = reviews.dataframe
 
 # Add Date Columns
 future_df['weekday'] = pd.to_datetime(future_df['visit_day']).dt.weekday_name

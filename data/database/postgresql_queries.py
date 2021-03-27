@@ -88,6 +88,21 @@ create = {
             covers INTEGER
         );
     """,
+    'reviews':"""
+        CREATE TABLE reviews (
+            source VARCHAR(11),
+            restaurant VARCHAR(25),
+            title VARCHAR(150),
+            date VARCHAR(10),
+            score INTEGER,
+            food INTEGER,
+            service INTEGER,
+            value INTEGER,
+            ambience INTEGER,
+            review TEXT,
+            link TEXT
+        );
+    """
 }
 
 select = {
@@ -96,7 +111,8 @@ select = {
     'trends':'SELECT * FROM booking_trends',
     'future':'SELECT * FROM future',
     'revenue':'SELECT * FROM revenue',
-    'covers':'SELECT * FROM covers'
+    'covers':'SELECT * FROM covers',
+    'reviews':'SELECT * FROM reviews'
 }
 
 column_names = {
@@ -169,6 +185,20 @@ column_names = {
         'Day',
         'OrdDay',
         'Covers',
+    ],
+    'reviews': [
+        'source',
+        'restaurant',
+        'title',
+        'date',
+        'visit_date',
+        'score',
+        'food',
+        'service',
+        'value',
+        'ambience',
+        'review',
+        'link',
     ]
 }
 
@@ -239,4 +269,19 @@ column_renaming_map = {
         'ord_day':'OrdDay',
         'covers':'Covers',
     },
+    ,
+    'reviews': {
+        'source': 'source',
+        'restaurant': 'restaurant',
+        'title': 'title',
+        'date': 'date',
+        'visit_date': 'visit_date',
+        'score': 'score',
+        'food': 'food',
+        'service': 'service',
+        'value': 'value',
+        'ambience': 'ambience',
+        'review': 'review',
+        'link': 'link'
+    }
 }
