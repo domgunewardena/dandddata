@@ -531,3 +531,11 @@ def trends_table_filter(df, table):
 
 def trends_site_filter(df, site):
     return df[df['Restaurant'] == 'Group'] if site=='Group' else df[df['Restaurant']!='Group']
+
+# Review Scores Functions
+
+def scores_user_site_filter(df):
+    return df[df['restaurant'].isin(user_restaurants[auth._username]['bookings'])]
+
+def scores_site_filter(df, site):
+    return df[df['restaurant']==site]

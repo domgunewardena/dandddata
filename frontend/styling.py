@@ -247,6 +247,13 @@ week_colors = {
     }
 }
 
+review_colors = {
+    'overall':'blue',
+    'food':'green',
+    'service':'red',
+    'ambience':'orange',
+    'value':'purple'
+}
 
 
 def week_colors_totals(measure, shift, metric):
@@ -267,6 +274,15 @@ def tracker_graph(graph_id):
         config={'displayModeBar':False})
 
 def home_tracker_graph(graph_id):
+    return dcc.Graph(
+        id=graph_id,
+        style={
+            'height':'100%',
+            'width':'100%'
+        },
+        config={'displayModeBar':False})
+
+def review_graph(graph_id):
     return dcc.Graph(
         id=graph_id,
         style={

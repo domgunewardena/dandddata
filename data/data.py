@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 from datetime import date, datetime, timedelta
+from math import floor
 
 from data.date_bounds import bound_filtering, daily_bounds, wtd_bounds, mtd_bounds, weekly_bounds, monthly_bounds
 from data.skeleton import generate_skeleton_df
@@ -75,16 +76,22 @@ sales_dataframes = {
 
 # Getting last year reviews
 
-def create_weeks_ago_column(df):
+def create_weeks_columns(df):
+    
+    today = datetime.today()
     
     def weeks_ago(date):
         return -floor(((today - date).days)/7)-1
+    
+    def weeks_label(weeks_ago):
+        return 'Last Week' if weeks_ago == -1 else str(-weeks_ago) + ' Weeks Ago'
 
     df['weeks_ago'] = df['date'].apply(weeks_ago)
+    df['weeks'] = df['weeks_ago'].apply(weeks_label)
     
     return df
 
-def convert_to_bookings_restaurants(df)
+def convert_to_bookings_restaurants(df):
 
     def map_restaurant(restaurant):
 
@@ -115,12 +122,12 @@ def remove_null_scores(df):
 
 def get_last_year_reviews(df):
     
-    return df[df.weeks_ago > -52]
+    return df[df.weeks_ago > -9]
 
 last_year_reviews = get_last_year_reviews(
     remove_null_scores(
         convert_to_bookings_restaurants(
-            create_weeks_ago_columns(
+            create_weeks_columns(
                 reviews_df
             )
         )

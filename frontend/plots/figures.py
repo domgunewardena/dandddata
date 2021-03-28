@@ -3,6 +3,7 @@ import plotly.graph_objs as go
 from plotly.subplots import make_subplots
 
 from data.functions import trends_site_filter, trends_table_filter
+from frontend.styling import review_colors
 
 # Sales Figures
 
@@ -933,4 +934,22 @@ def trends_site_future_figure(df,restaurant,today_week,today_weekday_num):
             x0=i,y0=0,x1=i,y1=ylimit,
             opacity = 0.2
         )
+    return fig
+
+def score_figure(dff, category):
+    
+    fig = go.Figure()
+    
+    fig.add_trace(
+        go.Bar(
+            x = dff['weeks'],
+            y = dff[category],
+            marker = {'color':review_colors[category]}
+        )
+    )
+
+    fig.update_layout(
+        title = category.capitalize() + ' Score'
+    )
+    
     return fig

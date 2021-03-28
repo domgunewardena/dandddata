@@ -1,4 +1,4 @@
-from data.data import sales_dataframes
+from data.data import sales_dataframes, last_year_reviews
 from data.functions import *
 from data.date_bounds import date_bounds, date_columns
 from data.day_counts import day_counts
@@ -476,3 +476,19 @@ def tracker_breakdown_graph(week, metric, site, df, measure):
     else:
         metric = metric.replace('Totals ', '')
         return tracker_breakdown_totals_figure(dff, metric, graph, measure)
+
+def score_graph(site, category):
+    
+    df = last_year_reviews
+    
+    if site == 'Group':
+        dff = scores_user_site_filter(df)
+    else:
+        dff = scores_site_filter(df, site)
+        
+    df = dff.rename(columns={'score':'overall'})
+    df_columns = ['weeks_ago','weeks','overall','food','service','ambience','value']
+    groupby_columns = ['weeks_ago','weeks']
+    dff = df[df_columns].groupby(groupby_columns).mean().reset_index()
+    
+    return score_figure(dff, category)

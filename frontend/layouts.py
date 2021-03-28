@@ -130,7 +130,70 @@ def home_page():
         ]
     )
     
-    return html.Div(children=[homepage_dropdowns, homepage_future_graph, homepage_tracker_graphs, homepage_sales_graphs])
+    homepage_review_graphs = html.Div(
+        [
+            html.Div(
+                [
+                    review_graph('homepage overall'),
+                ],
+                style = {
+                    'display':'inline-block',
+                    'height':dimensions['mini_tracker']['height'],
+                    'width':'20%'
+                }
+            ),
+            html.Div(
+                [
+                    review_graph('homepage food'),
+                ],
+                style = {
+                    'display':'inline-block',
+                    'height':dimensions['mini_tracker']['height'],
+                    'width':'20%'
+                }
+            ),
+            html.Div(
+                [
+                    review_graph('homepage service'),
+                ],
+                style = {
+                    'display':'inline-block',
+                    'height':dimensions['mini_tracker']['height'],
+                    'width':'20%'
+                }
+            ),
+            html.Div(
+                [
+                    review_graph('homepage ambience'),
+                ],
+                style = {
+                    'display':'inline-block',
+                    'height':dimensions['mini_tracker']['height'],
+                    'width':'20%'
+                }
+            ),
+            html.Div(
+                [
+                    review_graph('homepage value'),
+                ],
+                style = {
+                    'display':'inline-block',
+                    'height':dimensions['mini_tracker']['height'],
+                    'width':'20%'
+                }
+            ),
+        ]
+    )
+    
+    return html.Div(
+        children=[
+            homepage_dropdowns, 
+            homepage_future_graph, 
+            homepage_tracker_graphs, 
+            homepage_sales_graphs,
+            homepage_review_graphs
+        ]
+    )
 
 
 def breakdown():
@@ -415,7 +478,71 @@ def restaurant():
         }
     )
     
-    return html.Div(children=[restaurant_dropdowns, restaurant_future_graph, restaurant_tracker_graphs, restaurant_revenue_graphs, restaurant_spend_graphs])
+    restaurant_review_graphs = html.Div(
+        [
+            html.Div(
+                [
+                    review_graph('restaurant overall'),
+                ],
+                style = {
+                    'display':'inline-block',
+                    'height':dimensions['mini_tracker']['height'],
+                    'width':'20%'
+                }
+            ),
+            html.Div(
+                [
+                    review_graph('restaurant food'),
+                ],
+                style = {
+                    'display':'inline-block',
+                    'height':dimensions['mini_tracker']['height'],
+                    'width':'20%'
+                }
+            ),
+            html.Div(
+                [
+                    review_graph('restaurant service'),
+                ],
+                style = {
+                    'display':'inline-block',
+                    'height':dimensions['mini_tracker']['height'],
+                    'width':'20%'
+                }
+            ),
+            html.Div(
+                [
+                    review_graph('restaurant ambience'),
+                ],
+                style = {
+                    'display':'inline-block',
+                    'height':dimensions['mini_tracker']['height'],
+                    'width':'20%'
+                }
+            ),
+            html.Div(
+                [
+                    review_graph('restaurant value'),
+                ],
+                style = {
+                    'display':'inline-block',
+                    'height':dimensions['mini_tracker']['height'],
+                    'width':'20%'
+                }
+            ),
+        ]
+    )
+    
+    return html.Div(
+        children=[
+            restaurant_dropdowns, 
+            restaurant_future_graph, 
+            restaurant_tracker_graphs, 
+            restaurant_revenue_graphs, 
+            restaurant_spend_graphs,
+            restaurant_review_graphs
+        ]
+    )
 
 def sales_layout_template(report):
         

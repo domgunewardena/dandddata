@@ -114,6 +114,7 @@ def update_homepage_mtd_sales(metric,measure):
         
     return func('All Shifts',metric,'mtd')
 
+
 @app.callback(Output('homepage tracker','figure'),
              [Input('homepage metric dropdown','value')])
 def update_homepage_tracker(metric):
@@ -123,6 +124,32 @@ def update_homepage_tracker(metric):
              [Input('homepage metric dropdown','value')])
 def update_homepage_pickup(metric):
     return tracker_group_8_weeks_graph('This Week',metric,'100 Wardour St', pickup_df, 'Daily Pickup')
+
+
+@app.callback(Output('homepage overall','figure'),
+             [Input('homepage metric dropdown','value')])
+def update_homepage_overall(metric):
+    return score_graph('Group','overall')
+
+@app.callback(Output('homepage food','figure'),
+             [Input('homepage metric dropdown','value')])
+def update_homepage_food(metric):
+    return score_graph('Group','food')
+
+@app.callback(Output('homepage service','figure'),
+             [Input('homepage metric dropdown','value')])
+def update_homepage_service(metric):
+    return score_graph('Group','service')
+
+@app.callback(Output('homepage ambience','figure'),
+             [Input('homepage metric dropdown','value')])
+def update_homepage_ambience(metric):
+    return score_graph('Group','ambience')
+
+@app.callback(Output('homepage value','figure'),
+             [Input('homepage metric dropdown','value')])
+def update_homepage_value(metric):
+    return score_graph('Group','value')
 
 
 # Breakdown 
@@ -272,6 +299,36 @@ def update_restaurant_tracker(metric,site):
 def update_restaurant_pickup(metric,site):
     return tracker_site_8_weeks_graph('This Week', metric, site, pickup_df, 'Daily Pickup')
 
+
+@app.callback(
+    Output('restaurant overall','figure'),
+    [Input('restaurant site dropdown','value')])
+def update_restaurant_overall(site):
+    return score_graph(site,'overall')
+
+@app.callback(
+    Output('restaurant food','figure'),
+    [Input('restaurant site dropdown','value')])
+def update_restaurant_food(site):
+    return score_graph(site,'food')
+
+@app.callback(
+    Output('restaurant service','figure'),
+    [Input('restaurant site dropdown','value')])
+def update_restaurant_service(site):
+    return score_graph(site,'service')
+
+@app.callback(
+    Output('restaurant ambience','figure'),
+    [Input('restaurant site dropdown','value')])
+def update_restaurant_ambience(site):
+    return score_graph(site,'ambience')
+
+@app.callback(
+    Output('restaurant value','figure'),
+    [Input('restaurant site dropdown','value')])
+def update_restaurant_value(site):
+    return score_graph(site,'value')
 
 
 # Daily Sales
