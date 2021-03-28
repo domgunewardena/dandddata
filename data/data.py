@@ -124,17 +124,11 @@ def rename_score_column(df):
     
      return df.rename(columns={'score':'overall'})
 
-def get_last_year_reviews(df):
-    
-    return df[df.weeks_ago > -9]
-
-last_year_reviews = get_last_year_reviews(
-    rename_score_column(
-        remove_null_scores(
-            convert_to_bookings_restaurants(
-                create_weeks_columns(
-                    reviews_df
-                )
+reviews_dff = rename_score_column(
+    remove_null_scores(
+        convert_to_bookings_restaurants(
+            create_weeks_columns(
+                reviews_df
             )
         )
     )

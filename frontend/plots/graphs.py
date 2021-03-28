@@ -479,7 +479,10 @@ def tracker_breakdown_graph(week, metric, site, df, measure):
 
 def score_graph(site, category):
     
-    df = last_year_reviews
+    df = reviews_dff
+    
+    weeks_ago = 9
+    df = df[df.weeks_ago > -weeks_ago]
     
     if site == 'Group':
         dff = scores_user_site_filter(df)
@@ -490,4 +493,16 @@ def score_graph(site, category):
     groupby_columns = ['weeks_ago','weeks']
     dff = df[df_columns].groupby(groupby_columns).mean().reset_index()
     
-    return score_figure(dff, category)
+    weeks_ago_list = [x for x in range(-weeks_ago,0)]
+    week_labels_list = [str(-x) + ' Weeks Ago' for x in range(-weeks_ago,-1)] + ['Last Week']
+
+    data_dict = {
+        'weeks_ago':weeks_ago_list,
+        'weeks':week_labels_list
+    }
+
+    skeleton_df = pd.DataFrame(data=data_dict)
+
+    final_df = pd.merge(skeleton_df, dff, how='left')
+    
+    return score_figure(final_df, category)
