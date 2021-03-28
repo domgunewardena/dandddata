@@ -486,7 +486,6 @@ def score_graph(site, category):
     else:
         dff = scores_site_filter(df, site)
         
-    df = dff.rename(columns={'score':'overall'})
     df_columns = ['weeks_ago','weeks','overall','food','service','ambience','value']
     groupby_columns = ['weeks_ago','weeks']
     dff = df[df_columns].groupby(groupby_columns).mean().reset_index()
