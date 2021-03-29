@@ -293,6 +293,45 @@ def review_graph(graph_id):
         config={'displayModeBar':False}
     )
 
+def homepage_sales_div(graph_id):
+    
+    return html.Div(
+        [
+            small_graph(graph_id),
+        ],
+        style = {
+            'display':'inline-block',
+            'height':dimensions['mini']['height'],
+            'width':dimensions['main']['width']
+        }
+    )
+
+def homepage_tracker_div(graph_id):
+    
+    return html.Div(
+        [
+            home_tracker_graph(graph_id),
+        ],
+        style = {
+            'display':'inline-block',
+            'height':dimensions['mini_tracker']['height'],
+            'width':'50%'
+        }
+    )
+
+def homepage_review_div(graph_id):
+    
+    return html.Div(
+        [
+            review_graph(graph_id),
+        ],
+        style = {
+            'display':'inline-block',
+            'height':dimensions['mini_tracker']['height'],
+            'width':'20%'
+        }
+    )
+
 def breakdown_sales_div(graph_id):
     
     return html.Div(

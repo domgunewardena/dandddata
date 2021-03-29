@@ -72,116 +72,26 @@ def home_page():
     
     homepage_sales_graphs = html.Div(
         [
-            html.Div(
-                [
-                    small_graph('homepage daily sales'),
-                ],
-                style = {
-                    'display':'inline-block',
-                    'height':dimensions['mini']['height'],
-                    'width':dimensions['main']['width']
-                }
-            ),
-            html.Div(
-                [
-                    small_graph('homepage wtd sales'),
-                ],
-                style = {
-                    'display':'inline-block',
-                    'height':dimensions['mini']['height'],
-                    'width':dimensions['main']['width']
-                }
-            ),
-            html.Div(
-                [
-                    small_graph('homepage mtd sales'),
-                ],
-                style = {
-                    'display':'inline-block',
-                    'height':dimensions['mini']['height'],
-                    'width':dimensions['main']['width']
-                }
-            )
+            homepage_sales_div('homepage daily sales'),
+            homepage_sales_div('homepage wtd sales'),
+            homepage_sales_div('homepage mtd sales'),
         ]
     )
     
     homepage_tracker_graphs = html.Div(
         [
-            html.Div(
-                [
-                    home_tracker_graph('homepage tracker'),
-                ],
-                style = {
-                    'display':'inline-block',
-                    'height':dimensions['mini_tracker']['height'],
-                    'width':'50%'
-                }
-            ),
-            html.Div(
-                [
-                    home_tracker_graph('homepage pickup'),
-                ],
-                style = {
-                    'display':'inline-block',
-                    'height':dimensions['mini_tracker']['height'],
-                    'width':'50%'
-                }
-            ),
+            homepage_tracker_div('homepage tracker'),
+            homepage_tracker_div('homepage pickup'),
         ]
     )
     
     homepage_review_graphs = html.Div(
         [
-            html.Div(
-                [
-                    review_graph('homepage overall'),
-                ],
-                style = {
-                    'display':'inline-block',
-                    'height':dimensions['mini_tracker']['height'],
-                    'width':'20%'
-                }
-            ),
-            html.Div(
-                [
-                    review_graph('homepage food'),
-                ],
-                style = {
-                    'display':'inline-block',
-                    'height':dimensions['mini_tracker']['height'],
-                    'width':'20%'
-                }
-            ),
-            html.Div(
-                [
-                    review_graph('homepage service'),
-                ],
-                style = {
-                    'display':'inline-block',
-                    'height':dimensions['mini_tracker']['height'],
-                    'width':'20%'
-                }
-            ),
-            html.Div(
-                [
-                    review_graph('homepage ambience'),
-                ],
-                style = {
-                    'display':'inline-block',
-                    'height':dimensions['mini_tracker']['height'],
-                    'width':'20%'
-                }
-            ),
-            html.Div(
-                [
-                    review_graph('homepage value'),
-                ],
-                style = {
-                    'display':'inline-block',
-                    'height':dimensions['mini_tracker']['height'],
-                    'width':'20%'
-                }
-            ),
+            homepage_review_div('homepage overall'),
+            homepage_review_div('homepage food'),
+            homepage_review_div('homepage service'),
+            homepage_review_div('homepage ambience'),
+            homepage_review_div('homepage value'),
         ]
     )
     
@@ -318,96 +228,24 @@ def restaurant():
     
     restaurant_revenue_graphs = html.Div(
         [
-            html.Div(
-                [
-                    small_graph('restaurant daily sales'),
-                ],
-                style = {
-                    'display':'inline-block',
-                    'height':dimensions['mini']['height'],
-                    'width':dimensions['main']['width']
-                }
-            ),
-            html.Div(
-                [
-                    small_graph('restaurant wtd sales'),
-                ],
-                style = {
-                    'display':'inline-block',
-                    'height':dimensions['mini']['height'],
-                    'width':dimensions['main']['width']
-                }
-            ),
-            html.Div(
-                [
-                    small_graph('restaurant mtd sales'),
-                ],
-                style = {
-                    'display':'inline-block',
-                    'height':dimensions['mini']['height'],
-                    'width':dimensions['main']['width']
-                }
-            )
+            homepage_sales_div('restaurant daily sales'),
+            homepage_sales_div('restaurant wtd sales'),
+            homepage_sales_div('restaurant mtd sales'),
         ]
     )
     
     restaurant_spend_graphs = html.Div(
         [
-            html.Div(
-                [
-                    small_graph('restaurant daily spend'),
-                ],
-                style = {
-                    'display':'inline-block',
-                    'height':dimensions['mini']['height'],
-                    'width':dimensions['main']['width']
-                }
-            ),
-            html.Div(
-                [
-                    small_graph('restaurant wtd spend'),
-                ],
-                style = {
-                    'display':'inline-block',
-                    'height':dimensions['mini']['height'],
-                    'width':dimensions['main']['width']
-                }
-            ),
-            html.Div(
-                [
-                    small_graph('restaurant mtd spend'),
-                ],
-                style = {
-                    'display':'inline-block',
-                    'height':dimensions['mini']['height'],
-                    'width':dimensions['main']['width']
-                }
-            )
+            homepage_sales_div('restaurant daily spend'),
+            homepage_sales_div('restaurant wtd spend'),
+            homepage_sales_div('restaurant mtd spend'),
         ]
     )
     
     restaurant_tracker_graphs = html.Div(
         [
-            html.Div(
-                [
-                    home_tracker_graph('restaurant tracker'),
-                ],
-                style = {
-                    'display':'inline-block',
-                    'height':dimensions['mini_tracker']['height'],
-                    'width':'50%'
-                }
-            ),
-            html.Div(
-                [
-                    home_tracker_graph('restaurant pickup'),
-                ],
-                style = {
-                    'display':'inline-block',
-                    'height':dimensions['mini_tracker']['height'],
-                    'width':'50%'
-                }
-            ),
+            homepage_tracker_div('restaurant tracker'),
+            homepage_tracker_div('restaurant pickup'),
         ]
     )
     
@@ -429,56 +267,11 @@ def restaurant():
     
     restaurant_review_graphs = html.Div(
         [
-            html.Div(
-                [
-                    review_graph('restaurant overall'),
-                ],
-                style = {
-                    'display':'inline-block',
-                    'height':dimensions['mini_tracker']['height'],
-                    'width':'20%'
-                }
-            ),
-            html.Div(
-                [
-                    review_graph('restaurant food'),
-                ],
-                style = {
-                    'display':'inline-block',
-                    'height':dimensions['mini_tracker']['height'],
-                    'width':'20%'
-                }
-            ),
-            html.Div(
-                [
-                    review_graph('restaurant service'),
-                ],
-                style = {
-                    'display':'inline-block',
-                    'height':dimensions['mini_tracker']['height'],
-                    'width':'20%'
-                }
-            ),
-            html.Div(
-                [
-                    review_graph('restaurant ambience'),
-                ],
-                style = {
-                    'display':'inline-block',
-                    'height':dimensions['mini_tracker']['height'],
-                    'width':'20%'
-                }
-            ),
-            html.Div(
-                [
-                    review_graph('restaurant value'),
-                ],
-                style = {
-                    'display':'inline-block',
-                    'height':dimensions['mini_tracker']['height'],
-                    'width':'20%'
-                }
-            ),
+            homepage_review_div('restaurant overall'),
+            homepage_review_div('restaurant food'),
+            homepage_review_div('restaurant service'),
+            homepage_review_div('restaurant ambience'),
+            homepage_review_div('restaurant value'),
         ]
     )
     
