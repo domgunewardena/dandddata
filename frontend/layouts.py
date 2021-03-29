@@ -252,16 +252,6 @@ def breakdown():
         ]
     )
     
-    breakdown_review_graphs = html.Div(
-        [
-            breakdown_review_div('breakdown overall'),
-            breakdown_review_div('breakdown food'),
-            breakdown_review_div('breakdown service'),
-            breakdown_review_div('breakdown ambience'),
-            breakdown_review_div('breakdown value'),
-        ]
-    )
-    
     breakdown_future_graphs = html.Div(
         [
             breakdown_future_div('breakdown this week future'),
@@ -278,7 +268,11 @@ def breakdown():
             breakdown_future_graphs,
             breakdown_tracker_graphs, 
             breakdown_sales_graphs, 
-            breakdown_review_graphs
+            breakdown_review_div('breakdown overall'),
+            breakdown_review_div('breakdown food'),
+            breakdown_review_div('breakdown service'),
+            breakdown_review_div('breakdown ambience'),
+            breakdown_review_div('breakdown value')
         ]
     )
        

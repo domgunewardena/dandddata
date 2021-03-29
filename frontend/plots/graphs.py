@@ -562,7 +562,7 @@ def score_breakdown_graph(category):
 
     skeleton_df = pd.DataFrame(data={'restaurant':review_restaurants})
 
-    final_df = pd.merge(skeleton_df, dff, how='left').sort_values(by='restaurant',ascending=False)
+    final_df = pd.merge(skeleton_df, dff, how='left')
     
     return score_breakdown_figure(final_df, category)
 

@@ -971,23 +971,22 @@ def score_breakdown_figure(dff, category):
 
     fig.add_trace(
         go.Bar(
-            x = dff[category],
-            y = dff['restaurant'],
+            y = dff[category],
+            x = dff['restaurant'],
             marker = {
                 'color':dff[category],
                 'coloraxis':'coloraxis'
             },
-            orientation = 'h',
-            texttemplate = '%{x:.1f}',
-            textposition = 'auto',
+            texttemplate = '%{y:.1f}',
+            textposition = 'outside',
             textangle = 0,
-            hovertemplate = '%{x:.1f}'
+            hovertemplate = '%{y:.1f}'
         )
     )
 
     fig.update_layout(
         title = category.capitalize() + ' Scores',
-        xaxis = {'range':[0,5]},
+        yaxis = {'range':[0,6]},
         coloraxis={
             'colorscale':'RdYlGn',
             'cmin':0,

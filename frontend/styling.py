@@ -335,13 +335,17 @@ def breakdown_review_div(graph_id):
     
     return html.Div(
         [
-            review_graph(graph_id),
-        ],
-        style = {
-            'display':'inline-block',
-            'height':dimensions['main']['height'],
-            'width':'20%'
-        }
+            html.Div(
+                [
+                    review_graph(graph_id),
+                ],
+                style = {
+                    'display':'inline-block',
+                    'height':dimensions['mini']['height'],
+                    'width':'100%'
+                }
+            )
+        ]
     )
 
 def breakdown_future_div(graph_id):
