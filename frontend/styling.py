@@ -1,4 +1,5 @@
 import dash_core_components as dcc
+import dash_html_components as html
 from authentication.users import sales_restaurants
 
 dropdown_values = {
@@ -289,7 +290,80 @@ def review_graph(graph_id):
             'height':'100%',
             'width':'100%'
         },
-        config={'displayModeBar':False})
+        config={'displayModeBar':False}
+    )
+
+def breakdown_sales_div(graph_id):
+    
+    return html.Div(
+        [
+            dcc.Graph(
+                id = graph_id,
+                config = {'displayModeBar':False}
+            )
+        ],    
+        style = {
+            'display':'inline-block',
+            'height':dimensions['main']['height'],
+            'width':dimensions['main']['width']
+        }
+    )
+
+def breakdown_tracker_div(graph_id):
+    
+    tracker_graphs_extra_height = 100
+    
+    return html.Div(
+        [
+            dcc.Graph(
+                id = graph_id,
+                config = {'displayModeBar':False},
+                style={
+                    'height':'100%',
+                    'width':'100%'
+                }
+            )
+        ],    
+        style = {
+            'display':'inline-block',
+            'height':dimensions['main']['height']+tracker_graphs_extra_height,
+            'width':dimensions['main']['width']
+        }
+    )
+
+def breakdown_review_div(graph_id):
+    
+    return html.Div(
+        [
+            review_graph(graph_id),
+        ],
+        style = {
+            'display':'inline-block',
+            'height':dimensions['main']['height'],
+            'width':'20%'
+        }
+    )
+
+def breakdown_future_div(graph_id):
+    
+    return html.Div(
+        [
+            dcc.Graph(
+                id = graph_id,
+                config = {'displayModeBar':False},
+                style={
+                    'height':'100%',
+                    'width':'100%'
+                }
+            )
+        ],    
+        style = {
+            'display':'inline-block',
+            'height':dimensions['main']['height']+100,
+            'width':dimensions['main']['width']
+        }
+    )
+    
 
 def capitalize_report_title(report):
     if report in ['wtd', 'mtd']:

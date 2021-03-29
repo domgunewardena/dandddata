@@ -50,7 +50,7 @@ pickup_dropdown_inputs = [Input(x, 'value') for x in pickup_dropdown_ids]
 @app.callback(
     Output('homepage future', 'figure'),
     [Input('homepage metric dropdown', 'value')])
-def update_restaurant_future(metric):
+def update_homepage_future(metric):
     
     df = future_df.copy()
     dff = df[df.restaurant.isin(user_restaurants[auth._username]['bookings'])]
@@ -213,6 +213,57 @@ def update_breakdown_next_week_tracker(metric):
              [Input('breakdown metric dropdown','value')])
 def update_breakdown_two_weeks_tracker(metric):
     return tracker_breakdown_graph('Two Weeks', metric, 'Group', tracker_df, 'Booked Covers')
+
+
+@app.callback(
+    Output('breakdown overall','figure'),
+    [Input('breakdown metric dropdown','value')])
+def update_breakdown_overall(metric):
+    return score_breakdown_graph('overall')
+
+@app.callback(
+    Output('breakdown food','figure'),
+    [Input('breakdown metric dropdown','value')])
+def update_breakdown_food(metric):
+    return score_breakdown_graph('food')
+
+@app.callback(
+    Output('breakdown service','figure'),
+    [Input('breakdown metric dropdown','value')])
+def update_breakdown_service(metric):
+    return score_breakdown_graph('service')
+
+@app.callback(
+    Output('breakdown ambience','figure'),
+    [Input('breakdown metric dropdown','value')])
+def update_breakdown_ambience(metric):
+    return score_breakdown_graph('ambience')
+
+@app.callback(
+    Output('breakdown value','figure'),
+    [Input('breakdown metric dropdown','value')])
+def update_breakdown_value(metric):
+    return score_breakdown_graph('value')
+
+
+@app.callback(
+    Output('breakdown this week future','figure'),
+    [Input('breakdown metric dropdown','value')])
+def update_breakdown_this_week_future(metric):
+    return future_breakdown_graph('This Week')
+
+@app.callback(
+    Output('breakdown next week future','figure'),
+    [Input('breakdown metric dropdown','value')])
+def update_breakdown_next_week_future(metric):
+    return future_breakdown_graph('Next Week')
+
+@app.callback(
+    Output('breakdown two weeks future','figure'),
+    [Input('breakdown metric dropdown','value')])
+def update_breakdown_two_weeks_future(metric):
+    return future_breakdown_graph('2 Weeks Ahead')
+
 
 
 # Restaurant

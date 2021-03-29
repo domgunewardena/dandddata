@@ -35,6 +35,7 @@ cov_df = covers.dataframe
 reviews_df = reviews.dataframe
 
 # Add Date Columns
+future_df['visit_day'] = pd.to_datetime(future_df['visit_day'])
 future_df['weekday'] = pd.to_datetime(future_df['visit_day']).dt.weekday_name
 rev_df['Date'] = pd.to_datetime(rev_df['Date']).dt.date
 cov_df['Date'] = pd.to_datetime(cov_df['Date']).dt.date
@@ -73,6 +74,31 @@ sales_dataframes = {
     'covers':monthly_cov_df
   },
 }
+
+# Creating future df by week for future breakdown
+
+def create_weeks_columns(df):
+    
+    today = datetime.strptime('2021-04-12','%Y-%m-%d')
+    
+    def weeks_ahead(date):
+        return floor(((date-today).days)/7)
+    
+    def weeks_label(weeks_ahead):
+        return 'This Week' if weeks_ahead == 0 else 'Next Week' if weeks_ahead == 1 else str(weeks_ahead) + ' Weeks Ahead'
+
+    df['weeks_ahead'] = df['visit_day'].apply(weeks_ahead)
+    df['weeks'] = df['weeks_ahead'].apply(weeks_label)
+    
+    return df
+
+df = create_weeks_columns(future_df)
+df_columns = ['restaurant','weeks_ahead','weeks','capacity','max_guests TW']
+groupby_columns = df_columns[:-2]
+
+dff = df[df_columns].groupby(groupby_columns).sum().reset_index()
+dff['full'] = dff['max_guests TW']/dff['capacity']
+future_breakdown_df = dff
 
 # Getting last year reviews
 

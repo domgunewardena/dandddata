@@ -238,94 +238,49 @@ def breakdown():
     
     breakdown_sales_graphs = html.Div(
         [
-            html.Div(
-                [
-                    dcc.Graph(
-                        id = 'breakdown daily sales',
-                        config = {'displayModeBar':False}
-                    )
-                ],    
-                style = {
-                    'display':'inline-block',
-                    'height':dimensions['main']['height'],
-                    'width':dimensions['main']['width']
-                }
-            ),
-            html.Div(
-                [
-                    dcc.Graph(
-                        id = 'breakdown wtd sales',
-                        config = {'displayModeBar':False}
-                    )
-                ],    
-                style = {
-                    'display':'inline-block',
-                    'height':dimensions['main']['height'],
-                    'width':dimensions['main']['width']
-                }
-            ),
-            html.Div(
-                [
-                    dcc.Graph(
-                        id = 'breakdown mtd sales',
-                        config = {'displayModeBar':False}
-                    )
-                ],    
-                style = {
-                    'display':'inline-block',
-                    'height':dimensions['main']['height'],
-                    'width':dimensions['main']['width']
-                }
-            )
+            breakdown_sales_div('breakdown daily sales'),
+            breakdown_sales_div('breakdown wtd sales'),
+            breakdown_sales_div('breakdown mtd sales'),
         ]
     )
     
-    tracker_graphs_extra_height = 100
     breakdown_tracker_graphs = html.Div(
         [
-            html.Div(
-                [
-                    dcc.Graph(
-                        id = 'breakdown this week tracker',
-                        config = {'displayModeBar':False}
-                    )
-                ],    
-                style = {
-                    'display':'inline-block',
-                    'height':dimensions['main']['height']+tracker_graphs_extra_height,
-                    'width':dimensions['main']['width']
-                }
-            ),
-            html.Div(
-                [
-                    dcc.Graph(
-                        id = 'breakdown next week tracker',
-                        config = {'displayModeBar':False}
-                    )
-                ],    
-                style = {
-                    'display':'inline-block',
-                    'height':dimensions['main']['height']+tracker_graphs_extra_height,
-                    'width':dimensions['main']['width']
-                }
-            ),
-            html.Div(
-                [
-                    dcc.Graph(
-                        id = 'breakdown two weeks tracker',
-                        config = {'displayModeBar':False}
-                    )
-                ],    
-                style = {
-                    'display':'inline-block',
-                    'height':dimensions['main']['height']+tracker_graphs_extra_height,
-                    'width':dimensions['main']['width']
-                }
-            )
+            breakdown_tracker_div('breakdown this week tracker'),
+            breakdown_tracker_div('breakdown next week tracker'),
+            breakdown_tracker_div('breakdown two weeks tracker'),
         ]
     )
     
-    return html.Div(children=[breakdown_dropdowns, breakdown_tracker_graphs, breakdown_sales_graphs])
+    breakdown_review_graphs = html.Div(
+        [
+            breakdown_review_div('breakdown overall'),
+            breakdown_review_div('breakdown food'),
+            breakdown_review_div('breakdown service'),
+            breakdown_review_div('breakdown ambience'),
+            breakdown_review_div('breakdown value'),
+        ]
+    )
+    
+    breakdown_future_graphs = html.Div(
+        [
+            breakdown_future_div('breakdown this week future'),
+            breakdown_future_div('breakdown next week future'),
+            breakdown_future_div('breakdown two weeks future'),
+        ]
+    )
+    
+    
+    
+    return html.Div(
+        children=[
+            breakdown_dropdowns,
+            breakdown_future_graphs,
+            breakdown_tracker_graphs, 
+            breakdown_sales_graphs, 
+            breakdown_review_graphs
+        ]
+    )
        
 def restaurant():
     

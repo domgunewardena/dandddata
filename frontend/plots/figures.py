@@ -936,6 +936,7 @@ def trends_site_future_figure(df,restaurant,today_week,today_weekday_num):
         )
     return fig
 
+
 def score_figure(dff, category):
     
     fig = go.Figure()
@@ -944,13 +945,93 @@ def score_figure(dff, category):
         go.Bar(
             x = dff['weeks'],
             y = dff[category],
-            marker = {'color':review_colors[category]}
+            marker = {
+                'color':dff[category],
+                'coloraxis':'coloraxis'
+            },
         )
     )
 
     fig.update_layout(
         title = category.capitalize() + ' Score',
-        yaxis = {'range':[0,5]}
+        yaxis = {'range':[0,5]},
+        coloraxis={
+            'colorscale':'RdYlGn',
+            'cmin':0,
+            'cmax':5,
+            'showscale':False
+        },
+    )
+    
+    return fig
+
+def score_breakdown_figure(dff, category):
+    
+    fig = go.Figure()
+
+    fig.add_trace(
+        go.Bar(
+            x = dff[category],
+            y = dff['restaurant'],
+            marker = {
+                'color':dff[category],
+                'coloraxis':'coloraxis'
+            },
+            orientation = 'h',
+            texttemplate = '%{x:.1f}',
+            textposition = 'auto',
+            textangle = 0,
+            hovertemplate = '%{x:.1f}'
+        )
+    )
+
+    fig.update_layout(
+        title = category.capitalize() + ' Scores',
+        xaxis = {'range':[0,5]},
+        coloraxis={
+            'colorscale':'RdYlGn',
+            'cmin':0,
+            'cmax':5,
+            'showscale':False
+        },
+    )
+    
+    return fig
+
+def future_breakdown_figure(dff, week):
+    
+    fig = go.Figure()
+
+    fig.add_trace(
+        go.Bar(
+            x = dff['full']*100,
+            y = dff['restaurant'],
+            marker = {
+                'color':dff['full'],
+                'coloraxis':'coloraxis'
+            },
+            orientation = 'h',
+            text = dff['full']*100,
+            texttemplate = '%{x:.0f}%',
+            textposition = 'auto',
+            hovertemplate = '%{x:.0f}%',
+            name = "Full"
+        )
+    )
+
+    fig.update_layout(
+        title = week + ' Bookings',
+        coloraxis={
+            'colorscale':'RdYlGn',
+            'cmin':0,
+            'cmax':1,
+            'showscale':False
+        },
+        xaxis = {'title':'% Full'}
+    )
+
+    fig.add_vline(
+        x=100,
     )
     
     return fig

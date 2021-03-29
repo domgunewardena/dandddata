@@ -1,4 +1,4 @@
-from data.data import sales_dataframes, reviews_dff
+from data.data import sales_dataframes, reviews_dff, future_breakdown_df
 from data.functions import *
 from data.date_bounds import date_bounds, date_columns
 from data.day_counts import day_counts
@@ -491,7 +491,7 @@ def score_graph(site, category):
         
     df_columns = ['weeks_ago','weeks','overall','food','service','ambience','value']
     groupby_columns = ['weeks_ago','weeks']
-    dff = df[df_columns].groupby(groupby_columns).mean().reset_index()
+    dff = dff[df_columns].groupby(groupby_columns).mean().reset_index()
     
     weeks_ago_list = [x for x in range(-weeks_ago,0)]
     week_labels_list = [str(-x) + ' Weeks Ago' for x in range(-weeks_ago,-1)] + ['Last Week']
@@ -509,7 +509,7 @@ def score_graph(site, category):
 
 def score_breakdown_graph(category):
     
-    review_restaurants = [
+    review_restaurants = scores_breakdown_user_site_filter([
         '100 Wardour St',
         '14 Hills',
         '20 Stories',
@@ -549,21 +549,26 @@ def score_breakdown_graph(category):
         'The Den',
         'The Modern Pantry',
         'queensyard'
-    ]
+    ])
     
     df = reviews_dff
     
     weeks_ago = 4
-    df = df[df.weeks_ago >= -weeks_ago]
-    
-    dff = scores_user_site_filter(df)
+    dff = df[df.weeks_ago >= -weeks_ago]    
         
-    df_columns = ['weeks_ago','weeks','overall','food','service','ambience','value']
-    groupby_columns = ['weeks_ago','weeks']
-    dff = df[df_columns].groupby(groupby_columns).mean().reset_index()
+    df_columns = ['restaurant','overall','food','service','ambience','value']
+    groupby_columns = ['restaurant']
+    dff = dff[df_columns].groupby(groupby_columns).mean().reset_index()
 
     skeleton_df = pd.DataFrame(data={'restaurant':review_restaurants})
 
-    final_df = pd.merge(skeleton_df, dff, how='left')
+    final_df = pd.merge(skeleton_df, dff, how='left').sort_values(by='restaurant',ascending=False)
     
     return score_breakdown_figure(final_df, category)
+
+def future_breakdown_graph(week):
+    
+    df = future_breakdown_df
+    dff = scores_user_site_filter(df[df['weeks']==week]).sort_values(by='restaurant',ascending=False)
+    
+    return future_breakdown_figure(dff, week)

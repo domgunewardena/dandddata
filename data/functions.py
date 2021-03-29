@@ -537,5 +537,8 @@ def trends_site_filter(df, site):
 def scores_user_site_filter(df):
     return df[df['restaurant'].isin(user_restaurants[auth._username]['bookings'])]
 
+def scores_breakdown_user_site_filter(restaurant_list):
+    return [restaurant for restaurant in restaurant_list if restaurant in user_restaurants[auth._username]['bookings']]
+
 def scores_site_filter(df, site):
     return df[df['restaurant']==site]
