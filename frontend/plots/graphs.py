@@ -1,4 +1,4 @@
-from data.data import sales_dataframes, last_year_reviews
+from data.data import sales_dataframes, reviews_dff
 from data.functions import *
 from data.date_bounds import date_bounds, date_columns
 from data.day_counts import day_counts
@@ -481,8 +481,8 @@ def score_graph(site, category):
     
     df = reviews_dff
     
-    weeks_ago = 9
-    df = df[df.weeks_ago > -weeks_ago]
+    weeks_ago = 8
+    df = df[df.weeks_ago >= -weeks_ago]
     
     if site == 'Group':
         dff = scores_user_site_filter(df)
@@ -506,3 +506,64 @@ def score_graph(site, category):
     final_df = pd.merge(skeleton_df, dff, how='left')
     
     return score_figure(final_df, category)
+
+def score_breakdown_graph(category):
+    
+    review_restaurants = [
+        '100 Wardour St',
+        '14 Hills',
+        '20 Stories',
+        'Angelica',
+        'Angler',
+        'Aster',
+        'Avenue',
+        'Bluebird Chelsea',
+        'Bluebird London NYC',
+        'Bluebird White City',
+        'Blueprint Café',
+        'Butlers Wharf Chophouse',
+        'Cantina del Ponte',
+        "Coq d'Argent",
+        'Crafthouse',
+        'D & D London Ltd',
+        'East 59th',
+        'Fish Market',
+        'Fiume',
+        'German Gymnasium',
+        'Issho',
+        'Klosterhaus',
+        'Launceston Place',
+        'Le Pont de la Tour',
+        'Madison',
+        'New Street Grill',
+        'Old Bengal Bar',
+        'Orrery',
+        'Paternoster Chophouse',
+        'Plateau',
+        "Quaglino's",
+        'Radici',
+        'Royal Exchange Grand Café',
+        'Sartoria',
+        'Skylon',
+        'South Place Chop House',
+        'The Den',
+        'The Modern Pantry',
+        'queensyard'
+    ]
+    
+    df = reviews_dff
+    
+    weeks_ago = 4
+    df = df[df.weeks_ago >= -weeks_ago]
+    
+    dff = scores_user_site_filter(df)
+        
+    df_columns = ['weeks_ago','weeks','overall','food','service','ambience','value']
+    groupby_columns = ['weeks_ago','weeks']
+    dff = df[df_columns].groupby(groupby_columns).mean().reset_index()
+
+    skeleton_df = pd.DataFrame(data={'restaurant':review_restaurants})
+
+    final_df = pd.merge(skeleton_df, dff, how='left')
+    
+    return score_breakdown_figure(final_df, category)

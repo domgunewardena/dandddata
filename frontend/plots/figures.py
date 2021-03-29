@@ -949,7 +949,8 @@ def score_figure(dff, category):
     )
 
     fig.update_layout(
-        title = category.capitalize() + ' Score'
+        title = category.capitalize() + ' Score',
+        yaxis = {'range':[0,5]}
     )
     
     return fig
