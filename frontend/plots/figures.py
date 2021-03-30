@@ -945,10 +945,13 @@ def score_figure(dff, category):
         go.Bar(
             x = dff['weeks'],
             y = dff[category],
+            customdata = dff[category + '_count'],
+            name = category.capitalize() + ' Score',
             marker = {
                 'color':dff[category],
                 'coloraxis':'coloraxis'
             },
+            hovertemplate = '%{y:.1f} - from %{customdata} reviews'
         )
     )
 
@@ -973,6 +976,8 @@ def score_breakdown_figure(dff, category):
         go.Bar(
             y = dff[category],
             x = dff['restaurant'],
+            customdata = dff[category + '_count'],
+            name = category.capitalize() + ' Score',
             marker = {
                 'color':dff[category],
                 'coloraxis':'coloraxis'
@@ -980,12 +985,12 @@ def score_breakdown_figure(dff, category):
             texttemplate = '%{y:.1f}',
             textposition = 'outside',
             textangle = 0,
-            hovertemplate = '%{y:.1f}'
+            hovertemplate = '%{y:.1f} - from %{customdata} reviews'
         )
     )
 
     fig.update_layout(
-        title = category.capitalize() + ' Scores',
+        title = category.capitalize() + ' Scores - Last 4 Weeks',
         yaxis = {'range':[0,6]},
         coloraxis={
             'colorscale':'RdYlGn',

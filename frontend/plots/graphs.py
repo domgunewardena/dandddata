@@ -491,7 +491,11 @@ def score_graph(site, category):
         
     df_columns = ['weeks_ago','weeks','overall','food','service','ambience','value']
     groupby_columns = ['weeks_ago','weeks']
-    dff = dff[df_columns].groupby(groupby_columns).mean().reset_index()
+    
+    counts = dff[df_columns].groupby(groupby_columns).count().reset_index()
+    scores = dff[df_columns].groupby(groupby_columns).mean().reset_index()
+
+    dff = pd.merge(scores, counts, on=['weeks_ago','weeks'], suffixes=('','_count'))
     
     weeks_ago_list = [x for x in range(-weeks_ago,0)]
     week_labels_list = [str(-x) + ' Weeks Ago' for x in range(-weeks_ago,-1)] + ['Last Week']
@@ -558,7 +562,11 @@ def score_breakdown_graph(category):
         
     df_columns = ['restaurant','overall','food','service','ambience','value']
     groupby_columns = ['restaurant']
-    dff = dff[df_columns].groupby(groupby_columns).mean().reset_index()
+    
+    counts = dff[df_columns].groupby(groupby_columns).count().reset_index()
+    scores = dff[df_columns].groupby(groupby_columns).mean().reset_index()
+
+    dff = pd.merge(scores, counts, on='restaurant', suffixes=('','_count'))
 
     skeleton_df = pd.DataFrame(data={'restaurant':review_restaurants})
 
