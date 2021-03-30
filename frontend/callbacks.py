@@ -114,6 +114,30 @@ def update_homepage_mtd_sales(metric,measure):
         
     return func('All Shifts',metric,'mtd')
 
+@app.callback(
+    Output('homepage daily spend','figure'),
+    [Input('homepage metric dropdown','value'),])
+def update_homepage_daily_spend(metric):        
+    return sales_group_spend_graph('All Shifts',metric,'daily')
+
+@app.callback(
+    Output('homepage wtd spend','figure'),
+    [Input('homepage metric dropdown','value'),])
+def update_homepage_wtd_spend(metric):        
+    return sales_group_spend_graph('All Shifts',metric,'wtd')
+
+@app.callback(
+    Output('homepage mtd spend','figure'),
+    [Input('homepage metric dropdown','value'),])
+def update_homepage_mtd_spend(metric):
+        
+    if metric == 'vs. LW':
+        metric = 'vs. LM'
+    elif metric == 'Totals Last Week':
+        metric = 'Totals Last Month'
+        
+    return sales_group_spend_graph('All Shifts',metric,'mtd')
+
 
 @app.callback(Output('homepage tracker','figure'),
              [Input('homepage metric dropdown','value')])

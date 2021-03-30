@@ -121,7 +121,7 @@ dropdown_row_style = {
     'borderBottom': header_colors['border'],
     'borderRight': header_colors['border'],
     'backgroundColor': header_colors['background'],
-    'padding': '10px 5px'
+    'padding': '10px 5px',
 }
 
 def div_style_simple(width):

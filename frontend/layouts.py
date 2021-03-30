@@ -41,7 +41,7 @@ def home_page():
                     ),
                     dcc.Dropdown(
                         id = 'homepage measure dropdown',
-                        options = [{'label':i,'value':i} for i in dropdown_values['measures']],
+                        options = [{'label':i,'value':i} for i in ['Revenue','Covers'],
                         value = 'Revenue',
                         style = {
                             'width':dimensions['homepage']['dropdowns']['dropdown_width'],
@@ -78,6 +78,14 @@ def home_page():
         ]
     )
     
+    homepage_spend_graphs = html.Div(
+        [
+            homepage_sales_div('homepage daily spend'),
+            homepage_sales_div('homepage wtd spend'),
+            homepage_sales_div('homepage mtd spend'),
+        ]
+    )
+    
     homepage_tracker_graphs = html.Div(
         [
             homepage_tracker_div('homepage tracker'),
@@ -101,6 +109,7 @@ def home_page():
             homepage_future_graph, 
             homepage_tracker_graphs, 
             homepage_sales_graphs,
+            homepage_spend_graphs,
             homepage_review_graphs
         ]
     )
