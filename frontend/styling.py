@@ -64,7 +64,7 @@ dimensions = {
         'height':400,
         'width':'50%'
     },
-    'homepage':{
+    'group':{
         'dropdowns':{
             'div_width':'50%',
             'dropdown_width':'99%'
@@ -293,7 +293,7 @@ def review_graph(graph_id):
         config={'displayModeBar':False}
     )
 
-def homepage_sales_div(graph_id):
+def group_sales_div(graph_id):
     
     return html.Div(
         [
@@ -306,7 +306,7 @@ def homepage_sales_div(graph_id):
         }
     )
 
-def homepage_tracker_div(graph_id):
+def group_tracker_div(graph_id):
     
     return html.Div(
         [
@@ -319,7 +319,7 @@ def homepage_tracker_div(graph_id):
         }
     )
 
-def homepage_review_div(graph_id):
+def group_review_div(graph_id):
     
     return html.Div(
         [

@@ -14,11 +14,11 @@ from data.data import trends_df
 
 default_metric = ['vs. LW']
 
-def home_page():
+def group():
     
     metrics = ['vs. LW','vs. LY', 'Totals Last Week', 'Totals Last Year']
     
-    homepage_dropdowns =  html.Div(
+    group_dropdowns =  html.Div(
         [
             html.Div(
                 [
@@ -26,13 +26,13 @@ def home_page():
                         ['Choose the metric of the report:']
                     ),
                     dcc.Dropdown(
-                        id = 'homepage metric dropdown',
+                        id = 'group metric dropdown',
                         options = [{'label':i, 'value':i} for i in metrics],
                         value = metrics[default_metric_index],
-                        style = {'width':dimensions['homepage']['dropdowns']['dropdown_width']}
+                        style = {'width':dimensions['group']['dropdowns']['dropdown_width']}
                     ),
                 ],
-                style = div_style_simple(dimensions['homepage']['dropdowns']['div_width'])
+                style = div_style_simple(dimensions['group']['dropdowns']['div_width'])
             ),
             html.Div(
                 [
@@ -40,24 +40,24 @@ def home_page():
                         ['Choose the measure of the sales graphs:']
                     ),
                     dcc.Dropdown(
-                        id = 'homepage measure dropdown',
-                        options = [{'label':i,'value':i} for i in ['Revenue','Covers'],
+                        id = 'group measure dropdown',
+                        options = [{'label':i,'value':i} for i in ['Revenue','Covers']],
                         value = 'Revenue',
                         style = {
-                            'width':dimensions['homepage']['dropdowns']['dropdown_width'],
+                            'width':dimensions['group']['dropdowns']['dropdown_width'],
                         }
                     )
                 ],
-                style = div_style_simple(dimensions['homepage']['dropdowns']['div_width'])
+                style = div_style_simple(dimensions['group']['dropdowns']['div_width'])
             ),
         ],
         style = dropdown_row_style
     )
     
-    homepage_future_graph = html.Div(
+    group_future_graph = html.Div(
         [
             dcc.Graph(
-                id='homepage future',
+                id='group future',
                 config={'displayModeBar':False},
                 style={'width':'100%'}
             )
@@ -70,47 +70,47 @@ def home_page():
         }
     )
     
-    homepage_sales_graphs = html.Div(
+    group_sales_graphs = html.Div(
         [
-            homepage_sales_div('homepage daily sales'),
-            homepage_sales_div('homepage wtd sales'),
-            homepage_sales_div('homepage mtd sales'),
+            group_sales_div('group daily sales'),
+            group_sales_div('group wtd sales'),
+            group_sales_div('group mtd sales'),
         ]
     )
     
-    homepage_spend_graphs = html.Div(
+    group_spend_graphs = html.Div(
         [
-            homepage_sales_div('homepage daily spend'),
-            homepage_sales_div('homepage wtd spend'),
-            homepage_sales_div('homepage mtd spend'),
+            group_sales_div('group daily spend'),
+            group_sales_div('group wtd spend'),
+            group_sales_div('group mtd spend'),
         ]
     )
     
-    homepage_tracker_graphs = html.Div(
+    group_tracker_graphs = html.Div(
         [
-            homepage_tracker_div('homepage tracker'),
-            homepage_tracker_div('homepage pickup'),
+            group_tracker_div('group tracker'),
+            group_tracker_div('group pickup'),
         ]
     )
     
-    homepage_review_graphs = html.Div(
+    group_review_graphs = html.Div(
         [
-            homepage_review_div('homepage overall'),
-            homepage_review_div('homepage food'),
-            homepage_review_div('homepage service'),
-            homepage_review_div('homepage ambience'),
-            homepage_review_div('homepage value'),
+            group_review_div('group overall'),
+            group_review_div('group food'),
+            group_review_div('group service'),
+            group_review_div('group ambience'),
+            group_review_div('group value'),
         ]
     )
     
     return html.Div(
         children=[
-            homepage_dropdowns, 
-            homepage_future_graph, 
-            homepage_tracker_graphs, 
-            homepage_sales_graphs,
-            homepage_spend_graphs,
-            homepage_review_graphs
+            group_dropdowns, 
+            group_future_graph, 
+            group_tracker_graphs, 
+            group_sales_graphs,
+            group_spend_graphs,
+            group_review_graphs
         ]
     )
 
@@ -130,10 +130,10 @@ def breakdown():
                         id = 'breakdown metric dropdown',
                         options = [{'label':i, 'value':i} for i in metrics],
                         value = metrics[default_metric_index],
-                        style = {'width':dimensions['homepage']['dropdowns']['dropdown_width']}
+                        style = {'width':dimensions['group']['dropdowns']['dropdown_width']}
                     ),
                 ],
-                style = div_style_simple(dimensions['homepage']['dropdowns']['div_width'])
+                style = div_style_simple(dimensions['group']['dropdowns']['div_width'])
             ),
             html.Div(
                 [
@@ -145,11 +145,11 @@ def breakdown():
                         options = [{'label':i,'value':i} for i in dropdown_values['measures']],
                         value = 'Revenue',
                         style = {
-                            'width':dimensions['homepage']['dropdowns']['dropdown_width'],
+                            'width':dimensions['group']['dropdowns']['dropdown_width'],
                         }
                     )
                 ],
-                style = div_style_simple(dimensions['homepage']['dropdowns']['div_width'])
+                style = div_style_simple(dimensions['group']['dropdowns']['div_width'])
             ),
         ],
         style = dropdown_row_style
@@ -210,10 +210,10 @@ def restaurant():
                         id = 'restaurant metric dropdown',
                         options = [{'label':i, 'value':i} for i in metrics],
                         value = metrics[default_metric_index],
-                        style = {'width':dimensions['homepage']['dropdowns']['dropdown_width']}
+                        style = {'width':dimensions['group']['dropdowns']['dropdown_width']}
                     ),
                 ],
-                style = div_style_simple(dimensions['homepage']['dropdowns']['div_width'])
+                style = div_style_simple(dimensions['group']['dropdowns']['div_width'])
             ),
             html.Div(
                 [
@@ -225,11 +225,11 @@ def restaurant():
                         options = [{'label':i,'value':i} for i in dropdown_values['restaurants']],
                         value = 'Revenue',
                         style = {
-                            'width':dimensions['homepage']['dropdowns']['dropdown_width'],
+                            'width':dimensions['group']['dropdowns']['dropdown_width'],
                         }
                     )
                 ],
-                style = div_style_simple(dimensions['homepage']['dropdowns']['div_width'])
+                style = div_style_simple(dimensions['group']['dropdowns']['div_width'])
             ),
         ],
         style = dropdown_row_style
@@ -237,24 +237,24 @@ def restaurant():
     
     restaurant_revenue_graphs = html.Div(
         [
-            homepage_sales_div('restaurant daily sales'),
-            homepage_sales_div('restaurant wtd sales'),
-            homepage_sales_div('restaurant mtd sales'),
+            group_sales_div('restaurant daily sales'),
+            group_sales_div('restaurant wtd sales'),
+            group_sales_div('restaurant mtd sales'),
         ]
     )
     
     restaurant_spend_graphs = html.Div(
         [
-            homepage_sales_div('restaurant daily spend'),
-            homepage_sales_div('restaurant wtd spend'),
-            homepage_sales_div('restaurant mtd spend'),
+            group_sales_div('restaurant daily spend'),
+            group_sales_div('restaurant wtd spend'),
+            group_sales_div('restaurant mtd spend'),
         ]
     )
     
     restaurant_tracker_graphs = html.Div(
         [
-            homepage_tracker_div('restaurant tracker'),
-            homepage_tracker_div('restaurant pickup'),
+            group_tracker_div('restaurant tracker'),
+            group_tracker_div('restaurant pickup'),
         ]
     )
     
@@ -276,11 +276,11 @@ def restaurant():
     
     restaurant_review_graphs = html.Div(
         [
-            homepage_review_div('restaurant overall'),
-            homepage_review_div('restaurant food'),
-            homepage_review_div('restaurant service'),
-            homepage_review_div('restaurant ambience'),
-            homepage_review_div('restaurant value'),
+            group_review_div('restaurant overall'),
+            group_review_div('restaurant food'),
+            group_review_div('restaurant service'),
+            group_review_div('restaurant ambience'),
+            group_review_div('restaurant value'),
         ]
     )
     
@@ -814,7 +814,7 @@ def trends():
         ]
     )
 
-home_page_layout = home_page()
+group_layout = group()
 breakdown_layout = breakdown()
 restaurant_layout = restaurant()
 daily_layout = sales_layout_template('daily')

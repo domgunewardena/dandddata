@@ -48,9 +48,9 @@ pickup_dropdown_inputs = [Input(x, 'value') for x in pickup_dropdown_ids]
 # Home Page
 
 @app.callback(
-    Output('homepage future', 'figure'),
-    [Input('homepage metric dropdown', 'value')])
-def update_homepage_future(metric):
+    Output('group future', 'figure'),
+    [Input('group metric dropdown', 'value')])
+def update_group_future(metric):
     
     df = future_df.copy()
     dff = df[df.restaurant.isin(user_restaurants[auth._username]['bookings'])]
@@ -65,10 +65,10 @@ def update_homepage_future(metric):
     return future_totals_figure(['Group'],grouped_df)
 
 @app.callback(
-    Output('homepage daily sales','figure'),
-    [Input('homepage metric dropdown','value'),
-     Input('homepage measure dropdown', 'value'),])
-def update_homepage_daily_sales(metric,measure):
+    Output('group daily sales','figure'),
+    [Input('group metric dropdown','value'),
+     Input('group measure dropdown', 'value'),])
+def update_group_daily_sales(metric,measure):
     
     if measure == 'Revenue':
         func = sales_group_revenue_graph
@@ -80,10 +80,10 @@ def update_homepage_daily_sales(metric,measure):
     return func('All Shifts',metric,'daily')
 
 @app.callback(
-    Output('homepage wtd sales','figure'),
-    [Input('homepage metric dropdown','value'),
-     Input('homepage measure dropdown', 'value'),])
-def update_homepage_wtd_sales(metric,measure):
+    Output('group wtd sales','figure'),
+    [Input('group metric dropdown','value'),
+     Input('group measure dropdown', 'value'),])
+def update_group_wtd_sales(metric,measure):
     
     if measure == 'Revenue':
         func = sales_group_revenue_graph
@@ -95,10 +95,10 @@ def update_homepage_wtd_sales(metric,measure):
     return func('All Shifts',metric,'wtd')
 
 @app.callback(
-    Output('homepage mtd sales','figure'),
-    [Input('homepage metric dropdown','value'),
-     Input('homepage measure dropdown', 'value'),])
-def update_homepage_mtd_sales(metric,measure):
+    Output('group mtd sales','figure'),
+    [Input('group metric dropdown','value'),
+     Input('group measure dropdown', 'value'),])
+def update_group_mtd_sales(metric,measure):
     
     if measure == 'Revenue':
         func = sales_group_revenue_graph
@@ -115,21 +115,21 @@ def update_homepage_mtd_sales(metric,measure):
     return func('All Shifts',metric,'mtd')
 
 @app.callback(
-    Output('homepage daily spend','figure'),
-    [Input('homepage metric dropdown','value'),])
-def update_homepage_daily_spend(metric):        
+    Output('group daily spend','figure'),
+    [Input('group metric dropdown','value'),])
+def update_group_daily_spend(metric):        
     return sales_group_spend_graph('All Shifts',metric,'daily')
 
 @app.callback(
-    Output('homepage wtd spend','figure'),
-    [Input('homepage metric dropdown','value'),])
-def update_homepage_wtd_spend(metric):        
+    Output('group wtd spend','figure'),
+    [Input('group metric dropdown','value'),])
+def update_group_wtd_spend(metric):        
     return sales_group_spend_graph('All Shifts',metric,'wtd')
 
 @app.callback(
-    Output('homepage mtd spend','figure'),
-    [Input('homepage metric dropdown','value'),])
-def update_homepage_mtd_spend(metric):
+    Output('group mtd spend','figure'),
+    [Input('group metric dropdown','value'),])
+def update_group_mtd_spend(metric):
         
     if metric == 'vs. LW':
         metric = 'vs. LM'
@@ -139,40 +139,40 @@ def update_homepage_mtd_spend(metric):
     return sales_group_spend_graph('All Shifts',metric,'mtd')
 
 
-@app.callback(Output('homepage tracker','figure'),
-             [Input('homepage metric dropdown','value')])
-def update_homepage_tracker(metric):
+@app.callback(Output('group tracker','figure'),
+             [Input('group metric dropdown','value')])
+def update_group_tracker(metric):
     return tracker_group_8_weeks_graph('This Week',metric,'100 Wardour St', tracker_df, 'Booked Covers')
 
-@app.callback(Output('homepage pickup','figure'),
-             [Input('homepage metric dropdown','value')])
-def update_homepage_pickup(metric):
+@app.callback(Output('group pickup','figure'),
+             [Input('group metric dropdown','value')])
+def update_group_pickup(metric):
     return tracker_group_8_weeks_graph('This Week',metric,'100 Wardour St', pickup_df, 'Daily Pickup')
 
 
-@app.callback(Output('homepage overall','figure'),
-             [Input('homepage metric dropdown','value')])
-def update_homepage_overall(metric):
+@app.callback(Output('group overall','figure'),
+             [Input('group metric dropdown','value')])
+def update_group_overall(metric):
     return score_graph('Group','overall')
 
-@app.callback(Output('homepage food','figure'),
-             [Input('homepage metric dropdown','value')])
-def update_homepage_food(metric):
+@app.callback(Output('group food','figure'),
+             [Input('group metric dropdown','value')])
+def update_group_food(metric):
     return score_graph('Group','food')
 
-@app.callback(Output('homepage service','figure'),
-             [Input('homepage metric dropdown','value')])
-def update_homepage_service(metric):
+@app.callback(Output('group service','figure'),
+             [Input('group metric dropdown','value')])
+def update_group_service(metric):
     return score_graph('Group','service')
 
-@app.callback(Output('homepage ambience','figure'),
-             [Input('homepage metric dropdown','value')])
-def update_homepage_ambience(metric):
+@app.callback(Output('group ambience','figure'),
+             [Input('group metric dropdown','value')])
+def update_group_ambience(metric):
     return score_graph('Group','ambience')
 
-@app.callback(Output('homepage value','figure'),
-             [Input('homepage metric dropdown','value')])
-def update_homepage_value(metric):
+@app.callback(Output('group value','figure'),
+             [Input('group metric dropdown','value')])
+def update_group_value(metric):
     return score_graph('Group','value')
 
 

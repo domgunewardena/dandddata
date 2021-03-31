@@ -99,7 +99,7 @@ sidebar = html.Div(
         ),
         dbc.Nav(
             [
-                dbc.NavItem(dbc.NavLink("Group", href="/", active="exact")),
+                dbc.NavItem(dbc.NavLink("Group", href="/group", active="exact")),
                 dbc.NavItem(dbc.NavLink("Breakdown", href="/breakdown", active="exact")),
                 dbc.NavItem(dbc.NavLink("Restaurant", href="/restaurant", active="exact")),
                 html.Hr(),

@@ -79,10 +79,12 @@ sales_dataframes = {
 
 def create_weeks_columns(df):
     
+#     today = datetime.today()    
     today = datetime.strptime('2021-04-12','%Y-%m-%d')
     
     def weeks_ahead(date):
-        return floor(((date-today).days)/7)
+        monday = date - timedelta(date.weekday())
+        return floor(((monday - today).days)/7)+1
     
     def weeks_label(weeks_ahead):
         return 'This Week' if weeks_ahead == 0 else 'Next Week' if weeks_ahead == 1 else str(weeks_ahead) + ' Weeks Ahead'

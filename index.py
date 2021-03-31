@@ -35,7 +35,7 @@ app.title='D&D Data'
               [dash.dependencies.Input('url', 'pathname')])
 def display_page(pathname):
     if pathname == '/group':
-        return home_page_layout
+        return group_layout
     if pathname == '/breakdown':
         return breakdown_layout
     if pathname == '/restaurant':
@@ -59,7 +59,7 @@ def display_page(pathname):
     if pathname == '/trends':
         return trends_layout
     else:
-        return home_page_layout
+        return group_layout
     
 if __name__ == '__main__':
 #     app.run_server(debug=False, processes=4)
