@@ -100,6 +100,11 @@ groupby_columns = df_columns[:-2]
 
 dff = df[df_columns].groupby(groupby_columns).sum().reset_index()
 dff['full'] = dff['max_guests TW']/dff['capacity']
+
+def reduce_minus(value):
+    return 0 if value < 0 else value
+
+dff['empty'] = (dff['capacity']-dff['max_guests TW']).apply(reduce_minus)
 future_breakdown_df = dff
 
 # Getting last year reviews
