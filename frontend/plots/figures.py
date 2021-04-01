@@ -1040,7 +1040,7 @@ def future_breakdown_figure(dff, week):
     
     return fig
 
-def homepage_bookings_summary_figure(covers, empty, full):
+def homepage_future_summary_figure(covers, empty, full):
     
     fig = go.Figure()
 
@@ -1052,36 +1052,47 @@ def homepage_bookings_summary_figure(covers, empty, full):
         go.Pie(
             labels = labels,
             values = values,
-            hole = .5,
+            hole = .6,
             marker = {
-                'colors':colors           
+                'colors':colors,    
             },
             hoverinfo = 'label+value',
-            textinfo = 'none'
+            textinfo = 'none',
+            opacity = 0.5
         )
     )
 
     fig.update_layout(
         title = {
-            'text':'Bookings % Full - Next 4 Weeks',
+            'text':'Bookings % Full',
             'font':{
                 'size':30
             }
         },
-        annotations = [dict(
-            text = str(int(full*100)) + '%',
-            x = 0.5,
-            y = 0.5,
-            font_size = 50,
-            showarrow = False
-        )],
+        annotations = [
+            dict(
+                text = str(int(full*100)) + '%',
+                x = 0.5,
+                y = 0.5,
+                font_size = 50,
+                showarrow = False
+            ),
+            dict(
+                text = str(int(covers)) + ' Covers',
+                x = 0.5,
+                y = -.2,
+                font_size = 40,
+                showarrow = False
+            ),
+        ],
         showlegend = False,
-        paper_bgcolor = 'lavender'
     )
 
     return fig
 
-def homepage_bookings_worst_figure(dff):
+def homepage_future_worst_figure(dff):
+    
+    fig = go.Figure()
     
     fig.add_trace(
         go.Bar(
@@ -1180,6 +1191,11 @@ def homepage_gauge_figure(thisyear, lastyear, measure):
     return fig
     
 def homepage_worst_figure(dff, measure):
+    
+    if measure == 'Covers':
+        restaurant_column = 'Restaurant'
+    elif measure == 'Revenue':
+        restaurant_column = 'SiteName'
 
     ymin = min(dff['vs. LY'])
     
@@ -1188,7 +1204,7 @@ def homepage_worst_figure(dff, measure):
     fig.add_trace(
         go.Bar(
             x = dff['vs. LY'],
-            y = dff['Restaurant'],
+            y = dff[restaurant_column],
             customdata = dff['vs. LY %']*100,
             marker = {
                 'color':dff['vs. LY %'],
@@ -1219,13 +1235,13 @@ def homepage_worst_figure(dff, measure):
         },
         xaxis = {
             'title':'Booked ' + measure + ' vs. LY',
-            'range':[ymin*1.3,-ymin*1.3]
+            'range':[ymin*1.7,-ymin*1.7]
         },
     )
     
     return fig
 
-def homepage_reviews_summary_figure(overall):
+def homepage_score_summary_figure(overall):
     
     fig = go.Figure()
 
@@ -1274,7 +1290,7 @@ def homepage_reviews_summary_figure(overall):
     
     return fig
 
-def homepage_reviews_worst_figure(df):
+def homepage_score_worst_figure(df):
     
     fig = go.Figure()
 
@@ -1287,7 +1303,7 @@ def homepage_reviews_worst_figure(df):
             marker = dict(
                 size = [1,1,1,1,1],
                 sizemode='area',
-                sizeref=.0005,
+                sizeref=.001,
                 sizemin=10,
                 color = df.overall,
                 coloraxis = 'coloraxis'
@@ -1314,4 +1330,6 @@ def homepage_reviews_worst_figure(df):
                 'size':30
             }
         }
-    )    
+    )
+    
+    return fig

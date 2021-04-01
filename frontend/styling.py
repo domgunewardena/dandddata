@@ -80,12 +80,12 @@ dimensions = {
         'tracker':{
             'height':350,
             'width':'50%',
-        }
-        'review':{
+        },
+        'score':{
             'height':350,
             'width':'20%',
-        }
-    }
+        },
+    },
     'breakdown':{
         'future':{
             'height':1000,
@@ -99,11 +99,11 @@ dimensions = {
             'height':900,
             'width':'33%'
         },
-        'review':{
+        'score':{
             'height':300,
             'width':'100%'
         },
-    }
+    },
     'home':{
         'height':400,
         'width':'25%'
@@ -137,8 +137,25 @@ styles = {
         'display': 'inline-block',
         'height':dimensions['trends']['height'],
         'width':dimensions['trends']['width']
+    },
+    'homepage_title':{
+        'textAlign':"center",
+        'borderBottom': header_colors['border'],
+        'borderRight': header_colors['border'],
+        'backgroundColor': header_colors['background'],
     }
 }
+
+def homepage_title_style():
+    
+    return {
+        'textAlign':"center",
+        'borderBottom': header_colors['border'],
+        'borderRight': header_colors['border'],
+        'backgroundColor': header_colors['background'],
+        'width':width,
+        'display':'inline-block'
+    }
 
         
 
@@ -245,8 +262,8 @@ def group_tracker_div(graph_id):
 def group_review_div(graph_id):
     
     graphs_list = [standard_graph(graph_id)]
-    height = dimensions['group']['review']['height']
-    width = dimensions['group']['review']['width']
+    height = dimensions['group']['score']['height']
+    width = dimensions['group']['score']['width']
     
     return render_div(graphs_list, height, width)
 
@@ -270,8 +287,8 @@ def breakdown_tracker_div(graph_id):
 def breakdown_review_div(graph_id):
     
     graphs_list = [standard_graph(graph_id)]
-    height = dimensions['breakdown']['review']['height']
-    width = dimensions['breakdown']['review']['width']
+    height = dimensions['breakdown']['score']['height']
+    width = dimensions['breakdown']['score']['width']
     
     return render_div(graphs_list, height, width)
 

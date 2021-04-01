@@ -59,7 +59,7 @@ def display_page(pathname):
     if pathname == '/trends':
         return trends_layout
     else:
-        return group_layout
+        return homepage_layout
     
 if __name__ == '__main__':
 #     app.run_server(debug=False, processes=4)

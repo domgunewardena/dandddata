@@ -14,6 +14,49 @@ from data.data import trends_df
 
 def homepage():
     
+    homepage_titles = html.Div(
+        [
+            html.Div(
+                [
+                    html.H1(
+                        ['4Wks Ahead'],
+                        id = 'homepage title',
+                        style = styles['homepage_title']
+                    )
+                ],
+                style = {
+                    'width':'50%',
+                    'display':'inline-block'
+                }
+            ),
+            html.Div(
+                [
+                    html.H1(
+                        ['MTD'],
+                        style = styles['homepage_title']
+                    )
+                ],
+                style = {
+                    'width':'25%',
+                    'display':'inline-block'
+                }
+            ),
+            html.Div(
+                [
+                    html.H1(
+                        ['Last 4Wks'],
+                        style = styles['homepage_title']
+                    )
+                ],
+                style = {
+                    'width':'25%',
+                    'display':'inline-block'
+                }
+            ),
+        ]
+    )
+
+    
     homepage_summary_graphs = html.Div(
         [
             homepage_div('homepage future summary'),
@@ -34,6 +77,7 @@ def homepage():
     
     return html.Div(
         children=[
+            homepage_titles,
             homepage_summary_graphs,
             homepage_worst_graphs
         ]

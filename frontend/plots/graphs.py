@@ -1,4 +1,4 @@
-from data.data import sales_dataframes, reviews_dff, future_breakdown_df
+from data.data import sales_dataframes, tracker_df, reviews_dff, future_breakdown_df
 from data.functions import *
 from data.date_bounds import date_bounds, date_columns
 from data.day_counts import day_counts
@@ -580,7 +580,7 @@ def future_breakdown_graph(week):
     
     return future_breakdown_figure(dff, week)
 
-def homepage_bookings_graph(graph):
+def homepage_future_graph(graph):
     
     df = future_breakdown_df
     weeks_ahead = 4
@@ -600,20 +600,20 @@ def homepage_bookings_graph(graph):
         empty = capacity-covers
         full = covers/capacity
 
-        return homepage_bookings_summary_figure(covers, empty, full)
+        return homepage_future_summary_figure(covers, empty, full)
     
     elif graph == 'worst':
         
         dff = df.sort_values('full', ascending=False).tail(5)
         
-        return homepage_bookings_worst_figure(dff)
+        return homepage_future_worst_figure(dff)
 
 def homepage_tracker_graph(graph):
     
     df = tracker_df
     mask1 = df['Week'].isin(['This Week','Next Week','Two Weeks','Three Weeks'])
     mask2 = df['Day'] == 'Full Week'
-    dff = bookings_user_site_filter(df[mask1 & mask2])
+    dff = tracker_user_site_filter(df[mask1 & mask2])
 
     df_columns = ['Restaurant','This Week','Last Week','Last Year']
     groupby_columns = ['Restaurant']
@@ -671,7 +671,7 @@ def homepage_revenue_graph(graph):
         
         return homepage_worst_figure(dff, 'Revenue')
     
-def homepage_reviews_graph(graph):
+def homepage_score_graph(graph):
     
     df = reviews_dff
     dff = bookings_user_site_filter(df[df.weeks_ago > -5])
@@ -680,7 +680,7 @@ def homepage_reviews_graph(graph):
         
         overall = dff['overall'].mean()
         
-        return homepage_reviews_summary_figure(overall)
+        return homepage_score_summary_figure(overall)
     
     elif graph == 'worst':
         
@@ -693,4 +693,4 @@ def homepage_reviews_graph(graph):
         restaurants = pd.merge(means,counts,on='restaurant',suffixes=('','_count'), how='outer')
         df = restaurants.sort_values('overall', ascending=False).tail(5)
         
-        return homepage_reviews_worst_figure(df)
+        return homepage_score_worst_figure(df)

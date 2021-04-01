@@ -43,9 +43,61 @@ tracker_dropdown_inputs = [Input(x, 'value') for x in tracker_dropdown_ids]
 pickup_dropdown_ids = ['pickup_week_dropdown','pickup_metric_dropdown','pickup_site_dropdown']
 pickup_dropdown_inputs = [Input(x, 'value') for x in pickup_dropdown_ids]
 
+
 # Callbacks
 
-# Home Page
+# Home
+
+@app.callback(
+    Output('homepage future summary', 'figure'),
+    [Input('homepage title', 'children')])
+def update_homepage_future_summary(metric):
+    return homepage_future_graph('summary')
+
+@app.callback(
+    Output('homepage tracker summary', 'figure'),
+    [Input('homepage title', 'children')])
+def update_homepage_tracker_summary(metric):
+    return homepage_tracker_graph('summary')
+
+@app.callback(
+    Output('homepage revenue summary', 'figure'),
+    [Input('homepage title', 'children')])
+def update_homepage_revenue_summary(metric):
+    return homepage_revenue_graph('summary')
+
+@app.callback(
+    Output('homepage score summary', 'figure'),
+    [Input('homepage title', 'children')])
+def update_homepage_score_summary(metric):
+    return homepage_score_graph('summary')
+
+
+@app.callback(
+    Output('homepage future worst', 'figure'),
+    [Input('homepage title', 'children')])
+def update_homepage_future_worst(metric):
+    return homepage_future_graph('worst')
+
+@app.callback(
+    Output('homepage tracker worst', 'figure'),
+    [Input('homepage title', 'children')])
+def update_homepage_tracker_worst(metric):
+    return homepage_tracker_graph('worst')
+
+@app.callback(
+    Output('homepage revenue worst', 'figure'),
+    [Input('homepage title', 'children')])
+def update_homepage_revenue_worst(metric):
+    return homepage_revenue_graph('worst')
+
+@app.callback(
+    Output('homepage score worst', 'figure'),
+    [Input('homepage title', 'children')])
+def update_homepage_score_worst(metric):
+    return homepage_score_graph('worst')
+
+# Group
 
 @app.callback(
     Output('group future', 'figure'),
