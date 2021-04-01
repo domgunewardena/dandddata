@@ -68,7 +68,40 @@ dimensions = {
         'dropdowns':{
             'div_width':'50%',
             'dropdown_width':'99%'
+        },
+        'sales':{
+            'height':300,
+            'width':'33%'
+        },
+        'tracker':{
+            'height':350,
+            'width':'50%',
         }
+        'review':{
+            'height':350,
+            'width':'20%',
+        }
+    }
+    'breakdown':{
+        'future':{
+            'height':1000,
+            'width':'33%'
+        },
+        'tracker':{
+            'height':1000,
+            'width':'33%'
+        },
+        'sales':{
+            'height':900,
+            'width':'33%'
+        },
+        'review':{
+            'height':300,
+            'width':'100%'
+        },
+    }
+    'home':{
+        'height':400,
     }
 }
 
@@ -133,24 +166,124 @@ def div_style_simple(width):
         'justify-content':'center',
     }
 
-def small_graph(graph_id):
+# Graphs
+
+def render_graph(graph_id, height, width):
+    
     return dcc.Graph(
         id=graph_id,
         style={
-            'height':dimensions['mini']['height'],
-            'width':'100%'
+            'height':height,
+            'width':width
         },
         config={'displayModeBar':False})
+
+def standard_graph(graph_id):
+    return render_graph(
+        graph_id, 
+        '100%', 
+        '100%')
+
+def small_graph(graph_id):
+    return render_graph(
+        graph_id, 
+        dimensions['mini']['height'], 
+        '100%')
 
 def week_graph(graph_id):
-    return dcc.Graph(
-        id=graph_id,
-        style={
-            'height':dimensions['week']['height'],
-            'width':'100%'
-        },
-        config={'displayModeBar':False})
+    return render_graph(
+        graph_id, 
+        dimensions['week']['height'], 
+        '100%')
 
+def tracker_graph(graph_id):
+    return render_graph(
+        graph_id, 
+        '50%', 
+        '100%')
+
+# Divs
+
+def render_div(graphs_list, height, width):
+    
+    return html.Div(
+        graphs_list,
+        style = {
+            'display':'inline-block',
+            'height':height,
+            'width':width
+        }
+    )
+
+def group_sales_div(graph_id):
+    return render_div(
+        [small_graph(graph_id)],
+        dimensions['group']['sales']['height'],
+        dimensions['group']['sales']['width'],
+    )
+
+def group_tracker_div(graph_id):
+    return render_div(
+        [standard_graph(graph_id)],
+        dimensions['group']['tracker']['height'],
+        dimensions['group']['tracker']['width'],
+    )
+
+def group_review_div(graph_id):
+    return render_div(
+        [standard_graph(graph_id)],
+        dimensions['group']['review']['height'],
+        dimensions['group']['review']['width'],
+    )
+
+
+def breakdown_sales_div(graph_id):
+    return render_div(
+        [standard_graph(graph_id)],
+        dimensions['breakdown']['sales']['height'],
+        dimensions['breakdown']['sales']['width'],
+    )
+
+def breakdown_tracker_div(graph_id):
+    return render_div(
+        [standard_graph(graph_id)],
+        dimensions['breakdown']['tracker']['height'],
+        dimensions['breakdown']['tracker']['width'],
+    )
+
+def breakdown_review_div(graph_id):
+    return render_div(
+        [standard_graph(graph_id)],
+        dimensions['breakdown']['review']['height'],
+        dimensions['breakdown']['review']['width'],
+    )
+
+def breakdown_future_div(graph_id):
+    
+    return html.Div(
+        [
+            dcc.Graph(
+                id = graph_id,
+                config = {'displayModeBar':False},
+                style={
+                    'height':'100%',
+                    'width':'100%'
+                }
+            )
+        ],    
+        style = {
+            'display':'inline-block',
+            'height':dimensions['main']['height']+100,
+            'width':dimensions['main']['width']
+        }
+    )
+    
+
+def capitalize_report_title(report):
+    if report in ['wtd', 'mtd']:
+        return report.upper()
+    else:
+        return report.capitalize()
 
 templates = {
     'Sales':{
@@ -263,153 +396,7 @@ def week_colors_totals(measure, shift, metric):
 def week_colors_change(shift, val):
     return week_colors['Change'][shift]['Rise'] if val>0 else week_colors['Change'][shift]['Fall']
 
+
+
+
 plus = lambda i: ("+" if i > 0 else "") + str(i)
-
-def tracker_graph(graph_id):
-    return dcc.Graph(
-        id=graph_id,
-        style={
-            'height':'50%',
-            'width':'100%'
-        },
-        config={'displayModeBar':False})
-
-def home_tracker_graph(graph_id):
-    return dcc.Graph(
-        id=graph_id,
-        style={
-            'height':'100%',
-            'width':'100%'
-        },
-        config={'displayModeBar':False})
-
-def review_graph(graph_id):
-    return dcc.Graph(
-        id=graph_id,
-        style={
-            'height':'100%',
-            'width':'100%'
-        },
-        config={'displayModeBar':False}
-    )
-
-def group_sales_div(graph_id):
-    
-    return html.Div(
-        [
-            small_graph(graph_id),
-        ],
-        style = {
-            'display':'inline-block',
-            'height':dimensions['mini']['height'],
-            'width':dimensions['main']['width']
-        }
-    )
-
-def group_tracker_div(graph_id):
-    
-    return html.Div(
-        [
-            home_tracker_graph(graph_id),
-        ],
-        style = {
-            'display':'inline-block',
-            'height':dimensions['mini_tracker']['height'],
-            'width':'50%'
-        }
-    )
-
-def group_review_div(graph_id):
-    
-    return html.Div(
-        [
-            review_graph(graph_id),
-        ],
-        style = {
-            'display':'inline-block',
-            'height':dimensions['mini_tracker']['height'],
-            'width':'20%'
-        }
-    )
-
-def breakdown_sales_div(graph_id):
-    
-    return html.Div(
-        [
-            dcc.Graph(
-                id = graph_id,
-                config = {'displayModeBar':False}
-            )
-        ],    
-        style = {
-            'display':'inline-block',
-            'height':dimensions['main']['height'],
-            'width':dimensions['main']['width']
-        }
-    )
-
-def breakdown_tracker_div(graph_id):
-    
-    tracker_graphs_extra_height = 100
-    
-    return html.Div(
-        [
-            dcc.Graph(
-                id = graph_id,
-                config = {'displayModeBar':False},
-                style={
-                    'height':'100%',
-                    'width':'100%'
-                }
-            )
-        ],    
-        style = {
-            'display':'inline-block',
-            'height':dimensions['main']['height']+tracker_graphs_extra_height,
-            'width':dimensions['main']['width']
-        }
-    )
-
-def breakdown_review_div(graph_id):
-    
-    return html.Div(
-        [
-            html.Div(
-                [
-                    review_graph(graph_id),
-                ],
-                style = {
-                    'display':'inline-block',
-                    'height':dimensions['mini']['height'],
-                    'width':'100%'
-                }
-            )
-        ]
-    )
-
-def breakdown_future_div(graph_id):
-    
-    return html.Div(
-        [
-            dcc.Graph(
-                id = graph_id,
-                config = {'displayModeBar':False},
-                style={
-                    'height':'100%',
-                    'width':'100%'
-                }
-            )
-        ],    
-        style = {
-            'display':'inline-block',
-            'height':dimensions['main']['height']+100,
-            'width':dimensions['main']['width']
-        }
-    )
-    
-
-def capitalize_report_title(report):
-    if report in ['wtd', 'mtd']:
-        return report.upper()
-    else:
-        return report.capitalize()
