@@ -1081,29 +1081,45 @@ def homepage_bookings_summary_figure(covers, empty, full):
 
     return fig
 
-def homepage_bookings_worst_restaurants_figure(dff):
+def homepage_bookings_worst_figure(dff):
     
-    fig = go.Figure()
-
     fig.add_trace(
         go.Bar(
             x = dff['full']*100,
             y = dff['restaurant'],
             marker = {
-                'color':'darkred'
+                'color': 'blue',
+                'coloraxis':'coloraxis',
+                'line_color':'blue',
+                'line_width':1.5,
             },
             orientation = 'h',
             text = dff['full']*100,
             texttemplate = '%{x:.0f}%',
             textposition = 'auto',
             hovertemplate = '%{x:.0f}%',
-            name = "Full"
+            name = "Full",
+            opacity = 0.5
+        )
+    )
+    fig.add_trace(
+        go.Bar(
+            x = 100-dff['full']*100,
+            y = dff['restaurant'],
+            marker = {
+                'color':'white',
+            },
+            orientation = 'h',
+            hovertemplate = '%{x:.0f}% Empty',
+            name = "Empty",
+            opacity = 0.5
         )
     )
 
+
     fig.update_layout(
         title = {
-            'text':'Emptiest Restaurants - Next 4 Weeks',
+            'text':'Emptiest Restaurants',
             'font':{
                 'size':30
             }
@@ -1111,7 +1127,8 @@ def homepage_bookings_worst_restaurants_figure(dff):
         xaxis = {
             'title':'% Full',
             'range':[0,100]
-        }
+        },
+        barmode="relative"
     )
 
     return fig
@@ -1159,3 +1176,142 @@ def homepage_gauge_figure(thisyear, lastyear, measure):
             }
         )
     )
+    
+    return fig
+    
+def homepage_worst_figure(dff, measure):
+
+    ymin = min(dff['vs. LY'])
+    
+    fig = go.Figure()
+
+    fig.add_trace(
+        go.Bar(
+            x = dff['vs. LY'],
+            y = dff['Restaurant'],
+            customdata = dff['vs. LY %']*100,
+            marker = {
+                'color':dff['vs. LY %'],
+                'coloraxis':'coloraxis'
+            },
+            orientation = 'h',
+            text = dff['vs. LY %'],
+            texttemplate = '%{customdata:.0f}%',
+            textposition = 'outside',
+            textangle = 0,
+            hovertemplate = '%{x:.0f}',
+            name = "vs. LY",
+        )
+    )
+
+    fig.update_layout(
+        title = {
+            'text':'Lowest ' + measure + ' vs. LY',
+            'font':{
+                'size':30
+            }
+        },
+        coloraxis={
+            'colorscale':'RdYlGn',
+            'cmin':-1,
+            'cmax':1,
+            'showscale':False
+        },
+        xaxis = {
+            'title':'Booked ' + measure + ' vs. LY',
+            'range':[ymin*1.3,-ymin*1.3]
+        },
+    )
+    
+    return fig
+
+def homepage_reviews_summary_figure(overall):
+    
+    fig = go.Figure()
+
+    if overall >= 4.7:
+        color = 'lightgreen'
+    elif overall >= 4.3:
+        color = 'gold'
+    else:
+        color = 'firebrick'
+
+    labels = ['Overall', None]
+    values = [overall, 5-overall]
+    colors = [color,'lightgrey']
+
+    fig.add_trace(
+        go.Pie(
+            labels = labels,
+            values = values,
+            hole = .5,
+            marker = {
+                'colors':colors,    
+            },
+            hoverinfo = 'label+value',
+            textinfo = 'none'
+        )
+    )
+
+    fig.update_layout(
+        title = {
+            'text':'Overall Score',
+            'font':{
+                'size':30
+            }
+        },
+        annotations = [
+            dict(
+                text = str(round(overall,1)),
+                x = 0.5,
+                y = 0.5,
+                font_size = 50,
+                showarrow = False
+            ),
+        ],
+        showlegend = False,
+    )
+    
+    return fig
+
+def homepage_reviews_worst_figure(df):
+    
+    fig = go.Figure()
+
+    fig.add_trace(
+        go.Scatter(
+            y = df.restaurant,
+            x = df.overall,
+            customdata = df.overall_count,
+            mode = 'markers+text',
+            marker = dict(
+                size = [1,1,1,1,1],
+                sizemode='area',
+                sizeref=.0005,
+                sizemin=10,
+                color = df.overall,
+                coloraxis = 'coloraxis'
+            ),
+            text = df.overall,
+            texttemplate = '%{x:.1f}',
+            textposition = 'middle center',
+            textfont_size=20,
+            hovertemplate = 'From %{customdata} reviews',
+            name = 'Overall Score'
+        )
+    )
+
+    fig.update_layout(
+        coloraxis={
+            'colorscale':'RdYlGn',
+            'cmin':1,
+            'cmax':10,
+            'showscale':False
+        },
+        title={
+            'text':'Lowest Scores',
+            'font':{
+                'size':30
+            }
+        }
+    )    
