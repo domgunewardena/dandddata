@@ -75,6 +75,7 @@ sales_dataframes = {
   },
 }
 
+
 # Creating future df by week for future breakdown
 
 def create_weeks_columns(df):
@@ -106,6 +107,7 @@ def reduce_minus(value):
 
 dff['empty'] = (dff['capacity']-dff['max_guests TW']).apply(reduce_minus)
 future_breakdown_df = dff
+
 
 # Getting last year reviews
 

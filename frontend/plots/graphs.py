@@ -485,9 +485,9 @@ def score_graph(site, category):
     df = df[df.weeks_ago >= -weeks_ago]
     
     if site == 'Group':
-        dff = scores_user_site_filter(df)
+        dff = bookings_user_site_filter(df)
     else:
-        dff = scores_site_filter(df, site)
+        dff = bookings_site_filter(df, site)
         
     df_columns = ['weeks_ago','weeks','overall','food','service','ambience','value']
     groupby_columns = ['weeks_ago','weeks']
@@ -513,7 +513,7 @@ def score_graph(site, category):
 
 def score_breakdown_graph(category):
     
-    review_restaurants = scores_breakdown_user_site_filter([
+    review_restaurants = bookings_breakdown_user_site_filter([
         '100 Wardour St',
         '14 Hills',
         '20 Stories',
@@ -577,6 +577,32 @@ def score_breakdown_graph(category):
 def future_breakdown_graph(week):
     
     df = future_breakdown_df
-    dff = scores_user_site_filter(df[df['weeks']==week]).sort_values(by='restaurant',ascending=False)
+    dff = bookings_user_site_filter(df[df['weeks']==week]).sort_values(by='restaurant',ascending=False)
     
     return future_breakdown_figure(dff, week)
+
+def homepage_bookings_summary_graph():
+    
+    df = bookings_user_site_filter(
+        homepage_bookings_df(
+            future_breakdown_df
+        )
+    )
+    
+    sums = df[['capacity','max_guests TW','empty']].sum()
+    capacity = sums[0]
+    covers = sums[1]
+    empty = capacity-covers
+    full = covers/capacity
+    
+    return homepage_bookings_summary_figure(covers, empty, full)
+    
+def homepage_bookings_worst_restaurants_graph():
+    
+    df = bookings_user_site_filter(
+        homepage_bookings_df(
+            future_breakdown_df
+        )
+    )
+
+    return df.sort_values('full', ascending=False).tail(5)

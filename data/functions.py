@@ -532,6 +532,7 @@ def trends_table_filter(df, table):
 def trends_site_filter(df, site):
     return df[df['Restaurant'] == 'Group'] if site=='Group' else df[df['Restaurant']!='Group']
 
+
 # Review Scores Functions
 
 def scores_user_site_filter(df):
@@ -542,3 +543,47 @@ def scores_breakdown_user_site_filter(restaurant_list):
 
 def scores_site_filter(df, site):
     return df[df['restaurant']==site]
+
+# Future Bookings Functions
+
+def bookings_user_site_filter(df):
+    return df[df['restaurant'].isin(user_restaurants[auth._username]['bookings'])]
+
+def bookings_breakdown_user_site_filter(restaurant_list):
+    return [restaurant for restaurant in restaurant_list if restaurant in user_restaurants[auth._username]['bookings']]
+
+def bookings_site_filter(df, site):
+    return df[df['restaurant']==site]
+
+
+# Homepage Functions
+
+def homepage_bookings_df(df):
+    
+    weeks_ahead = 4
+    dff = df[df.weeks_ahead < weeks_ahead]
+    
+    df_columns = ['restaurant','capacity','max_guests TW', 'empty']
+    groupby_columns = ['restaurant']
+    df = dff[df_columns].groupby(groupby_columns).sum().reset_index()
+    
+    df['full'] = (df['max_guests TW']/df.capacity).replace(np.inf, np.nan).fillna(0)
+    
+    return df
+
+def homepage_tracker_df(df):
+    
+    df = tracker_df
+    mask1 = df['Week'].isin(['This Week','Next Week','Two Weeks','Three Weeks'])
+    mask2 = df['Day'] == 'Full Week'
+    dff = df[mask1 & mask2]
+
+    df_columns = ['Restaurant','This Week','Last Week','Last Year']
+    groupby_columns = ['Restaurant']
+
+    df = dff[df_columns].groupby(groupby_columns).sum().reset_index()
+   
+    df['vs. LY'] = df['This Week'] - df['Last Year']
+    df['vs. LY %'] = df['vs. LY'] / df['Last Year']
+    
+    return df

@@ -53,7 +53,7 @@ pickup_dropdown_inputs = [Input(x, 'value') for x in pickup_dropdown_ids]
 def update_group_future(metric):
     
     df = future_df.copy()
-    dff = df[df.restaurant.isin(user_restaurants[auth._username]['bookings'])]
+    dff = bookings_user_site_filter(df)
     
     df_columns = ['visit_day','weekday','shift','max_guests TW','capacity']
     groupby_columns = ['visit_day','weekday','shift']
@@ -374,7 +374,7 @@ def update_restaurant_tracker(metric,site):
 def update_restaurant_pickup(metric,site):
     return tracker_site_8_weeks_graph('This Week', metric, site, pickup_df, 'Daily Pickup')
 
-
+# Restaurant Scores
 @app.callback(
     Output('restaurant overall','figure'),
     [Input('restaurant site dropdown','value')])

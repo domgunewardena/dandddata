@@ -1039,3 +1039,123 @@ def future_breakdown_figure(dff, week):
     )
     
     return fig
+
+def homepage_bookings_summary_figure(covers, empty, full):
+    
+    fig = go.Figure()
+
+    labels = ['Covers', 'Empty Seats']
+    values = [covers, empty]
+    colors = ['blue','lightgrey']
+
+    fig.add_trace(
+        go.Pie(
+            labels = labels,
+            values = values,
+            hole = .5,
+            marker = {
+                'colors':colors           
+            },
+            hoverinfo = 'label+value',
+            textinfo = 'none'
+        )
+    )
+
+    fig.update_layout(
+        title = {
+            'text':'Bookings % Full - Next 4 Weeks',
+            'font':{
+                'size':30
+            }
+        },
+        annotations = [dict(
+            text = str(int(full*100)) + '%',
+            x = 0.5,
+            y = 0.5,
+            font_size = 50,
+            showarrow = False
+        )],
+        showlegend = False,
+        paper_bgcolor = 'lavender'
+    )
+
+    return fig
+
+def homepage_bookings_worst_restaurants_figure(dff):
+    
+    fig = go.Figure()
+
+    fig.add_trace(
+        go.Bar(
+            x = dff['full']*100,
+            y = dff['restaurant'],
+            marker = {
+                'color':'darkred'
+            },
+            orientation = 'h',
+            text = dff['full']*100,
+            texttemplate = '%{x:.0f}%',
+            textposition = 'auto',
+            hovertemplate = '%{x:.0f}%',
+            name = "Full"
+        )
+    )
+
+    fig.update_layout(
+        title = {
+            'text':'Emptiest Restaurants - Next 4 Weeks',
+            'font':{
+                'size':30
+            }
+        },
+        xaxis = {
+            'title':'% Full',
+            'range':[0,100]
+        }
+    )
+
+    return fig
+
+def homepage_gauge_figure(thisyear, lastyear, measure):
+    
+    if thisyear > lastyear:
+        bar_color = 'darkgreen'
+    else:
+        bar_color = 'darkred'
+
+    fig = go.Figure()
+
+    fig.add_trace(
+        go.Indicator(
+            mode = 'gauge + delta',
+            value = thisyear,
+            delta = {
+                'reference':lastyear,
+                'relative':True
+            },
+            gauge = {
+                'axis':{
+                    'range':[None, lastyear*2]
+                },
+                'bar': {
+                    'color':bar_color
+                },
+                'steps': [
+                    {'range' : [0,lastyear],'color':'lightcoral'},
+                    {'range' : [lastyear, lastyear*2],'color':'springgreen'}
+                ],
+                'threshold':{
+                    'line':{
+                        'color':'black',
+                        'width': 4,
+                    },
+                    'thickness': .75,
+                    'value': lastyear,
+                }
+            },
+            title = {
+                'text':measure.capitalize() + ' vs. LY',
+                'font':{'size':30}
+            }
+        )
+    )
