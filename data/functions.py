@@ -554,4 +554,67 @@ def bookings_breakdown_user_site_filter(restaurant_list):
 
 def bookings_site_filter(df, site):
     return df[df['restaurant']==site]
+
+
+# Restaurant acronyms:
+
+def get_abbreviation(restaurant):
+    
+    acronyms = {
+    '100 Wardour St': '100WDST',
+    '14 Hills': '14H',
+    '20 Stories': '20ST',
+    'Angelica': 'ANGEL',
+    'Angler': 'ANGLER',
+    'Aster': 'AST',
+    'Avenue': 'AVE',
+    'Bluebird Chelsea': 'BBCH',
+    'Bluebird Chelsea Café': 'BBCH CA',
+    'Bluebird Chelsea PDR': 'BBCH PDR',
+    'Bluebird White City': 'BBWC',
+    'Butlers Wharf Chophouse': 'BWCH',
+    'Cantina del Ponte': 'CANT',
+    "Coq d'Argent": "COQ",
+    'Crafthouse': 'CRA',
+    'East 59th': 'E59',
+    'Fish Market': 'F M',
+    'Fiume': 'FIU',
+    'German Gymnasium': 'GG',
+    'Issho': 'ISSH',
+    'Klosterhaus': 'KLO',
+    'Launceston Place': 'LP',
+    'Madison': 'MAD',
+    'New Street Grill': 'NSG',
+    'Orrery': 'ORR',
+    'Paternoster Chophouse': 'PCH',
+    'Plateau': 'PLA',
+    'Pont de la Tour': 'PDLT',
+    "Quaglino's": "QUA",
+    'Radici': 'RAD',
+    'Sartoria': 'SAR',
+    'Skylon': 'SKY',
+    'South Place Chop House': 'SPCH',
+    'Blueprint Café': 'BPC',
+    'Old Bengal Bar': 'OBB',
+    "Quaglino's Bar": "QUA BAR",
+    "Quaglino's PDR": "QUA PDR",
+    'The Modern Pantry': 'TMP',
+    'White City': 'BBWC',
+    'Trinity': 'TRI',
+    'South Place Hotel': 'SPH',
+    'Royal Exchange': 'REX',
+    'Quaglinos': 'QUA',
+    'New Street Warehouse': 'NSW',
+    'Le Pont de la Tour': 'PDLT',
+    'Launceston Place': 'LP',
+    'Kensington Place': 'KP',
+    'Fish Shop': 'FS',
+    'Cantina': 'CANT',
+    'Alexander & Bjorck': 'A&B',
+    }
+    
+    try:
+        return acronyms[restaurant]
+    except KeyError:
+        return restaurant
     

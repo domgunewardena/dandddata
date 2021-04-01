@@ -2,7 +2,7 @@ import pandas as pd
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
 
-from data.functions import trends_site_filter, trends_table_filter
+from data.functions import trends_site_filter, trends_table_filter, get_abbreviation
 from frontend.styling import review_colors
 
 # Sales Figures
@@ -1074,13 +1074,6 @@ def homepage_future_summary_figure(covers, empty, full):
                 text = str(int(full*100)) + '%',
                 x = 0.5,
                 y = 0.5,
-                font_size = 50,
-                showarrow = False
-            ),
-            dict(
-                text = str(int(covers)) + ' Covers',
-                x = 0.5,
-                y = -.2,
                 font_size = 40,
                 showarrow = False
             ),
@@ -1097,7 +1090,7 @@ def homepage_future_worst_figure(dff):
     fig.add_trace(
         go.Bar(
             x = dff['full']*100,
-            y = dff['restaurant'],
+            y = dff['restaurant'].apply(get_abbreviation),
             marker = {
                 'color': 'blue',
                 'coloraxis':'coloraxis',
@@ -1116,7 +1109,7 @@ def homepage_future_worst_figure(dff):
     fig.add_trace(
         go.Bar(
             x = 100-dff['full']*100,
-            y = dff['restaurant'],
+            y = dff['restaurant'].apply(get_abbreviation),
             marker = {
                 'color':'white',
             },
@@ -1139,52 +1132,71 @@ def homepage_future_worst_figure(dff):
             'title':'% Full',
             'range':[0,100]
         },
-        barmode="relative"
+        barmode="relative",
+        showlegend = False,
     )
 
     return fig
 
-def homepage_gauge_figure(thisyear, lastyear, measure):
+def homepage_summary_figure(thisyear, lastyear, pchange, measure):
+      
+    ymax = max([lastyear, thisyear])
+    ylim = ymax*1.5
+    annotation_y_pos = ymax * 1.25
     
-    if thisyear > lastyear:
-        bar_color = 'darkgreen'
+    plus_sign = '+' if pchange > 0 else ''  
+    annotation_text = plus_sign + str(int(pchange)) + '%'
+
+    if measure == 'Covers':
+        texttemplate = '%{customdata:.1f}k'
+        bar_color = 'blue'
     else:
-        bar_color = 'darkred'
+        texttemplate = '£%{customdata:.1f}k'
+        bar_color = 'purple'
+
+    if thisyear > lastyear:
+        text_color = 'green'
+    else:
+        text_color = 'red'
+        
+    text_color = 'black'
 
     fig = go.Figure()
 
     fig.add_trace(
-        go.Indicator(
-            mode = 'gauge + delta',
-            value = thisyear,
-            delta = {
-                'reference':lastyear,
-                'relative':True
+        go.Bar(
+            x = ['Last Year', 'This Year'],
+            y = [lastyear, thisyear],
+            customdata = [lastyear/1000, thisyear/1000],
+            name = 'Booked Covers',
+            texttemplate = texttemplate,
+            textposition = 'auto',
+            marker = {
+                'color':bar_color
             },
-            gauge = {
-                'axis':{
-                    'range':[None, lastyear*2]
-                },
-                'bar': {
-                    'color':bar_color
-                },
-                'steps': [
-                    {'range' : [0,lastyear],'color':'lightcoral'},
-                    {'range' : [lastyear, lastyear*2],'color':'springgreen'}
-                ],
-                'threshold':{
-                    'line':{
-                        'color':'black',
-                        'width': 4,
-                    },
-                    'thickness': .75,
-                    'value': lastyear,
-                }
-            },
-            title = {
-                'text':measure.capitalize() + ' vs. LY',
-                'font':{'size':30}
+        )
+    )
+
+    fig.update_layout(
+        yaxis = {
+            'range':[0,ylim]
+        },
+        title = {
+            'text': measure + ' vs. LY',
+            'font':{
+                'size':30
             }
+        }
+    )
+
+    fig.add_annotation(
+        x = .5,
+        y = annotation_y_pos,
+        text = annotation_text,
+        showarrow=False,
+        font = dict(
+            size=40,
+            color=text_color,
         )
     )
     
@@ -1194,8 +1206,12 @@ def homepage_worst_figure(dff, measure):
     
     if measure == 'Covers':
         restaurant_column = 'Restaurant'
+        bar_color = 'blue'
+        title_string = 'Booked '
     elif measure == 'Revenue':
         restaurant_column = 'SiteName'
+        bar_color = 'purple'
+        title_string = 'MTD '
 
     ymin = min(dff['vs. LY'])
     
@@ -1204,11 +1220,10 @@ def homepage_worst_figure(dff, measure):
     fig.add_trace(
         go.Bar(
             x = dff['vs. LY'],
-            y = dff[restaurant_column],
+            y = dff[restaurant_column].apply(get_abbreviation),
             customdata = dff['vs. LY %']*100,
             marker = {
-                'color':dff['vs. LY %'],
-                'coloraxis':'coloraxis'
+                'color':bar_color
             },
             orientation = 'h',
             text = dff['vs. LY %'],
@@ -1227,15 +1242,9 @@ def homepage_worst_figure(dff, measure):
                 'size':30
             }
         },
-        coloraxis={
-            'colorscale':'RdYlGn',
-            'cmin':-1,
-            'cmax':1,
-            'showscale':False
-        },
         xaxis = {
-            'title':'Booked ' + measure + ' vs. LY',
-            'range':[ymin*1.7,-ymin*1.7]
+            'title': title_string + measure + ' vs. LY',
+            'range':[ymin*1.5,0]
         },
     )
     
@@ -1244,13 +1253,7 @@ def homepage_worst_figure(dff, measure):
 def homepage_score_summary_figure(overall):
     
     fig = go.Figure()
-
-    if overall >= 4.7:
-        color = 'lightgreen'
-    elif overall >= 4.3:
-        color = 'gold'
-    else:
-        color = 'firebrick'
+    color = 'cyan'
 
     labels = ['Overall', None]
     values = [overall, 5-overall]
@@ -1296,7 +1299,7 @@ def homepage_score_worst_figure(df):
 
     fig.add_trace(
         go.Scatter(
-            y = df.restaurant,
+            y = df.restaurant.apply(get_abbreviation),
             x = df.overall,
             customdata = df.overall_count,
             mode = 'markers+text',
@@ -1319,16 +1322,20 @@ def homepage_score_worst_figure(df):
 
     fig.update_layout(
         coloraxis={
-            'colorscale':'RdYlGn',
-            'cmin':1,
-            'cmax':10,
-            'showscale':False
+            'colorscale':'Teal',
+            'cmin':0,
+            'cmax':5,
+            'showscale':False,
+            'reversescale':True
         },
         title={
             'text':'Lowest Scores',
             'font':{
                 'size':30
             }
+        },
+        xaxis={
+            'title':'Average Score'
         }
     )
     

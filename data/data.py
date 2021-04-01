@@ -80,8 +80,8 @@ sales_dataframes = {
 
 def create_weeks_columns(df):
     
-#     today = datetime.today()    
-    today = datetime.strptime('2021-04-12','%Y-%m-%d')
+    today = datetime.today()    
+#     today = datetime.strptime('2021-04-12','%Y-%m-%d')
     
     def weeks_ahead(date):
         monday = date - timedelta(date.weekday())

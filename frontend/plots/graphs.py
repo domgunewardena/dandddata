@@ -628,8 +628,9 @@ def homepage_tracker_graph(graph):
         sums = df[['This Week','Last Week','Last Year']].sum()
         thisyear = sums[0]
         lastyear = sums[2]
+        pchange = ((thisyear - lastyear) / lastyear)*100
         
-        return homepage_gauge_figure(thisyear, lastyear, 'Covers')
+        return homepage_summary_figure(thisyear, lastyear, pchange, 'Covers')
     
     elif graph == 'worst':
         
@@ -662,8 +663,9 @@ def homepage_revenue_graph(graph):
         sums = df[['This Month','Last Month','Last Year']].sum()
         thisyear = sums[0]
         lastyear = sums[2]
+        pchange = ((thisyear - lastyear) / lastyear)*100
         
-        return homepage_gauge_figure(thisyear, lastyear, 'Revenue')
+        return homepage_summary_figure(thisyear, lastyear, pchange, 'Revenue')
     
     elif graph == 'worst':
         
