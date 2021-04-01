@@ -52,6 +52,10 @@ dimensions = {
         'height':450,
         'width':'50%'
     },
+    'tracker':{
+        'height':'50%',
+        'width':'100%'
+    },
     'div':{
         'width':'33%',
         'dropdown_width':'99%'
@@ -102,6 +106,7 @@ dimensions = {
     }
     'home':{
         'height':400,
+        'width':'25%'
     }
 }
 
@@ -166,6 +171,7 @@ def div_style_simple(width):
         'justify-content':'center',
     }
 
+
 # Graphs
 
 def render_graph(graph_id, height, width):
@@ -179,28 +185,33 @@ def render_graph(graph_id, height, width):
         config={'displayModeBar':False})
 
 def standard_graph(graph_id):
-    return render_graph(
-        graph_id, 
-        '100%', 
-        '100%')
+    
+    height = '100%'
+    width = '100%'
+    
+    return render_graph(graph_id, height, width)
 
 def small_graph(graph_id):
-    return render_graph(
-        graph_id, 
-        dimensions['mini']['height'], 
-        '100%')
+    
+    height = dimensions['mini']['height']
+    width = '100%'
+    
+    return render_graph(graph_id, height, width)
 
 def week_graph(graph_id):
-    return render_graph(
-        graph_id, 
-        dimensions['week']['height'], 
-        '100%')
+    
+    height = dimensions['week']['height']
+    width = '100%'
+    
+    return render_graph(graph_id, height, width)
 
 def tracker_graph(graph_id):
-    return render_graph(
-        graph_id, 
-        '50%', 
-        '100%')
+    
+    height = dimensions['tracker']['height']
+    width = '100%'
+    
+    return render_graph(graph_id, height, width)
+
 
 # Divs
 
@@ -216,68 +227,71 @@ def render_div(graphs_list, height, width):
     )
 
 def group_sales_div(graph_id):
-    return render_div(
-        [small_graph(graph_id)],
-        dimensions['group']['sales']['height'],
-        dimensions['group']['sales']['width'],
-    )
+    
+    graphs_list = [small_graph(graph_id)]
+    height = dimensions['group']['sales']['height']
+    width = dimensions['group']['sales']['width']
+    
+    return render_div(graphs_list, height, width)
 
 def group_tracker_div(graph_id):
-    return render_div(
-        [standard_graph(graph_id)],
-        dimensions['group']['tracker']['height'],
-        dimensions['group']['tracker']['width'],
-    )
+    
+    graphs_list = [standard_graph(graph_id)]
+    height = dimensions['group']['tracker']['height']
+    width = dimensions['group']['tracker']['width']
+    
+    return render_div(graphs_list, height, width)
 
 def group_review_div(graph_id):
-    return render_div(
-        [standard_graph(graph_id)],
-        dimensions['group']['review']['height'],
-        dimensions['group']['review']['width'],
-    )
+    
+    graphs_list = [standard_graph(graph_id)]
+    height = dimensions['group']['review']['height']
+    width = dimensions['group']['review']['width']
+    
+    return render_div(graphs_list, height, width)
 
 
 def breakdown_sales_div(graph_id):
-    return render_div(
-        [standard_graph(graph_id)],
-        dimensions['breakdown']['sales']['height'],
-        dimensions['breakdown']['sales']['width'],
-    )
+    
+    graphs_list = [standard_graph(graph_id)]
+    height = dimensions['breakdown']['sales']['height']
+    width = dimensions['breakdown']['sales']['width']
+    
+    return render_div(graphs_list, height, width)
 
 def breakdown_tracker_div(graph_id):
-    return render_div(
-        [standard_graph(graph_id)],
-        dimensions['breakdown']['tracker']['height'],
-        dimensions['breakdown']['tracker']['width'],
-    )
+    
+    graphs_list = [standard_graph(graph_id)]
+    height = dimensions['breakdown']['tracker']['height']
+    width = dimensions['breakdown']['tracker']['width']
+    
+    return render_div(graphs_list, height, width)
 
 def breakdown_review_div(graph_id):
-    return render_div(
-        [standard_graph(graph_id)],
-        dimensions['breakdown']['review']['height'],
-        dimensions['breakdown']['review']['width'],
-    )
+    
+    graphs_list = [standard_graph(graph_id)]
+    height = dimensions['breakdown']['review']['height']
+    width = dimensions['breakdown']['review']['width']
+    
+    return render_div(graphs_list, height, width)
 
 def breakdown_future_div(graph_id):
     
-    return html.Div(
-        [
-            dcc.Graph(
-                id = graph_id,
-                config = {'displayModeBar':False},
-                style={
-                    'height':'100%',
-                    'width':'100%'
-                }
-            )
-        ],    
-        style = {
-            'display':'inline-block',
-            'height':dimensions['main']['height']+100,
-            'width':dimensions['main']['width']
-        }
-    )
+    graphs_list = [standard_graph(graph_id)]
+    height = dimensions['breakdown']['future']['height']
+    width = dimensions['breakdown']['future']['width']
     
+    return render_div(graphs_list, height, width)
+
+
+def homepage_div(graph_id):
+    
+    graphs_list = [standard_graph(graph_id)]
+    height = dimensions['home']['height']
+    width = dimensions['home']['width']
+    
+    return render_div(graphs_list, height, width)
+
 
 def capitalize_report_title(report):
     if report in ['wtd', 'mtd']:
@@ -395,8 +409,6 @@ def week_colors_totals(measure, shift, metric):
 
 def week_colors_change(shift, val):
     return week_colors['Change'][shift]['Rise'] if val>0 else week_colors['Change'][shift]['Fall']
-
-
 
 
 plus = lambda i: ("+" if i > 0 else "") + str(i)
