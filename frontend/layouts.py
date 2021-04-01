@@ -12,7 +12,32 @@ from authentication.authentication import auth
 from frontend.plots.figures import trends_group_pickup_figure, trends_group_future_figure
 from data.data import trends_df
 
-default_metric = ['vs. LW']
+def homepage():
+    
+    homepage_summary_graphs = html.Div(
+        [
+            homepage_div('homepage future summary'),
+            homepage_div('homepage tracker summary'),
+            homepage_div('homepage revenue summary'),
+            homepage_div('homepage score summary'),
+        ]
+    )
+    
+    homepage_worst_graphs = html.Div(
+        [
+            homepage_div('homepage future worst'),
+            homepage_div('homepage tracker worst'),
+            homepage_div('homepage revenue worst'),
+            homepage_div('homepage score worst'),
+        ]
+    )
+    
+    return html.Div(
+        children=[
+            homepage_summary_graphs,
+            homepage_worst_graphs
+        ]
+    )
 
 def group():
     
@@ -814,6 +839,7 @@ def trends():
         ]
     )
 
+homepage_layout = homepage()
 group_layout = group()
 breakdown_layout = breakdown()
 restaurant_layout = restaurant()
