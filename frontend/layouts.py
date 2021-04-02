@@ -5,46 +5,23 @@ import dash_bootstrap_components as dbc
 
 from datetime import date, datetime, timedelta
 
-from frontend.styling import *
-from authentication.users import user_restaurants
-from authentication.authentication import auth
+from frontend.html import *
+# from frontend.styling import *
+# from authentication.users import user_restaurants
+# from authentication.authentication import auth
 
-from frontend.plots.figures import trends_group_pickup_figure, trends_group_future_figure
-from data.data import trends_df
+# from frontend.plots.figures import trends_group_pickup_figure, trends_group_future_figure
+# from data.data import trends_df
 
 def homepage():
     
     homepage_titles = html.Div(
         [
-            html.Div(
-                [
-                    html.H1(
-                        ['Next 4 Weeks'],
-                        id = 'homepage title',
-                        style = styles['homepage_title']
-                    )
-                ],
-                style = {
-                    'width':'50%',
-                    'display':'inline-block'
-                }
-            ),
-            html.Div(
-                [
-                    html.H1(
-                        ['Last 4 Weeks'],
-                        style = styles['homepage_title']
-                    )
-                ],
-                style = {
-                    'width':'50%',
-                    'display':'inline-block'
-                }
-            ),
+            homepage_title_div('Next 4 Weeks'),
+            homepage_title_div('Last 4 Weeks'),
         ]
     )
 
-    
     homepage_summary_graphs = html.Div(
         [
             homepage_div('homepage future summary'),
@@ -72,60 +49,10 @@ def homepage():
     )
 
 def group():
+        
+    group_dropdowns = core_dropdowns('group')
     
-    metrics = ['vs. LW','vs. LY', 'Totals Last Week', 'Totals Last Year']
-    
-    group_dropdowns =  html.Div(
-        [
-            html.Div(
-                [
-                    html.P(
-                        ['Choose the metric of the report:']
-                    ),
-                    dcc.Dropdown(
-                        id = 'group metric dropdown',
-                        options = [{'label':i, 'value':i} for i in metrics],
-                        value = metrics[default_metric_index],
-                        style = {'width':dimensions['group']['dropdowns']['dropdown_width']}
-                    ),
-                ],
-                style = div_style_simple(dimensions['group']['dropdowns']['div_width'])
-            ),
-            html.Div(
-                [
-                    html.P(
-                        ['Choose the measure of the sales graphs:']
-                    ),
-                    dcc.Dropdown(
-                        id = 'group measure dropdown',
-                        options = [{'label':i,'value':i} for i in ['Revenue','Covers']],
-                        value = 'Revenue',
-                        style = {
-                            'width':dimensions['group']['dropdowns']['dropdown_width'],
-                        }
-                    )
-                ],
-                style = div_style_simple(dimensions['group']['dropdowns']['div_width'])
-            ),
-        ],
-        style = dropdown_row_style
-    )
-    
-    group_future_graph = html.Div(
-        [
-            dcc.Graph(
-                id='group future',
-                config={'displayModeBar':False},
-                style={'width':'100%'}
-            )
-        ],
-        style = {
-            'width': '100%', 
-            'display': 'flex', 
-            'align-items': 'center', 
-            'justify-content': 'center'
-        }
-    )
+    group_future_graph = group_future_div('group future')
     
     group_sales_graphs = html.Div(
         [
@@ -174,43 +101,7 @@ def group():
 
 def breakdown():
     
-    metrics = ['vs. LW','vs. LY', 'Totals Last Week', 'Totals Last Year']
-    
-    breakdown_dropdowns =  html.Div(
-        [
-            html.Div(
-                [
-                    html.P(
-                        ['Choose the metric of the report:']
-                    ),
-                    dcc.Dropdown(
-                        id = 'breakdown metric dropdown',
-                        options = [{'label':i, 'value':i} for i in metrics],
-                        value = metrics[default_metric_index],
-                        style = {'width':dimensions['group']['dropdowns']['dropdown_width']}
-                    ),
-                ],
-                style = div_style_simple(dimensions['group']['dropdowns']['div_width'])
-            ),
-            html.Div(
-                [
-                    html.P(
-                        ['Choose the measure of the sales graphs:']
-                    ),
-                    dcc.Dropdown(
-                        id = 'breakdown measure dropdown',
-                        options = [{'label':i,'value':i} for i in dropdown_values['measures']],
-                        value = 'Revenue',
-                        style = {
-                            'width':dimensions['group']['dropdowns']['dropdown_width'],
-                        }
-                    )
-                ],
-                style = div_style_simple(dimensions['group']['dropdowns']['div_width'])
-            ),
-        ],
-        style = dropdown_row_style
-    )
+    breakdown_dropdowns =  core_dropdowns('breakdown')
     
     breakdown_sales_graphs = html.Div(
         [
@@ -254,42 +145,15 @@ def breakdown():
        
 def restaurant():
     
-    metrics = ['vs. LW','vs. LY', 'Totals Last Week', 'Totals Last Year']
+    restaurant_dropdowns =  core_dropdowns('restaurant')
     
-    restaurant_dropdowns =  html.Div(
+    restaurant_future_graph = group_future_div('restaurant future')
+    
+    restaurant_tracker_graphs = html.Div(
         [
-            html.Div(
-                [
-                    html.P(
-                        ['Choose the metric of the report:']
-                    ),
-                    dcc.Dropdown(
-                        id = 'restaurant metric dropdown',
-                        options = [{'label':i, 'value':i} for i in metrics],
-                        value = metrics[default_metric_index],
-                        style = {'width':dimensions['group']['dropdowns']['dropdown_width']}
-                    ),
-                ],
-                style = div_style_simple(dimensions['group']['dropdowns']['div_width'])
-            ),
-            html.Div(
-                [
-                    html.P(
-                        ['Choose the restaurant of the report:']
-                    ),
-                    dcc.Dropdown(
-                        id = 'restaurant site dropdown',
-                        options = [{'label':i,'value':i} for i in dropdown_values['restaurants']],
-                        value = 'Revenue',
-                        style = {
-                            'width':dimensions['group']['dropdowns']['dropdown_width'],
-                        }
-                    )
-                ],
-                style = div_style_simple(dimensions['group']['dropdowns']['div_width'])
-            ),
-        ],
-        style = dropdown_row_style
+            group_tracker_div('restaurant tracker'),
+            group_tracker_div('restaurant pickup'),
+        ]
     )
     
     restaurant_revenue_graphs = html.Div(
@@ -306,29 +170,6 @@ def restaurant():
             group_sales_div('restaurant wtd spend'),
             group_sales_div('restaurant mtd spend'),
         ]
-    )
-    
-    restaurant_tracker_graphs = html.Div(
-        [
-            group_tracker_div('restaurant tracker'),
-            group_tracker_div('restaurant pickup'),
-        ]
-    )
-    
-    restaurant_future_graph = html.Div(
-        [
-            dcc.Graph(
-                id='restaurant future',
-                config={'displayModeBar':False},
-                style={'width':'100%'}
-            )
-        ],
-        style = {
-            'width': '100%', 
-            'display': 'flex', 
-            'align-items': 'center', 
-            'justify-content': 'center'
-        }
     )
     
     restaurant_review_graphs = html.Div(
@@ -353,521 +194,87 @@ def restaurant():
     )
 
 def sales_layout_template(report):
-        
-    week_metrics = ['vs. LW','vs. LY', 'Totals Last Week', 'Totals Last Year']
-    month_metrics = ['vs. LM','vs. LY', 'Totals Last Month', 'Totals Last Year']
     
-    week_reports = ['daily','wtd','weekly']
-    month_reports = ['mtd','monthly']
-
-    if report in week_reports:
-        metrics = week_metrics
-    elif report in month_reports:
-        metrics = month_metrics
+    title = sales_title_div(report)
     
-    title_string = capitalize_report_title(report)
+    overview_dropdowns =  sales_overview_dropdowns(report)
     
-    title = html.Div(
+    overview_graphs = html.Div(
         [
-            html.H1(
-                children = title_string + ' Sales',
-                style = h1_style
-            )
+            sales_measures_div(report, 'group'),
+            sales_breakdown_div(report),
+            sales_measures_div(report, 'site'),
         ]
     )
     
-    summary_dropdowns =  html.Div(
-        [
-            html.Div(
-                [
-                    html.P(
-                        ['Choose the metric and shift of the report:']
-                    ),
-                    dcc.Dropdown(
-                        id = report + ' metric dropdown',
-                        options = [{'label':i, 'value':i} for i in metrics],
-                        value = metrics[default_metric_index],
-                        style = {'width':dimensions['div']['dropdown_width']}
-                    ),
-                    dcc.Dropdown(
-                        id = report + ' shift dropdown',
-                        options = [{'label':i, 'value':i} for i in dropdown_values['shifts']],
-                        value = 'All Shifts',
-                        style = {
-                            'width':dimensions['div']['dropdown_width'],
-                            'padding':'2px 0px'
-                        }
-                    )
-                ],
-                style = div_style_simple(dimensions['div']['width'])
-            ),
-            html.Div(
-                [
-                    html.P(
-                        ['Choose the area and measure of the group summary:']
-                    ),
-                    dcc.Dropdown(
-                        id = report + ' area dropdown',
-                        options = [{'label':i, 'value':i} for i in dropdown_values['areas']],
-                        value = 'Full Site',
-                        style = {'width':dimensions['div']['dropdown_width']}
-                    ),
-                    dcc.Dropdown(
-                        id = report + ' measure dropdown',
-                        options = [{'label':i,'value':i} for i in dropdown_values['measures']],
-                        value = 'Revenue',
-                        style = {
-                            'width':dimensions['div']['dropdown_width'],
-                            'padding':'2px 0px'
-                        }
-                    )
-                ],
-                style = div_style_simple(dimensions['div']['width'])
-            ),
-            html.Div(
-                [
-                    html.P(
-                        ['Choose the restaurant of the site analysis:']
-                    ),
-                    dcc.Dropdown(
-                        id = report + ' site dropdown',
-                        options = [{'label':i, 'value':i} for i in dropdown_values['restaurants']],
-                        value = '100 Wardour Street',
-                        style = {'width': dimensions['div']['dropdown_width']}
-                    )
-                ],
-                style = div_style_simple(dimensions['div']['width'])
-            )
-        ],
-        style = dropdown_row_style
-    )
-    
-    summary_graphs = html.Div(
-        [
-            html.Div(
-                [
-                    small_graph(report + ' group revenue'),
-                    small_graph(report + ' group covers'),
-                    small_graph(report + ' group spend')
-                ],
-                style = {
-                    'display':'inline-block',
-                    'height':dimensions['main']['height'],
-                    'width':dimensions['main']['width']
-                }
-            ),
-            html.Div(
-                [
-                    dcc.Graph(
-                        id = report + ' sales total',
-                        config = {'displayModeBar':False}
-                    )
-                ],    
-                style = {
-                    'display':'inline-block',
-                    'height':dimensions['main']['height'],
-                    'width':dimensions['main']['width']
-                }
-            ),
-            html.Div(
-                [
-                    small_graph(report + ' site revenue'),
-                    small_graph(report + ' site covers'),
-                    small_graph(report + ' site spend')
-                ],
-                style = {
-                    'display': 'inline-block',
-                    'height':dimensions['main']['height'],
-                    'width':dimensions['main']['width']
-                }
-            )
-        ]
-    )
-    
-    week_dropdowns = html.Div(
-        [
-            html.Div(
-                [
-                    html.P(
-                        ['Choose the restaurant of the week view:']
-                    ),
-                    dcc.Dropdown(
-                        id = report + ' site week dropdown',
-                        options = [{'label':i,'value':i} for i in dropdown_values['restaurants_week']],
-                        value = 'Group',
-                        style = {'width':dimensions['week_div']['dropdown_width']}
-                    )
-                ],
-                style = week_dropdown_style
-            ),
-            html.Div(
-                [
-                    html.P(
-                        ['Choose the area of the week view:']
-                    ),
-                    dcc.Dropdown(
-                        id = report + ' area week dropdown',
-                        options = [{'label':i,'value':i} for i in dropdown_values['areas']],
-                        value = 'Full Site',
-                        style = {'width':dimensions['week_div']['dropdown_width']}
-                    )
-                ],
-                style = week_dropdown_style
-            ),
-            html.Div(
-                [
-                    html.P(
-                        ['Choose the revenue category of the week view:']
-                    ),
-                    dcc.Dropdown(
-                        id = report + ' category week dropdown',
-                        options = [{'label':i,'value':i} for i in dropdown_values['types']],
-                        value = 'Total',
-                        style = {'width':dimensions['week_div']['dropdown_width']}
-                    )
-                ],
-                style = week_dropdown_style
-            ),
-            html.Div(
-                [
-                    html.P(
-                        ['Choose the measure of the week view:']
-                    ),
-                    dcc.Dropdown(
-                        id = report + ' measure week dropdown',
-                        options = [{'label':i, 'value':i} for i in ["Revenue","Spend"]],
-                        value = 'Revenue',
-                        style = {'width':dimensions['week_div']['dropdown_width']}
-                    )
-                ],
-                style = week_dropdown_style
-            ),
-            html.Div(
-                [
-                    html.P(
-                        ['Choose the metric of the week view:']
-                    ),
-                    dcc.Dropdown(
-                        id = report + ' metric week dropdown',
-                        options = [{'label':i, 'value':i} for i in ["Actuals", "Averages"]],
-                        value = 'Actuals',
-                        style = {'width':dimensions['week_div']['dropdown_width']}
-                    )
-                ],
-                style = week_dropdown_style
-            )
-        ],
-        style = {
-            'borderBottom': header_colors['border'],
-            'borderRight': header_colors['border'],
-            'backgroundColor': header_colors['background'],
-            'padding': '10px 5px'
-        }
-    )
+    week_dropdowns = sales_week_dropdowns(report)
     
     week_graphs = html.Div(
         [
-            html.Div(
-                [week_graph(report + ' week view')],
-                style = {
-                    'display': 'inline-block',
-                    'height':dimensions['week']['height'],
-                    'width':dimensions['week']['width']
-                }
-            ),
-            html.Div(
-                [week_graph(report + ' week covers')],
-                style = {
-                    'display': 'inline-block',
-                    'height':dimensions['week']['height'],
-                    'width':dimensions['week']['width']
-                }
-            )
+            sales_week_div(report + ' week view'),
+            sales_week_div(report + ' week covers'),
         ]
     )
     
     if report == 'daily':
-        layout = html.Div(children = [title, summary_dropdowns, summary_graphs])
+        layout = html.Div(children = [title, overview_dropdowns, overview_graphs])
     else:
-        layout = html.Div(children = [title, summary_dropdowns, summary_graphs, week_dropdowns, week_graphs])
+        layout = html.Div(children = [title, overview_dropdowns, overview_graphs, week_dropdowns, week_graphs])
     
     return layout                             
     
 def tracker_layout_template(report):
-    
-    tracker_weeks = [
-        'This Week',
-        'Next Week',
-        'Two Weeks',
-        'Three Weeks',
-        'Four Weeks',
-        'Five Weeks',
-        'Six Weeks',
-        'Seven Weeks',
-        'Eight Weeks'
-    ]
-    
-    tracker_metrics = [
-        'vs. LW',
-        'vs. LY',
-        'Totals Last Week',
-        'Totals Last Year'
-    ]
     
     if report == 'tracker':
         title_string = 'Cover Tracker'
     else:
         title_string = 'Daily Pickup'
         
-    title = html.Div(
-        [
-            html.H1(
-                children = title_string,
-                style = h1_style
-            )
-        ]
-    )
+    title = title_div(title_string)
     
-    dropdowns = html.Div(
-        [
-            html.Div(
-                [
-                    html.P(
-                        ['Choose the metric of the report:']
-                    ),
-                    dcc.Dropdown(
-                        id=report + '_metric_dropdown',
-                        options = [{'label':i,'value':i} for i in tracker_metrics],
-                        value = tracker_metrics[default_metric_index],
-                        style={'width':dimensions['div']['dropdown_width']}
-                    )
-                ],
-                style = div_style_simple(dimensions['div']['width'])
-            ), 
-            html.Div(
-                [
-                    html.P(
-                        ['Choose the week of the report:']
-                    ),
-                    dcc.Dropdown(
-                        id=report + '_week_dropdown',
-                        options = [{'label':i, 'value':i} for i in tracker_weeks],
-                        value="This Week",
-                        style={'width':dimensions['div']['dropdown_width']}
-                    )
-                ],
-                style = div_style_simple(dimensions['div']['width'])
-            ),
-            html.Div(
-                [
-                    html.P(
-                        ['Choose the restaurant of the site analysis:']
-                    ),
-                    dcc.Dropdown(
-                        id=report + '_site_dropdown',
-                        options=[{'label':i,'value':i} for i in dropdown_values['restaurants']],
-                        value=dropdown_values['restaurants'],
-                        style={'width':dimensions['div']['dropdown_width']}
-                    )
-                ],
-                style = div_style_simple(dimensions['div']['width'])
-            )
-        ],
-        style = dropdown_row_style
-    )
+    dropdowns = tracker_dropdowns(report)
     
     graphs = html.Div(
         [
-            html.Div(
-                [
-                    tracker_graph(report + '_group_8_weeks'),
-                    tracker_graph(report + '_group_week')
-                ],
-                style = {
-                    'display': 'inline-block',
-                    'height':dimensions['main']['height'],
-                    'width':dimensions['main']['width']
-                }
-            ),
-            html.Div(
-                [
-                    dcc.Graph(
-                        id=report + '_breakdown',
-                        config={'displayModeBar':False}
-                    )
-                ],    
-                style = {
-                    'display': 'inline-block',
-                    'height':dimensions['main']['height'],
-                    'width':dimensions['main']['width']}
-            ),
-            html.Div(
-                [
-                    tracker_graph(report + '_site_8_weeks'),
-                    tracker_graph(report + '_site_week')
-                ],
-                style = {
-                    'display': 'inline-block',
-                    'height':dimensions['main']['height'],
-                    'width':dimensions['main']['width']
-                }
-            )
+            tracker_site_div(report, 'group'),
+            tracker_breakdown_div(report),
+            tracker_site_div(report, 'site')
         ]
     )
     
     return html.Div(children = [title, dropdowns, graphs])
 
 def future():
+    
+    title = title_div('Future Bookings')
+    
+    dropdowns = future_dropdowns()
+    
+    graphs = future_div()
+    
     return html.Div(
         children=[
-            html.Div(
-                [
-                    html.H1(
-                        children = 'Future Bookings',
-                        style = h1_style
-                    )
-                ]
-            ),
-            html.Div(
-                [
-                    dcc.Dropdown(
-                        id='future dropdown',
-                        options=[{'label':i, 'value':i} for i in ['Total Bookings', 'vs. LW']],
-                        value='Total Bookings',
-                        style={
-                            'textAlign':'center',
-                            'width':'100%',
-                        }
-                    )
-                ],
-                style = {
-                    'width': '100%', 
-                    'display': 'flex', 
-                    'align-items': 'center', 
-                    'justify-content': 'center',
-                    'borderBottom': header_colors['border'],
-                    'borderRight': header_colors['border'],
-                    'backgroundColor': header_colors['background'],
-                    'padding': '10px 5px'
-                }
-            ),
-            html.Div(
-                [
-                    dcc.Graph(
-                        id='future graph',
-                        config={'displayModeBar':False},
-                        style={'width':'100%'}
-                    )
-                ],
-                style = {
-                    'width': '100%', 
-                    'display': 'flex', 
-                    'align-items': 'center', 
-                    'justify-content': 'center'
-                }
-            )
+            title,
+            dropdowns,
+            graphs
         ]
     )
 
 def trends():
-
-    today_weekday_num = date.today().weekday()
-    today_week = date.today().isocalendar()[1]
+    
+    title = title_div('Booking Trends')
+    
+    dropdowns = trends_dropdowns()
+    
+    pickup_row = trends_row('pickup')
+    future_row = trends_row('future')
     
     return html.Div(
         children=[
-            html.Div(
-                [
-                    html.H1(
-                        children = 'Booking Trends',
-                        style = h1_style
-                    )
-                ]
-            ),
-            html.Div(
-                [
-                    html.Div(
-                        [
-                            html.P(
-                                ['Choose the restaurant of the right-hand graphs:']
-                            ),
-                            dcc.Dropdown(
-                                id='trends site dropdown',
-                                options = [{'label':i,'value':i} for i in user_restaurants['dandd']['bookings']],
-                                value=user_restaurants['dandd']['bookings'][0],
-                                style={
-                                    'textAlign':'center',
-                                    'width':'100%',
-                                }
-                            )
-                        ],
-                    )
-                ],
-                style = {
-                    'width': '100%', 
-                    'display': 'flex', 
-                    'align-items': 'center', 
-                    'justify-content': 'center',
-                    'borderBottom': header_colors['border'],
-                    'borderRight': header_colors['border'],
-                    'backgroundColor': header_colors['background'],
-                    'padding': '10px 5px'
-                }
-            ),
-            html.Div(
-                [
-                    html.Div(
-                        [
-                            dcc.Graph(
-                                id='trends group pickup',
-                                figure=trends_group_pickup_figure(
-                                    trends_df,
-                                    today_week,
-                                    today_weekday_num
-                                ),
-                                config = {'displayModeBar':False}
-                            )
-                        ],
-                        style = styles['trends_graph_div']
-                    ),
-                    html.Div(
-                        [
-                            dcc.Graph(
-                                id='trends site pickup',
-                                config = {'displayModeBar':False}
-                            )
-                        ],
-                        style = styles['trends_graph_div']
-                    )
-                ]
-            ),
-            html.Div(
-                [
-                    html.Div(
-                        [
-                            dcc.Graph(
-                                id='trends group future',
-                                config = {'displayModeBar':False},
-                                figure=trends_group_future_figure(
-                                    trends_df,
-                                    today_week,
-                                    today_weekday_num
-                                )
-                            )
-                        ],
-                        style = styles['trends_graph_div']
-                    ),
-                    html.Div(
-                        [
-                            dcc.Graph(
-                                id='trends site future',
-                                config = {'displayModeBar':False}
-                            )
-                        ],
-                        style = styles['trends_graph_div']
-                    )
-                ]
-            )
+            title,
+            dropdowns,
+            pickup_row,
+            future_row
         ]
     )
 
