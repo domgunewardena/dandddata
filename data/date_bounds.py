@@ -10,18 +10,27 @@ def get_weekdaynum(date):
 def get_year(date):
     return date.isocalendar()[0]
 
+def days_ago(date, days):
+    return date - timedelta(days)
+
 def onedayago(date):
-    return date - timedelta(1)
+    return days_ago(date, 1)
+
+def weeks_ago(date, weeks):
+    return date - timedelta(7*weeks)
 
 def oneweekago(date):
-    return date - timedelta(7)
+    return weeks_ago(date, 1)
 
 def fourweeksago(date):
-    return date - timedelta(28)
+    return weeks_ago(date, 4)
+
+def years_ago(date, years):
+    return date - timedelta(364*years)
 
 def oneyearago(date):
-#     return date - timedelta(364)
-    return date - timedelta(364)*2
+#     return years_ago(date, 1)
+    return years_ago(date, 2)
 
 def twelvemonthsago(date):
     if date.month==2 and date.day==29:
@@ -75,6 +84,13 @@ monthly_lower_lw = first_day_of_month(monthly_upper_lw)
 monthly_upper_ly = twelvemonthsago(monthly_upper)
 monthly_lower_ly = twelvemonthsago(monthly_lower)
 
+four_weeks_upper = yesterday
+four_weeks_lower = fourweeksago(yesterday)
+four_weeks_upper_lw = oneweekago(four_weeks_upper)
+four_weeks_lower_lw = oneweekago(four_weeks_lower)
+four_weeks_upper_ly = oneyearago(four_weeks_upper)
+four_weeks_lower_ly = oneyearago(four_weeks_lower)
+
 def bound_filtering(df, bounds):
     
     mask1 = df['Date'] <= bounds[0]
@@ -91,7 +107,7 @@ daily_bounds = [
     daily_upper_lw,
     daily_lower_lw,
     daily_upper_ly,
-    daily_lower_ly
+    daily_lower_ly,
 ]
 
 wtd_bounds = [
@@ -100,7 +116,7 @@ wtd_bounds = [
     wtd_upper_lw,
     wtd_lower_lw,
     wtd_upper_ly,
-    wtd_lower_ly
+    wtd_lower_ly,
 ]
 
 mtd_bounds = [
@@ -109,7 +125,7 @@ mtd_bounds = [
     mtd_upper_lw,
     mtd_lower_lw,
     mtd_upper_ly,
-    mtd_lower_ly
+    mtd_lower_ly,
 ]
 
 weekly_bounds = [
@@ -118,7 +134,7 @@ weekly_bounds = [
     weekly_upper_lw,
     weekly_lower_lw,
     weekly_upper_ly,
-    weekly_lower_ly
+    weekly_lower_ly,
 ]
 
 monthly_bounds = [
@@ -127,7 +143,16 @@ monthly_bounds = [
     monthly_upper_lw,
     monthly_lower_lw,
     monthly_upper_ly,
-    monthly_lower_ly
+    monthly_lower_ly,
+]
+
+four_weeks_bounds = [
+    four_weeks_upper,
+    four_weeks_lower,
+    four_weeks_upper_lw,
+    four_weeks_lower_lw,
+    four_weeks_upper_ly,
+    four_weeks_lower_ly,
 ]
 
 all_bounds = [
@@ -135,7 +160,8 @@ all_bounds = [
     wtd_bounds, 
     mtd_bounds, 
     weekly_bounds, 
-    monthly_bounds
+    monthly_bounds,
+    four_weeks_bounds,
 ]
 
 date_bounds = {
@@ -144,28 +170,32 @@ date_bounds = {
     'mtd':mtd_bounds,
     'weekly':weekly_bounds,
     'monthly':monthly_bounds,
+    'four_weeks':four_weeks_bounds,
 }
 
 date_columns = {
-  'current':{
-    'daily':'Today',
-    'wtd':'This Week',
-    'weekly':'This Week',
-    'mtd':'This Month',
-    'monthly':'This Month',
-  },
-  'last':{
-    'daily':'Last Week',
-    'wtd':'Last Week',
-    'weekly':'Last Week',
-    'mtd':'Last Month',
-    'monthly':'Last Month',
-  },
-  'vs':{
-    'daily':'vs. LW',
-    'wtd':'vs. LW',
-    'weekly':'vs. LW',
-    'mtd':'vs. LM',
-    'monthly':'vs. LM',
-  },
+    'current':{
+        'daily':'Today',
+        'wtd':'This Week',
+        'weekly':'This Week',
+        'mtd':'This Month',
+        'monthly':'This Month',
+        'four_weeks':'This Month',
+    },
+    'last':{
+        'daily':'Last Week',
+        'wtd':'Last Week',
+        'weekly':'Last Week',
+        'mtd':'Last Month',
+        'monthly':'Last Month',
+        'four_weeks':'Last Month',
+    },
+    'vs':{
+        'daily':'vs. LW',
+        'wtd':'vs. LW',
+        'weekly':'vs. LW',
+        'mtd':'vs. LM',
+        'monthly':'vs. LM',
+        'four_weeks':'vs. LM',
+    },
 }

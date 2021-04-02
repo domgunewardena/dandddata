@@ -19,7 +19,7 @@ def homepage():
             html.Div(
                 [
                     html.H1(
-                        ['4Wks Ahead'],
+                        ['Next 4 Weeks'],
                         id = 'homepage title',
                         style = styles['homepage_title']
                     )
@@ -32,24 +32,12 @@ def homepage():
             html.Div(
                 [
                     html.H1(
-                        ['MTD'],
+                        ['Last 4 Weeks'],
                         style = styles['homepage_title']
                     )
                 ],
                 style = {
-                    'width':'25%',
-                    'display':'inline-block'
-                }
-            ),
-            html.Div(
-                [
-                    html.H1(
-                        ['Last 4Wks'],
-                        style = styles['homepage_title']
-                    )
-                ],
-                style = {
-                    'width':'25%',
+                    'width':'50%',
                     'display':'inline-block'
                 }
             ),

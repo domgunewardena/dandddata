@@ -3,7 +3,7 @@ import numpy as np
 from datetime import date, datetime, timedelta
 from math import floor
 
-from data.date_bounds import bound_filtering, daily_bounds, wtd_bounds, mtd_bounds, weekly_bounds, monthly_bounds
+from data.date_bounds import bound_filtering, daily_bounds, wtd_bounds, mtd_bounds, weekly_bounds, monthly_bounds, four_weeks_bounds
 from data.skeleton import generate_skeleton_df
 from data.database.postgresql_tables import PostgreSQLTable
 
@@ -51,6 +51,8 @@ weekly_rev_df = bound_filtering(rev_df,weekly_bounds)
 weekly_cov_df = bound_filtering(cov_df,weekly_bounds)
 monthly_rev_df = bound_filtering(rev_df,monthly_bounds)
 monthly_cov_df = bound_filtering(cov_df,monthly_bounds)
+four_weeks_rev_df = bound_filtering(rev_df,four_weeks_bounds)
+four_weeks_cov_df = bound_filtering(cov_df,four_weeks_bounds)
 
 sales_dataframes = {
   'daily':{
@@ -72,6 +74,10 @@ sales_dataframes = {
   'monthly':{
     'revenue':monthly_rev_df,
     'covers':monthly_cov_df
+  },
+  'four_weeks':{
+    'revenue':four_weeks_rev_df,
+    'covers':four_weeks_cov_df
   },
 }
 

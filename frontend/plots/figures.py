@@ -1211,7 +1211,7 @@ def homepage_worst_figure(dff, measure):
     elif measure == 'Revenue':
         restaurant_column = 'SiteName'
         bar_color = 'purple'
-        title_string = 'MTD '
+        title_string = ''
 
     ymin = min(dff['vs. LY'])
     

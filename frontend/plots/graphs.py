@@ -644,7 +644,7 @@ def homepage_revenue_graph(graph):
     area = 'All Locations'
     measure = 'Revenue'
     metric = 'vs. LY'
-    report = 'mtd'
+    report = 'four_weeks'
 
     rev_df = user_site_filter(sales_dataframes[report]['revenue'])
 
