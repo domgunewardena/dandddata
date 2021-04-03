@@ -102,6 +102,15 @@ review_colors = {
     'value':'purple'
 }
 
+homepage_colors = {
+    'future':'#f9f9f9',
+    'past':'#f9f9f9',
+    'covers':'blue',
+    'revenue':'purple',
+    'scores':'cyan',
+    'scores_scale':'Teal',
+}
+
 
 def week_colors_totals(measure, shift, metric):
     return week_colors[measure][shift][metric]

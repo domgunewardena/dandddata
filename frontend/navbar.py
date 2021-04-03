@@ -87,7 +87,9 @@ SIDEBAR_STYLE = {
     "bottom": 0,
     "width": "20rem",
     "padding": "2rem 1rem",
-    "background-color": "#f8f9fa",
+    'border-radius': '15px',
+    'box-shadow': '8px 8px 8px grey',
+    'background-color': '#f9f9f9',   
 }
 
 sidebar = html.Div(

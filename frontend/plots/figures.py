@@ -3,7 +3,7 @@ import plotly.graph_objs as go
 from plotly.subplots import make_subplots
 
 from data.functions import trends_site_filter, trends_table_filter, get_abbreviation
-from frontend.styling import review_colors
+from frontend.styling import review_colors, homepage_colors
 
 # Sales Figures
 
@@ -1041,12 +1041,15 @@ def future_breakdown_figure(dff, week):
     return fig
 
 def homepage_future_summary_figure(covers, empty, full):
-    
-    fig = go.Figure()
+        
+    bar_color = homepage_colors['covers']
+    background_color = homepage_colors['future']
 
     labels = ['Covers', 'Empty Seats']
     values = [covers, empty]
-    colors = ['blue','lightgrey']
+    colors = [bar_color,'lightgrey']
+    
+    fig = go.Figure()
 
     fig.add_trace(
         go.Pie(
@@ -1079,11 +1082,15 @@ def homepage_future_summary_figure(covers, empty, full):
             ),
         ],
         showlegend = False,
+        paper_bgcolor = background_color,
     )
 
     return fig
 
 def homepage_future_worst_figure(dff):
+        
+    bar_color = homepage_colors['covers']
+    background_color = homepage_colors['future']
     
     fig = go.Figure()
     
@@ -1092,9 +1099,8 @@ def homepage_future_worst_figure(dff):
             x = dff['full']*100,
             y = dff['restaurant'].apply(get_abbreviation),
             marker = {
-                'color': 'blue',
-                'coloraxis':'coloraxis',
-                'line_color':'blue',
+                'color': bar_color,
+                'line_color':bar_color,
                 'line_width':1.5,
             },
             orientation = 'h',
@@ -1110,9 +1116,7 @@ def homepage_future_worst_figure(dff):
         go.Bar(
             x = 100-dff['full']*100,
             y = dff['restaurant'].apply(get_abbreviation),
-            marker = {
-                'color':'white',
-            },
+            marker = {'color':'white'},
             orientation = 'h',
             hovertemplate = '%{x:.0f}% Empty',
             name = "Empty",
@@ -1134,32 +1138,28 @@ def homepage_future_worst_figure(dff):
         },
         barmode="relative",
         showlegend = False,
+        paper_bgcolor = background_color,
     )
 
     return fig
 
 def homepage_summary_figure(thisyear, lastyear, pchange, measure):
       
-    ymax = max([lastyear, thisyear])
-    ylim = ymax*1.5
-    annotation_y_pos = ymax * 1.25
+    ylim = max([lastyear*1.1, thisyear*1.35])
     
     plus_sign = '+' if pchange > 0 else ''  
     annotation_text = plus_sign + str(int(pchange)) + '%'
 
     if measure == 'Covers':
-        texttemplate = '%{customdata:.1f}k'
-        bar_color = 'blue'
+        name = 'Booked Covers'
+        hovertemplate = '%{x} %{customdata:.1f}k'
+        bar_color = homepage_colors['covers']
+        background_color = homepage_colors['future']
     else:
-        texttemplate = '£%{customdata:.1f}k'
-        bar_color = 'purple'
-
-    if thisyear > lastyear:
-        text_color = 'green'
-    else:
-        text_color = 'red'
-        
-    text_color = 'black'
+        name = 'Revenue'
+        hovertemplate = '%{x} £%{customdata:.1f}k'
+        bar_color = homepage_colors['revenue']
+        background_color = homepage_colors['past']
 
     fig = go.Figure()
 
@@ -1169,8 +1169,11 @@ def homepage_summary_figure(thisyear, lastyear, pchange, measure):
             y = [lastyear, thisyear],
             customdata = [lastyear/1000, thisyear/1000],
             name = 'Booked Covers',
-            texttemplate = texttemplate,
-            textposition = 'auto',
+            text = [None, annotation_text],
+            textposition = 'outside',
+            textfont_size = 40,
+            textangle = 0,
+            hovertemplate = hovertemplate,
             marker = {
                 'color':bar_color
             },
@@ -1186,18 +1189,8 @@ def homepage_summary_figure(thisyear, lastyear, pchange, measure):
             'font':{
                 'size':30
             }
-        }
-    )
-
-    fig.add_annotation(
-        x = .5,
-        y = annotation_y_pos,
-        text = annotation_text,
-        showarrow=False,
-        font = dict(
-            size=40,
-            color=text_color,
-        )
+        },
+        paper_bgcolor = background_color,
     )
     
     return fig
@@ -1206,12 +1199,14 @@ def homepage_worst_figure(dff, measure):
     
     if measure == 'Covers':
         restaurant_column = 'Restaurant'
-        bar_color = 'blue'
-        title_string = 'Booked '
+        bar_color = homepage_colors['covers']
+        background_color = homepage_colors['future']
+        xtitle_string = 'Booked'
     elif measure == 'Revenue':
         restaurant_column = 'SiteName'
-        bar_color = 'purple'
-        title_string = ''
+        bar_color = homepage_colors['revenue']
+        background_color = homepage_colors['past']
+        xtitle_string = ''
 
     ymin = min(dff['vs. LY'])
     
@@ -1243,21 +1238,24 @@ def homepage_worst_figure(dff, measure):
             }
         },
         xaxis = {
-            'title': title_string + measure + ' vs. LY',
+            'title': xtitle_string + measure + ' vs. LY',
             'range':[ymin*1.5,0]
         },
+        paper_bgcolor = background_color,
     )
     
     return fig
 
 def homepage_score_summary_figure(overall):
     
-    fig = go.Figure()
-    color = 'cyan'
+    color = homepage_colors['scores']
+    background_color = homepage_colors['past']
 
     labels = ['Overall', None]
     values = [overall, 5-overall]
     colors = [color,'lightgrey']
+    
+    fig = go.Figure()
 
     fig.add_trace(
         go.Pie(
@@ -1289,11 +1287,15 @@ def homepage_score_summary_figure(overall):
             ),
         ],
         showlegend = False,
+        paper_bgcolor = background_color,
     )
     
     return fig
 
 def homepage_score_worst_figure(df):
+    
+    colorscale = homepage_colors['scores_scale']
+    background_color = homepage_colors['past']
     
     fig = go.Figure()
 
@@ -1322,7 +1324,7 @@ def homepage_score_worst_figure(df):
 
     fig.update_layout(
         coloraxis={
-            'colorscale':'Teal',
+            'colorscale':colorscale,
             'cmin':0,
             'cmax':5,
             'showscale':False,
@@ -1336,7 +1338,8 @@ def homepage_score_worst_figure(df):
         },
         xaxis={
             'title':'Average Score'
-        }
+        },
+        paper_bgcolor = background_color,
     )
     
     return fig

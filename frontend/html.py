@@ -25,15 +25,10 @@ def div_style_simple(width):
 # Titles
 
 def render_h1(text):
-    
-    border = 'thin lightgrey solid'
-    color = "rgb(250,250,250)"
-    
-    style = {
+        
+    style={
         'textAlign':"center",
-        'borderBottom': border,
-        'borderRight': border,
-        'backgroundColor': color,
+        'background-color': 'snow',
     }
     
     if text== 'Next 4 Weeks':
@@ -53,7 +48,7 @@ def title_div(text):
     
     h1 = render_h1(text)
     
-    return html.Div([h1])
+    return html.Div([h1], style={'padding':'5px'})
     
     
 def sales_title_div(report):
@@ -78,6 +73,7 @@ def homepage_title_div(text):
 
 metrics = ['vs. LW','vs. LY', 'Totals Last Week', 'Totals Last Year']
 default_metric_index = 1
+
 dropdown_values = {
     'restaurants':sales_restaurants,
     'restaurants_week': ['Group'] + sales_restaurants,
@@ -105,19 +101,16 @@ def render_dropdown_div(p_string, dropdowns, style):
 
 def render_dropdown_row(dropdowns):
     
-    border = 'thin lightgrey solid'
-    background_color = "rgb(250,250,250)"
-    
-    dropdown_row_style = {
-        'borderBottom': border,
-        'borderRight': border,
-        'backgroundColor': background_color,
+    style={
+        'border-radius': '15px',
+        'box-shadow': '8px 8px 8px grey',
+        'background-color': '#f9f9f9',
         'padding': '10px 5px',
     }
     
     return html.Div(
         dropdowns,
-        style = dropdown_row_style
+        style = style
     )
 
 def render_flex_dropdown_row(dropdowns):
@@ -602,7 +595,12 @@ def render_graph(graph_id, height, width):
         id=graph_id,
         style={
             'height':height,
-            'width':width
+            'width':width,
+            'border-radius': '15px',
+            'box-shadow': '8px 8px 8px grey',
+            'background-color': '#f9f9f9',
+            'padding': '5px',
+            'margin': '5px'
         },
         config={'displayModeBar':False})
 
@@ -660,7 +658,8 @@ def render_div(graphs_list, height, width):
         style = {
             'display':'inline-block',
             'height':height,
-            'width':width
+            'width':width,
+            'padding':'10px',
         }
     )
 
