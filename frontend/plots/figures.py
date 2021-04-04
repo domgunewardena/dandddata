@@ -2,8 +2,8 @@ import pandas as pd
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
 
-from data.functions import trends_site_filter, trends_table_filter, get_abbreviation
-from frontend.styling import review_colors, homepage_colors
+from data.functions import trends_site_filter, trends_table_filter, get_abbreviation, get_sitename
+from frontend.styling import review_colors, graph_colors
 
 # Sales Figures
 
@@ -66,7 +66,8 @@ def sales_totals_figure(
         yaxis=dict(
             title=measure,
             range=[0,y_limit]
-        )
+        ),
+        paper_bgcolor = graph_colors['background'],
     )
     
     return fig
@@ -119,7 +120,8 @@ def sales_change_figure(dff,xcolumn,hovertemplate,title,measure,current_col,chan
             cmin=-1,
             cmax=1,
             showscale=False
-        )
+        ),
+        paper_bgcolor = graph_colors['background'],
     )
     
     return fig
@@ -175,7 +177,8 @@ def sales_breakdown_change_figure(dff, title, template, current_col, change_col,
             cmin=-1,
             cmax=1,
             showscale=False
-        )
+        ),
+        paper_bgcolor = graph_colors['background'],
     )
     return fig
 
@@ -230,8 +233,9 @@ def sales_breakdown_totals_figure(dff, title, template, color_ly, color_ty, curr
         showlegend=True,
         height=900,
         yaxis=dict(automargin=True),
-        xaxis=dict(side='top')
-        )
+        xaxis=dict(side='top'),
+        paper_bgcolor = graph_colors['background'],
+    )
     return fig
 
 def sales_week_totals_figure(
@@ -284,7 +288,8 @@ def sales_week_totals_figure(
         title=title,
         yaxis=dict(
             title=measure
-        )
+        ),
+        paper_bgcolor = graph_colors['background'],
     )
     
     return fig
@@ -343,7 +348,8 @@ def sales_week_change_figure(
             cmin=-1,
             cmax=1,
             showscale=False
-        )
+        ),
+        paper_bgcolor = graph_colors['background'],
     )
     return fig
 
@@ -408,7 +414,8 @@ def tracker_totals_figure(dff,x,metric,graph,measure):
         yaxis=dict(
             title=measure + ' ' + metric,
             range=[y_limit_lower,y_limit]
-        )
+        ),
+        paper_bgcolor = graph_colors['background'],
     )
 
     return fig
@@ -462,7 +469,8 @@ def tracker_change_figure(dff,x,metric,graph,measure):
             cmin=-1,
             cmax=1,
             showscale=False
-        )
+        ),
+        paper_bgcolor = graph_colors['background'],
     )
 
     return fig
@@ -531,7 +539,8 @@ def tracker_breakdown_totals_figure(dff,metric,graph,measure):
             title=measure + ' ' + metric,
             range=[0,y_limit],
             side='bottom'
-        )
+        ),
+        paper_bgcolor = graph_colors['background'],
     )
 
     return fig
@@ -587,7 +596,8 @@ def tracker_breakdown_change_figure(dff,metric,graph,measure):
             cmin=-1,
             cmax=1,
             showscale=False
-        )
+        ),
+        paper_bgcolor = graph_colors['background'],
     )
 
     return fig
@@ -670,6 +680,7 @@ def future_totals_figure(restaurant_list, df):
             showscale=False),
         showlegend=False,
         margin=dict(t=30,b=10,l=10,r=10),
+        paper_bgcolor = graph_colors['background'],
     )
     
     fig.update_xaxes(
@@ -737,7 +748,8 @@ def future_changes_figure(restaurant_list,df):
             cmax=1,
             showscale=False),
         showlegend=False,
-        margin=dict(t=30,b=10,l=10,r=10)
+        margin=dict(t=30,b=10,l=10,r=10),
+        paper_bgcolor = graph_colors['background'],
     )
 
     fig_change.add_hline(
@@ -791,7 +803,8 @@ def trends_group_pickup_figure(df,today_week,today_weekday_num):
             text='This Week Pickup - Group',
             x=0.5,
             y=0.85
-        )
+        ),
+        paper_bgcolor = graph_colors['background'],
     )
     fig.add_shape(
         type='line',
@@ -835,7 +848,8 @@ def trends_site_pickup_figure(df,restaurant,today_week,today_weekday_num):
             text='This Week Pickup - ' + restaurant,
             x=0.5,
             y=0.85
-        )
+        ),
+        paper_bgcolor = graph_colors['background'],
     )
     fig.add_shape(
         type='line',
@@ -877,7 +891,8 @@ def trends_group_future_figure(df,today_week,today_weekday_num):
             text='Future Weeks - Group',
             x=0.5,
             y=0.85
-        )
+        ),
+        paper_bgcolor = graph_colors['background'],
     )
     for i in [-14,-7]:
         fig.add_shape(
@@ -925,7 +940,8 @@ def trends_site_future_figure(df,restaurant,today_week,today_weekday_num):
             text='Future Weeks - ' + restaurant,
             x=0.5,
             y=0.85
-        )
+        ),
+        paper_bgcolor = graph_colors['background'],
     )
 
     for i in [-14,-7]:
@@ -964,6 +980,7 @@ def score_figure(dff, category):
             'cmax':5,
             'showscale':False
         },
+        paper_bgcolor = graph_colors['background'],
     )
     
     return fig
@@ -998,6 +1015,7 @@ def score_breakdown_figure(dff, category):
             'cmax':5,
             'showscale':False
         },
+        paper_bgcolor = graph_colors['background'],
     )
     
     return fig
@@ -1031,7 +1049,8 @@ def future_breakdown_figure(dff, week):
             'cmax':1,
             'showscale':False
         },
-        xaxis = {'title':'% Full'}
+        xaxis = {'title':'% Full'},
+        paper_bgcolor = graph_colors['background'],
     )
 
     fig.add_vline(
@@ -1040,10 +1059,16 @@ def future_breakdown_figure(dff, week):
     
     return fig
 
-def homepage_future_summary_figure(covers, empty, full):
+def homepage_future_summary_figure(covers, empty, full, site):
+    
+    if site == 'Group':
+        title = '% Full'
+    else:
+        site_name = get_sitename(site)
+        title = get_abbreviation(site_name) + ' % Full'
         
-    bar_color = homepage_colors['covers']
-    background_color = homepage_colors['future']
+    bar_color = graph_colors['covers']
+    background_color = graph_colors['background']
 
     labels = ['Covers', 'Empty Seats']
     values = [covers, empty]
@@ -1061,13 +1086,12 @@ def homepage_future_summary_figure(covers, empty, full):
             },
             hoverinfo = 'label+value',
             textinfo = 'none',
-            opacity = 0.5
         )
     )
 
     fig.update_layout(
         title = {
-            'text':'Bookings % Full',
+            'text':title,
             'font':{
                 'size':30
             }
@@ -1087,17 +1111,25 @@ def homepage_future_summary_figure(covers, empty, full):
 
     return fig
 
-def homepage_future_worst_figure(dff):
+def homepage_future_worst_figure(dff, site):
         
-    bar_color = homepage_colors['covers']
-    background_color = homepage_colors['future']
+    bar_color = graph_colors['covers']
+    background_color = graph_colors['background']
+    
+    if site == 'Group':
+        y = dff['restaurant'].apply(get_abbreviation)
+        title = 'Emptiest Restaurant'
+    else:                
+        y = dff['weeks']
+        site_name = get_sitename(site)
+        title = get_abbreviation(site_name) + ' Upcoming Weeks'
     
     fig = go.Figure()
     
     fig.add_trace(
         go.Bar(
             x = dff['full']*100,
-            y = dff['restaurant'].apply(get_abbreviation),
+            y = y,
             marker = {
                 'color': bar_color,
                 'line_color':bar_color,
@@ -1109,28 +1141,25 @@ def homepage_future_worst_figure(dff):
             textposition = 'auto',
             hovertemplate = '%{x:.0f}%',
             name = "Full",
-            opacity = 0.5
         )
     )
     fig.add_trace(
         go.Bar(
             x = 100-dff['full']*100,
-            y = dff['restaurant'].apply(get_abbreviation),
+            y = y,
             marker = {'color':'white'},
             orientation = 'h',
             hovertemplate = '%{x:.0f}% Empty',
             name = "Empty",
-            opacity = 0.5
+            opacity = 0.5,
         )
     )
 
 
     fig.update_layout(
         title = {
-            'text':'Emptiest Restaurants',
-            'font':{
-                'size':30
-            }
+            'text':title,
+            'font':{'size':30}
         },
         xaxis = {
             'title':'% Full',
@@ -1138,28 +1167,34 @@ def homepage_future_worst_figure(dff):
         },
         barmode="relative",
         showlegend = False,
-        paper_bgcolor = background_color,
+        paper_bgcolor = graph_colors['background'],
     )
 
     return fig
 
-def homepage_summary_figure(thisyear, lastyear, pchange, measure):
+def homepage_summary_figure(thisyear, lastyear, pchange, measure, site):
+    
+    if site == 'Group':
+        title = measure + ' vs. LY'
+    else:
+        site_name = get_sitename(site)
+        title = get_abbreviation(site_name) + ' ' + measure + ' vs. LY'
       
     ylim = max([lastyear*1.1, thisyear*1.35])
     
     plus_sign = '+' if pchange > 0 else ''  
     annotation_text = plus_sign + str(int(pchange)) + '%'
+    
+    background_color = graph_colors['background']
 
     if measure == 'Covers':
         name = 'Booked Covers'
         hovertemplate = '%{x} %{customdata:.1f}k'
-        bar_color = homepage_colors['covers']
-        background_color = homepage_colors['future']
+        bar_color = graph_colors['covers']
     else:
         name = 'Revenue'
         hovertemplate = '%{x} £%{customdata:.1f}k'
-        bar_color = homepage_colors['revenue']
-        background_color = homepage_colors['past']
+        bar_color = graph_colors['revenue']
 
     fig = go.Figure()
 
@@ -1168,7 +1203,7 @@ def homepage_summary_figure(thisyear, lastyear, pchange, measure):
             x = ['Last Year', 'This Year'],
             y = [lastyear, thisyear],
             customdata = [lastyear/1000, thisyear/1000],
-            name = 'Booked Covers',
+            name = name,
             text = [None, annotation_text],
             textposition = 'outside',
             textfont_size = 40,
@@ -1185,7 +1220,7 @@ def homepage_summary_figure(thisyear, lastyear, pchange, measure):
             'range':[0,ylim]
         },
         title = {
-            'text': measure + ' vs. LY',
+            'text': title,
             'font':{
                 'size':30
             }
@@ -1195,27 +1230,50 @@ def homepage_summary_figure(thisyear, lastyear, pchange, measure):
     
     return fig
     
-def homepage_worst_figure(dff, measure):
+def homepage_worst_figure(dff, measure, site):
+    
+    background_color = graph_colors['background']
     
     if measure == 'Covers':
+        
         restaurant_column = 'Restaurant'
-        bar_color = homepage_colors['covers']
-        background_color = homepage_colors['future']
-        xtitle_string = 'Booked'
+        site_column = 'Week'
+        
+        bar_color = graph_colors['covers']
+        xtitle_string = 'Booked '
+        
     elif measure == 'Revenue':
+        
         restaurant_column = 'SiteName'
-        bar_color = homepage_colors['revenue']
-        background_color = homepage_colors['past']
+        site_column = 'LocationName'
+        
+        bar_color = graph_colors['revenue']
         xtitle_string = ''
+        
+    if site == 'Group':
+        y = dff[restaurant_column].apply(get_abbreviation)
+        title = 'Lowest ' + measure + ' vs. LY'
+    else:
+        y = dff[site_column].apply(get_abbreviation)
+        site_name = get_sitename(site)
+        title = get_abbreviation(site_name) + ' ' + measure + ' vs. LY'
 
-    ymin = min(dff['vs. LY'])
+    xmin = min(dff['vs. LY'])
+    xmax = max(dff['vs. LY'])
+    
+    max_change = max(-xmin, xmax)
+    
+    if xmax > 0:
+        xrange = [-max_change*1.8, max_change*1.8]
+    else:
+        xrange = [xmin*1.5,0]
     
     fig = go.Figure()
 
     fig.add_trace(
         go.Bar(
             x = dff['vs. LY'],
-            y = dff[restaurant_column].apply(get_abbreviation),
+            y = y,
             customdata = dff['vs. LY %']*100,
             marker = {
                 'color':bar_color
@@ -1232,24 +1290,30 @@ def homepage_worst_figure(dff, measure):
 
     fig.update_layout(
         title = {
-            'text':'Lowest ' + measure + ' vs. LY',
+            'text':title,
             'font':{
                 'size':30
             }
         },
         xaxis = {
             'title': xtitle_string + measure + ' vs. LY',
-            'range':[ymin*1.5,0]
+            'range':xrange,
         },
         paper_bgcolor = background_color,
     )
     
     return fig
 
-def homepage_score_summary_figure(overall):
+def homepage_score_summary_figure(overall, site):
     
-    color = homepage_colors['scores']
-    background_color = homepage_colors['past']
+    if site == 'Group':
+        title = 'Overall Score'
+    else:
+        site_name = get_sitename(site)
+        title = get_abbreviation(site_name) + ' Overall Score'
+    
+    color = graph_colors['scores']
+    background_color = graph_colors['background']
 
     labels = ['Overall', None]
     values = [overall, 5-overall]
@@ -1272,7 +1336,7 @@ def homepage_score_summary_figure(overall):
 
     fig.update_layout(
         title = {
-            'text':'Overall Score',
+            'text':title,
             'font':{
                 'size':30
             }
@@ -1292,28 +1356,46 @@ def homepage_score_summary_figure(overall):
     
     return fig
 
-def homepage_score_worst_figure(df):
+def homepage_score_worst_figure(df, site):
     
-    colorscale = homepage_colors['scores_scale']
-    background_color = homepage_colors['past']
+    colorscale = graph_colors['scores_scale']
+    background_color = graph_colors['background']
+    
+    if site == 'Group':
+        
+        y = df.restaurant.apply(get_abbreviation)
+        x = df.overall
+        customdata = df.overall_count
+        name = 'Overall Score'
+        title = 'Lowest Scores'
+        
+    else:
+        
+        y = ['TOTAL','FOOD','SERV','AMBI','VALU'][::-1]
+        x = df.score[::-1]
+        customdata = df['count'][::-1]
+        name = 'Overall Score'
+        
+        site_name = get_sitename(site)
+        title = get_abbreviation(site_name) + ' Scores'
     
     fig = go.Figure()
 
     fig.add_trace(
         go.Scatter(
-            y = df.restaurant.apply(get_abbreviation),
-            x = df.overall,
-            customdata = df.overall_count,
+            y = y,
+            x = x,
+            customdata = customdata,
             mode = 'markers+text',
             marker = dict(
                 size = [1,1,1,1,1],
                 sizemode='area',
                 sizeref=.001,
                 sizemin=10,
-                color = df.overall,
+                color = x,
                 coloraxis = 'coloraxis'
             ),
-            text = df.overall,
+            text = x,
             texttemplate = '%{x:.1f}',
             textposition = 'middle center',
             textfont_size=20,
@@ -1331,7 +1413,7 @@ def homepage_score_worst_figure(df):
             'reversescale':True
         },
         title={
-            'text':'Lowest Scores',
+            'text':title,
             'font':{
                 'size':30
             }

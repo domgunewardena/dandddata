@@ -115,23 +115,20 @@ def render_dropdown_row(dropdowns):
 
 def render_flex_dropdown_row(dropdowns):
     
-    border = 'thin lightgrey solid'
-    background_color = "rgb(250,250,250)"
-    
-    dropdown_row_style = {
+    style = {
         'width': '100%', 
         'display': 'flex', 
         'align-items': 'center', 
         'justify-content': 'center',
-        'borderBottom': border,
-        'borderRight': border,
-        'backgroundColor': background_color,
-        'padding': '10px 5px'
+        'border-radius': '15px',
+        'box-shadow': '8px 8px 8px grey',
+        'background-color': '#f9f9f9',
+        'padding': '10px 5px',
     }
     
     return html.Div(
         dropdowns,
-        style = dropdown_row_style
+        style = style
     )
 
 def core_dropdowns(report):    
@@ -602,7 +599,8 @@ def render_graph(graph_id, height, width):
             'padding': '5px',
             'margin': '5px'
         },
-        config={'displayModeBar':False})
+        config={'displayModeBar':False}
+    )
 
 def render_trends_group_graph(graph_id, func):
 
@@ -618,7 +616,23 @@ def render_trends_group_graph(graph_id, func):
         ),
         config = {'displayModeBar':False}
     )
-        
+
+def render_click_data_graph(graph_id, click_data, height, width):
+    
+    return dcc.Graph(
+        id=graph_id,
+        clickData=click_data,
+        style={
+            'height':height,
+            'width':width,
+            'border-radius': '15px',
+            'box-shadow': '8px 8px 8px grey',
+            'background-color': '#f9f9f9',
+            'padding': '5px',
+            'margin': '5px'
+        },
+        config={'displayModeBar':False}
+    )
 
 def standard_graph(graph_id):
     
@@ -647,6 +661,15 @@ def tracker_graph(graph_id):
     width = '100%'
     
     return render_graph(graph_id, height, width)
+
+def click_data_graph(graph_id, click_data):
+    
+    height = '100%'
+    width = '100%'
+    
+    return render_click_data_graph(graph_id, click_data, height, width)
+    
+    
 
 
 # Divs
@@ -849,5 +872,14 @@ def homepage_div(graph_id):
     height = 400
     width = '25%'
     graphs_list = [standard_graph(graph_id)]
+    
+    return render_div(graphs_list, height, width)
+
+def homepage_click_div(graph_id):
+    
+    height = 400
+    width = '25%'
+    click_data = {'points':[{'y':'Group'}]}
+    graphs_list = [click_data_graph(graph_id, click_data)]
     
     return render_div(graphs_list, height, width)

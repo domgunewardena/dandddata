@@ -102,12 +102,11 @@ review_colors = {
     'value':'purple'
 }
 
-homepage_colors = {
-    'future':'#f9f9f9',
-    'past':'#f9f9f9',
-    'covers':'blue',
-    'revenue':'purple',
-    'scores':'cyan',
+graph_colors = {
+    'background':'#f9f9f9',
+    'covers':'lightskyblue',
+    'revenue':'plum',
+    'scores':'darkturquoise',
     'scores_scale':'Teal',
 }
 

@@ -33,7 +33,7 @@ def homepage():
     
     homepage_worst_graphs = html.Div(
         [
-            homepage_div('homepage future worst'),
+            homepage_click_div('homepage future worst'),
             homepage_div('homepage tracker worst'),
             homepage_div('homepage revenue worst'),
             homepage_div('homepage score worst'),

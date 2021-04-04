@@ -580,14 +580,22 @@ def future_breakdown_graph(week):
     
     return future_breakdown_figure(dff, week)
 
-def homepage_future_graph(graph):
+# Homepage
+
+def homepage_future_graph(graph, site):
     
     df = future_breakdown_df
     weeks_ahead = 4
-    dff = bookings_user_site_filter(df[df.weeks_ahead < weeks_ahead])
+    dff = df[df.weeks_ahead < weeks_ahead]
     
-    df_columns = ['restaurant','capacity','max_guests TW', 'empty']
-    groupby_columns = ['restaurant']
+    if site == 'Group':
+        dff = bookings_user_site_filter(dff)
+        groupby_columns = ['restaurant']
+    else:
+        dff = bookings_site_filter(dff, site)
+        groupby_columns = ['weeks_ahead','weeks']
+    
+    df_columns = groupby_columns + ['capacity','max_guests TW', 'empty']
     df = dff[df_columns].groupby(groupby_columns).sum().reset_index()
     
     df['full'] = (df['max_guests TW']/df.capacity).replace(np.inf, np.nan).fillna(0)
@@ -600,24 +608,41 @@ def homepage_future_graph(graph):
         empty = capacity-covers
         full = covers/capacity
 
-        return homepage_future_summary_figure(covers, empty, full)
+        return homepage_future_summary_figure(covers, empty, full, site)
     
     elif graph == 'worst':
         
-        dff = df.sort_values('full', ascending=False).tail(5)
-        
-        return homepage_future_worst_figure(dff)
+        if site == 'Group':
+            
+            dff = df.sort_values('full', ascending=False).tail(5)
+            
+        else:
+            
+            week_nums = [0,1,2,3]
+            week_labels = ['This Week','Next Week','2 Weeks Ahead', '3 Weeks Ahead']
 
-def homepage_tracker_graph(graph):
+            skeleton_df = pd.DataFrame(data = {'weeks_ahead':week_nums,'weeks':week_labels})
+
+            dff = pd.merge(skeleton_df, df, how = 'left')
+            dff = dff.sort_values('weeks_ahead', ascending=False)
+        
+        return homepage_future_worst_figure(dff, site)
+
+def homepage_tracker_graph(graph, site):
     
     df = tracker_df
     mask1 = df['Week'].isin(['This Week','Next Week','Two Weeks','Three Weeks'])
     mask2 = df['Day'] == 'Full Week'
-    dff = tracker_user_site_filter(df[mask1 & mask2])
+    dff = df[mask1 & mask2]
+    
+    if site == 'Group':
+        dff = tracker_user_site_filter(dff)
+        groupby_columns = ['Restaurant']
+    else:
+        dff = tracker_site_filter(dff, site)
+        groupby_columns = ['Week']
 
-    df_columns = ['Restaurant','This Week','Last Week','Last Year']
-    groupby_columns = ['Restaurant']
-
+    df_columns = groupby_columns + ['This Week','Last Week','Last Year']
     df = dff[df_columns].groupby(groupby_columns).sum().reset_index()
    
     df['vs. LY'] = df['This Week'] - df['Last Year']
@@ -630,15 +655,23 @@ def homepage_tracker_graph(graph):
         lastyear = sums[2]
         pchange = ((thisyear - lastyear) / lastyear)*100
         
-        return homepage_summary_figure(thisyear, lastyear, pchange, 'Covers')
+        return homepage_summary_figure(thisyear, lastyear, pchange, 'Covers', site)
     
     elif graph == 'worst':
         
-        dff = df.sort_values('vs. LY %', ascending=False).tail(5)
+        if site == 'Group':
+            dff = df.sort_values('vs. LY %', ascending=False).tail(5)
+        else:
+            
+            week_labels = ['This Week','Next Week','Two Weeks', 'Three Weeks'][::-1]
+
+            skeleton_df = pd.DataFrame(data = {'Week':week_labels})
+
+            dff = pd.merge(skeleton_df, df, how = 'left')
         
-        return homepage_worst_figure(dff, 'Covers')
+        return homepage_worst_figure(dff, 'Covers', site)
     
-def homepage_revenue_graph(graph):
+def homepage_revenue_graph(graph, site):
     
     shift = 'All Shifts'
     area = 'All Locations'
@@ -646,17 +679,23 @@ def homepage_revenue_graph(graph):
     metric = 'vs. LY'
     report = 'four_weeks'
 
-    rev_df = user_site_filter(sales_dataframes[report]['revenue'])
-
     bounds = date_bounds[report]
     current_col = date_columns['current'][report]
     last_col = date_columns['last'][report]
     vs_col = date_columns['vs'][report]
-
     change_col, base_col = (vs_col, last_col) if metric in [vs_col, 'Totals ' + last_col] else ('vs. LY', 'Last Year')
-    on_column = 'SiteName'
+    
+    if site == 'Group':
+        
+        on_column = 'SiteName'
+        rev_df = user_site_filter(sales_dataframes[report]['revenue'])
+        df = breakdown_revenue_df(rev_df,bounds,current_col,last_col,vs_col,on_column).sort_values(by=on_column, ascending=False)
+        
+    else:
+        on_column = 'LocationName'
+        rev_df = site_filter(sales_dataframes[report]['revenue'], site)
+        df = site_revenue_df(site,rev_df,bounds,current_col,last_col,vs_col,on_column)
 
-    df = breakdown_revenue_df(rev_df,bounds,current_col,last_col,vs_col,on_column).sort_values(by=on_column, ascending=False)
     
     if graph == 'summary':
         
@@ -665,34 +704,61 @@ def homepage_revenue_graph(graph):
         lastyear = sums[2]
         pchange = ((thisyear - lastyear) / lastyear)*100
         
-        return homepage_summary_figure(thisyear, lastyear, pchange, 'Revenue')
+        return homepage_summary_figure(thisyear, lastyear, pchange, 'Revenue', site)
     
     elif graph == 'worst':
         
-        dff = df.sort_values('vs. LY %', ascending=False).tail(5)
+        if site == 'Group':
+            dff = df.sort_values('vs. LY %', ascending=False).tail(5)
+        else:
+            dff = df[df[on_column] != 'Total'].sort_values('vs. LY', ascending=False)
         
-        return homepage_worst_figure(dff, 'Revenue')
+        return homepage_worst_figure(dff, 'Revenue', site)
     
-def homepage_score_graph(graph):
+def homepage_score_graph(graph, site):
     
     df = reviews_dff
-    dff = bookings_user_site_filter(df[df.weeks_ago > -5])
+    dff = df[df.weeks_ago > -5]
+    
+    if site == 'Group':
+        dff = bookings_user_site_filter(dff)
+    else:
+        dff = bookings_site_filter(dff, site)
     
     if graph == 'summary':
         
         overall = dff['overall'].mean()
         
-        return homepage_score_summary_figure(overall)
+        return homepage_score_summary_figure(overall, site)
     
     elif graph == 'worst':
         
-        df_columns = ['restaurant','overall']
-        groupby_columns = 'restaurant'
-
-        means = dff[df_columns].groupby(groupby_columns).mean().reset_index()
-        counts = dff[df_columns].groupby(groupby_columns).count().reset_index()
-
-        restaurants = pd.merge(means,counts,on='restaurant',suffixes=('','_count'), how='outer')
-        df = restaurants.sort_values('overall', ascending=False).tail(5)
+        if site == 'Group':
         
-        return homepage_score_worst_figure(df)
+            df_columns = ['restaurant','overall']
+            groupby_columns = 'restaurant'
+
+            means = dff[df_columns].groupby(groupby_columns).mean().reset_index()
+            counts = dff[df_columns].groupby(groupby_columns).count().reset_index()
+
+            restaurants = pd.merge(means,counts,on='restaurant',suffixes=('','_count'), how='outer')
+            df = restaurants.sort_values('overall', ascending=False).tail(5)
+            
+        else:
+            
+            df_columns = ['overall','food','service','ambience','value']
+
+            means = dff[df_columns].mean().reset_index()
+            counts = dff[df_columns].count().reset_index()
+
+            df = pd.merge(means,counts,on='index',suffixes=('_score','_count'), how='outer')
+
+            column_map = {
+                'index':'category',
+                '0_score':'score',
+                '0_count':'count',
+            }
+
+            df = df.rename(columns=column_map)
+        
+        return homepage_score_worst_figure(df, site)
