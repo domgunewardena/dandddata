@@ -1242,7 +1242,7 @@ def homepage_future_weeks_figure(dff, site):
         title = '% Full: ' + full_string
     else:                
         site_name = get_sitename(site)
-        title = get_abbreviation(site_name) + ' Upcoming Weeks'
+        title = get_abbreviation(site_name) + ' % Full: ' + full_string
         
     x = dff['weeks'].apply(get_abbreviation)
     

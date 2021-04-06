@@ -65,15 +65,33 @@ def update_homepage_revenue_sites(metric):
 
 @app.callback(
     Output('homepage future breakdown', 'figure'),
-    [Input('homepage title', 'children')])
-def update_homepage_future_breakdown(metric):
-    return homepage_future_graph('breakdown', 'Group')
+    [Input('homepage tracker sites', 'clickData')])
+def update_homepage_future_breakdown(clickData):
+    
+    site = 'Group'    
+    if clickData and clickData['points']:
+        try:
+            site_abbreviation = clickData['points'][0]['y']
+            site = restaurant_abbreviations[site_abbreviation]['bookings']
+        except (KeyError, TypeError) as err:
+            pass
+
+    return homepage_future_graph('breakdown', site)
 
 @app.callback(
     Output('homepage tracker breakdown', 'figure'),
-    [Input('homepage title', 'children')])
-def update_homepage_tracker_breakdown(metric):
-    return homepage_tracker_graph('breakdown', 'Group')
+    [Input('homepage tracker sites', 'clickData')])
+def update_homepage_tracker_breakdown(clickData):
+    
+    site = 'Group'    
+    if clickData and clickData['points']:
+        try:
+            site_abbreviation = clickData['points'][0]['y']
+            site = restaurant_abbreviations[site_abbreviation]['bookings']
+        except (KeyError, TypeError) as err:
+            pass
+
+    return homepage_tracker_graph('breakdown', site)
 
 @app.callback(
     Output('homepage score sites', 'figure'),
