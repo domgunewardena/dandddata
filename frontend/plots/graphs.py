@@ -726,6 +726,7 @@ def homepage_revenue_graph(graph, site):
         df = breakdown_revenue_df(rev_df,bounds,current_col,last_col,vs_col,on_column).sort_values(by=on_column, ascending=False)
         
     else:
+        
         on_column = 'LocationName'
         rev_df = site_filter(sales_dataframes[report]['revenue'], site)
         df = site_revenue_df(site,rev_df,bounds,current_col,last_col,vs_col,on_column)
@@ -752,6 +753,8 @@ def homepage_revenue_graph(graph, site):
     elif graph == 'sites':
         
         return homepage_sites_figure(df, 'Revenue', site)
+    
+    
     
     
 def homepage_score_graph(graph, site):
@@ -814,3 +817,55 @@ def homepage_score_graph(graph, site):
         df = restaurants.sort_values('restaurant', ascending=False)
         
     return homepage_score_figure(df, site)
+
+def detail_sales_graph(graph, site):
+    
+    metric = 'vs. LY'
+    report = 'four_weeks'
+
+    bounds = date_bounds[report]
+    current_col = date_columns['current'][report]
+    last_col = date_columns['last'][report]
+    vs_col = date_columns['vs'][report]
+    change_col, base_col = (vs_col, last_col) if metric in [vs_col, 'Totals ' + last_col] else ('vs. LY', 'Last Year')
+    
+    if site == 'Group':
+        
+        rev_df = user_site_filter(sales_dataframes[report]['revenue'])
+        on_column = 'GenericLocation'
+        
+        if graph == 'revenue':
+            
+            df = group_revenue_df(rev_df,bounds,current_column,last_col,vs_col,oncolumn)
+            df = df[df.on_column != 'Total']
+            
+            return detail_sales_figure(df, on_column)
+            
+        elif graph == 'spend':
+            
+            cov_df = user_site_filter(sales_dataframes[report]['covers'])            
+            df = group_spend_df(rev_df, cov_df, bounds, current_column,last_col,vs_col,oncolumn)
+            df = df[df.on_column != 'Total'] 
+            
+            return detail_sales_figure(df, on_column)           
+        
+    else:
+        
+        rev_df = site_filter(sales_dataframes[report]['revenue'], site)
+        on_column = 'LocationName'
+        y_column = 'RevenueType'
+        
+        if graph == 'revenue':
+            
+            df = site_revenue_df(site,rev_df,bounds,current_col,last_col,vs_col,on_column)
+            df = df[df.y_column != 'Total']
+            
+            return detail_sales_figure(df, y_column)
+            
+        elif graph == 'spend':
+            
+            cov_df = site_filter(sales_dataframes[report]['covers'], site)
+            df = site_spend_df(site,rev_df,cov_df,bounds,current_column,last_col,vs_col,oncolumn)
+            df = df[df.y_column != 'Total']
+            
+            return detail_sales_figure(df, y_column)

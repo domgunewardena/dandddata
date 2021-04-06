@@ -1753,3 +1753,54 @@ def homepage_score_worst_figure(df, site):
     )
     
     return fig
+
+def detail_sales_figure(df, ycolumn):
+    
+    sums = df[['This Month','Last Month','Last Year']].sum()
+    thisyear = sums[0]
+    lastyear = sums[2]
+    pchange = ((thisyear - lastyear) / lastyear)*100
+    pchange_string = str(int(pchange)) + '%'
+    pchange_string = '+' + pchange_string if pchange>0 else pchange_string
+
+    fig = go.Figure()
+
+    color = 'purple'
+
+    y = df[ycolumn]
+
+    x = df['vs. LY']
+    xmax = max(max(x), -min(x))
+
+    customdata = df['vs. LY %']*100
+    texttemplate = '%{customdata:+.0f}%'
+    hovertemplate = '£%{x:.0f}'
+
+    title = measure.capitalize() + ' vs. LY'
+
+    fig.add_trace(
+        go.Bar(
+            x = x,
+            y = y,
+            customdata = customdata,
+            marker = {'color':color,'opacity':0.5},
+            text = customdata,
+            texttemplate = texttemplate,
+            textposition = 'outside',
+            hovertemplate = hovertemplate,
+            name = 'vs. LY',
+            orientation = 'h',
+        )
+    )
+    fig.update_layout(
+        title = {
+            'text':title,
+            'font':{'size':30}
+        },
+        xaxis = {
+            'title':title,
+            'range':[-xmax*1.3,xmax*1.3]
+        },
+    )
+
+    fig.show()
