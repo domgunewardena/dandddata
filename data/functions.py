@@ -564,7 +564,7 @@ def bookings_site_filter(df, site):
 
 # Restaurant acronyms:
 
-def get_abbreviation(restaurant):
+def get_abbreviation(string):
     
     abbreviations = {
         '100 Wardour St': '100WDST',
@@ -617,12 +617,18 @@ def get_abbreviation(restaurant):
         'Fish Shop': 'FS',
         'Cantina': 'CANT',
         'Alexander & Bjorck': 'A&B',
+        'This Week':'TW',
+        'Next Week':'NW',
+        'Two Weeks':'2W',
+        'Three Weeks':'3W',
+        '2 Weeks Ahead':'2W', 
+        '3 Weeks Ahead':'3W',
     }
     
     try:
-        return abbreviations[restaurant]
+        return abbreviations[string]
     except KeyError:
-        return restaurant
+        return string
     
 def get_sitename(site):
     

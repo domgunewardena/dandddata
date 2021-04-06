@@ -104,8 +104,8 @@ review_colors = {
 
 graph_colors = {
     'background':'#f9f9f9',
-    'covers':'lightskyblue',
-    'revenue':'plum',
+    'covers':'deepskyblue',
+    'revenue':'orchid',
     'scores':'darkturquoise',
     'scores_scale':'Teal',
 }

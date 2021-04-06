@@ -1172,6 +1172,138 @@ def homepage_future_worst_figure(dff, site):
 
     return fig
 
+def homepage_future_weeks_pie_figure(dff, site):
+        
+    bar_color = graph_colors['covers']
+    background_color = graph_colors['background']
+    
+    import math
+    labels = ['Full','Empty']
+    colors = [bar_color,'white']
+
+    specs = [[{'type':'pie'}, {'type':'pie'}], [{'type':'pie'}, {'type':'pie'}]]
+    fig = make_subplots(
+        rows=2, 
+        cols=2, 
+        specs=specs,
+        subplot_titles = dff['weeks']
+    )
+
+    for i in range(len(dff)):
+
+        row = math.floor(i/2) + 1
+        col = i%2 + 1
+
+        week = dff['weeks'][i]
+        covers = dff['max_guests TW'][i]
+        empty = dff.capacity[i] - covers
+        full = str(int(dff.full[i]*100)) + '%'
+
+        if empty > 0:
+            values = [covers, empty]
+        else:
+            values = [covers, None]
+
+        fig.add_trace(
+            go.Pie(
+                labels = labels,
+                values = values,
+                name = week,
+                marker_colors = colors,
+                text = [full, None],
+                textinfo = 'text',
+                textfont_size = 20,
+                hoverinfo = 'value'
+            ),row, col
+        )
+
+        fig.update_layout(
+            showlegend = False,
+            paper_bgcolor = graph_colors['background'],
+        )
+
+    fig.show()
+    
+    
+
+def homepage_future_weeks_figure(dff, site):
+        
+    bar_color = graph_colors['covers']
+    background_color = graph_colors['background']
+    
+    sums = dff[['capacity','max_guests TW','empty']].sum()
+    capacity = sums[0]
+    covers = sums[1]
+    empty = capacity-covers
+    full = covers/capacity
+    full_string = str(int(full*100)) + '%'
+    
+    if site == 'Group':
+        title = '% Full: ' + full_string
+    else:                
+        site_name = get_sitename(site)
+        title = get_abbreviation(site_name) + ' Upcoming Weeks'
+        
+    x = dff['weeks'].apply(get_abbreviation)
+    
+    full_y = dff['full']*100    
+    full_template = '%{y:.0f}%'
+    
+    empty_y = 100-dff['full']*100
+    empty_template = '%{y:.0f}% Empty'
+    
+    max_y = max((max(dff['full'])*100), 100)
+    y_range = [0,100]    
+    
+    fig = go.Figure()
+    
+    fig.add_trace(
+        go.Bar(
+            x = x,
+            y = full_y,
+            marker = {
+                'color': bar_color,
+                'line_color':bar_color,
+                'line_width':1.5,
+                'opacity':0.5,
+            },
+            text = full_y,
+            texttemplate = full_template,
+            textposition = 'auto',
+            textfont = {'color':'black'},
+            textangle = 0,
+            hovertemplate = full_template,
+            name = "Full",
+        )
+    )
+    fig.add_trace(
+        go.Bar(
+            x = x,
+            y = empty_y,
+            marker = {'color':'white'},
+            hovertemplate = empty_template,
+            name = "Empty",
+            opacity = 0.5,
+        )
+    )
+
+
+    fig.update_layout(
+        title = {
+            'text':title,
+            'font':{'size':30}
+        },
+        yaxis = {
+            'title':'% Full',
+            'range':y_range,
+        },
+        barmode="relative",
+        showlegend = False,
+        paper_bgcolor = graph_colors['background'],
+    )
+
+    return fig
+
 def homepage_summary_figure(thisyear, lastyear, pchange, measure, site):
     
     if site == 'Group':
@@ -1291,9 +1423,7 @@ def homepage_worst_figure(dff, measure, site):
     fig.update_layout(
         title = {
             'text':title,
-            'font':{
-                'size':30
-            }
+            'font':{'size':30}
         },
         xaxis = {
             'title': xtitle_string + measure + ' vs. LY',
@@ -1303,6 +1433,204 @@ def homepage_worst_figure(dff, measure, site):
     )
     
     return fig
+
+def homepage_sites_figure(df, measure, site):
+    
+    background_color = graph_colors['background']
+    
+    if measure == 'Covers':
+        
+        restaurant_column = 'Restaurant'
+        bar_color = graph_colors['covers']
+        xtitle = 'Booked Covers vs. LY'
+        df_columns = ['This Week','Last Week','Last Year']
+        
+    elif measure == 'Revenue':
+        
+        restaurant_column = 'SiteName'
+        bar_color = graph_colors['revenue']
+        xtitle = 'Revenue vs. LY'
+        df_columns = ['This Month','Last Month','Last Year']
+    
+    sums = df[df_columns].sum()
+    thisyear = sums[0]
+    lastyear = sums[2]
+    pchange = ((thisyear - lastyear) / lastyear)*100
+    pchange_string = str(int(pchange)) + '%'
+    pchange_string = '+' + pchange_string if pchange>0 else pchange_string
+    title = measure + ' vs. LY: ' + pchange_string
+        
+    x = df['vs. LY']
+    xmax = max(max(x),-min(x))
+    xlim = xmax*1.7
+    xrange = [-xlim,xlim]
+    customdata = df['vs. LY %']*100
+    
+    y = df[restaurant_column].apply(get_abbreviation)
+    
+    texttemplate = '%{customdata:+.0f}%'
+    hovertemplate = '%{x:+.0f}'
+    name = "vs. LY"
+    
+    fig = go.Figure()
+
+    fig.add_trace(
+        go.Bar(
+            x = x,
+            y = y,
+            customdata = customdata,
+            marker = {'color':bar_color,'opacity':0.5},
+            orientation = 'h',
+            text = customdata,
+            texttemplate = texttemplate,
+            textposition = 'outside',
+            textangle = 0,
+            textfont = {'color':'black'},
+            hovertemplate = hovertemplate,
+            name = name,
+        )
+    )
+    
+    fig.update_layout(
+        xaxis = {
+            'range': xrange,
+            'title': xtitle,
+        },
+        title = {
+            'text': title,
+            'font':{'size':30}
+        },
+        paper_bgcolor = background_color,
+    )
+    
+    return fig
+
+
+def homepage_tracker_weeks_figure(dff, site):
+    
+    background_color = graph_colors['background']
+    bar_color = graph_colors['covers']
+        
+    if site == 'Group':
+        title = 'Covers vs. LY'
+    else:
+        site_name = get_sitename(site)
+        title = get_abbreviation(site_name) + ' Covers vs. LY'
+        
+    y = dff['vs. LY']
+    ymax = max(max(y),-min(y))
+    ylim = ymax*1.5
+    yrange = [-ylim, ylim]
+    ytitle = 'Booked Covers vs. LY'
+    customdata = dff['vs. LY %']*100
+    
+    x = dff['Week'].apply(get_abbreviation)
+    
+    texttemplate = '%{customdata:+.0f}%'
+    hovertemplate = '%{y:+.0f}'
+    name = "vs. LY"
+    
+    fig = go.Figure()
+
+    fig.add_trace(
+        go.Bar(
+            x = x,
+            y = y,
+            customdata = customdata,
+            marker = {'color':bar_color,'opacity':0.5,},
+            text = customdata,
+            texttemplate = texttemplate,
+            textposition = 'outside',
+            textfont = {'color':'black'},
+            textangle = 0,
+            hovertemplate = hovertemplate,
+            name = name,
+        )
+    )
+
+    fig.update_layout(
+        title = {
+            'text':title,
+            'font':{'size':30}
+        },
+        yaxis = {
+            'title': ytitle,
+            'range': yrange,
+        },
+        paper_bgcolor = background_color,
+    )
+    
+    return fig
+
+def homepage_score_figure(df, site):
+    
+    overall = df['overall'].mean()
+    
+    colorscale = graph_colors['scores_scale']
+    background_color = graph_colors['background']
+    
+    if site == 'Group':
+        
+        y = df.restaurant.apply(get_abbreviation)
+        x = df.overall
+        customdata = df.overall_count
+        name = 'Overall Score'
+        title = 'Feedback Rating: ' + str(round(overall,1))
+        
+    else:
+        
+        y = ['TOTAL','FOOD','SERV','AMBI','VALU'][::-1]
+        x = df.score[::-1]
+        customdata = df['count'][::-1]
+        name = 'Overall Score'
+        
+        site_name = get_sitename(site)
+        title = get_abbreviation(site_name) + ' Scores'
+    
+    fig = go.Figure()
+
+    fig.add_trace(
+        go.Scatter(
+            y = y,
+            x = x,
+            customdata = customdata,
+            mode = 'markers+text',
+            marker = dict(
+                size = [1]*len(y),
+                sizemode = 'area',
+                sizeref = .001,
+                sizemin = 10,
+                color = x,
+                coloraxis = 'coloraxis'
+            ),
+            text = x,
+            texttemplate = '%{x:.1f}',
+            textposition = 'middle center',
+            textfont_size = 20,
+            hovertemplate = 'From %{customdata} reviews',
+            name = 'Overall Score'
+        )
+    )
+
+    fig.update_layout(
+        coloraxis={
+            'colorscale':colorscale,
+            'cmin':0,
+            'cmax':5,
+            'showscale':False,
+            'reversescale':True
+        },
+        title={
+            'text':title,
+            'font':{'size':30},
+        },
+        xaxis={'title':'Average Score'},
+        paper_bgcolor = background_color,
+    )
+    
+    return fig
+    
+    
 
 def homepage_score_summary_figure(overall, site):
     

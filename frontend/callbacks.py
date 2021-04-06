@@ -51,118 +51,150 @@ homepage_worst_inputs = [Input('homepage ' + x + ' worst', 'clickData') for x in
 
 # Home
 
-@app.callback(Output('homepage future summary', 'figure'), homepage_worst_inputs)
-def update_homepage_future_summary(click1, click2, click3, click4):
-    
-    site = 'Group'    
-    for clickData in [click1, click2, click3, click4]:
-        if clickData and clickData['points']:
-            try:
-                site_abbreviation = clickData['points'][0]['y']
-                site = restaurant_abbreviations[site_abbreviation]['bookings']
-            except (KeyError, TypeError) as err:
-                pass
-        
-    print('Finished looping through clicks')
-    return homepage_future_graph('summary', site)
+@app.callback(
+    Output('homepage revenue sites', 'figure'),
+    [Input('homepage title', 'children')])
+def update_homepage_revenue_sites(metric):
+    return homepage_revenue_graph('sites','Group')
 
-@app.callback(Output('homepage tracker summary', 'figure'), homepage_worst_inputs)
-def update_homepage_tracker_summary(click1, click2, click3, click4):
-    
-    site = 'Group'    
-    for clickData in [click1, click2, click3, click4]:
-        if clickData and clickData['points']:
-            try:
-                site_abbreviation = clickData['points'][0]['y']
-                site = restaurant_abbreviations[site_abbreviation]['bookings']
-            except (KeyError, TypeError):
-                pass
-        
-    return homepage_tracker_graph('summary', site)
+@app.callback(
+    Output('homepage tracker sites', 'figure'),
+    [Input('homepage title', 'children')])
+def update_homepage_revenue_sites(metric):
+    return homepage_tracker_graph('sites','Group')
 
-@app.callback(Output('homepage revenue summary', 'figure'), homepage_worst_inputs)
-def update_homepage_revenue_summary(click1, click2, click3, click4):
-    
-    site = 'Group'    
-    for clickData in [click1, click2, click3, click4]:
-        if clickData and clickData['points']:
-            try:
-                site_abbreviation = clickData['points'][0]['y']
-                site = restaurant_abbreviations[site_abbreviation]['sales']
-            except (KeyError, TypeError):
-                pass
-        
-    return homepage_revenue_graph('summary', site)
+@app.callback(
+    Output('homepage future breakdown', 'figure'),
+    [Input('homepage title', 'children')])
+def update_homepage_future_breakdown(metric):
+    return homepage_future_graph('breakdown', 'Group')
 
-@app.callback(Output('homepage score summary', 'figure'), homepage_worst_inputs)
-def update_homepage_score_summary(click1, click2, click3, click4):
-    
-    site = 'Group'    
-    for clickData in [click1, click2, click3, click4]:
-        if clickData and clickData['points']:
-            try:
-                site_abbreviation = clickData['points'][0]['y']
-                site = restaurant_abbreviations[site_abbreviation]['bookings']
-            except (KeyError, TypeError):
-                pass
-        
-    return homepage_score_graph('summary', site)
+@app.callback(
+    Output('homepage tracker breakdown', 'figure'),
+    [Input('homepage title', 'children')])
+def update_homepage_tracker_breakdown(metric):
+    return homepage_tracker_graph('breakdown', 'Group')
 
-@app.callback(Output('homepage future worst', 'figure'), homepage_worst_inputs)
-def update_homepage_future_worst(click1, click2, click3, click4):
-    
-    site = 'Group'    
-    for clickData in [click1, click2, click3, click4]:
-        if clickData and clickData['points']:
-            try:
-                site_abbreviation = clickData['points'][0]['y']
-                site = restaurant_abbreviations[site_abbreviation]['bookings']
-            except (KeyError, TypeError):
-                pass
-        
-    return homepage_future_graph('worst', site)
+@app.callback(
+    Output('homepage score sites', 'figure'),
+    [Input('homepage title', 'children')])
+def update_homepage_score_sites(metric):
+    return homepage_score_graph('sites', 'Group')
+                                  
+                                  
 
-@app.callback(Output('homepage tracker worst', 'figure'), homepage_worst_inputs)
-def update_homepage_tracker_worst(click1, click2, click3, click4):
+# @app.callback(Output('homepage future summary', 'figure'), homepage_worst_inputs)
+# def update_homepage_future_summary(click1, click2, click3, click4):
     
-    site = 'Group'    
-    for clickData in [click1, click2, click3, click4]:
-        if clickData and clickData['points']:
-            try:
-                site_abbreviation = clickData['points'][0]['y']
-                site = restaurant_abbreviations[site_abbreviation]['bookings']
-            except (KeyError, TypeError):
-                pass
+#     site = 'Group'    
+#     for clickData in [click1, click2, click3, click4]:
+#         if clickData and clickData['points']:
+#             try:
+#                 site_abbreviation = clickData['points'][0]['y']
+#                 site = restaurant_abbreviations[site_abbreviation]['bookings']
+#             except (KeyError, TypeError) as err:
+#                 pass
         
-    return homepage_tracker_graph('worst', site)
+#     print('Finished looping through clicks')
+#     return homepage_future_graph('summary', site)
 
-@app.callback(Output('homepage revenue worst', 'figure'), homepage_worst_inputs)
-def update_homepage_revenue_worst(click1, click2, click3, click4):
+# @app.callback(Output('homepage tracker summary', 'figure'), homepage_worst_inputs)
+# def update_homepage_tracker_summary(click1, click2, click3, click4):
     
-    site = 'Group'    
-    for clickData in [click1, click2, click3, click4]:
-        if clickData and clickData['points']:
-            try:
-                site_abbreviation = clickData['points'][0]['y']
-                site = restaurant_abbreviations[site_abbreviation]['sales']
-            except (KeyError, TypeError):
-                pass
+#     site = 'Group'    
+#     for clickData in [click1, click2, click3, click4]:
+#         if clickData and clickData['points']:
+#             try:
+#                 site_abbreviation = clickData['points'][0]['y']
+#                 site = restaurant_abbreviations[site_abbreviation]['bookings']
+#             except (KeyError, TypeError):
+#                 pass
         
-    return homepage_revenue_graph('worst', site)
+#     return homepage_tracker_graph('summary', site)
 
-@app.callback(Output('homepage score worst', 'figure'), homepage_worst_inputs)
-def update_homepage_score_worst(click1, click2, click3, click4):
+# @app.callback(Output('homepage revenue summary', 'figure'), homepage_worst_inputs)
+# def update_homepage_revenue_summary(click1, click2, click3, click4):
     
-    site = 'Group'    
-    for clickData in [click1, click2, click3, click4]:
-        if clickData and clickData['points']:
-            try:
-                site_abbreviation = clickData['points'][0]['y']
-                site = restaurant_abbreviations[site_abbreviation]['bookings']
-            except (KeyError, TypeError):
-                pass
+#     site = 'Group'    
+#     for clickData in [click1, click2, click3, click4]:
+#         if clickData and clickData['points']:
+#             try:
+#                 site_abbreviation = clickData['points'][0]['y']
+#                 site = restaurant_abbreviations[site_abbreviation]['sales']
+#             except (KeyError, TypeError):
+#                 pass
         
-    return homepage_score_graph('worst', site)
+#     return homepage_revenue_graph('summary', site)
+
+# @app.callback(Output('homepage score summary', 'figure'), homepage_worst_inputs)
+# def update_homepage_score_summary(click1, click2, click3, click4):
+    
+#     site = 'Group'    
+#     for clickData in [click1, click2, click3, click4]:
+#         if clickData and clickData['points']:
+#             try:
+#                 site_abbreviation = clickData['points'][0]['y']
+#                 site = restaurant_abbreviations[site_abbreviation]['bookings']
+#             except (KeyError, TypeError):
+#                 pass
+        
+#     return homepage_score_graph('summary', site)
+
+# @app.callback(Output('homepage future worst', 'figure'), homepage_worst_inputs)
+# def update_homepage_future_worst(click1, click2, click3, click4):
+    
+#     site = 'Group'    
+#     for clickData in [click1, click2, click3, click4]:
+#         if clickData and clickData['points']:
+#             try:
+#                 site_abbreviation = clickData['points'][0]['y']
+#                 site = restaurant_abbreviations[site_abbreviation]['bookings']
+#             except (KeyError, TypeError):
+#                 pass
+        
+#     return homepage_future_graph('worst', site)
+
+# @app.callback(Output('homepage tracker worst', 'figure'), homepage_worst_inputs)
+# def update_homepage_tracker_worst(click1, click2, click3, click4):
+    
+#     site = 'Group'    
+#     for clickData in [click1, click2, click3, click4]:
+#         if clickData and clickData['points']:
+#             try:
+#                 site_abbreviation = clickData['points'][0]['y']
+#                 site = restaurant_abbreviations[site_abbreviation]['bookings']
+#             except (KeyError, TypeError):
+#                 pass
+        
+#     return homepage_tracker_graph('worst', site)
+
+# @app.callback(Output('homepage revenue worst', 'figure'), homepage_worst_inputs)
+# def update_homepage_revenue_worst(click1, click2, click3, click4):
+    
+#     site = 'Group'    
+#     for clickData in [click1, click2, click3, click4]:
+#         if clickData and clickData['points']:
+#             try:
+#                 site_abbreviation = clickData['points'][0]['y']
+#                 site = restaurant_abbreviations[site_abbreviation]['sales']
+#             except (KeyError, TypeError):
+#                 pass
+        
+#     return homepage_revenue_graph('worst', site)
+
+# @app.callback(Output('homepage score worst', 'figure'), homepage_worst_inputs)
+# def update_homepage_score_worst(click1, click2, click3, click4):
+    
+#     site = 'Group'    
+#     for clickData in [click1, click2, click3, click4]:
+#         if clickData and clickData['points']:
+#             try:
+#                 site_abbreviation = clickData['points'][0]['y']
+#                 site = restaurant_abbreviations[site_abbreviation]['bookings']
+#             except (KeyError, TypeError):
+#                 pass
+        
+#     return homepage_score_graph('worst', site)
 
 
 # Group

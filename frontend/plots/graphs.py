@@ -4,6 +4,7 @@ from data.date_bounds import date_bounds, date_columns
 from data.day_counts import day_counts
 from frontend.plots.figures import *
 from frontend.styling import *
+import numpy as np
 
 def sales_breakdown_graph(
     shift,
@@ -588,12 +589,12 @@ def homepage_future_graph(graph, site):
     weeks_ahead = 4
     dff = df[df.weeks_ahead < weeks_ahead]
     
+    groupby_columns = ['weeks_ahead','weeks']
+    
     if site == 'Group':
         dff = bookings_user_site_filter(dff)
-        groupby_columns = ['restaurant']
     else:
         dff = bookings_site_filter(dff, site)
-        groupby_columns = ['weeks_ahead','weeks']
     
     df_columns = groupby_columns + ['capacity','max_guests TW', 'empty']
     df = dff[df_columns].groupby(groupby_columns).sum().reset_index()
@@ -627,6 +628,18 @@ def homepage_future_graph(graph, site):
             dff = dff.sort_values('weeks_ahead', ascending=False)
         
         return homepage_future_worst_figure(dff, site)
+    
+    elif graph == 'breakdown':
+        
+        week_nums = [0,1,2,3]
+        week_labels = ['This Week','Next Week','2 Weeks Ahead', '3 Weeks Ahead']
+
+        skeleton_df = pd.DataFrame(data = {'weeks_ahead':week_nums,'weeks':week_labels})
+
+        dff = pd.merge(skeleton_df, df, how = 'left')
+        dff['full'] = (dff['max_guests TW']/dff.capacity).replace(np.inf, np.nan).fillna(0)
+        
+        return homepage_future_weeks_figure(dff, site)
 
 def homepage_tracker_graph(graph, site):
     
@@ -637,16 +650,19 @@ def homepage_tracker_graph(graph, site):
     
     if site == 'Group':
         dff = tracker_user_site_filter(dff)
-        groupby_columns = ['Restaurant']
     else:
         dff = tracker_site_filter(dff, site)
+        
+    if graph == 'sites':
+        groupby_columns = ['Restaurant']
+    else:
         groupby_columns = ['Week']
 
     df_columns = groupby_columns + ['This Week','Last Week','Last Year']
     df = dff[df_columns].groupby(groupby_columns).sum().reset_index()
    
     df['vs. LY'] = df['This Week'] - df['Last Year']
-    df['vs. LY %'] = df['vs. LY'] / df['Last Year']
+    df['vs. LY %'] = (df['vs. LY'] / df['Last Year']).replace(np.inf, np.nan).fillna(0)
     
     if graph == 'summary':
         
@@ -660,7 +676,9 @@ def homepage_tracker_graph(graph, site):
     elif graph == 'worst':
         
         if site == 'Group':
+            
             dff = df.sort_values('vs. LY %', ascending=False).tail(5)
+            
         else:
             
             week_labels = ['This Week','Next Week','Two Weeks', 'Three Weeks'][::-1]
@@ -670,6 +688,22 @@ def homepage_tracker_graph(graph, site):
             dff = pd.merge(skeleton_df, df, how = 'left')
         
         return homepage_worst_figure(dff, 'Covers', site)
+    
+    elif graph == 'sites':
+        
+        dff = df.sort_values('Restaurant', ascending = False)
+        
+        return homepage_sites_figure(dff, 'Covers', site)
+    
+    elif graph == 'breakdown':
+            
+        week_labels = ['This Week','Next Week','Two Weeks', 'Three Weeks']
+        skeleton_df = pd.DataFrame(data = {'Week':week_labels})
+        dff = pd.merge(skeleton_df, df, how = 'left')
+        
+        return homepage_tracker_weeks_figure(dff, site)
+        
+        
     
 def homepage_revenue_graph(graph, site):
     
@@ -714,6 +748,11 @@ def homepage_revenue_graph(graph, site):
             dff = df[df[on_column] != 'Total'].sort_values('vs. LY', ascending=False)
         
         return homepage_worst_figure(dff, 'Revenue', site)
+    
+    elif graph == 'sites':
+        
+        return homepage_sites_figure(df, 'Revenue', site)
+    
     
 def homepage_score_graph(graph, site):
     
@@ -762,3 +801,16 @@ def homepage_score_graph(graph, site):
             df = df.rename(columns=column_map)
         
         return homepage_score_worst_figure(df, site)
+    
+    elif graph == 'sites':
+        
+        df_columns = ['restaurant','overall']
+        groupby_columns = 'restaurant'
+
+        means = dff[df_columns].groupby(groupby_columns).mean().reset_index()
+        counts = dff[df_columns].groupby(groupby_columns).count().reset_index()
+
+        restaurants = pd.merge(means,counts,on='restaurant',suffixes=('','_count'), how='outer')
+        df = restaurants.sort_values('restaurant', ascending=False)
+        
+    return homepage_score_figure(df, site)

@@ -668,8 +668,13 @@ def click_data_graph(graph_id, click_data):
     width = '100%'
     
     return render_click_data_graph(graph_id, click_data, height, width)
+
+def homepage_small_graph(graph_id):
     
+    height = '50%'
+    width = '100%'
     
+    return render_graph(graph_id, height, width)
 
 
 # Divs
@@ -867,7 +872,10 @@ def breakdown_future_div(graph_id):
     return render_div(graphs_list, height, width)
 
 
-def homepage_div(graph_id):
+# Homepage
+
+
+def homepage_div(graph_ids):
     
     height = 400
     width = '25%'
@@ -881,5 +889,21 @@ def homepage_click_div(graph_id):
     width = '25%'
     click_data = {'points':[{'y':'Group'}]}
     graphs_list = [click_data_graph(graph_id, click_data)]
+    
+    return render_div(graphs_list, height, width)
+
+def homepage_split_div(graph_ids):
+    
+    height = 800
+    width = '25%'
+    graphs_list = [homepage_small_graph(graph_id) for graph_id in graph_ids]
+    
+    return render_div(graphs_list, height, width)
+
+def homepage_sites_div(graph_id):
+    
+    height = 800
+    width = '25%'
+    graphs_list = [standard_graph(graph_id)]
     
     return render_div(graphs_list, height, width)

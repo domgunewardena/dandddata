@@ -22,29 +22,19 @@ def homepage():
         ]
     )
 
-    homepage_summary_graphs = html.Div(
+    homepage_graphs = html.Div(
         [
-            homepage_div('homepage future summary'),
-            homepage_div('homepage tracker summary'),
-            homepage_div('homepage revenue summary'),
-            homepage_div('homepage score summary'),
-        ]
-    )
-    
-    homepage_worst_graphs = html.Div(
-        [
-            homepage_click_div('homepage future worst'),
-            homepage_div('homepage tracker worst'),
-            homepage_div('homepage revenue worst'),
-            homepage_div('homepage score worst'),
+            homepage_sites_div('homepage revenue sites'),
+            homepage_sites_div('homepage tracker sites'),
+            homepage_split_div(['homepage future breakdown', 'homepage tracker breakdown']),
+            homepage_sites_div('homepage score sites'),
         ]
     )
     
     return html.Div(
         children=[
             homepage_titles,
-            homepage_summary_graphs,
-            homepage_worst_graphs
+            homepage_graphs,
         ]
     )
 
