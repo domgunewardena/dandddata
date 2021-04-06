@@ -1742,9 +1742,7 @@ def homepage_score_worst_figure(df, site):
         },
         title={
             'text':title,
-            'font':{
-                'size':30
-            }
+            'font':{'size':30}
         },
         xaxis={
             'title':'Average Score'
@@ -1756,6 +1754,9 @@ def homepage_score_worst_figure(df, site):
 
 def detail_sales_figure(df, ycolumn):
     
+    background_color = graph_colors['background']
+    bar_color = graph_colors['revenue']
+    
     sums = df[['This Month','Last Month','Last Year']].sum()
     thisyear = sums[0]
     lastyear = sums[2]
@@ -1763,14 +1764,11 @@ def detail_sales_figure(df, ycolumn):
     pchange_string = str(int(pchange)) + '%'
     pchange_string = '+' + pchange_string if pchange>0 else pchange_string
 
-    fig = go.Figure()
-
-    color = 'purple'
-
     y = df[ycolumn]
 
     x = df['vs. LY']
     xmax = max(max(x), -min(x))
+    xrange = [-xmax*1.3,xmax*1.3]
 
     customdata = df['vs. LY %']*100
     texttemplate = '%{customdata:+.0f}%'
@@ -1778,12 +1776,14 @@ def detail_sales_figure(df, ycolumn):
 
     title = measure.capitalize() + ' vs. LY'
 
+    fig = go.Figure()
+
     fig.add_trace(
         go.Bar(
             x = x,
             y = y,
             customdata = customdata,
-            marker = {'color':color,'opacity':0.5},
+            marker = {'color':bar_color,'opacity':0.5},
             text = customdata,
             texttemplate = texttemplate,
             textposition = 'outside',
@@ -1799,8 +1799,45 @@ def detail_sales_figure(df, ycolumn):
         },
         xaxis = {
             'title':title,
-            'range':[-xmax*1.3,xmax*1.3]
+            'range':xrange,
         },
     )
 
-    fig.show()
+    return fig
+    
+def detail_tracker_figure(df):
+    
+    background_color = graph_colors['background']
+    bar_color = graph_colors['covers']
+    
+    x = df['Week']
+
+    y = df['vs. LY']
+    ymax = max(max(y),-min(y))
+    yrange = [-ymax*1.3,ymax*1.3]
+
+    customdata = df['vs. LY %']*100
+    texttemplate = '%{customdata:+.0f}%'
+    hovertemplate = '%{y:+.0f}'
+
+    fig = go.Figure()
+
+    fig.add_trace(
+        go.Bar(
+            x = x,
+            y = y,
+            customdata = customdata,
+            text = customdata,
+            texttemplate = texttemplate,
+            textposition = 'outside',
+        )
+    )
+
+    fig.update_layout(
+        yaxis={
+            'range':yrange, 
+            'title':'Booked Covers vs LY'
+        },
+        paper_bgcolor = background_color,
+    )
+    

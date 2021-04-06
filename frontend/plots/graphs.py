@@ -869,3 +869,43 @@ def detail_sales_graph(graph, site):
             df = df[df.y_column != 'Total']
             
             return detail_sales_figure(df, y_column)
+        
+def detail_tracker_graph(site):
+    
+    df = tracker_df
+    
+    if site == 'Group':
+        
+        dff = tracker_day_filter(
+            tracker_group_df(
+                tracker_user_site_filter(
+                    df)), '8 Week')
+        
+    else:
+        
+        dff = tracker_day_filter(
+            tracker_site_filter(
+                df, site), '8 Week')
+        
+    weeks_list = [
+        'This Week',
+        'Next Week',
+        'Two Weeks',
+        'Three Weeks',
+        'Four Weeks',
+        'Five Weeks',
+        'Six Weeks',
+        'Seven Weeks',
+        'Eight Weeks'
+    ]
+
+    skeleton = pd.DataFrame({'Week':weeks_list})
+
+    df = pd.merge(skeleton, dff, how='left')
+    
+    return detail_tracker_figure(df)
+        
+        
+        
+        
+        
