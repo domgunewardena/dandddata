@@ -904,6 +904,43 @@ def detail_tracker_graph(site):
     df = pd.merge(skeleton, dff, how='left')
     
     return detail_tracker_figure(df)
+
+def detail_future_graph(site):
+    
+    df = future_df
+    today = datetime.now()
+    
+    def create_weeks_columns(df):
+
+        def weeks_ahead(date):
+            monday = date - timedelta(date.weekday())
+            return floor(((monday - today).days)/7)+1
+
+        def weeks_label(weeks_ahead):
+            return 'This Week' if weeks_ahead == 0 else 'Next Week' if weeks_ahead == 1 else str(weeks_ahead) + ' Weeks Ahead'
+
+        df['weeks_ahead'] = df['visit_day'].apply(weeks_ahead)
+        df['weeks'] = df['weeks_ahead'].apply(weeks_label)
+
+        return df
+    
+    if site == 'Group':
+        df = bookings_user_site_filter(create_weeks_columns(df))
+        df_columns = ['visit_day','shift','weeks_ahead','weeks','capacity','max_guests TW']
+        
+    else:
+        df = bookings_site_filter(create_weeks_columns(df), site)
+        df_columns = ['restaurant','visit_day','shift','weeks_ahead','weeks','capacity','max_guests TW']
+
+        
+    groupby_columns = df_columns[:-2]
+
+    def reduce_minus(value):
+        return 0 if value < 0 else value
+
+    dff = df[df_columns].groupby(groupby_columns).sum().reset_index()
+    dff['full'] = dff['max_guests TW']/dff['capacity']
+    dff['empty'] = (dff['capacity']-dff['max_guests TW']).apply(reduce_minus)
         
         
         

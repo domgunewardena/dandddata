@@ -1841,3 +1841,82 @@ def detail_tracker_figure(df):
         paper_bgcolor = background_color,
     )
     
+    return fig
+
+def detail_future_figure(dff):
+    
+    lunch_df = dff[dff['shift']=='LUNCH']
+    dinner_df = dff[dff['shift']=='DINNER']
+
+    x1 = lunch_df.visit_day
+    y1 = lunch_df['full']*100
+    customdata1 = lunch_df.weekday
+
+    x2 = dinner_df.visit_day
+    y2 = dinner_df['full']*100
+    customdata2 = dinner_df.weekday
+
+    fig = go.Figure()
+
+    fig.add_trace(
+        go.Bar(
+            x = x2,
+            y = 100-y2,
+            marker={'color':'white','opacity':0.5},
+            hovertemplate = '%{x}',
+            texttemplate = '%{y}',
+            textangle = 0,
+        )
+    )
+
+    fig.add_trace(
+        go.Bar(
+            x = x2,
+            y = y2,
+            customdata = customdata2,
+            marker={'color':'blue','opacity':0.5},
+            name = 'Dinner Covers',
+            hovertemplate = '%{customdata} %{x}',
+        )
+    )
+
+    fig.add_trace(
+        go.Bar(
+            x = x1,
+            y = y1,
+            customdata = customdata1,
+            marker={'color':'green','opacity':0.5},
+            name = 'Lunch Covers',
+            hovertemplate = '%{customdata} %{x}',
+        )
+    )
+
+    fig.add_trace(
+        go.Bar(
+            x = x1,
+            y = 100-y1,
+            marker={'color':'white','opacity':0.5},
+            hovertemplate = '%{y}'  ,
+            texttemplate = '%{y}',
+            textangle = 0,
+        )
+    )
+
+    for i in range(len(lunch_df.weekday)):
+
+        color = 'white' if list(y2)[i] > 10 else 'black'
+
+        fig.add_annotation(
+            x = list(x1)[i],
+            y = 95,
+            text = list(lunch_df.weekday)[i][0],
+            showarrow = False,
+            font = {'color':color}
+        )
+
+    fig.update_layout(
+        barmode = 'stack',
+        showlegend = False,
+        xaxis = {'tickvals':customdata},
+        yaxis = {'range':[0,200]}
+    )
