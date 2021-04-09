@@ -547,6 +547,7 @@ def scores_site_filter(df, site):
     else:
         df = df[df['restaurant'].isin(site)]
 
+        
 # Future Bookings Functions
 
 def bookings_user_site_filter(df):
@@ -561,7 +562,21 @@ def bookings_site_filter(df, site):
     else:
         df = df[df['restaurant'].isin(site)]
         
-# Last Year Functions
+        
+# Homepage Revenue Functions
+
+def get_breakdown_df(report):
+    
+    rev_df = user_site_filter(sales_dataframes[report]['revenue'])
+
+    bounds = date_bounds[report]
+    current_column = date_columns['current'][report]
+    last_col = date_columns['last'][report]
+    vs_col = date_columns['vs'][report]
+    on_column = 'SiteName'
+
+    return breakdown_revenue_df(rev_df,bounds,current_column,last_col,vs_col,on_column).sort_values('SiteName')    
+    
 
 def remove_last_year_values(df):
     
@@ -575,6 +590,29 @@ def remove_last_year_values(df):
         no_last_year[col] = np.nan
 
     return pd.concat([last_year, no_last_year])
+
+def get_lfl(dff):
+    
+    no_ly_restaurants = ['Klosterhaus','14 Hills']
+    no_ly = dff[dff['SiteName'].isin(no_ly_restaurants)]
+    ly = dff[~dff['SiteName'].isin(no_ly_restaurants)]  
+
+    ly_columns = ["Last Year", 'vs. LY', 'vs. LY %']
+
+    for col in ly_columns:
+        no_ly[col] = np.nan
+
+    df = pd.concat([ly, no_ly])
+    
+    sums = df.sum()
+    ly_sums = ly.sum()
+    
+    for col in ly_columns:
+        sums[col] = ly_sums[col]
+    
+    sums[0] = 'Total'
+        
+    return df.append(sums, ignore_index=True)
 
 
 # Restaurant acronyms:

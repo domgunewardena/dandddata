@@ -9,6 +9,7 @@ from authentication.users import sales_restaurants, user_restaurants
 from authentication.authentication import auth
 
 from frontend.plots.figures import trends_group_pickup_figure, trends_group_future_figure
+from frontend.plots.graphs import homepage_sales_graph
 from data.data import trends_df
 
 def div_style_simple(width):
@@ -725,6 +726,10 @@ def homepage_small_graph(graph_id):
     width = '100%'
     
     return render_graph(graph_id, height, width)
+
+def homepage_sales_table():
+    
+    return homepage_sales_graph('daily')
 
 
 # Divs

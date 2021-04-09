@@ -1,7 +1,10 @@
+import math
 import pandas as pd
+
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
-import math
+import dash_table
+import plotly.figure_factory as ff
 
 from data.functions import trends_site_filter, trends_table_filter, get_abbreviation, get_sitename
 from frontend.styling import review_colors, graph_colors
@@ -2085,3 +2088,30 @@ def homepage_sales_table_figure(df, current_column):
     )
 
     fig.show()
+    
+def homepage_sales_datatable_figure(df, current_column):
+    
+    cols = ['SiteName',current_column,'Last Week','vs. LW %', 'Last Year', 'vs. LY %']
+    
+    df = df[cols].rename(
+        columns = {
+            'SiteName':'Restaurant',
+            current_column:'TW',
+            'Last Week':'LW',
+            'vs. LW %':'LW%',
+            'Last Year':'LY',
+            'vs. LY %':'LY%',
+        }
+    )
+            
+    
+#     datatable = dash_table.DataTable(
+#         id = 'homepage sales table',
+#         data = df.to_dict('records'),
+#         columns = [{'id': c, 'name': c} for c in df.columns],
+#     )
+    fig = ff.create_table(df)
+    return fig
+        
+        
+        

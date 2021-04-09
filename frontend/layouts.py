@@ -7,8 +7,8 @@ from datetime import date, datetime, timedelta
 
 from frontend.html import *
 # from frontend.styling import *
-# from authentication.users import user_restaurants
-# from authentication.authentication import auth
+from authentication.users import user_restaurants
+from authentication.authentication import auth
 
 # from frontend.plots.figures import trends_group_pickup_figure, trends_group_future_figure
 # from data.data import trends_df
