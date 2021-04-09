@@ -560,6 +560,21 @@ def bookings_site_filter(df, site):
         return df[df['restaurant']==site]
     else:
         df = df[df['restaurant'].isin(site)]
+        
+# Last Year Functions
+
+def remove_last_year_values(df):
+    
+    no_last_year_restaurants = ['Klosterhaus','14 Hills']
+    no_last_year = df[df['SiteName'].isin(no_last_year_restaurants)]
+    last_year = df[~df['SiteName'].isin(no_last_year_restaurants)]  
+
+    no_comp_columns = ["Last Year", 'vs. LY', 'vs. LY %']
+
+    for col in no_comp_columns:
+        no_last_year[col] = np.nan
+
+    return pd.concat([last_year, no_last_year])
 
 
 # Restaurant acronyms:
@@ -607,7 +622,8 @@ def get_abbreviation(string):
         'The Modern Pantry': 'TMP',
         'White City': 'BBWC',
         'Trinity': 'TRI',
-        'South Place Hotel': 'SPH',
+        'South Place Hotel': 'SPH',        
+        '100 Wardour Street': '100WDST',
         'Royal Exchange': 'REX',
         'Quaglinos': 'QUA',
         'New Street Warehouse': 'NSW',

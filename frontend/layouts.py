@@ -17,17 +17,17 @@ def homepage():
     
     homepage_titles = html.Div(
         [
+            homepage_sales_dropdown(),
             homepage_title_div('Next 4 Weeks'),
-            homepage_title_div('Last 4 Weeks'),
         ]
     )
 
     homepage_graphs = html.Div(
         [
-            homepage_sites_div('homepage revenue sites'),
+            homepage_wide_div('homepage revenue sites'),
             homepage_sites_div('homepage tracker sites'),
             homepage_split_div(['homepage future breakdown', 'homepage tracker breakdown']),
-            homepage_sites_div('homepage score sites'),
+#             homepage_sites_div('homepage score sites'),
         ]
     )
     

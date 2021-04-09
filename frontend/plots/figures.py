@@ -1,6 +1,7 @@
 import pandas as pd
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
+import math
 
 from data.functions import trends_site_filter, trends_table_filter, get_abbreviation, get_sitename
 from frontend.styling import review_colors, graph_colors
@@ -1920,3 +1921,167 @@ def detail_future_figure(dff):
         xaxis = {'tickvals':customdata},
         yaxis = {'range':[0,200]}
     )
+    
+def homepage_sales_figure(df, current_column):
+    
+    background_color = graph_colors['background']
+    bar_color = graph_colors['revenue']
+    
+    sums = df.iloc[:,1:].sum()
+    lastyear = sums[2]
+    vsly = sums[4]
+    pchange = (vsly / lastyear)*100
+    pchange_string = str(int(pchange)) + '%'
+    pchange_string = '+' + pchange_string if pchange>0 else pchange_string
+    title = 'Revenue vs. LY: ' + pchange_string
+    
+    def currency_k(number):
+    
+        if number > 100 and number < 1000:
+            return str(round(number/1000,1)) + 'k'
+        else:
+            try:
+                return str(int(number/1000)) + 'k'
+            except:
+                return None
+    
+    y = df['SiteName'].apply(get_abbreviation)
+    x = df['vs. LY']
+
+    xmax = max(max(x.fillna(0)),-min(x.fillna(0)))
+    customdata = df['vs. LY %']*100
+
+    fig = go.Figure()
+
+    fig.add_trace(
+        go.Bar(
+            x = x,
+            y = y,
+            customdata = customdata,
+            marker = {'color':bar_color,},
+            orientation = 'h',
+            text = customdata,
+            texttemplate = '%{customdata:.0f}%',
+            textposition = 'outside',
+            textangle = 0,
+            hovertemplate = '£%{x:.0f}',
+            name = "vs. LY",
+        )
+    )
+
+    length = len(df)
+
+    for i in range(length):
+
+        fig.add_annotation(
+            y = i,
+            x = -xmax*2.5,
+            text = currency_k(list(df[current_column])[i]),
+            showarrow = False,
+        )
+
+        if currency_k(list(df['Last Year'])[i]):
+
+            fig.add_annotation(
+                y = i,
+                x = -xmax*2,
+                text = currency_k(list(df['Last Year'])[i]),
+                showarrow = False,
+            )
+
+    fig.update_layout(
+        title = {
+            'text': title,
+            'font':{'size':30}
+        },
+        xaxis = {
+            'range' : [-xmax*3,xmax*1.3],
+            'visible':False,
+
+        },
+        paper_bgcolor = background_color,
+    )
+
+    return fig
+    
+    
+def homepage_sales_table_figure(df, current_column):
+    
+    def currency_k(number):
+    
+        if number > 100 and number < 1000:
+            return str(round(number/1000,1)) + 'k'
+        else:
+            try:
+                return str(int(number/1000)) + 'k'
+            except:
+                return None
+
+    def currency_k_change(number):
+
+        plus_sign = '+' if number > 0 else ''
+
+        if abs(number) > 100 and abs(number) < 1000:
+            return plus_sign + str(round(number/1000,1)) + 'k'
+        else:
+            try:
+                return plus_sign + str(int(number/1000)) + 'k'
+            except:
+                return ''
+
+    def pchange(number):
+
+        plus_sign = '+' if number > 0 else ''
+
+        try:
+            return plus_sign + str(int(number*100)) + '%'
+        except:
+            return ''
+
+    def color_change(number):
+
+        if number > 0:
+            return 'GreenYellow' 
+        elif number < 0:
+            return 'LightCoral'
+        else:
+            return 'White'
+
+    row_height = 30
+    font_size = 15
+    restaurant_column_width = 200
+    column_width = 50
+
+    fig = go.Figure()
+
+    fig.add_trace(
+        go.Table(
+            columnwidth = [restaurant_column_width] + [column_width]*4,
+            header = {
+                'values':['Restaurant','TY','LY','vs LY', '%'],
+                'align':['left','right','right'],
+                'fill_color':'navy',
+                'font':{
+                    'color':'white',
+                    'size':font_size,
+                    'family':"Open Sans, sans-serif"
+                },
+                'height':row_height,
+            },
+            cells = {
+                'values':[
+                    df['SiteName'].apply(get_abbreviation),
+                    df[current_column].apply(currency_k),
+                    df['Last Year'].apply(currency_k),     
+                    df['vs. LY'].apply(currency_k_change),
+                    df['vs. LY %'].apply(pchange),
+                ],
+                'font':{'size':font_size},
+                'align':['left'] + ['right']*4,
+                'height':row_height,
+                'fill_color':[(['AliceBlue','white']*math.floor(len(df)/2) + ['AliceBlue']*(len(df)%2))]*3 + [list(df['vs. LY'].apply(color_change))] + [list(df['vs. LY %'].apply(color_change))]
+            },
+        ),
+    )
+
+    fig.show()

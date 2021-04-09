@@ -55,7 +55,7 @@ homepage_worst_inputs = [Input('homepage ' + x + ' worst', 'clickData') for x in
     Output('homepage revenue sites', 'figure'),
     [Input('homepage title', 'children')])
 def update_homepage_revenue_sites(metric):
-    return homepage_revenue_graph('sites','Group')
+    return homepage_sales_graph('daily')
 
 @app.callback(
     Output('homepage tracker sites', 'figure'),

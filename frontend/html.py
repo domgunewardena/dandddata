@@ -92,6 +92,13 @@ def render_dropdown(dropdown_id, values, initial_value, style):
         style = style
     )
 
+def render_bare_dropdown_div(dropdown, style):
+    
+    return html.Div(
+        [dropdown],
+        style = style
+    )
+
 def render_dropdown_div(p_string, dropdowns, style):
     
     return html.Div(
@@ -130,6 +137,49 @@ def render_flex_dropdown_row(dropdowns):
         dropdowns,
         style = style
     )
+
+def homepage_sales_dropdown():    
+    
+    dropdown_width = '90%'
+    dropdown_height = '20px'
+    div_width = '25%'
+    margin = '0px 0px 0px 20px'
+    font_size = '20px'
+    
+    dropdown_style = {
+        'width':dropdown_width,
+        'height':dropdown_height,
+#         'line-height':line_height,
+        'margin':margin,
+        'font-size':font_size,
+    }
+    div_style = div_style_simple(div_width)
+    
+    metrics = ['Daily Sales','WTD Sales','MTD Sales', '4Wks Sales']
+    
+#     Dropdown
+    
+    def homepage_sales_dropdown():
+        
+        dropdown_id = 'homepage sales dropdown'
+        values = metrics
+        initial_value = 'Daily Sales'
+        style = dropdown_style
+        
+        return render_dropdown(dropdown_id, values, initial_value, style)
+    
+#     Div
+    
+    def homepage_sales_dropdown_div():
+        
+        dropdown = homepage_sales_dropdown()
+        style = div_style
+        
+        return render_bare_dropdown_div(dropdown, style)
+        
+    return homepage_sales_dropdown_div()
+    
+    
 
 def core_dropdowns(report):    
     
@@ -886,7 +936,7 @@ def homepage_div(graph_ids):
 def homepage_click_div(graph_id):
     
     height = 400
-    width = '25%'
+    width = '23%'
     click_data = {'points':[{'y':'Group'}]}
     graphs_list = [click_data_graph(graph_id, click_data)]
     
@@ -903,7 +953,15 @@ def homepage_split_div(graph_ids):
 def homepage_sites_div(graph_id):
     
     height = 800
-    width = '25%'
+    width = '23%'
+    graphs_list = [standard_graph(graph_id)]
+    
+    return render_div(graphs_list, height, width)
+
+def homepage_wide_div(graph_id):
+    
+    height = 800
+    width = '50%'
     graphs_list = [standard_graph(graph_id)]
     
     return render_div(graphs_list, height, width)

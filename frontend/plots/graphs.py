@@ -942,7 +942,35 @@ def detail_future_graph(site):
     dff['full'] = dff['max_guests TW']/dff['capacity']
     dff['empty'] = (dff['capacity']-dff['max_guests TW']).apply(reduce_minus)
         
-        
+def homepage_sales_graph(report):
+    
+    metric = 'vs. LY'
+    rev_df = sales_dataframes[report]['revenue']
+
+    bounds = date_bounds[report]
+    current_column = date_columns['current'][report]
+    last_col = date_columns['last'][report]
+    vs_col = date_columns['vs'][report]
+    on_column = 'SiteName'
+
+    df = breakdown_revenue_df(rev_df,bounds,current_column,last_col,vs_col,on_column).sort_values('SiteName')
+
+    def remove_last_year_values(df):
+
+        no_last_year_restaurants = ['Klosterhaus','14 Hills']
+        no_last_year = df[df['SiteName'].isin(no_last_year_restaurants)]
+        last_year = df[~df['SiteName'].isin(no_last_year_restaurants)]  
+
+        no_comp_columns = ["Last Year", 'vs. LY', 'vs. LY %']
+
+        for col in no_comp_columns:
+            no_last_year[col] = np.nan
+
+        return pd.concat([last_year, no_last_year])
+
+    dff = remove_last_year_values(df)[::-1]
+    
+    return homepage_sales_table_figure(dff, current_column)
         
         
         
