@@ -33,7 +33,7 @@ def render_h1(text):
     }
     
     if text== 'Next 4 Weeks':
-        return html.H1(
+        return html.H3(
             [text],
             id = 'homepage title',
             style = style
@@ -65,7 +65,7 @@ def sales_title_div(report):
 def homepage_title_div(text):
     
     h1 = render_h1(text)
-    style = {'width':'50%','display':'inline-block'}
+    style = {'width':'25%','display':'inline-block'}
     
     return html.Div([h1], style = style)
             
@@ -139,11 +139,11 @@ def render_flex_dropdown_row(dropdowns):
         style = style
     )
 
-def homepage_sales_dropdown():    
+def homepage_sales_dropdown(num):    
     
     dropdown_width = '90%'
     dropdown_height = '20px'
-    div_width = '25%'
+    div_width = '20%'
     margin = '0px 0px 0px 20px'
     font_size = '20px'
     
@@ -160,25 +160,25 @@ def homepage_sales_dropdown():
     
 #     Dropdown
     
-    def homepage_sales_dropdown():
+    def homepage_sales_dropdown(num):
         
-        dropdown_id = 'homepage sales dropdown'
+        dropdown_id = 'homepage sales dropdown ' + str(num)
         values = metrics
-        initial_value = 'Daily Sales'
+        initial_value = metrics[num-1]
         style = dropdown_style
         
         return render_dropdown(dropdown_id, values, initial_value, style)
     
 #     Div
     
-    def homepage_sales_dropdown_div():
+    def homepage_sales_dropdown_div(num):
         
-        dropdown = homepage_sales_dropdown()
+        dropdown = homepage_sales_dropdown(num)
         style = div_style
         
         return render_bare_dropdown_div(dropdown, style)
         
-    return homepage_sales_dropdown_div()
+    return homepage_sales_dropdown_div(num)
     
     
 
@@ -933,7 +933,7 @@ def breakdown_future_div(graph_id):
 def homepage_div(graph_ids):
     
     height = 400
-    width = '25%'
+    width = '20%'
     graphs_list = [standard_graph(graph_id)]
     
     return render_div(graphs_list, height, width)
@@ -941,7 +941,7 @@ def homepage_div(graph_ids):
 def homepage_click_div(graph_id):
     
     height = 400
-    width = '23%'
+    width = '20%'
     click_data = {'points':[{'y':'Group'}]}
     graphs_list = [click_data_graph(graph_id, click_data)]
     
@@ -950,7 +950,7 @@ def homepage_click_div(graph_id):
 def homepage_split_div(graph_ids):
     
     height = 800
-    width = '25%'
+    width = '20%'
     graphs_list = [homepage_small_graph(graph_id) for graph_id in graph_ids]
     
     return render_div(graphs_list, height, width)
@@ -958,7 +958,7 @@ def homepage_split_div(graph_ids):
 def homepage_sites_div(graph_id):
     
     height = 800
-    width = '23%'
+    width = '20%'
     graphs_list = [standard_graph(graph_id)]
     
     return render_div(graphs_list, height, width)
@@ -966,7 +966,7 @@ def homepage_sites_div(graph_id):
 def homepage_wide_div(graph_id):
     
     height = 800
-    width = '50%'
+    width = '20%'
     graphs_list = [standard_graph(graph_id)]
     
     return render_div(graphs_list, height, width)

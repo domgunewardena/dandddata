@@ -7,6 +7,7 @@ import dash_table
 import plotly.figure_factory as ff
 
 from data.functions import trends_site_filter, trends_table_filter, get_abbreviation, get_sitename
+from data.date_bounds import date_columns
 from frontend.styling import review_colors, graph_colors
 
 # Sales Figures
@@ -2089,29 +2090,62 @@ def homepage_sales_table_figure(df, current_column):
 
     fig.show()
     
-def homepage_sales_datatable_figure(df, current_column):
+def homepage_sales_datatable_figure(df, report):
     
-    cols = ['SiteName',current_column,'Last Week','vs. LW %', 'Last Year', 'vs. LY %']
+    def currency_k(number):
+    
+        if number > 100 and number < 1000:
+            return str(round(number/1000,1)) + 'k'
+        else:
+            try:
+                return str(int(number/1000)) + 'k'
+            except:
+                return None
+
+    def pchange(number):
+
+        plus_sign = '+' if number > 0 else ''
+
+        try:
+            return plus_sign + str(int(number*100)) + '%'
+        except:
+            return ''
+        
+    current_column = date_columns['current'][report]
+    last_col = date_columns['last'][report]
+    vs_col = date_columns['vs'][report]
+    
+    current_abbr = date_columns['curr_abbr'][report]
+    last_abbr = date_columns['last_abbr'][report]
+    p_abbr = date_columns['p_abbr'][report]
+    
+    cols = ['SiteName', current_column, last_col, vs_col + ' %', 'Last Year', 'vs. LY %']
     
     df = df[cols].rename(
         columns = {
-            'SiteName':'Restaurant',
-            current_column:'TW',
-            'Last Week':'LW',
-            'vs. LW %':'LW%',
+            'SiteName':'REST',
+            current_column:current_abbr,
+            last_col:last_abbr,
+            vs_col + ' %':p_abbr,
             'Last Year':'LY',
             'vs. LY %':'LY%',
         }
     )
-            
     
-#     datatable = dash_table.DataTable(
-#         id = 'homepage sales table',
-#         data = df.to_dict('records'),
-#         columns = [{'id': c, 'name': c} for c in df.columns],
-#     )
-    fig = ff.create_table(df)
+    actual_cols = [current_abbr,last_abbr,'LY']
+    pchange_cols = [p_abbr, 'LY%']
+    
+    df['REST'] = df['REST'].apply(get_abbreviation)
+    
+    for col in actual_cols:
+        df[col] = df[col].apply(currency_k)
+        
+    for col in pchange_cols:
+        df[col] = df[col].apply(pchange)
+    
+    fig = ff.create_table(
+        df.fillna(''),
+        colorscale = date_columns['color_scale'][report]
+    )
+    
     return fig
-        
-        
-        

@@ -52,10 +52,32 @@ homepage_worst_inputs = [Input('homepage ' + x + ' worst', 'clickData') for x in
 # Home
 
 @app.callback(
-    Output('homepage revenue sites', 'figure'),
-    [Input('homepage title', 'children')])
-def update_homepage_revenue_sites(metric):
-    return homepage_sales_graph('daily')
+    Output('homepage sales 1', 'figure'),
+    [Input('homepage sales dropdown 1', 'value')])
+def update_homepage_sales_1(value):
+    if value == 'Daily Sales':
+        report = 'daily'
+    elif value == 'WTD Sales':
+        report = 'wtd'
+    elif value == 'MTD Sales':
+        report = 'mtd'
+    elif value == '4Wks Sales':
+        report = 'four_weeks'
+    return homepage_sales_graph(report)
+
+@app.callback(
+    Output('homepage sales 2', 'figure'),
+    [Input('homepage sales dropdown 2', 'value')])
+def update_homepage_sales_2(value):
+    if value == 'Daily Sales':
+        report = 'daily'
+    elif value == 'WTD Sales':
+        report = 'wtd'
+    elif value == 'MTD Sales':
+        report = 'mtd'
+    elif value == '4Wks Sales':
+        report = 'four_weeks'
+    return homepage_sales_graph(report)
 
 @app.callback(
     Output('homepage tracker sites', 'figure'),

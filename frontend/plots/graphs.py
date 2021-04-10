@@ -957,5 +957,5 @@ def homepage_sales_graph(report):
 
     dff = get_lfl(df)[::-1]
     
-    return homepage_sales_datatable_figure(dff, current_column)
+    return homepage_sales_datatable_figure(dff, report)
 
