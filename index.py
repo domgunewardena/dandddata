@@ -10,7 +10,7 @@ from frontend.navbar import nav, sidebar
 from authentication.authentication import auth
 
 CONTENT_STYLE = {
-    "margin-left": "20rem",
+    "margin-left": "15rem",
 #     "margin-right": "2rem",
 #     "padding": "2rem 1rem",
 }

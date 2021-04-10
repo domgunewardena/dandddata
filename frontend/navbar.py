@@ -85,7 +85,7 @@ SIDEBAR_STYLE = {
     "top": 0,
     "left": 0,
     "bottom": 0,
-    "width": "20rem",
+    "width": "15rem",
     "padding": "2rem 1rem",
     'border-radius': '15px',
     'box-shadow': '8px 8px 8px grey',
@@ -97,7 +97,7 @@ sidebar = html.Div(
         html.H2("D&D DATA", className="display-5"),
         html.Hr(),
         html.P(
-            "Click below to navigate the app", className="lead"
+            "Click below to navigate", className="lead"
         ),
         dbc.Nav(
             [
