@@ -173,6 +173,9 @@ date_bounds = {
     'four_weeks':four_weeks_bounds,
 }
 
+row_color_1 = 'rgb(220,220,220)'
+row_color_2 = 'GhostWhite'
+
 date_columns = {
     'current':{
         'daily':'Today',
@@ -221,13 +224,5 @@ date_columns = {
         'mtd':'LM%',
         'monthly':'LM%',
         'four_weeks':'LM%',
-    },
-    'color_scale':{
-        'daily':[[0,'DarkSlateBlue'],[.5,'Linen'],[1,'GhostWhite']],
-        'wtd':[[0,'DarkViolet'],[.5,'Linen'],[1,'GhostWhite']],
-        'weekly':[[0,'MediumOrchid'],[.5,'Linen'],[1,'GhostWhite']],
-        'mtd':[[0,'Orange'],[.5,'Linen'],[1,'GhostWhite']],
-        'monthly':[[0,'DarkOrange'],[.5,'Linen'],[1,'GhostWhite']],
-        'four_weeks':[[0,'DarkRed'],[.5,'Linen'],[1,'GhostWhite']],
     },
 }

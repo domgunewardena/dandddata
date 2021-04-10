@@ -110,6 +110,16 @@ graph_colors = {
     'scores_scale':'Teal',
 }
 
+sales_table_header_colors = {
+    'daily':'rgb(0,0,75)',
+    'wtd':'rgb(75,0,75)',
+    'weekly':'rgb(75,0,75)',
+    'mtd':'rgb(75,0,0)',
+    'monthly':'rgb(75,0,0)',
+    'four_weeks':'rgb(75,50,0)',
+}
+
+title_font_size = 20
 
 def week_colors_totals(measure, shift, metric):
     return week_colors[measure][shift][metric]

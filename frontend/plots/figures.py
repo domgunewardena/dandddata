@@ -8,7 +8,7 @@ import plotly.figure_factory as ff
 
 from data.functions import trends_site_filter, trends_table_filter, get_abbreviation, get_sitename
 from data.date_bounds import date_columns
-from frontend.styling import review_colors, graph_colors
+from frontend.styling import review_colors, graph_colors, title_font_size, sales_table_header_colors
 
 # Sales Figures
 
@@ -1097,9 +1097,7 @@ def homepage_future_summary_figure(covers, empty, full, site):
     fig.update_layout(
         title = {
             'text':title,
-            'font':{
-                'size':30
-            }
+            'font':{'size':title_font_size}
         },
         annotations = [
             dict(
@@ -1164,7 +1162,7 @@ def homepage_future_worst_figure(dff, site):
     fig.update_layout(
         title = {
             'text':title,
-            'font':{'size':30}
+            'font':{'size':title_font_size}
         },
         xaxis = {
             'title':'% Full',
@@ -1296,7 +1294,7 @@ def homepage_future_weeks_figure(dff, site):
     fig.update_layout(
         title = {
             'text':title,
-            'font':{'size':30}
+            'font':{'size':title_font_size}
         },
         yaxis = {
             'title':'% Full',
@@ -1358,9 +1356,7 @@ def homepage_summary_figure(thisyear, lastyear, pchange, measure, site):
         },
         title = {
             'text': title,
-            'font':{
-                'size':30
-            }
+            'font':{'size':title_font_size}
         },
         paper_bgcolor = background_color,
     )
@@ -1428,7 +1424,7 @@ def homepage_worst_figure(dff, measure, site):
     fig.update_layout(
         title = {
             'text':title,
-            'font':{'size':30}
+            'font':{'size':title_font_size}
         },
         xaxis = {
             'title': xtitle_string + measure + ' vs. LY',
@@ -1503,7 +1499,7 @@ def homepage_sites_figure(df, measure, site):
         },
         title = {
             'text': title,
-            'font':{'size':30}
+            'font':{'size':title_font_size}
         },
         paper_bgcolor = background_color,
     )
@@ -1556,7 +1552,7 @@ def homepage_tracker_weeks_figure(dff, site):
     fig.update_layout(
         title = {
             'text':title,
-            'font':{'size':30}
+            'font':{'size':title_font_size}
         },
         yaxis = {
             'title': ytitle,
@@ -1627,7 +1623,7 @@ def homepage_score_figure(df, site):
         },
         title={
             'text':title,
-            'font':{'size':30},
+            'font':{'size':title_font_size},
         },
         xaxis={'title':'Average Score'},
         paper_bgcolor = background_color,
@@ -1670,9 +1666,7 @@ def homepage_score_summary_figure(overall, site):
     fig.update_layout(
         title = {
             'text':title,
-            'font':{
-                'size':30
-            }
+            'font':{'size':title_font_size}
         },
         annotations = [
             dict(
@@ -1747,7 +1741,7 @@ def homepage_score_worst_figure(df, site):
         },
         title={
             'text':title,
-            'font':{'size':30}
+            'font':{'size':title_font_size}
         },
         xaxis={
             'title':'Average Score'
@@ -1800,7 +1794,7 @@ def detail_sales_figure(df, ycolumn):
     fig.update_layout(
         title = {
             'text':title,
-            'font':{'size':30}
+            'font':{'size':title_font_size}
         },
         xaxis = {
             'title':title,
@@ -1996,7 +1990,7 @@ def homepage_sales_figure(df, current_column):
     fig.update_layout(
         title = {
             'text': title,
-            'font':{'size':30}
+            'font':{'size':title_font_size}
         },
         xaxis = {
             'range' : [-xmax*3,xmax*1.3],
@@ -2142,10 +2136,19 @@ def homepage_sales_datatable_figure(df, report):
         
     for col in pchange_cols:
         df[col] = df[col].apply(pchange)
+        
+    header_color = sales_table_header_colors[report]
+    row_1_color = 'rgb(230,230,230)'
+    row_2_color = 'GhostWhite'
+    colorscale = [
+        [0, header_color],
+        [.5, row_1_color],
+        [1, row_2_color],
+    ]
     
     fig = ff.create_table(
         df.fillna(''),
-        colorscale = date_columns['color_scale'][report]
+        colorscale = colorscale,
     )
     
     return fig

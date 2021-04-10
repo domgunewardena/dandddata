@@ -33,7 +33,7 @@ def render_h1(text):
     }
     
     if text== 'Next 4 Weeks':
-        return html.H3(
+        return html.H1(
             [text],
             id = 'homepage title',
             style = style
@@ -41,6 +41,26 @@ def render_h1(text):
         
     else:
         return html.H1(
+            [text],
+            style = style
+        )
+
+def render_h3(text):
+        
+    style={
+        'textAlign':"center",
+        'background-color': 'snow',
+    }
+    
+    if text== 'Next 4 Weeks':
+        return html.H3(
+            [text],
+            id = 'homepage title',
+            style = style
+        )
+        
+    else:
+        return html.H3(
             [text],
             style = style
         )
@@ -62,12 +82,15 @@ def sales_title_div(report):
     return title_div(title_string)
     
 
-def homepage_title_div(text):
+def homepage_title_div(text, category):
     
-    h1 = render_h1(text)
-    style = {'width':'25%','display':'inline-block'}
+    width = '40%' if category == 'covers' else '20%'
+    padding_top = '20px'
     
-    return html.Div([h1], style = style)
+    h3 = render_h3(text)
+    style = {'width':width,'display':'inline-block', 'padding-top': padding_top}
+    
+    return html.Div([h3], style = style)
             
 
 # Dropdowns
@@ -142,7 +165,7 @@ def render_flex_dropdown_row(dropdowns):
 def homepage_sales_dropdown(num):    
     
     dropdown_width = '90%'
-    dropdown_height = '20px'
+    dropdown_height = '25px'
     div_width = '20%'
     margin = '0px 0px 0px 20px'
     font_size = '20px'
