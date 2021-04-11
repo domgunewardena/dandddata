@@ -615,8 +615,21 @@ def get_lfl(dff):
         sums[col] = ly_sums[col]
     
     sums[0] = 'TOTAL'
+    
+    cols = [
+    'SiteName',
+    'Today',
+    'Last Week',
+    'vs. LW %',
+    'Last Year',
+    'vs. LY %'
+    ]
+
+    sums_dict = {col: sums[col] for col in cols}
+
+    sums_df = pd.DataFrame(dic, index=[0])
         
-    return df.append(sums, ignore_index=True)
+    return sums_df.append(df, ignore_index=True)
 
 
 # Restaurant acronyms:
