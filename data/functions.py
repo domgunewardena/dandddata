@@ -5,7 +5,16 @@ import numpy as np
 from datetime import date, datetime, timedelta
 
 from authentication.authentication import auth
-from authentication.users import user_restaurants   
+from authentication.users import user_restaurants
+
+def calculate_pchange(newval, oldval):
+    
+    if newval == 0:
+        return None
+    elif oldval == 0:
+        return 1
+    else:
+        return (newval - oldval)/oldval
 
 def final_dataframe(dfs, on_column, current_column, last_col, vs_col):
   
@@ -30,8 +39,10 @@ def final_dataframe(dfs, on_column, current_column, last_col, vs_col):
     df = df.append(df.sum(numeric_only=True),ignore_index=True).fillna('Total')
     df[vs_col] = df[current_column] - df[last_col]
     df['vs. LY'] = df[current_column] - df['Last Year']
-    df[vs_col + ' %'] = (df[vs_col].replace(0,1) / df[last_col].replace(0,1))
-    df['vs. LY %'] = (df['vs. LY'].replace(0,1) / df['Last Year'].replace(0,1))
+    df[vs_col + ' %'] = df.apply(lambda x: calculate_pchange(x[current_column],x[last_col]), axis=1)
+    df['vs. LY %'] = df.apply(lambda x: calculate_pchange(x[current_column],x['Last Year']), axis=1)
+#     df[vs_col + ' %'] = (df[vs_col].replace(0,1) / df[last_col].replace(0,1))
+#     df['vs. LY %'] = (df['vs. LY'].replace(0,1) / df['Last Year'].replace(0,1))
     return df
 
 def date_filtering(df,bounds,current_column,last_col,vs_col,on_column,group_by_func):
@@ -591,6 +602,7 @@ def remove_last_year_values(df):
 
     return pd.concat([last_year, no_last_year])
 
+
 def get_lfl(dff):
     
     no_ly_restaurants = ['Klosterhaus','14 Hills']
@@ -616,20 +628,65 @@ def get_lfl(dff):
     
     sums[0] = 'TOTAL'
     
-    cols = [
-    'SiteName',
-    'Today',
-    'Last Week',
-    'vs. LW %',
-    'Last Year',
-    'vs. LY %'
-    ]
-
+    cols = list(sums.index)
     sums_dict = {col: sums[col] for col in cols}
-
-    sums_df = pd.DataFrame(dic, index=[0])
+    
+    sums_df = pd.DataFrame(sums_dict, index=[0])
         
     return sums_df.append(df, ignore_index=True)
+
+    
+def currency_k(number):
+
+    if number > 100 and number < 1000:
+        return str(round(number/1000,1)) + 'k'
+    else:
+        try:
+            return str(int(number/1000)) + 'k'
+        except:
+            return None
+
+def currency_k_change(number):
+
+    plus_sign = '+' if number > 0 else ''
+
+    if abs(number) > 100 and abs(number) < 1000:
+        return plus_sign + str(round(number/1000,1)) + 'k'
+    else:
+        try:
+            return plus_sign + str(int(number/1000)) + 'k'
+        except:
+            return ''
+
+def pchange(number):
+
+    plus_sign = '+' if number > 0 else ''
+
+    try:
+        return plus_sign + str(int(number*100)) + '%'
+    except:
+        return ''
+
+def color_change(number):
+
+    if number > 0:
+        return 'GreenYellow' 
+    elif number < 0:
+        return 'LightCoral'
+    else:
+        return 'White'
+    
+def color_scale_num(pchange):
+    
+    max_p = .25
+    
+    if pchange < -max_p:
+        pchange = -max_p
+    elif pchange > max_p:
+        pchange = max_p
+        
+    scale_num = round(0.5 + pchange*2,3)/2
+    return scale_num - scale_num%0.002
 
 
 # Restaurant acronyms:

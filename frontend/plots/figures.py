@@ -6,9 +6,31 @@ from plotly.subplots import make_subplots
 import dash_table
 import plotly.figure_factory as ff
 
-from data.functions import trends_site_filter, trends_table_filter, get_abbreviation, get_sitename
+from data.functions import (
+    trends_site_filter, 
+    trends_table_filter, 
+    get_abbreviation, 
+    get_sitename, 
+    currency_k, 
+    currency_k_change, 
+    pchange, 
+    color_change,
+    color_scale_num,
+)
+
 from data.date_bounds import date_columns
-from frontend.styling import review_colors, graph_colors, title_font_size, sales_table_header_colors
+
+from frontend.styling import (
+    review_colors, 
+    graph_colors, 
+    title_font_size, 
+    sales_table_header_colors,
+    sales_table_current_column_colors,
+    zero_margin_dict,
+    title_margin_dict,
+)
+
+
 
 # Sales Figures
 
@@ -1303,6 +1325,7 @@ def homepage_future_weeks_figure(dff, site):
         barmode="relative",
         showlegend = False,
         paper_bgcolor = graph_colors['background'],
+        margin = title_margin_dict,
     )
 
     return fig
@@ -1502,6 +1525,7 @@ def homepage_sites_figure(df, measure, site):
             'font':{'size':title_font_size}
         },
         paper_bgcolor = background_color,
+        margin = title_margin_dict,
     )
     
     return fig
@@ -1559,6 +1583,7 @@ def homepage_tracker_weeks_figure(dff, site):
             'range': yrange,
         },
         paper_bgcolor = background_color,
+        margin = title_margin_dict,
     )
     
     return fig
@@ -1627,6 +1652,7 @@ def homepage_score_figure(df, site):
         },
         xaxis={'title':'Average Score'},
         paper_bgcolor = background_color,
+        margin = title_margin_dict,
     )
     
     return fig
@@ -1920,6 +1946,7 @@ def detail_future_figure(dff):
         yaxis = {'range':[0,200]}
     )
     
+    
 def homepage_sales_figure(df, current_column):
     
     background_color = graph_colors['background']
@@ -1932,16 +1959,6 @@ def homepage_sales_figure(df, current_column):
     pchange_string = str(int(pchange)) + '%'
     pchange_string = '+' + pchange_string if pchange>0 else pchange_string
     title = 'Revenue vs. LY: ' + pchange_string
-    
-    def currency_k(number):
-    
-        if number > 100 and number < 1000:
-            return str(round(number/1000,1)) + 'k'
-        else:
-            try:
-                return str(int(number/1000)) + 'k'
-            except:
-                return None
     
     y = df['SiteName'].apply(get_abbreviation)
     x = df['vs. LY']
@@ -2004,46 +2021,6 @@ def homepage_sales_figure(df, current_column):
     
     
 def homepage_sales_table_figure(df, current_column):
-    
-    def currency_k(number):
-    
-        if number > 100 and number < 1000:
-            return str(round(number/1000,1)) + 'k'
-        else:
-            try:
-                return str(int(number/1000)) + 'k'
-            except:
-                return None
-
-    def currency_k_change(number):
-
-        plus_sign = '+' if number > 0 else ''
-
-        if abs(number) > 100 and abs(number) < 1000:
-            return plus_sign + str(round(number/1000,1)) + 'k'
-        else:
-            try:
-                return plus_sign + str(int(number/1000)) + 'k'
-            except:
-                return ''
-
-    def pchange(number):
-
-        plus_sign = '+' if number > 0 else ''
-
-        try:
-            return plus_sign + str(int(number*100)) + '%'
-        except:
-            return ''
-
-    def color_change(number):
-
-        if number > 0:
-            return 'GreenYellow' 
-        elif number < 0:
-            return 'LightCoral'
-        else:
-            return 'White'
 
     row_height = 30
     font_size = 15
@@ -2085,46 +2062,28 @@ def homepage_sales_table_figure(df, current_column):
     fig.show()
     
 def homepage_sales_datatable_figure(df, report):
-    
-    def currency_k(number):
-    
-        if number > 100 and number < 1000:
-            return str(round(number/1000,1)) + 'k'
-        else:
-            try:
-                return str(int(number/1000)) + 'k'
-            except:
-                return None
-
-    def pchange(number):
-
-        plus_sign = '+' if number > 0 else ''
-
-        try:
-            return plus_sign + str(int(number*100)) + '%'
-        except:
-            return ''
         
     current_column = date_columns['current'][report]
-    last_col = date_columns['last'][report]
-    vs_col = date_columns['vs'][report]
+    last_column = date_columns['last'][report]
+    vs_column = date_columns['vs'][report]
+    vs_p_column = date_columns['vs'][report] + ' %'
     
     current_abbr = date_columns['curr_abbr'][report]
     last_abbr = date_columns['last_abbr'][report]
     p_abbr = date_columns['p_abbr'][report]
     
-    cols = ['SiteName', current_column, last_col, vs_col + ' %', 'Last Year', 'vs. LY %']
+    cols = ['SiteName', current_column, last_column, vs_p_column, 'Last Year', 'vs. LY %']
     
-    df = df[cols].rename(
-        columns = {
-            'SiteName':'REST',
-            current_column:current_abbr,
-            last_col:last_abbr,
-            vs_col + ' %':p_abbr,
-            'Last Year':'LY',
-            'vs. LY %':'LY%',
-        }
-    )
+    column_rename_map = {
+        'SiteName':'REST',
+        current_column:current_abbr,
+        last_column:last_abbr,
+        vs_p_column:p_abbr,
+        'Last Year':'LY',
+        'vs. LY %':'LY%',
+    }
+    
+    df = df[cols].rename(columns = column_rename_map)
     
     actual_cols = [current_abbr,last_abbr,'LY']
     pchange_cols = [p_abbr, 'LY%']
@@ -2149,6 +2108,91 @@ def homepage_sales_datatable_figure(df, report):
     fig = ff.create_table(
         df.fillna(''),
         colorscale = colorscale,
+    )
+    
+    return fig
+    
+def homepage_sales_heatmap_figure(df, report):
+    
+    background_color = graph_colors['background']
+        
+    current_column = date_columns['current'][report]
+    last_column = date_columns['last'][report]
+    vs_column = date_columns['vs'][report]
+    vs_p_column = date_columns['vs'][report] + ' %'
+    
+    current_abbr = date_columns['curr_abbr'][report]
+    last_abbr = date_columns['last_abbr'][report]
+    p_abbr = date_columns['p_abbr'][report]
+    
+    red = 'rgb(255,0,0)'
+    green = 'rgb(0,255,0)'
+    grey = 'rgb(230,230,230)'
+    current_column_color = sales_table_current_column_colors[report]
+    
+    color_scale = [
+        [.0, red],
+        [.25, 'white'],
+        [.5, green],
+        [.6, 'white'],
+        [.8, grey],
+        [1, current_column_color],
+    ]
+
+    z = [
+        [
+            round(0.9 + (i%2)*0.1,1),
+            round(0.7 + (i%2)*0.1,1),
+            df[vs_p_column].apply(color_scale_num).fillna(.25)[i],
+            round(0.7 + (i%2)*0.1,1),
+            df['vs. LY %'].apply(color_scale_num).fillna(.25)[i],
+        ] for i in range(len(df))
+    ][::-1]
+
+    z_text = [
+        [
+            df[current_column].apply(currency_k)[i],
+            df[last_column].apply(currency_k)[i],
+            df[vs_p_column].apply(pchange)[i],
+            df['Last Year'].apply(currency_k)[i],
+            df['vs. LY %'].apply(pchange)[i],
+        ] for i in range(len(df))
+    ][::-1]
+    
+    hover_text = [
+        [
+            round(df[current_column][i]),
+            round(df[last_column][i]),
+            round(df[current_column][i] - df[last_column][i]),
+            round(df['Last Year'][i]),
+            round(df[current_column][i] - df['Last Year'][i]),
+        ] for i in range(len(df))
+    ][::-1]
+
+    y = list(df.SiteName.apply(get_abbreviation))[::-1]
+    
+    x = [
+        current_abbr,
+        last_abbr,
+        p_abbr,
+        'LY',
+        'LY%'
+    ]
+
+
+    fig = ff.create_annotated_heatmap(
+        z, 
+        x = x,
+        y = y,
+        annotation_text = z_text,
+        colorscale = color_scale,
+        text = hover_text,
+        hoverinfo = 'text',
+    )
+
+    fig.update_layout(
+        paper_bgcolor = background_color,
+        margin = zero_margin_dict,
     )
     
     return fig

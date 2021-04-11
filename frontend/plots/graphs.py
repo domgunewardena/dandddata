@@ -955,7 +955,6 @@ def homepage_sales_graph(report):
 
     df = breakdown_revenue_df(rev_df,bounds,current_column,last_col,vs_col,on_column).sort_values('SiteName')
 
-    dff = get_lfl(df)[::-1]
+    dff = get_lfl(df)
     
-    return homepage_sales_datatable_figure(dff, report)
-
+    return homepage_sales_heatmap_figure(dff, report)

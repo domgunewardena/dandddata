@@ -119,6 +119,29 @@ sales_table_header_colors = {
     'four_weeks':'rgb(75,50,0)',
 }
 
+lightblue = 'rgb(200,200,250)'
+lightpurple = 'rgb(250,200,250)'
+lightred = 'rgb(250,200,200)'
+lightorange = 'rgb(250,225,200)'
+
+sales_table_current_column_colors = {
+    'daily':lightblue,
+    'wtd':lightpurple,
+    'weekly':lightpurple,
+    'mtd':lightred,
+    'monthly':lightred,
+    'four_weeks':lightorange,
+}
+
+zero_margin_dict = {x:0 for x in ['t','b','l','r']}
+
+title_margin_dict = {
+    't':40,
+    'b':0,
+    'l':0,
+    'r':0,
+}
+    
 title_font_size = 20
 
 def week_colors_totals(measure, shift, metric):
