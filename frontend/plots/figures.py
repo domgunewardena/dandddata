@@ -1486,14 +1486,13 @@ def homepage_sites_figure(df, measure, site):
         
     x = df['vs. LY']
     xmax = max(max(x),-min(x))
-    xlim = xmax*1.7
-    xrange = [-xlim,xlim]
+    xrange = [-xmax*2.5,xmax*1.7]
     customdata = df['vs. LY %']*100
     
     y = df[restaurant_column].apply(get_abbreviation)
     
-    texttemplate = '%{customdata:+.0f}%'
-    hovertemplate = '%{x:+.0f}'
+    hovertemplate = '%{customdata:+.0f}%'
+    texttemplate = '%{x:+.0f}'
     name = "vs. LY"
     
     fig = go.Figure()
@@ -1514,6 +1513,18 @@ def homepage_sites_figure(df, measure, site):
             name = name,
         )
     )
+    
+    
+    length = len(df)
+
+    for i in range(length):
+
+        fig.add_annotation(
+            y = i,
+            x = -xmax*2,
+            text = int(list(df[df_columns[0]])[i]),
+            showarrow = False,
+        )
     
     fig.update_layout(
         xaxis = {
