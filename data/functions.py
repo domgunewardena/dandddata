@@ -615,24 +615,25 @@ def get_lfl(dff):
         no_ly[col] = np.nan
 
     df = pd.concat([ly, no_ly])
-    
-    sums = df.sum()
+
+    all_sums = df.sum()
     ly_sums = ly.sum()
-    
-    for sums in [sums, ly_sums]:
+
+    for sums in [all_sums, ly_sums]:
+        sums[4] = (sums[1]-sums[2])
+        sums[5] = (sums[1]-sums[3])
         sums[6] = (sums[1]-sums[2])/sums[2]
         sums[7] = (sums[1]-sums[3])/sums[3]
-    
+
     for col in ly_columns:
-        sums[col] = ly_sums[col]
-    
-    sums[0] = 'TOTAL'
-    
-    cols = list(sums.index)
-    sums_dict = {col: sums[col] for col in cols}
-    
+        all_sums[col] = ly_sums[col]
+
+    all_sums[0] = 'Total'
+
+    sums_dict = {col: all_sums[col] for col in list(all_sums.index)}
+
     sums_df = pd.DataFrame(sums_dict, index=[0])
-        
+    
     return sums_df.append(df, ignore_index=True)
 
     
