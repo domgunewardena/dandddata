@@ -620,8 +620,8 @@ def get_lfl(dff):
     ly_sums = ly.sum()
     
     for sums in [sums, ly_sums]:
-        sums[6] = (sums[2]-sums[3])/sums[3]
-        sums[7] = (sums[2]-sums[4])/sums[4]
+        sums[6] = (sums[1]-sums[2])/sums[2]
+        sums[7] = (sums[1]-sums[3])/sums[3]
     
     for col in ly_columns:
         sums[col] = ly_sums[col]
