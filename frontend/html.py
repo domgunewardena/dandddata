@@ -32,7 +32,7 @@ def render_h1(text):
         'background-color': 'snow',
     }
     
-    if text== 'Next 4 Weeks':
+    if text== 'Bookings: Next 4 Weeks':
         return html.H1(
             [text],
             id = 'homepage title',
@@ -52,7 +52,7 @@ def render_h3(text):
         'background-color': 'snow',
     }
     
-    if text== 'Next 4 Weeks':
+    if text== 'Bookings: Next 4 Weeks':
         return html.H3(
             [text],
             id = 'homepage title',

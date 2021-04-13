@@ -19,8 +19,8 @@ def homepage():
         [
             homepage_sales_dropdown(1),
             homepage_sales_dropdown(2),
-            homepage_title_div('Next 4 Weeks', 'covers'),
-            homepage_title_div('Last 4 Weeks', 'scores'),
+            homepage_title_div('Bookings: Next 4 Weeks', 'covers'),
+            homepage_title_div('Fdbk Rating: Last 4Wks', 'scores'),
         ]
     )
 

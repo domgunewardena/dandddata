@@ -5,7 +5,7 @@ import numpy as np
 from datetime import date, datetime, timedelta
 
 from authentication.authentication import auth
-from authentication.users import user_restaurants
+from authentication.users import user_restaurants, bookings_to_sales_restaurants_dict
 
 def calculate_pchange(newval, oldval):
     
@@ -661,9 +661,8 @@ def currency_k_change(number):
 
 def pchange(number):
 
-    plus_sign = '+' if number > 0 else ''
-
     try:
+        plus_sign = '+' if number > 0 else ''
         return plus_sign + str(int(number*100)) + '%'
     except:
         return ''
@@ -681,13 +680,23 @@ def color_scale_num(pchange):
     
     max_p = .25
     
-    if pchange < -max_p:
-        pchange = -max_p
-    elif pchange > max_p:
-        pchange = max_p
+    try:
+    
+        if pchange < -max_p:
+            pchange = -max_p
+        elif pchange > max_p:
+            pchange = max_p
+
+        scale_num = round(0.5 + pchange*2,3)/2
+        return scale_num - scale_num%0.002
+    
+    except TypeError:
         
-    scale_num = round(0.5 + pchange*2,3)/2
-    return scale_num - scale_num%0.002
+        return 0.25
+
+def map_bookings_to_sales_restaurants(df):
+    
+    restaurant_map = bookings_to_sales_restaurants_dict
 
 
 # Restaurant acronyms:
