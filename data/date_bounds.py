@@ -202,7 +202,7 @@ date_columns = {
         'four_weeks':'vs. LM',
     },   
     'curr_abbr':{
-        'daily':'TW',
+        'daily':'YD',
         'wtd':'TW',
         'weekly':'TW',
         'mtd':'TM',
