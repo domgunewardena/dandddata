@@ -649,9 +649,9 @@ def homepage_tracker_graph(graph, site):
     dff = df[mask1 & mask2]
     
     if site == 'Group':
-        dff = tracker_user_site_filter(dff)
+        dff = remove_ly(map_bookings_to_sales_restaurants(tracker_user_site_filter(dff)), 'Restaurant')
     else:
-        dff = tracker_site_filter(dff, site)
+        dff = map_bookings_to_sales_restaurants(tracker_site_filter(dff, site))
         
     if graph == 'sites':
         groupby_columns = ['Restaurant']

@@ -589,18 +589,47 @@ def get_breakdown_df(report):
     return breakdown_revenue_df(rev_df,bounds,current_column,last_col,vs_col,on_column).sort_values('SiteName')    
     
 
-def remove_last_year_values(df):
+def remove_ly(df, restaurant_column):
     
-    no_last_year_restaurants = ['Klosterhaus','14 Hills']
-    no_last_year = df[df['SiteName'].isin(no_last_year_restaurants)]
-    last_year = df[~df['SiteName'].isin(no_last_year_restaurants)]  
+    no_ly_restaurants = ['Klosterhaus','14 Hills']
+    return df[~df[restaurant_column].isin(no_ly_restaurants)]
+    
+def remove_ly_values(df):
+    
+    no_ly_restaurants = ['Klosterhaus','14 Hills']
+    no_ly = df[df['SiteName'].isin(no_ly_restaurants)]
+    ly = df[~df['SiteName'].isin(no_ly_restaurants)]  
 
-    no_comp_columns = ["Last Year", 'vs. LY', 'vs. LY %']
+    ly_columns = ["Last Year", 'vs. LY', 'vs. LY %']
 
-    for col in no_comp_columns:
-        no_last_year[col] = np.nan
+    for col in ly_columns:
+        no_ly[col] = np.nan
 
-    return pd.concat([last_year, no_last_year])
+    return pd.concat([ly, no_ly])    
+
+def get_lfl(dff):
+
+    df = remove_ly_values(dff)
+
+    all_sums = df.sum()
+    ly_sums = ly.sum()
+
+    for sums in [all_sums, ly_sums]:
+        sums[4] = (sums[1]-sums[2])
+        sums[5] = (sums[1]-sums[3])
+        sums[6] = (sums[1]-sums[2])/sums[2]
+        sums[7] = (sums[1]-sums[3])/sums[3]
+
+    for col in ly_columns:
+        all_sums[col] = ly_sums[col]
+
+    all_sums[0] = 'Total'
+
+    sums_dict = {col: all_sums[col] for col in list(all_sums.index)}
+
+    sums_df = pd.DataFrame(sums_dict, index=[0])
+    
+    return sums_df.append(df, ignore_index=True)
 
 
 def get_lfl(dff):
@@ -697,6 +726,11 @@ def color_scale_num(pchange):
 def map_bookings_to_sales_restaurants(df):
     
     restaurant_map = bookings_to_sales_restaurants_dict
+    restaurant_column = 'Restaurant'
+    
+    df[restaurant_column] = df[restaurant_column].map(restaurant_map)
+    
+    return df
 
 
 # Restaurant acronyms:
