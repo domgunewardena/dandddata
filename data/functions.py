@@ -716,8 +716,9 @@ def color_scale_num(pchange):
         elif pchange > max_p:
             pchange = max_p
 
-        scale_num = round(0.5 + pchange*2,3)/2
-        return scale_num - scale_num%0.002
+        scale_num = (pchange + max_p)/(max_p / .25)
+        
+        return scale_num
     
     except TypeError:
         

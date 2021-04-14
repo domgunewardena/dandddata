@@ -2199,6 +2199,7 @@ def homepage_sales_heatmap_figure(df, report):
         colorscale = color_scale,
         text = hover_text,
         hoverinfo = 'text',
+        font_colors = ['black','black'],
     )
 
     fig.update_layout(
