@@ -6,7 +6,7 @@ def first_restaurant(restaurant_list, restaurant_string):
 
 sales_restaurants = [
 #     '100 Wardour Street',
-#     '14 Hills',
+    '14 Hills',
     '20 Stories', 
 #     'Aster', 
 #     'Avenue', 
@@ -39,7 +39,7 @@ sales_restaurants = [
 
 bookings_restaurants = [
 #     '100 Wardour St',
-#     '14 Hills',
+    '14 Hills',
     '20 Stories',
     'Angelica',
 #     'Angler',
@@ -180,7 +180,7 @@ user_restaurants = {
     'michaelf@danddlondon.com':{
         'sales':[
 #             '100 Wardour Street',
-#             '14 Hills',
+            '14 Hills',
 #             'Avenue',
             'Bluebird Chelsea',
             'Madison', 
@@ -190,7 +190,7 @@ user_restaurants = {
         ],
         'bookings':[
 #             '100 Wardour St',
-#             '14 Hills',
+            '14 Hills',
 #             'Avenue',
             'Bluebird Chelsea',
             'Bluebird White City',
