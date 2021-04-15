@@ -1,3 +1,5 @@
+from data.date_bounds import reviews_date_bound
+
 create = {
     'tracker':"""
         CREATE TABLE tracker (
@@ -105,6 +107,11 @@ create = {
     """
 }
 
+reviews_query = """
+    SELECT restaurant, date, score, food, service, value, ambience
+    FROM reviews
+    WHERE date >= '""" + reviews_date_bound + "'"
+
 select = {
     'tracker':'SELECT * FROM tracker',
     'pickup':'SELECT * FROM pickup',
@@ -112,7 +119,7 @@ select = {
     'future':'SELECT * FROM future',
     'revenue':'SELECT * FROM revenue',
     'covers':'SELECT * FROM covers',
-    'reviews':'SELECT * FROM reviews'
+    'reviews':reviews_query,
 }
 
 column_names = {
@@ -187,18 +194,13 @@ column_names = {
         'Covers',
     ],
     'reviews': [
-        'source',
         'restaurant',
-        'title',
         'date',
-        'visit_date',
         'score',
         'food',
         'service',
         'value',
         'ambience',
-        'review',
-        'link',
     ]
 }
 
@@ -270,17 +272,12 @@ column_renaming_map = {
         'covers':'Covers',
     },
     'reviews': {
-        'source': 'source',
         'restaurant': 'restaurant',
-        'title': 'title',
         'date': 'date',
-        'visit_date': 'visit_date',
         'score': 'score',
         'food': 'food',
         'service': 'service',
         'value': 'value',
         'ambience': 'ambience',
-        'review': 'review',
-        'link': 'link'
     }
 }

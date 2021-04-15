@@ -226,3 +226,6 @@ date_columns = {
         'four_weeks':'LM%',
     },
 }
+
+reviews_days_ago = 28
+reviews_date_bound = (datetime.now()-timedelta(reviews_days_ago)).strftime('%Y-%m-%d')
