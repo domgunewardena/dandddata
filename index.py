@@ -1,3 +1,5 @@
+import os
+
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
@@ -11,8 +13,6 @@ from authentication.authentication import auth
 
 CONTENT_STYLE = {
     "margin-left": "15rem",
-#     "margin-right": "2rem",
-#     "padding": "2rem 1rem",
 }
 
 content = html.Div(id="page-content", style=CONTENT_STYLE)
@@ -23,13 +23,17 @@ app.layout = html.Div(
             id='url', 
             refresh=False
         ),
-#         html.Div([nav]),
         sidebar,
         content
     ]
 )
 
 app.title='D&D Data'
+
+try:
+    processes = os.environ['PROCESSES']
+except:
+    processes = 1
 
 @app.callback(dash.dependencies.Output('page-content', 'children'),
               [dash.dependencies.Input('url', 'pathname')])
@@ -63,4 +67,4 @@ def display_page(pathname):
     
 if __name__ == '__main__':
 #     app.run_server(debug=False, processes=4)
-    app.run_server(debug=False)
+    app.run_server(debug = False, processes = processes)
