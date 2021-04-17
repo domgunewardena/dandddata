@@ -11,9 +11,10 @@ from data.functions import (
     trends_table_filter, 
     get_abbreviation, 
     get_sitename, 
-    currency_k, 
-    currency_k_change, 
-    pchange, 
+    k_converter,
+    k_change_converter,
+    spend_converter,
+    pchange_converter, 
     color_change,
     color_scale_num,
 )
@@ -2123,7 +2124,7 @@ def homepage_sales_datatable_figure(df, report):
     
     return fig
     
-def homepage_sales_heatmap_figure(df, report):
+def sales_heatmap_figure(df, report, measure):
     
     background_color = graph_colors['background']
         
@@ -2140,6 +2141,11 @@ def homepage_sales_heatmap_figure(df, report):
     green = 'rgb(0,255,0)'
     grey = 'rgb(230,230,230)'
     current_column_color = sales_table_current_column_colors[report]
+    
+    if measure in ['Revenue','Covers']:
+        actuals_converter = k_converter
+    else:
+        actuals_converter = spend_converter
     
     color_scale = [
         [.0, red],
@@ -2162,11 +2168,11 @@ def homepage_sales_heatmap_figure(df, report):
 
     z_text = [
         [
-            df[current_column].apply(currency_k)[i],
-            df[last_column].apply(currency_k)[i],
+            df[current_column].apply(actuals_converter)[i],
+            df[last_column].apply(actuals_converter)[i],
             df[vs_p_column].apply(pchange)[i],
-            df['Last Year'].apply(currency_k)[i],
-            df['vs. LY %'].apply(pchange)[i],
+            df['Last Year'].apply(actuals_converter)[i],
+            df['vs. LY %'].apply(actuals_converter)[i],
         ] for i in range(len(df))
     ][::-1]
     

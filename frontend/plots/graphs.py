@@ -942,10 +942,9 @@ def detail_future_graph(site):
     dff['full'] = dff['max_guests TW']/dff['capacity']
     dff['empty'] = (dff['capacity']-dff['max_guests TW']).apply(reduce_minus)
         
-def homepage_sales_graph(report):
+def homepage_sales_table(report):
     
     rev_df = user_site_filter(sales_dataframes[report]['revenue'])
-#     rev_df = sales_dataframes[report]['revenue']
 
     bounds = date_bounds[report]
     current_column = date_columns['current'][report]
@@ -957,4 +956,32 @@ def homepage_sales_graph(report):
 
     dff = get_lfl(df)
     
-    return homepage_sales_heatmap_figure(dff, report)
+    return sales_heatmap_figure(dff, report, 'Revenue')
+
+def sales_breakdown_table(report, measure):
+
+    bounds = date_bounds[report]
+    current_column = date_columns['current'][report]
+    last_col = date_columns['last'][report]
+    vs_col = date_columns['vs'][report]
+    on_column = 'SiteName'
+    
+    if measure == 'Revenue':
+    
+        rev_df = user_site_filter(sales_dataframes[report]['revenue'])
+        df = breakdown_revenue_df(rev_df,bounds,current_column,last_col,vs_col,on_column).sort_values('SiteName')
+        
+    elif measure == 'Covers':
+        
+        cov_df = user_site_filter(sales_dataframes[report]['covers'])
+        df = breakdown_covers_df(cov_df,bounds,current_column,last_col,vs_col,on_column).sort_values('SiteName')
+        
+    elif measure == 'Spend':
+    
+        rev_df = user_site_filter(sales_dataframes[report]['revenue'])
+        cov_df = user_site_filter(sales_dataframes[report]['covers'])
+        df = breakdown_spend_df(rev_df,cov_df,bounds,current_column,last_col,vs_col,on_column).sort_values('SiteName')
+        
+    dff = get_lfl(df)
+    
+    return sales_heatmap_figure(dff, report, measure)

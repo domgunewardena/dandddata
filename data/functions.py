@@ -666,29 +666,31 @@ def get_lfl(dff):
     return sums_df.append(df, ignore_index=True)
 
     
-def currency_k(number):
+def k_converter(number):
 
-    if number > 100 and number < 1000:
+    try:
         return str(round(number/1000,1)) + 'k'
-    else:
-        try:
-            return str(int(number/1000)) + 'k'
-        except:
-            return None
+    except:
+        return None
 
-def currency_k_change(number):
+def k_change_converter(number):
 
     plus_sign = '+' if number > 0 else ''
 
-    if abs(number) > 100 and abs(number) < 1000:
+    try:
         return plus_sign + str(round(number/1000,1)) + 'k'
-    else:
-        try:
-            return plus_sign + str(int(number/1000)) + 'k'
-        except:
-            return ''
+    except:
+        return ''
+    
+def spend_converter(number):
 
-def pchange(number):
+    try:
+        return str(round(number,1))
+    except:
+        return None
+    
+
+def pchange_converter(number):
 
     try:
         plus_sign = '+' if number > 0 else ''

@@ -63,7 +63,7 @@ def update_homepage_sales_1(value):
         report = 'mtd'
     elif value == '4Wks Sales':
         report = 'four_weeks'
-    return homepage_sales_graph(report)
+    return homepage_sales_table(report)
 
 @app.callback(
     Output('homepage sales 2', 'figure'),
@@ -77,7 +77,7 @@ def update_homepage_sales_2(value):
         report = 'mtd'
     elif value == '4Wks Sales':
         report = 'four_weeks'
-    return homepage_sales_graph(report)
+    return homepage_sales_table(report)
 
 @app.callback(
     Output('homepage tracker sites', 'figure'),
