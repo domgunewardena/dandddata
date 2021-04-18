@@ -2170,9 +2170,9 @@ def sales_heatmap_figure(df, report, measure):
         [
             df[current_column].apply(actuals_converter)[i],
             df[last_column].apply(actuals_converter)[i],
-            df[vs_p_column].apply(pchange)[i],
+            df[vs_p_column].apply(pchange_converter)[i],
             df['Last Year'].apply(actuals_converter)[i],
-            df['vs. LY %'].apply(actuals_converter)[i],
+            df['vs. LY %'].apply(pchange_converter)[i],
         ] for i in range(len(df))
     ][::-1]
     

@@ -941,24 +941,9 @@ def detail_future_graph(site):
     dff = df[df_columns].groupby(groupby_columns).sum().reset_index()
     dff['full'] = dff['max_guests TW']/dff['capacity']
     dff['empty'] = (dff['capacity']-dff['max_guests TW']).apply(reduce_minus)
-        
-def homepage_sales_table(report):
     
-    rev_df = user_site_filter(sales_dataframes[report]['revenue'])
 
-    bounds = date_bounds[report]
-    current_column = date_columns['current'][report]
-    last_col = date_columns['last'][report]
-    vs_col = date_columns['vs'][report]
-    on_column = 'SiteName'
-
-    df = breakdown_revenue_df(rev_df,bounds,current_column,last_col,vs_col,on_column).sort_values('SiteName')
-
-    dff = get_lfl(df)
-    
-    return sales_heatmap_figure(dff, report, 'Revenue')
-
-def sales_breakdown_table(report, measure):
+def homepage_sales_table(report, measure):
 
     bounds = date_bounds[report]
     current_column = date_columns['current'][report]

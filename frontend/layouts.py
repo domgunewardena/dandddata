@@ -17,8 +17,8 @@ def homepage():
     
     homepage_titles = html.Div(
         [
-            homepage_sales_dropdown(1),
-            homepage_sales_dropdown(2),
+            homepage_sales_dropdown(1, 'report'),
+            homepage_sales_dropdown(2, 'report'),
             homepage_title_div('Bookings: Next 4 Weeks', 'covers'),
             homepage_title_div('Fdbk Rating: Last 4Wks', 'scores'),
         ]
@@ -34,10 +34,51 @@ def homepage():
         ]
     )
     
+    homepage_sales_measure_dropdowns = html.Div(
+        [
+            homepage_sales_dropdown(1, 'measure'),
+        ]
+    )
+    
     return html.Div(
         children=[
             homepage_titles,
             homepage_graphs,
+            homepage_sales_measure_dropdowns,
+        ]
+    )
+
+def sales_breakdown():
+    
+    sales_breakdown_dropdown_div = html.Div(
+        [
+            sales_breakdown_title_div(''),
+            sales_breakdown_dropdown(),
+            sales_breakdown_title_div(''),
+        ]
+    )
+    
+    sales_breakdown_titles = html.Div(
+        [
+            sales_breakdown_title_div('Revenue'),
+            sales_breakdown_title_div('Covers'),
+            sales_breakdown_title_div('Spend'),
+        ]
+    )
+    
+    sales_breakdown_graphs = html.Div(
+        [
+            sales_breakdown_div('sales breakdown revenue'),
+            sales_breakdown_div('sales breakdown covers'),
+            sales_breakdown_div('sales breakdown spend'),
+        ]
+    )
+    
+    return html.Div(
+        children=[
+            sales_breakdown_dropdown_div,
+            sales_breakdown_titles,
+            sales_breakdown_graphs,
         ]
     )
 
@@ -272,6 +313,7 @@ def trends():
     )
 
 homepage_layout = homepage()
+sales_breakdown_layout = sales_breakdown()
 group_layout = group()
 breakdown_layout = breakdown()
 restaurant_layout = restaurant()

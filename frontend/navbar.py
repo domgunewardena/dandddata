@@ -108,6 +108,7 @@ sidebar = html.Div(
                 dbc.NavItem(dbc.NavLink("Restaurant", href="/restaurant", active="exact")),
                 html.Hr(),
                 html.Li(dbc.Row([dbc.Col("SALES")])),
+                dbc.NavItem(dbc.NavLink("Breakdown", href="/sales-breakdown", active="exact")),
                 dbc.NavItem(dbc.NavLink('Daily Sales', href="/daily-sales", active="exact")),
                 dbc.NavItem(dbc.NavLink('WTD Sales', href="/wtd-sales", active="exact")),
                 dbc.NavItem(dbc.NavLink('MTD Sales', href="/mtd-sales", active="exact")),

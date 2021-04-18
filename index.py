@@ -40,6 +40,8 @@ except:
 def display_page(pathname):
     if pathname == '/group':
         return group_layout
+    if pathname == '/sales-breakdown':
+        return sales_breakdown_layout
     if pathname == '/breakdown':
         return breakdown_layout
     if pathname == '/restaurant':

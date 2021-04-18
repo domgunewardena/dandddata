@@ -53,31 +53,33 @@ homepage_worst_inputs = [Input('homepage ' + x + ' worst', 'clickData') for x in
 
 @app.callback(
     Output('homepage sales 1', 'figure'),
-    [Input('homepage sales dropdown 1', 'value')])
-def update_homepage_sales_1(value):
-    if value == 'Daily Sales':
+    [Input('homepage sales dropdown 1', 'value'),
+    Input('homepage sales measure dropdown 1', 'value')])
+def update_homepage_sales_1(report_value, measure):
+    if report_value == 'Daily Sales':
         report = 'daily'
-    elif value == 'WTD Sales':
+    elif report_value == 'WTD Sales':
         report = 'wtd'
-    elif value == 'MTD Sales':
+    elif report_value == 'MTD Sales':
         report = 'mtd'
-    elif value == '4Wks Sales':
+    elif report_value == '4Wks Sales':
         report = 'four_weeks'
-    return homepage_sales_table(report)
+    return homepage_sales_table(report, measure)
 
 @app.callback(
     Output('homepage sales 2', 'figure'),
-    [Input('homepage sales dropdown 2', 'value')])
-def update_homepage_sales_2(value):
-    if value == 'Daily Sales':
+    [Input('homepage sales dropdown 2', 'value'),
+    Input('homepage sales measure dropdown 1', 'value')])
+def update_homepage_sales_2(report_value, measure):
+    if report_value == 'Daily Sales':
         report = 'daily'
-    elif value == 'WTD Sales':
+    elif report_value == 'WTD Sales':
         report = 'wtd'
-    elif value == 'MTD Sales':
+    elif report_value == 'MTD Sales':
         report = 'mtd'
-    elif value == '4Wks Sales':
+    elif report_value == '4Wks Sales':
         report = 'four_weeks'
-    return homepage_sales_table(report)
+    return homepage_sales_table(report, measure)
 
 @app.callback(
     Output('homepage tracker sites', 'figure'),
@@ -115,14 +117,59 @@ def update_homepage_tracker_breakdown(clickData):
 
     return homepage_tracker_graph('breakdown', site)
 
+
 @app.callback(
     Output('homepage score sites', 'figure'),
     [Input('homepage title', 'children')])
 def update_homepage_score_sites(metric):
     return homepage_score_graph('sites', 'Group')
-                                  
-                                  
 
+
+# Sales Breakdown
+
+@app.callback(
+    Output('sales breakdown revenue', 'figure'),
+    [Input('sales breakdown dropdown', 'value')])
+def update_homepage_sales_revenue(value):
+    if value == 'Daily Sales':
+        report = 'daily'
+    elif value == 'WTD Sales':
+        report = 'wtd'
+    elif value == 'MTD Sales':
+        report = 'mtd'
+    elif value == '4Wks Sales':
+        report = 'four_weeks'
+    return sales_breakdown_table(report, 'Revenue')
+
+@app.callback(
+    Output('sales breakdown covers', 'figure'),
+    [Input('sales breakdown dropdown', 'value')])
+def update_homepage_sales_covers(value):
+    if value == 'Daily Sales':
+        report = 'daily'
+    elif value == 'WTD Sales':
+        report = 'wtd'
+    elif value == 'MTD Sales':
+        report = 'mtd'
+    elif value == '4Wks Sales':
+        report = 'four_weeks'
+    return sales_breakdown_table(report, 'Covers')
+
+@app.callback(
+    Output('sales breakdown spend', 'figure'),
+    [Input('sales breakdown dropdown', 'value')])
+def update_homepage_sales_spend(value):
+    if value == 'Daily Sales':
+        report = 'daily'
+    elif value == 'WTD Sales':
+        report = 'wtd'
+    elif value == 'MTD Sales':
+        report = 'mtd'
+    elif value == '4Wks Sales':
+        report = 'four_weeks'
+    return sales_breakdown_table(report, 'Spend')
+    
+    
 # @app.callback(Output('homepage future summary', 'figure'), homepage_worst_inputs)
 # def update_homepage_future_summary(click1, click2, click3, click4):
     

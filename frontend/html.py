@@ -9,7 +9,7 @@ from authentication.users import sales_restaurants, user_restaurants
 from authentication.authentication import auth
 
 from frontend.plots.figures import trends_group_pickup_figure, trends_group_future_figure
-from frontend.plots.graphs import homepage_sales_graph
+from frontend.plots.graphs import homepage_sales_table
 from data.data import trends_df
 
 def div_style_simple(width):
@@ -91,6 +91,17 @@ def homepage_title_div(text, category):
     style = {'width':width,'display':'inline-block', 'padding-top': padding_top}
     
     return html.Div([h3], style = style)
+    
+
+def sales_breakdown_title_div(text):
+    
+    width = '33%'
+    padding_top = '20px'
+    
+    h3 = render_h3(text)
+    style = {'width':width,'display':'inline-block', 'padding-top': padding_top}
+    
+    return html.Div([h3], style = style)
             
 
 # Dropdowns
@@ -162,32 +173,45 @@ def render_flex_dropdown_row(dropdowns):
         style = style
     )
 
-def homepage_sales_dropdown(num):    
+def homepage_sales_dropdown(num, category):  
+    
+    if category == 'report':
+        
+        div_width = '20%'
+        
+        id_string = 'homepage sales dropdown '
+        metrics = ['Daily Sales','WTD Sales','MTD Sales', '4Wks Sales']
+        initial_value_index = num-1
+        
+    elif category == 'measure':
+        
+        div_width = '40%'
+        
+        id_string = 'homepage sales measure dropdown '
+        metrics = ['Revenue', 'Covers', 'Spend']
+        initial_value_index = 0  
     
     dropdown_width = '90%'
     dropdown_height = '25px'
-    div_width = '20%'
     margin = '0px 0px 0px 20px'
     font_size = '20px'
     
     dropdown_style = {
         'width':dropdown_width,
         'height':dropdown_height,
-#         'line-height':line_height,
         'margin':margin,
         'font-size':font_size,
     }
     div_style = div_style_simple(div_width)
-    
-    metrics = ['Daily Sales','WTD Sales','MTD Sales', '4Wks Sales']
+        
     
 #     Dropdown
     
     def homepage_sales_dropdown(num):
         
-        dropdown_id = 'homepage sales dropdown ' + str(num)
+        dropdown_id = id_string + str(num)
         values = metrics
-        initial_value = metrics[num-1]
+        initial_value = metrics[initial_value_index]
         style = dropdown_style
         
         return render_dropdown(dropdown_id, values, initial_value, style)
@@ -202,6 +226,46 @@ def homepage_sales_dropdown(num):
         return render_bare_dropdown_div(dropdown, style)
         
     return homepage_sales_dropdown_div(num)
+
+def sales_breakdown_dropdown():    
+    
+    dropdown_width = '90%'
+    dropdown_height = '25px'
+    div_width = '33%'
+    margin = '0px 0px 0px 20px'
+    font_size = '20px'
+    
+    dropdown_style = {
+        'width':dropdown_width,
+        'height':dropdown_height,
+        'margin':margin,
+        'font-size':font_size,
+    }
+    div_style = div_style_simple(div_width)
+    
+    metrics = ['Daily Sales','WTD Sales','MTD Sales', '4Wks Sales']
+    
+#     Dropdown
+    
+    def sales_breakdown_dropdown():
+        
+        dropdown_id = 'sales breakdown dropdown'
+        values = metrics
+        initial_value = metrics[0]
+        style = dropdown_style
+        
+        return render_dropdown(dropdown_id, values, initial_value, style)
+    
+#     Div
+    
+    def sales_breakdown_dropdown_div():
+        
+        dropdown = sales_breakdown_dropdown()
+        style = div_style
+        
+        return render_bare_dropdown_div(dropdown, style)
+        
+    return sales_breakdown_dropdown_div()
     
     
 
@@ -990,6 +1054,17 @@ def homepage_wide_div(graph_id):
     
     height = 800
     width = '20%'
+    graphs_list = [standard_graph(graph_id)]
+    
+    return render_div(graphs_list, height, width)
+
+
+
+
+def sales_breakdown_div(graph_id):
+    
+    height = 800
+    width = '33%'
     graphs_list = [standard_graph(graph_id)]
     
     return render_div(graphs_list, height, width)
