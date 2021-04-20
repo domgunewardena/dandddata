@@ -11,6 +11,7 @@ from data.functions import (
     trends_table_filter, 
     get_abbreviation, 
     get_sitename, 
+    remove_no_ly,
     k_converter,
     k_change_converter,
     spend_converter,
@@ -1477,7 +1478,7 @@ def homepage_sites_figure(df, measure, site):
         xtitle = 'Revenue vs. LY'
         df_columns = ['This Month','Last Month','Last Year']
     
-    sums = df[df_columns].sum()
+    sums = remove_no_ly(df, restaurant_column)[df_columns].sum()
     thisyear = sums[0]
     lastyear = sums[2]
     pchange = ((thisyear - lastyear) / lastyear)*100
@@ -1485,7 +1486,7 @@ def homepage_sites_figure(df, measure, site):
     pchange_string = '+' + pchange_string if pchange>0 else pchange_string
     title = measure + ' vs. LY: ' + pchange_string
         
-    x = df['vs. LY']
+    x = df['vs. LY'].fillna(0)
     xmax = max(max(x),-min(x))
     xrange = [-xmax*2.5,xmax*1.7]
     customdata = df['vs. LY %']*100
@@ -1530,7 +1531,7 @@ def homepage_sites_figure(df, measure, site):
     fig.update_layout(
         xaxis = {
             'range': xrange,
-            'title': xtitle,
+            'visible': False,
         },
         title = {
             'text': title,

@@ -649,7 +649,7 @@ def homepage_tracker_graph(graph, site):
     dff = df[mask1 & mask2]
     
     if site == 'Group':
-        dff = remove_ly(map_bookings_to_sales_restaurants(tracker_user_site_filter(dff)), 'Restaurant')
+        dff = map_bookings_to_sales_restaurants(tracker_user_site_filter(dff))
     else:
         dff = map_bookings_to_sales_restaurants(tracker_site_filter(dff, site))
         
@@ -691,7 +691,7 @@ def homepage_tracker_graph(graph, site):
     
     elif graph == 'sites':
         
-        dff = df.sort_values('Restaurant', ascending = False)
+        dff = remove_false_ly_values(df.sort_values('Restaurant', ascending = False), 'Restaurant')
         
         return homepage_sites_figure(dff, 'Covers', site)
     
@@ -955,18 +955,32 @@ def homepage_sales_table(report, measure):
     
         rev_df = user_site_filter(sales_dataframes[report]['revenue'])
         df = breakdown_revenue_df(rev_df,bounds,current_column,last_col,vs_col,on_column).sort_values('SiteName')
+        dff = get_lfl(df, 'SiteName', measure)
         
     elif measure == 'Covers':
         
         cov_df = user_site_filter(sales_dataframes[report]['covers'])
         df = breakdown_covers_df(cov_df,bounds,current_column,last_col,vs_col,on_column).sort_values('SiteName')
+        dff = get_lfl(df, 'SiteName', measure)
         
     elif measure == 'Spend':
     
-        rev_df = user_site_filter(sales_dataframes[report]['revenue'])
-        cov_df = user_site_filter(sales_dataframes[report]['covers'])
+        rev_df = spend_type_filter(area_filter(user_site_filter(sales_dataframes[report]['revenue']), 'Restaurant'))
+        cov_df = area_filter(user_site_filter(sales_dataframes[report]['covers']), 'Restaurant')
         df = breakdown_spend_df(rev_df,cov_df,bounds,current_column,last_col,vs_col,on_column).sort_values('SiteName')
+        dff = remove_false_ly_values(df, 'SiteName')
         
-    dff = get_lfl(df)
-    
+        rev = breakdown_revenue_df(spend_type_filter(area_filter(rev_df, 'Restaurant')),bounds,current_column,last_col,vs_col,on_column).sort_values('SiteName')
+        cov = breakdown_covers_df(area_filter(cov_df, 'Restaurant'),bounds,current_column,last_col,vs_col,on_column).sort_values('SiteName')
+        
+        rev_total = get_lfl_total_row(rev, 'SiteName')
+        cov_total = get_lfl_total_row(cov, 'SiteName')
+        
+        spe_total = rev_total.set_index('SiteName').div(cov_total.set_index('SiteName'),level=[0]).reset_index()
+        
+        spe_total.iloc[:,6] = (spe_total.iloc[:,1]-spe_total.iloc[:,2])/spe_total.iloc[:,2]
+        spe_total.iloc[:,7] = (spe_total.iloc[:,1]-spe_total.iloc[:,3])/spe_total.iloc[:,3]
+                
+        dff = spe_total.append(dff, ignore_index=True)
+        
     return sales_heatmap_figure(dff, report, measure)

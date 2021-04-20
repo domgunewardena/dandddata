@@ -1,5 +1,6 @@
 # Data processing functions that are called within graph functions - generating dataframes that are fed into figures in the front end
   
+import math
 import pandas as pd
 import numpy as np
 from datetime import date, datetime, timedelta
@@ -452,6 +453,9 @@ def area_filter(df, area):
 def shift_filter(df, shift):
     return df[df['Session']==shift] if shift!='All Shifts' else df
 
+def spend_type_filter(df):
+    return df[df['RevenueType'].isin(['Food','Beverage'])]
+
 def site_filter(df, site):
     return df[df['SiteName']==site] if site !='Group' else df
 
@@ -588,28 +592,34 @@ def get_breakdown_df(report):
 
     return breakdown_revenue_df(rev_df,bounds,current_column,last_col,vs_col,on_column).sort_values('SiteName')    
     
-
-def remove_ly(df, restaurant_column):
+def remove_no_ly(df, restaurant_column):
     
     no_ly_restaurants = ['Klosterhaus','14 Hills']
     return df[~df[restaurant_column].isin(no_ly_restaurants)]
     
-def remove_ly_values(df):
-    
-    no_ly_restaurants = ['Klosterhaus','14 Hills']
-    no_ly = df[df['SiteName'].isin(no_ly_restaurants)]
-    ly = df[~df['SiteName'].isin(no_ly_restaurants)]  
+def remove_false_ly_values(df, restaurant_column):
 
     ly_columns = ["Last Year", 'vs. LY', 'vs. LY %']
+    
+    no_ly_restaurants = ['Klosterhaus','14 Hills']
+    no_ly = df[df[restaurant_column].isin(no_ly_restaurants)]
+    ly = remove_no_ly(df, restaurant_column)
 
     for col in ly_columns:
         no_ly[col] = np.nan
+        
+    if restaurant_column == 'SiteName':
+        return pd.concat([ly, no_ly])
+    else:
+        return pd.concat([no_ly, ly])
+        
 
-    return pd.concat([ly, no_ly])    
+def get_lfl_total_row(dff, restaurant_column):
+    
+    ly_columns = ["Last Year", 'vs. LY', 'vs. LY %']
 
-def get_lfl(dff):
-
-    df = remove_ly_values(dff)
+    df = remove_false_ly_values(dff, restaurant_column)
+    ly = remove_no_ly(df, restaurant_column)
 
     all_sums = df.sum()
     ly_sums = ly.sum()
@@ -627,50 +637,23 @@ def get_lfl(dff):
 
     sums_dict = {col: all_sums[col] for col in list(all_sums.index)}
 
-    sums_df = pd.DataFrame(sums_dict, index=[0])
+    return pd.DataFrame(sums_dict, index=[0])
+
+def get_lfl(df, restaurant_column, measure):
     
-    return sums_df.append(df, ignore_index=True)
-
-
-def get_lfl(dff):
+    dff = remove_false_ly_values(df, restaurant_column)
+    sums_df = get_lfl_total_row(df, restaurant_column)
     
-    no_ly_restaurants = ['Klosterhaus','14 Hills']
-    no_ly = dff[dff['SiteName'].isin(no_ly_restaurants)]
-    ly = dff[~dff['SiteName'].isin(no_ly_restaurants)]  
-
-    ly_columns = ["Last Year", 'vs. LY', 'vs. LY %']
-
-    for col in ly_columns:
-        no_ly[col] = np.nan
-
-    df = pd.concat([ly, no_ly])
-
-    all_sums = df.sum()
-    ly_sums = ly.sum()
-
-    for sums in [all_sums, ly_sums]:
-        sums[4] = (sums[1]-sums[2])
-        sums[5] = (sums[1]-sums[3])
-        sums[6] = (sums[1]-sums[2])/sums[2]
-        sums[7] = (sums[1]-sums[3])/sums[3]
-
-    for col in ly_columns:
-        all_sums[col] = ly_sums[col]
-
-    all_sums[0] = 'Total'
-
-    sums_dict = {col: all_sums[col] for col in list(all_sums.index)}
-
-    sums_df = pd.DataFrame(sums_dict, index=[0])
+    return sums_df.append(dff, ignore_index=True)
     
-    return sums_df.append(df, ignore_index=True)
+    
 
     
 def k_converter(number):
 
-    try:
+    if number and not math.isnan(number):
         return str(round(number/1000,1)) + 'k'
-    except:
+    else:
         return None
 
 def k_change_converter(number):
