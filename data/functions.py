@@ -669,10 +669,13 @@ def k_change_converter(number):
         return ''
     
 def spend_converter(number,string):
-
-    try:
-        return str(round(number,1))
-    except:
+        
+    if number and not math.isnan(number):
+        if string in ['REV','COV']:
+            return str(round(number/1000,1)) + 'k'
+        else:
+            return round(number,1)
+    else:
         return None
     
 
