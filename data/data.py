@@ -36,7 +36,7 @@ reviews_df = reviews.dataframe
 
 # Add Date Columns
 future_df['visit_day'] = pd.to_datetime(future_df['visit_day'])
-future_df['weekday'] = pd.to_datetime(future_df['visit_day']).dt.weekday_name
+future_df['weekday'] = pd.to_datetime(future_df['visit_day']).dt.day_name
 rev_df['Date'] = pd.to_datetime(rev_df['Date']).dt.date
 cov_df['Date'] = pd.to_datetime(cov_df['Date']).dt.date
 

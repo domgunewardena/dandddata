@@ -632,8 +632,8 @@ def get_lfl_total_row(dff, restaurant_column):
 
     for col in ly_columns:
         all_sums[col] = ly_sums[col]
-
-    all_sums[0] = 'Total'
+    
+    all_sums[0] = 'TOTAL'
 
     sums_dict = {col: all_sums[col] for col in list(all_sums.index)}
 
@@ -649,10 +649,13 @@ def get_lfl(df, restaurant_column, measure):
     
 
     
-def k_converter(number):
-
+def k_converter(number, string):
+        
     if number and not math.isnan(number):
-        return str(round(number/1000,1)) + 'k'
+        if string == 'SPE':
+            return round(number,1)
+        else:
+            return str(round(number/1000,1)) + 'k'
     else:
         return None
 
@@ -665,7 +668,7 @@ def k_change_converter(number):
     except:
         return ''
     
-def spend_converter(number):
+def spend_converter(number,string):
 
     try:
         return str(round(number,1))

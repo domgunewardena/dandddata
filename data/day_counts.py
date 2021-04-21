@@ -14,7 +14,7 @@ def create_day_counts_df(bounds, current_col, last_col):
             ),
             columns = ['Date']
         )
-        df['Day'], df['Count'] = df['Date'].dt.weekday_name,1
+        df['Day'], df['Count'] = df['Date'].dt.day_name,1
         return df[['Day','Count']].groupby('Day').sum().reset_index()
 
     def merge_day_df(left,right):

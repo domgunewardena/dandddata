@@ -2169,10 +2169,10 @@ def sales_heatmap_figure(df, report, measure):
 
     z_text = [
         [
-            df[current_column].apply(actuals_converter)[i],
-            df[last_column].apply(actuals_converter)[i],
+            df.apply(lambda x: actuals_converter(x[current_column],x['SiteName']),axis=1)[i],
+            df.apply(lambda x: actuals_converter(x[last_column],x['SiteName']),axis=1)[i],
             df[vs_p_column].apply(pchange_converter)[i],
-            df['Last Year'].apply(actuals_converter)[i],
+            df.apply(lambda x: actuals_converter(x['Last Year'],x['SiteName']),axis=1)[i],
             df['vs. LY %'].apply(pchange_converter)[i],
         ] for i in range(len(df))
     ][::-1]
