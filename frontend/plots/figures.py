@@ -2127,6 +2127,8 @@ def homepage_sales_datatable_figure(df, report):
     
 def sales_heatmap_figure(df, report, measure):
     
+    df_length = len(df)
+    
     background_color = graph_colors['background']
         
     current_column = date_columns['current'][report]
@@ -2164,8 +2166,18 @@ def sales_heatmap_figure(df, report, measure):
             df[vs_p_column].apply(color_scale_num).fillna(.25)[i],
             round(0.7 + (i%2)*0.1,1),
             df['vs. LY %'].apply(color_scale_num).fillna(.25)[i],
-        ] for i in range(len(df))
+        ] for i in range(df_length)
     ][::-1]
+    
+#     hover_text = [
+#         [
+#             round(df[current_column][i]),
+#             round(df[last_column][i]),
+#             round(df[vs_column][i]),
+#             round(df['Last Year'][i]),
+#             round(df['vs. LY'][i]),
+#         ] for i in range(df_length)
+#     ][::-1]
 
     z_text = [
         [
@@ -2174,17 +2186,7 @@ def sales_heatmap_figure(df, report, measure):
             df[vs_p_column].apply(pchange_converter)[i],
             df.apply(lambda x: actuals_converter(x['Last Year'],x['SiteName']),axis=1)[i],
             df['vs. LY %'].apply(pchange_converter)[i],
-        ] for i in range(len(df))
-    ][::-1]
-    
-    hover_text = [
-        [
-            round(df[current_column][i]),
-            round(df[last_column][i]),
-            round(df[current_column][i] - df[last_column][i]),
-            round(df['Last Year'][i]),
-            round(df[current_column][i] - df['Last Year'][i]),
-        ] for i in range(len(df))
+        ] for i in range(df_length)
     ][::-1]
 
     y = list(df.SiteName.apply(get_abbreviation))[::-1]
@@ -2204,8 +2206,8 @@ def sales_heatmap_figure(df, report, measure):
         y = y,
         annotation_text = z_text,
         colorscale = color_scale,
-        text = hover_text,
-        hoverinfo = 'text',
+#         text = hover_text,
+#         hoverinfo = 'text',
         font_colors = ['black','black'],
     )
 

@@ -609,10 +609,10 @@ def remove_false_ly_values(df, restaurant_column):
         no_ly[col] = np.nan
         
     if restaurant_column == 'SiteName':
-        return pd.concat([ly, no_ly])
+        return pd.concat([ly, no_ly], ignore_index=True)
+
     else:
-        return pd.concat([no_ly, ly])
-        
+        return pd.concat([no_ly, ly], ignore_index=True)
 
 def get_lfl_total_row(dff, restaurant_column):
     

@@ -969,12 +969,12 @@ def homepage_sales_table(report, measure):
     
     if measure == 'Revenue':
     
-        df = breakdown_revenue_df(rev_df,bounds,current_column,last_col,vs_col,on_column).sort_values('SiteName')
+        df = rev
         dff = remove_false_ly_values(df, 'SiteName')
         
     elif measure == 'Covers':
         
-        df = breakdown_covers_df(cov_df,bounds,current_column,last_col,vs_col,on_column).sort_values('SiteName')
+        df = cov
         dff = remove_false_ly_values(df, 'SiteName')
         
     elif measure == 'Spend':
@@ -995,6 +995,6 @@ def homepage_sales_table(report, measure):
 #         spe_total.iloc[:,6] = (spe_total.iloc[:,1]-spe_total.iloc[:,2])/spe_total.iloc[:,2]
 #         spe_total.iloc[:,7] = (spe_total.iloc[:,1]-spe_total.iloc[:,3])/spe_total.iloc[:,3]
                 
-    dff = rev_total.append([cov_total,spe_total,dff], ignore_index=True)
+    fin_df = rev_total.append([cov_total,spe_total,dff], ignore_index=True)
         
-    return sales_heatmap_figure(dff, report, measure)
+    return sales_heatmap_figure(fin_df, report, measure)
