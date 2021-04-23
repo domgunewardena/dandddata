@@ -2169,6 +2169,8 @@ def sales_heatmap_figure(df, report, measure):
         ] for i in range(df_length)
     ][::-1]
     
+    z.insert(df_length-3, [.7]*5)
+    
 #     hover_text = [
 #         [
 #             round(df[current_column][i]),
@@ -2188,8 +2190,11 @@ def sales_heatmap_figure(df, report, measure):
             df['vs. LY %'].apply(pchange_converter)[i],
         ] for i in range(df_length)
     ][::-1]
+    
+    z_text.insert(df_length-3, ['']*5)
 
     y = list(df.SiteName.apply(get_abbreviation))[::-1]
+    y.insert(df_length-3,'')
     
     x = [
         current_abbr,

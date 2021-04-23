@@ -657,6 +657,7 @@ def homepage_tracker_graph(graph, site):
         groupby_columns = ['Restaurant']
     else:
         groupby_columns = ['Week']
+        dff = remove_no_ly(dff, 'Restaurant')
 
     df_columns = groupby_columns + ['This Week','Last Week','Last Year']
     df = dff[df_columns].groupby(groupby_columns).sum().reset_index()
