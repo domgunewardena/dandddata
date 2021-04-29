@@ -177,7 +177,7 @@ user_restaurants = {
         'sales' : sales_restaurants,
         'bookings' : bookings_restaurants,
     },
-    'michaelf@danddlondon.com':{
+    'michael@danddlondon.com':{
         'sales':[
 #             '100 Wardour Street',
             '14 Hills',
