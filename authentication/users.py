@@ -207,6 +207,7 @@ user_restaurants = {
             'East 59th', 
             'German Gymnasium', 
             'Issho',
+            'Klosterhaus',
             'New Street Warehouse',
             'Paternoster Chophouse', 
             'Plateau', 
@@ -224,7 +225,6 @@ user_restaurants = {
             'Issho',
             'Klosterhaus',
             'New Street Grill',
-            'Orrery',
             'Paternoster Chophouse',
             'Plateau'
         ],
