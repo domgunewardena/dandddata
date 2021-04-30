@@ -53,33 +53,31 @@ homepage_worst_inputs = [Input('homepage ' + x + ' worst', 'clickData') for x in
 
 @app.callback(
     Output('homepage sales 1', 'figure'),
-    [Input('homepage sales dropdown 1', 'value'),
-    Input('homepage sales measure dropdown 1', 'value')])
-def update_homepage_sales_1(report_value, measure):
-    if report_value == 'Daily Sales':
-        report = 'daily'
-    elif report_value == 'WTD Sales':
-        report = 'wtd'
-    elif report_value == 'MTD Sales':
-        report = 'mtd'
-    elif report_value == '4Wks Sales':
-        report = 'four_weeks'
-    return homepage_sales_table(report, measure)
+    [Input('homepage sales dropdown 1', 'value')])
+def update_homepage_sales_1(timeframe_value):
+    if timeframe_value == 'Daily Sales':
+        timeframe = 'daily'
+    elif timeframe_value == 'WTD Sales':
+        timeframe = 'wtd'
+    elif timeframe_value == 'MTD Sales':
+        timeframe = 'mtd'
+    elif timeframe_value == '4Wks Sales':
+        timeframe = 'four_weeks'
+    return homepage_sales_table(timeframe, 'Revenue', 'homepage')
 
 @app.callback(
     Output('homepage sales 2', 'figure'),
-    [Input('homepage sales dropdown 2', 'value'),
-    Input('homepage sales measure dropdown 1', 'value')])
-def update_homepage_sales_2(report_value, measure):
-    if report_value == 'Daily Sales':
-        report = 'daily'
-    elif report_value == 'WTD Sales':
-        report = 'wtd'
-    elif report_value == 'MTD Sales':
-        report = 'mtd'
-    elif report_value == '4Wks Sales':
-        report = 'four_weeks'
-    return homepage_sales_table(report, measure)
+    [Input('homepage sales dropdown 2', 'value')])
+def update_homepage_sales_2(timeframe_value):
+    if timeframe_value == 'Daily Sales':
+        timeframe = 'daily'
+    elif timeframe_value == 'WTD Sales':
+        timeframe = 'wtd'
+    elif timeframe_value == 'MTD Sales':
+        timeframe = 'mtd'
+    elif timeframe_value == '4Wks Sales':
+        timeframe = 'four_weeks'
+    return homepage_sales_table(timeframe, 'Revenue', 'homepage')
 
 @app.callback(
     Output('homepage tracker sites', 'figure'),
@@ -139,7 +137,7 @@ def update_homepage_sales_revenue(value):
         report = 'mtd'
     elif value == '4Wks Sales':
         report = 'four_weeks'
-    return sales_breakdown_table(report, 'Revenue')
+    return sales_breakdown_table(report, 'Revenue', 'breakdown')
 
 @app.callback(
     Output('sales breakdown covers', 'figure'),
@@ -153,7 +151,7 @@ def update_homepage_sales_covers(value):
         report = 'mtd'
     elif value == '4Wks Sales':
         report = 'four_weeks'
-    return sales_breakdown_table(report, 'Covers')
+    return sales_breakdown_table(report, 'Covers', 'breakdown')
 
 @app.callback(
     Output('sales breakdown spend', 'figure'),
@@ -167,7 +165,7 @@ def update_homepage_sales_spend(value):
         report = 'mtd'
     elif value == '4Wks Sales':
         report = 'four_weeks'
-    return sales_breakdown_table(report, 'Spend')
+    return sales_breakdown_table(report, 'Spend', 'breakdown')
     
     
 # @app.callback(Output('homepage future summary', 'figure'), homepage_worst_inputs)
