@@ -251,7 +251,7 @@ def sales_breakdown_dropdown():
         
         dropdown_id = 'sales breakdown dropdown'
         values = metrics
-        initial_value = metrics[0]
+        initial_value = metrics[1]
         style = dropdown_style
         
         return render_dropdown(dropdown_id, values, initial_value, style)
