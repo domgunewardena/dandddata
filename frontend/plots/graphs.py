@@ -944,16 +944,16 @@ def detail_future_graph(site):
     dff['empty'] = (dff['capacity']-dff['max_guests TW']).apply(reduce_minus)
     
 
-def homepage_sales_table(report, measure):
+def homepage_sales_table(timeframe, measure, report):
 
-    bounds = date_bounds[report]
-    current_column = date_columns['current'][report]
-    last_col = date_columns['last'][report]
-    vs_col = date_columns['vs'][report]
+    bounds = date_bounds[timeframe]
+    current_column = date_columns['current'][timeframe]
+    last_col = date_columns['last'][timeframe]
+    vs_col = date_columns['vs'][timeframe]
     on_column = 'SiteName'
     
-    rev_df = user_site_filter(sales_dataframes[report]['revenue'])
-    cov_df = user_site_filter(sales_dataframes[report]['covers'])
+    rev_df = user_site_filter(sales_dataframes[timeframe]['revenue'])
+    cov_df = user_site_filter(sales_dataframes[timeframe]['covers'])
     
     rev = breakdown_revenue_df(rev_df,bounds,current_column,last_col,vs_col,on_column).sort_values('SiteName')
     cov = breakdown_covers_df(cov_df,bounds,current_column,last_col,vs_col,on_column).sort_values('SiteName')
@@ -969,33 +969,31 @@ def homepage_sales_table(report, measure):
     spe_total.iloc[:,0] = 'SPE'    
     
     if measure == 'Revenue':
-    
         df = rev
         dff = remove_false_ly_values(df, 'SiteName')
         
-    elif measure == 'Covers':
-        
+    elif measure == 'Covers':        
         df = cov
         dff = remove_false_ly_values(df, 'SiteName')
         
-    elif measure == 'Spend':
-    
-        rev_df = spend_type_filter(area_filter(user_site_filter(sales_dataframes[report]['revenue']), 'Restaurant'))
-        cov_df = area_filter(user_site_filter(sales_dataframes[report]['covers']), 'Restaurant')
+    elif measure == 'Spend':    
+        rev_df = spend_type_filter(area_filter(user_site_filter(sales_dataframes[timeframe]['revenue']), 'Restaurant'))
+        cov_df = area_filter(user_site_filter(sales_dataframes[timeframe]['covers']), 'Restaurant')
         df = breakdown_spend_df(rev_df,cov_df,bounds,current_column,last_col,vs_col,on_column).sort_values('SiteName')
-        dff = remove_false_ly_values(df, 'SiteName')
         
-#         rev = breakdown_revenue_df(spend_type_filter(area_filter(rev_df, 'Restaurant')),bounds,current_column,last_col,vs_col,on_column).sort_values('SiteName')
-#         cov = breakdown_covers_df(area_filter(cov_df, 'Restaurant'),bounds,current_column,last_col,vs_col,on_column).sort_values('SiteName')
+    if report == 'homepage':
         
-#         rev_total = get_lfl_total_row(rev, 'SiteName')
-#         cov_total = get_lfl_total_row(cov, 'SiteName')
+        fin_df = rev_total.append([cov_total,spe_total,dff], ignore_index=True)
         
-#         spe_total = rev_total.set_index('SiteName').div(cov_total.set_index('SiteName'),level=[0]).reset_index()
+    elif report == 'breakdown':
         
-#         spe_total.iloc[:,6] = (spe_total.iloc[:,1]-spe_total.iloc[:,2])/spe_total.iloc[:,2]
-#         spe_total.iloc[:,7] = (spe_total.iloc[:,1]-spe_total.iloc[:,3])/spe_total.iloc[:,3]
-                
-    fin_df = rev_total.append([cov_total,spe_total,dff], ignore_index=True)
+        if measure == 'Revenue':
+            total_row = rev_total
+        elif measure == 'Covers':
+            total_row = cov_total
+        elif measure == 'Spend':
+            total_row = spe_total
+            
+        fin_df = total_row.append(dff, ignore_index=True)
         
-    return sales_heatmap_figure(fin_df, report, measure)
+    return sales_heatmap_figure(fin_df, timeframe, measure, report)
