@@ -980,6 +980,7 @@ def homepage_sales_table(timeframe, measure, report):
         rev_df = spend_type_filter(area_filter(user_site_filter(sales_dataframes[timeframe]['revenue']), 'Restaurant'))
         cov_df = area_filter(user_site_filter(sales_dataframes[timeframe]['covers']), 'Restaurant')
         df = breakdown_spend_df(rev_df,cov_df,bounds,current_column,last_col,vs_col,on_column).sort_values('SiteName')
+        dff = remove_false_ly_values(df, 'SiteName')
         
     if report == 'homepage':
         
