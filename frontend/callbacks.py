@@ -137,7 +137,7 @@ def update_homepage_sales_revenue(value):
         report = 'mtd'
     elif value == '4Wks Sales':
         report = 'four_weeks'
-    return sales_breakdown_table(report, 'Revenue', 'breakdown')
+    return homepage_sales_table(report, 'Revenue', 'breakdown')
 
 @app.callback(
     Output('sales breakdown covers', 'figure'),
@@ -151,7 +151,7 @@ def update_homepage_sales_covers(value):
         report = 'mtd'
     elif value == '4Wks Sales':
         report = 'four_weeks'
-    return sales_breakdown_table(report, 'Covers', 'breakdown')
+    return homepage_sales_table(report, 'Covers', 'breakdown')
 
 @app.callback(
     Output('sales breakdown spend', 'figure'),
@@ -165,7 +165,7 @@ def update_homepage_sales_spend(value):
         report = 'mtd'
     elif value == '4Wks Sales':
         report = 'four_weeks'
-    return sales_breakdown_table(report, 'Spend', 'breakdown')
+    return homepage_sales_table(report, 'Spend', 'breakdown')
     
     
 # @app.callback(Output('homepage future summary', 'figure'), homepage_worst_inputs)
