@@ -44,7 +44,6 @@ def homepage():
         children=[
             homepage_titles,
             homepage_graphs,
-            homepage_sales_measure_dropdowns,
         ]
     )
 
