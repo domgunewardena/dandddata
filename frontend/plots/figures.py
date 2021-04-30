@@ -14,6 +14,7 @@ from data.functions import (
     remove_no_ly,
     k_converter,
     k_change_converter,
+    round_converter,
     spend_converter,
     pchange_converter, 
     color_change,
@@ -2150,9 +2151,11 @@ def sales_heatmap_figure(df, timeframe, measure, report):
     grey = 'rgb(230,230,230)'
     current_column_color = sales_table_current_column_colors[timeframe]
     
-    if measure in ['Revenue','Covers']:
+    if measure == 'Revenue':
         actuals_converter = k_converter
-    else:
+    elif measure == 'Covers':
+        actuals_converter = round_converter
+    elif measure == 'Spend':
         actuals_converter = spend_converter
     
     color_scale = [

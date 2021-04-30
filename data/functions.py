@@ -649,10 +649,10 @@ def get_lfl(df, restaurant_column, measure):
     
 
     
-def k_converter(number, string):
+def k_converter(number, row_string):
         
     if number and not math.isnan(number):
-        if string == 'SPE':
+        if row_string == 'SPE':
             return round(number,1)
         else:
             return str(round(number/1000,1)) + 'k'
@@ -668,10 +668,22 @@ def k_change_converter(number):
     except:
         return ''
     
-def spend_converter(number,string):
+def round_converter(number, row_string):
         
     if number and not math.isnan(number):
-        if string in ['REV','COV']:
+        if row_string == 'SPE':
+            return round(number,1)
+        elif row_string in ['REV','COV']:
+            return str(round(number/1000,1)) + 'k'
+        else:
+            return round(number)
+    else:
+        return None
+    
+def spend_converter(number,row_string):
+        
+    if number and not math.isnan(number):
+        if row_string in ['REV','COV']:
             return str(round(number/1000,1)) + 'k'
         else:
             return round(number,1)
