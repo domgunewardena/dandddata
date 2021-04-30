@@ -2125,25 +2125,30 @@ def homepage_sales_datatable_figure(df, report):
     
     return fig
     
-def sales_heatmap_figure(df, report, measure):
+def sales_heatmap_figure(df, timeframe, measure, report):
     
     df_length = len(df)
     
+    if report == 'homepage':
+        blank_row_index_pos = df_length - 3
+    elif report == 'breakdown':
+        blank_row_index_pos = df_length - 1
+    
     background_color = graph_colors['background']
         
-    current_column = date_columns['current'][report]
-    last_column = date_columns['last'][report]
-    vs_column = date_columns['vs'][report]
-    vs_p_column = date_columns['vs'][report] + ' %'
+    current_column = date_columns['current'][timeframe]
+    last_column = date_columns['last'][timeframe]
+    vs_column = date_columns['vs'][timeframe]
+    vs_p_column = date_columns['vs'][timeframe] + ' %'
     
-    current_abbr = date_columns['curr_abbr'][report]
-    last_abbr = date_columns['last_abbr'][report]
-    p_abbr = date_columns['p_abbr'][report]
+    current_abbr = date_columns['curr_abbr'][timeframe]
+    last_abbr = date_columns['last_abbr'][timeframe]
+    p_abbr = date_columns['p_abbr'][timeframe]
     
     red = 'rgb(255,0,0)'
     green = 'rgb(0,255,0)'
     grey = 'rgb(230,230,230)'
-    current_column_color = sales_table_current_column_colors[report]
+    current_column_color = sales_table_current_column_colors[timeframe]
     
     if measure in ['Revenue','Covers']:
         actuals_converter = k_converter
@@ -2169,7 +2174,7 @@ def sales_heatmap_figure(df, report, measure):
         ] for i in range(df_length)
     ][::-1]
     
-    z.insert(df_length-3, [.7]*5)
+    z.insert(blank_row_index_pos, [.7]*5)
     
 #     hover_text = [
 #         [
@@ -2191,10 +2196,10 @@ def sales_heatmap_figure(df, report, measure):
         ] for i in range(df_length)
     ][::-1]
     
-    z_text.insert(df_length-3, ['']*5)
+    z_text.insert(blank_row_index_pos, ['']*5)
 
     y = list(df.SiteName.apply(get_abbreviation))[::-1]
-    y.insert(df_length-3,'')
+    y.insert(blank_row_index_pos,'')
     
     x = [
         current_abbr,
