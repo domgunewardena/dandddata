@@ -708,7 +708,7 @@ def color_change(number):
     else:
         return 'White'
     
-def color_scale_num(pchange):
+def color_scale_num_scale(pchange):
     
     max_p = .25
     
@@ -726,6 +726,22 @@ def color_scale_num(pchange):
     except TypeError:
         
         return 0.25
+    
+def color_scale_num(pchange):
+    
+    max_p = .10
+    
+    try:
+        if pchange < -max_p:
+            return 0
+        elif pchange > max_p:
+            return .5
+        else:
+            return .25
+    
+    except TypError:
+        
+        return .25
 
 def map_bookings_to_sales_restaurants(df):
     

@@ -120,9 +120,9 @@ sales_table_header_colors = {
 }
 
 lightblue = 'rgb(200,200,250)'
-lightpurple = 'rgb(250,200,250)'
+lightpurple = 'rgb(225,200,250)'
 lightred = 'rgb(250,200,200)'
-lightorange = 'rgb(250,225,200)'
+lightorange = 'rgb(250,250,200)'
 
 sales_table_current_column_colors = {
     'daily':lightblue,
